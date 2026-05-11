@@ -1,0 +1,70 @@
+aid: zenduty
+name: Zenduty
+description: >-
+  Zenduty is an incident management and on-call platform that orchestrates
+  alert routing, escalation policies, on-call schedules, and incident response
+  workflows for SRE and DevOps teams. The platform integrates with
+  observability tools, ticketing systems, and chat platforms to centralize
+  incident triage. Zenduty exposes a REST API for managing incidents,
+  services, teams, schedules, and escalation policies, plus an Events API for
+  ingesting alerts, all secured with Token authentication.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Incident Management
+  - On-Call
+  - Alerting
+  - SRE
+  - DevOps
+  - Observability
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/zenduty/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: zenduty:rest-api
+    name: Zenduty REST API
+    description: >-
+      Management REST API for incidents, services, teams, users, schedules,
+      escalation policies, and integrations. Authenticated via
+      "Authorization: Token <token>" header.
+    humanURL: https://apidocs.zenduty.com
+    baseURL: https://www.zenduty.com/api
+    tags:
+      - Incident Management
+      - On-Call
+      - Alerting
+    properties:
+      - type: Documentation
+        url: https://apidocs.zenduty.com
+      - type: API Keys Guide
+        url: https://zenduty.com/docs/api-keys
+  - aid: zenduty:events-api
+    name: Zenduty Events API
+    description: >-
+      Alert ingestion API for sending incident events from monitoring,
+      observability, and custom systems into Zenduty.
+    humanURL: https://zenduty.com/docs/api-integration
+    baseURL: https://events.zenduty.com/api/events
+    tags:
+      - Alerting
+      - Events
+    properties:
+      - type: Documentation
+        url: https://zenduty.com/docs/api-integration
+
+common:
+  - type: Website
+    url: https://www.zenduty.com
+  - type: Documentation
+    url: https://zenduty.com/docs
+  - type: Pricing
+    url: https://www.zenduty.com/pricing
+  - type: Sign Up
+    url: https://www.zenduty.com/signup
+  - type: GitHub SDK
+    url: https://github.com/Zenduty/zenduty-python-sdk
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
