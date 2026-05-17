@@ -61,7 +61,7 @@ common:
     url: https://zenduty.com/docs
   - type: Pricing
     url: https://www.zenduty.com/pricing
-  - type: Sign Up
+  - type: SignUp
     url: https://www.zenduty.com/signup
   - type: GitHub SDK
     url: https://github.com/Zenduty/zenduty-python-sdk
