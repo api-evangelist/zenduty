@@ -55,6 +55,8 @@ apis:
         url: https://zenduty.com/docs/api-integration
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/zenduty
   - type: Website
     url: https://www.zenduty.com
   - type: Documentation
