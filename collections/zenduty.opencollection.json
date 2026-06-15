@@ -1,0 +1,3492 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account Member",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Invite User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/api_invite/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns an Account Member object."
+        },
+        {
+          "info": {
+            "name": "List all Account Member objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/members/"
+          },
+          "docs": "Returns a list of Account Member objects. The Account Member objects are sorted by joining_date, with the most recent Account Member object appearing last."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Account Member object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/members/:username/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Account Member object."
+        },
+        {
+          "info": {
+            "name": "Update the Account Member object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/members/:username/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Account Member object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/deleteuser/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete the specified Account Member object"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account Custom Role",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Account Custom Role objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/customroles/"
+          },
+          "docs": "Returns a list of Account Custom Role objects."
+        },
+        {
+          "info": {
+            "name": "Create the Account Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/customroles/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Account Custom Role object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Account Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/customroles/:custom_role_id/",
+            "params": [
+              {
+                "name": "custom_role_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Account Custom Role object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Account Custom Role object."
+        },
+        {
+          "info": {
+            "name": "Update the Account Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/customroles/:custom_role_id/",
+            "params": [
+              {
+                "name": "custom_role_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Account Custom Role object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Account Custom Role object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Account Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/customroles/:custom_role_id/",
+            "params": [
+              {
+                "name": "custom_role_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Account Custom Role object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Account Custom Role object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User Custom Role",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all User Custom Role objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/users/:username/customroles/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ]
+          },
+          "docs": "Returns a list of User Custom Role objects."
+        },
+        {
+          "info": {
+            "name": "Create the User Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/users/:username/customroles/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the User Custom Role object by setting the values of all the required parameters passed in the request body."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Notification Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Users' Notification Rule objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/users/:username/notification_rules/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ]
+          },
+          "docs": "Returns a list of User Notification Rule objects."
+        },
+        {
+          "info": {
+            "name": "Create the User Notification Rules object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/users/:username/notification_rules/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the User Notification Rules object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the User Notification Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/users/:username/notification_rules/:notification_rule_id/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              },
+              {
+                "name": "notification_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the User Notification Rule object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified User's Notification Rule object."
+        },
+        {
+          "info": {
+            "name": "Delete the User Notification Rules object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/users/:username/notification_rules/:notification_rule_id/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              },
+              {
+                "name": "notification_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the User Notification Rule object"
+              }
+            ]
+          },
+          "docs": "Delete the specified User Notification Rules object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Forwarding Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all User Forwarding Rule objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/users/:username/forwarding_rules/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ]
+          },
+          "docs": "Returns a list of User Forwarding Rule objects."
+        },
+        {
+          "info": {
+            "name": "Create the User Forwarding Rules object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/users/:username/forwarding_rules/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the User's Forwarding Rules object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the User Forwarding Rules object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/users/:username/forwarding_rules/:forwarding_rule_id/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              },
+              {
+                "name": "forwarding_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the User Forwarding Rules object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified User's Forwarding Rules object."
+        },
+        {
+          "info": {
+            "name": "Delete the User Forwarding Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/users/:username/forwarding_rules/:forwarding_rule_id/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              },
+              {
+                "name": "forwarding_rule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the User Forwarding Rules object"
+              }
+            ]
+          },
+          "docs": "Delete the specified User's Forwarding Rules object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contact Methods",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all User Contact Method objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/users/:username/contacts/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ]
+          },
+          "docs": "Returns a list of User Contact Method objects."
+        },
+        {
+          "info": {
+            "name": "Create the User Contact Methods object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/users/:username/contacts/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the User Contact Methods object by setting the values of all the required parameters passed in the request body. A user can only create email Contact Methods through API."
+        },
+        {
+          "info": {
+            "name": "Retrieve the User Contact Methods object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/users/:username/contacts/:contact_id/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              },
+              {
+                "name": "contact_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the User Contact Methods object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified User's Contact Methods object."
+        },
+        {
+          "info": {
+            "name": "Delete the User Contact Methods object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/users/:username/contacts/:contact_id/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              },
+              {
+                "name": "contact_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the User Contact Methods object"
+              }
+            ]
+          },
+          "docs": "Delete the specified User's Contact Methods object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Team objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/"
+          },
+          "docs": "Returns a list of Team objects. The Team objects are sorted by creation_date, with the most recent Team object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Team object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Team object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Team object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Team object."
+        },
+        {
+          "info": {
+            "name": "Update the Team object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Team object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Team object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Team object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Team Members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Team Member objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/members/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Team Member objects. The Team Member objects are sorted by joining_date, with the most recent Team Member object appearing last."
+        },
+        {
+          "info": {
+            "name": "Add user to Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/members/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Team Member object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Team Member object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/members/:member_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Member object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Team Member object."
+        },
+        {
+          "info": {
+            "name": "Update the Team Member object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/members/:member_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Member object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Team Member object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Team Member object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/members/:member_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Member object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Team Member object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Team Permissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Team Permission object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/permissions/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a particular Team Permission object."
+        },
+        {
+          "info": {
+            "name": "Update the Team Permission object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/{}/permissions/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the Team Permission object by setting the values of all the required parameters passed in the request body."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Schedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Schedule objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/schedules/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Schedule objects."
+        },
+        {
+          "info": {
+            "name": "Create the Schedule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/schedules/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Schedule object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Schedule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/schedules/:schedule_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Schedule object."
+        },
+        {
+          "info": {
+            "name": "Update the Schedule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/schedules/:schedule_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Schedule object by setting the values of the parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Delete the Schedule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/schedules/:schedule_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Schedule object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Schedule Overrides",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Schedule overrides objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/teams/{}/schedules/{}/overrides/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Schedule override objects with overridden users and their respective start and end times. refer to overridden_details object key (Note - Rate limits are 1/sec and 20/minute)"
+        },
+        {
+          "info": {
+            "name": "Create the Schedule Override object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/account/teams/{}/schedules/{}/overrides/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Schedule Override object by setting the values of all the required parameters passed in the request body. (Note - Rate limits are 1/sec and 20/minute)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Escalation Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Escalation Policy objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/escalation_policies/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Escalation Policy objects."
+        },
+        {
+          "info": {
+            "name": "Create the Escalation Policy object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/escalation_policies/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Escalation Policy object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Escalation Policy object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/escalation_policies/:escalation_policy_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "escalation_policy_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Escalation Policy object"
+              }
+            ]
+          },
+          "docs": "Retrieve the Escalation Policy object"
+        },
+        {
+          "info": {
+            "name": "Update the Escalation Policy object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/escalation_policies/:escalation_policy_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "escalation_policy_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Escalation Policy object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Escalation Policy object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Escalation Policy object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/escalation_policies/:escalation_policy_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "escalation_policy_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Escalation Policy object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Escalation Policy object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Service objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/services/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "List all Service objects"
+        },
+        {
+          "info": {
+            "name": "Create the Service object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/services/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Service object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Service object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Service object."
+        },
+        {
+          "info": {
+            "name": "Update the Service object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Service object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Service object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Service object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Integrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Integration objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/services/:service_id/integrations/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Integration objects. The Integration objects are sorted by creation_date, with the most recent Integration object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Integration object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/services/:service_id/integrations/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Integration object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Integration object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              }
+            ]
+          },
+          "docs": "Retrieve the Integration object"
+        },
+        {
+          "info": {
+            "name": "Update the Integration object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Integration object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Integration object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Integration object permanently"
+        },
+        {
+          "info": {
+            "name": "Regenerate the Integration key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/regenerate_integration_key/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Regenerates the integration key."
+        },
+        {
+          "info": {
+            "name": "Fetch metadata of the Integration object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/integration-metadata/:integration_key/",
+            "params": [
+              {
+                "name": "integration_key",
+                "value": "",
+                "type": "path",
+                "description": "integration_key of the Integration object"
+              }
+            ]
+          },
+          "docs": "Returns an object that contains metadata of the Integration object."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Incidents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident objects(filtered)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/incidents/filter/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "pagination page number. example - `page=1`"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a list of filtered Incident objects. The Incident objects are sorted by creation_date, with the most recent Incident object appearing last. for pagination please use 'next' and 'previous' links in the response."
+        },
+        {
+          "info": {
+            "name": "Create the Incident object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/incidents/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Incident object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Update the Incident object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.zenduty.com/api/incidents/:unique_id/",
+            "params": [
+              {
+                "name": "unique_id",
+                "value": "",
+                "type": "path",
+                "description": "A system-generated string that represents the Incident object's unique ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Incident object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Incident object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ]
+          },
+          "docs": "Retrieves the specified Incident object."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Incident Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident Role objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/roles/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Incident Role objects. The Incident Role objects are sorted by creation_date, with the most recent Incident Role object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Incident Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/roles/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Incident Role object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Incident Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/roles/:incident_role_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "incident_role_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Role object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Incident Role object."
+        },
+        {
+          "info": {
+            "name": "Update the Incident Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/roles/:incident_role_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "incident_role_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Role object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Incident Role object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Incident Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/roles/:incident_role_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "incident_role_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Role object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Incident Role object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Incident Notes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident Note objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Incident Note objects. The Incident Note objects are sorted by creation_date, with the most recent Incident Note object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Incident Note object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Incident Note object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Incident Note object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/:note_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "note_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Note object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Incident Note object."
+        },
+        {
+          "info": {
+            "name": "Update the Incident Note object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/:note_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "note_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Note object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Incident Note object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Incident Note object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/:note_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "note_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Note object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Incident Note object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Incident Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident Tag objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/tags/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Incident Tag objects. The Incident Tag objects are sorted by creation_date, with the most recent Incident Note object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Incident Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/tags/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Incident Tag object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Incident Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/tags/:tag_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "tag_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Tag object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Incident Tag object."
+        },
+        {
+          "info": {
+            "name": "Delete the Incident Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/tags/:tag_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "tag_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Tag object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Incident Tag object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create the Event object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/events/:integration_key/",
+            "params": [
+              {
+                "name": "integration_key",
+                "value": "",
+                "type": "path",
+                "description": "integration_key of the Integration object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Event object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Create the Event object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/integration/:account_id/generic/:integration_key/",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "5 character long account identifier"
+              },
+              {
+                "name": "integration_key",
+                "value": "",
+                "type": "path",
+                "description": "integration_key of the Integration object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Event object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Get the status of an Alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/alert/status/:trace_id/",
+            "params": [
+              {
+                "name": "trace_id",
+                "value": "",
+                "type": "path",
+                "description": "trace id of the alert object"
+              }
+            ]
+          },
+          "docs": "Get the Alert object for specific trace id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Incident Alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident Alert objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/alerts/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Incident Alert objects. The Incident Alert objects are sorted by creation_date, with the most recent Incident Alert object appearing last."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Tag objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/tags/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Tag objects. The Tag objects are sorted by creation_date, with the most recent Tag object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/tags/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Tag object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/tags/:tag_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Tag object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Tag object."
+        },
+        {
+          "info": {
+            "name": "Update the Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/tags/:tag_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Tag object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Tag object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/tags/:tag_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "tag_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Tag object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Tag object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Task Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Task Template objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/task_templates/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Task Templat objects. The Task Templat objects are sorted by creation_date, with the most recent Task Templat object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Task Template object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/task_templates/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Template object object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Task Template object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/task_templates/:task_template_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "task_template_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Task Template object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Task Template object."
+        },
+        {
+          "info": {
+            "name": "Update the Task Template object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/task_templates/:task_template_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "task_template_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Task Template object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the Task Template object"
+        },
+        {
+          "info": {
+            "name": "Delete the Task Template object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/task_templates/:task_template_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "task_template_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Task Template object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Task Template object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Priorities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Priority objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/priority/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Priority objects. The Priority objects are sorted by creation_date, with the most recent Priority object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Priority object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/priority/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Priority object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Priority object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/priority/:priority_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "priority_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Priority object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Priority object."
+        },
+        {
+          "info": {
+            "name": "Update the Priority object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/priority/:priority_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "priority_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Priority object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Priority object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Priority object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/priority/:priority_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "priority_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Priority object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Priority object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SLA",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all SLA objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/sla/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of SLA objects."
+        },
+        {
+          "info": {
+            "name": "Create the SLA object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/sla/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the SLA object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the SLA object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/sla/:sla_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "sla_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the SLA object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified SLA object."
+        },
+        {
+          "info": {
+            "name": "Update the SLA object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/sla/:sla_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "sla_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the SLA object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified SLA object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the SLA object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/sla/:sla_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "sla_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the SLA object"
+              }
+            ]
+          },
+          "docs": "Delete the specified SLA object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Team Maintenance Mode",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Team Maintenance Mode objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/maintenance/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Team Maintenance Mode objects. The Team Maintenance Mode objects are sorted by creation_date, with the most recent Team Maintenance Mode object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Team Maintenance Mode object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/maintenance/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Team Maintenance Mode object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Team Maintenance Mode object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/maintenance/:maintenance_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "maintenance_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Maintenance Mode object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Team Maintenance Mode object."
+        },
+        {
+          "info": {
+            "name": "Update Team Maintenance Mode object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/maintenance/:maintenance_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "maintenance_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Maintenance Mode object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Team Maintenance Mode object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Team Maintenance Mode object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/maintenance/:maintenance_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "maintenance_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Maintenance Mode object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Team Maintenance Mode object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Postmortem",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Postmortem objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/postmortem/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Postmortem objects."
+        },
+        {
+          "info": {
+            "name": "Create the Postmortem object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/postmortem/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Postmortem object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Postmortem object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/postmortem/:postmortem_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "postmortem_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Postmortem object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Postmortem object."
+        },
+        {
+          "info": {
+            "name": "Update the Postmortem data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/postmortem/:postmortem_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "postmortem_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Postmortem object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Postmortem object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Postmortem data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/postmortem/:postmortem_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "postmortem_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Postmortem object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Postmortem object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "OnCall",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Escalation Policy OnCall object's in a Team V1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/oncall/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Team"
+              }
+            ]
+          },
+          "docs": "Returns all OnCall Users of a Team Escalation Policies."
+        },
+        {
+          "info": {
+            "name": "List all Escalation Policy OnCall object's in a Team V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/teams/:team_id/oncall/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Team"
+              }
+            ]
+          },
+          "docs": "Returns all OnCall Users of a Team Escalation Policies."
+        },
+        {
+          "info": {
+            "name": "Retrieve Escalation Policy OnCall object in an Escalation Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/teams/:team_id/escalation_policies/:ep_id/oncall/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Team"
+              },
+              {
+                "name": "ep_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of an Escalation Policy"
+              }
+            ]
+          },
+          "docs": "Returns all OnCall Users of an Escalation Policy."
+        },
+        {
+          "info": {
+            "name": "Retrieve Escalation Policy OnCall object in a Service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/teams/:team_id/services/:service_id/oncall/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Team"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Service"
+              }
+            ]
+          },
+          "docs": "Returns all OnCall Users of a Service Escalation Policy."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Global Router",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Global Router objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/"
+          },
+          "docs": "Returns a list of Global Router objects."
+        },
+        {
+          "info": {
+            "name": "Create the Global Router object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Global Router object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Global Router object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Global Router object."
+        },
+        {
+          "info": {
+            "name": "Update the Global Router data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Global Router object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Global Router  data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Global Router object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Global Router Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Global Router Rule objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Global Router Rule objects."
+        },
+        {
+          "info": {
+            "name": "Create the Global Router Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Global Router Rule object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Update the Global Router Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the position of the Global Router Rule object by setting the position and rule unique id passed in the request body"
+        },
+        {
+          "info": {
+            "name": "Retrieve the Global Router Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/:ruleset_id/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              },
+              {
+                "name": "ruleset_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router Rule object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Global Router Rule object."
+        },
+        {
+          "info": {
+            "name": "Update the Global Router Rule data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/:ruleset_id/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              },
+              {
+                "name": "ruleset_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router Rule object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Global Router Rule object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Global Router Rule data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/:ruleset_id/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              },
+              {
+                "name": "ruleset_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router Rule object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Global Router Rule object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Alert Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Alert Rules objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Alert Rules objects."
+        },
+        {
+          "info": {
+            "name": "Create the Alert Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Alert Rule object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Alert Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/:transformers_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              },
+              {
+                "name": "transformers_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Alert Rule object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Alert Rule object."
+        },
+        {
+          "info": {
+            "name": "Update the Alert Rule data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/:transformers_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              },
+              {
+                "name": "transformers_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Alert Rule object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Alert Rule object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Alert Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/:transformers_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              },
+              {
+                "name": "transformers_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Alert Rule object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Alert Rule object permanently."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Incident Responders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident Responders objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/incidents/:incident_number/responders/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "Incident number of the Incident object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Incident Responders objects."
+        },
+        {
+          "info": {
+            "name": "Add an Incident Responder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/incidents/:incident_number/responders/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "Incident number of the Incident object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an Incident Responder to the incident"
+        },
+        {
+          "info": {
+            "name": "Retrieve an Incident Responder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/responders/:unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "Incident number of the Incident object"
+              },
+              {
+                "name": "unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Responder Object"
+              }
+            ]
+          },
+          "docs": "Retrieve details of an Incident Responder"
+        },
+        {
+          "info": {
+            "name": "Delete an Incident Responder",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/responders/:unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "Incident number of the Incident object"
+              },
+              {
+                "name": "unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Responder Object"
+              }
+            ]
+          },
+          "docs": "Delete an Incident Responder from the incident"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Incident Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/account/analytics/incident_stats/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns incident counts for the account and the requesting user."
+        },
+        {
+          "info": {
+            "name": "Get Team Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/account/analytics/team_analytics/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns incident metrics for each team."
+        },
+        {
+          "info": {
+            "name": "Get Service Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/account/analytics/service_analytics/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns incident metrics for each service."
+        },
+        {
+          "info": {
+            "name": "Get User Analytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/account/analytics/user_analytics/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns incident metrics for each user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
