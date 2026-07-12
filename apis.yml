@@ -55,6 +55,12 @@ apis:
         url: https://zenduty.com/docs/api-integration
 
 common:
+  - type: TrustCenter
+    url: security/zenduty-trust-center.yml
+  - type: DomainSecurity
+    url: security/zenduty-domain-security.yml
+  - type: Authentication
+    url: authentication/zenduty-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/zenduty
   - type: Website
@@ -67,6 +73,8 @@ common:
     url: https://www.zenduty.com/signup
   - type: GitHub SDK
     url: https://github.com/Zenduty/zenduty-python-sdk
+  - type: Blog
+    url: https://zenduty.com/blog/rss.xml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
