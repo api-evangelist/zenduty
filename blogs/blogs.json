@@ -1,0 +1,21 @@
+{
+  "repo": "zenduty",
+  "feeds": [
+    {
+      "source": "https://zenduty.com/blog/rss.xml",
+      "feed_url": "https://zenduty.com/blog/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://github.com/Zenduty/zenduty-python-sdk",
+      "feed_url": "https://github.com/Zenduty/zenduty-python-sdk",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 56
+}
