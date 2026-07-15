@@ -55,6 +55,8 @@ apis:
         url: https://zenduty.com/docs/api-integration
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/zenduty-agentic-access.yml
   - type: TrustCenter
     url: security/zenduty-trust-center.yml
   - type: DomainSecurity
