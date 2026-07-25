@@ -1,0 +1,1039 @@
+openapi: 3.0.0
+info:
+  version: 1.1.0
+  title: Zenduty Account Custom Role Integrations API
+  termsOfService: https://zenduty.com
+  contact:
+    email: vishwa@zenduty.com
+  license:
+    name: Apache 2.0
+  x-logo:
+    url: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9Ii05OC4zIDE3My43IDIwNi4zIDUzLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgLTk4LjMgMTczLjcgMjA2LjMgNTMuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzBGMTcyQTt9DQoJLnN0MXtmaWxsOiNGRDlBMDA7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMjksMjEwLjJoNi4zYzIuNywwLDQuOSwyLjIsNC45LDQuOWgtMTguMWMwLTUuMyw0LjEtOS40LDcuOS0xMy4xbDMuOC0zLjdoLTcuMWMtMi41LDAtNC42LTIuMS00LjYtNC42aDE4DQoJYzAsNS4zLTQuMSw5LjQtNy44LDEzLjJMLTI5LDIxMC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTMuNywyMDUuOGgtMTUuNWMwLjEsMS41LDAuNiwyLjcsMS42LDMuNmMwLjksMC45LDIuMSwxLjIsMy41LDEuMmMyLDAsMy40LTAuOSw0LjMtMi41aDUuOA0KCWMtMC42LDItMS44LDMuNi0zLjUsNC45Yy0xLjgsMS4yLTMuOSwyLTYuNCwyYy0yLDAtMy45LTAuNS01LjUtMS40Yy0xLjYtMC45LTIuOS0yLjEtMy44LTMuN2MtMC45LTEuNi0xLjQtMy40LTEuNC01LjcNCgljMC0yLjEsMC41LTQuMSwxLjQtNS43YzAuOS0xLjYsMi4xLTIuOCwzLjgtMy43YzEuNi0wLjksMy40LTEuNCw1LjUtMS40YzIsMCwzLjgsMC40LDUuNCwxLjJjMS42LDAuOSwyLjgsMi4xLDMuNywzLjYNCgljMC45LDEuNiwxLjMsMy4zLDEuMyw1LjRDMy44LDIwNC42LDMuOCwyMDUuMiwzLjcsMjA1Ljh6IE0tMS43LDIwMi4yYzAtMS40LTAuNS0yLjUtMS41LTMuMmMtMS0wLjktMi4xLTEuMi0zLjUtMS4yDQoJYy0xLjQsMC0yLjQsMC40LTMuNCwxLjJjLTAuOSwwLjctMS41LDEuOC0xLjYsMy4zaDEwLjFWMjAyLjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcuOSwxOTguNGMwLjktMS42LDItMi45LDMuNS0zLjhjMS41LTAuOSwzLjEtMS40LDQuOS0xLjRjMS40LDAsMi42LDAuMywzLjksMC45YzEuMywwLjYsMi4zLDEuNCwzLDIuNHYtMTYuNw0KCWg1LjR2MzVoLTUuNHYtMy4xYy0wLjYsMS0xLjYsMS45LTIuOCwyLjVjLTEuMywwLjYtMi42LDEtNC4yLDFjLTEuOCwwLTMuNC0wLjUtNC45LTEuNGMtMS41LTAuOS0yLjYtMi4zLTMuNS0zLjkNCgljLTAuOS0xLjYtMS4zLTMuNS0xLjMtNS44QzI2LjYsMjAyLDI3LDIwMCwyNy45LDE5OC40eiBNNDIuNSwyMDAuOWMtMC41LTAuOS0xLjMtMS42LTItMi4xYy0wLjktMC41LTEuOC0wLjgtMi44LTAuOA0KCWMtMSwwLTEuOSwwLjMtMi44LDAuOGMtMC45LDAuNS0xLjUsMS4xLTIsMi4xYy0wLjUsMC45LTAuOCwyLTAuOCwzLjNjMCwxLjMsMC4zLDIuNCwwLjgsMy40YzAuNSwxLDEuMywxLjYsMiwyLjENCgljMC45LDAuNSwxLjgsMC44LDIuOCwwLjhjMSwwLDEuOS0wLjMsMi44LTAuOGMwLjktMC41LDEuNS0xLjMsMi0yLjFjMC41LTAuOSwwLjgtMiwwLjgtMy40UzQzLDIwMS44LDQyLjUsMjAwLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUuNCwyMDQuM3YxMC42aC01di0xMC42YzAtMi0wLjUtMy41LTEuNS00LjVjLTEtMS4xLTIuMS0xLjYtMy41LTEuNnMtMi41LDAuNS0zLjUsMS42DQoJYy0wLjksMS0xLjQsMi42LTEuNCw0LjV2MTAuNkg1LjV2LTEwLjZjMC0yLjEsMC41LTQsMS4zLTUuN2MwLjktMS42LDItMi45LDMuNS0zLjhzMy4xLTEuNCw1LTEuNHMzLjUsMC41LDUsMS40DQoJYzEuNSwwLjksMi42LDIuMSwzLjUsMy44QzI0LjksMjAwLjMsMjUuNCwyMDIuMiwyNS40LDIwNC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTUxLjMsMjA0LjF2LTEwLjRoNXYxMC40YzAsMiwwLjUsMy41LDEuNSw0LjVjMSwxLjEsMi4xLDEuNiwzLjUsMS42YzEuNCwwLDIuNS0wLjUsMy41LTEuNg0KCWMwLjktMSwxLjQtMi42LDEuNC00LjV2LTEwLjRoNC45djEwLjRjMCwyLjEtMC41LDQtMS4zLDUuN2MtMC45LDEuNi0yLDIuOS0zLjUsMy44Yy0xLjUsMC45LTMuMSwxLjQtNSwxLjRzLTMuNS0wLjUtNS0xLjQNCgljLTEuNS0wLjktMi42LTIuMS0zLjUtMy44QzUxLjcsMjA4LjEsNTEuMywyMDYuMiw1MS4zLDIwNC4xeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTgwLjcsMTk4djEwLjJjMCwwLjgsMC4xLDEuMywwLjUsMS41YzAuNCwwLjQsMC45LDAuNSwxLjgsMC41aDIuNXY0LjVoLTMuNGMtNC41LDAtNi44LTIuMS02LjgtNi41VjE5OGgtNS4xDQoJdi00LjRoNS4xdi04LjdoNS40djguN2g0LjhsMi42LDQuNEg4MC43eiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwNy40LDE5My42bC04LjcsMjAuNmwtNSwxMS44aC01LjdsNS4xLTExLjhsLTguNC0yMC42aDZsNS40LDE0LjdsNS41LTE0LjdIMTA3LjR6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTY2LjksMTg5LjJjLTEuOSwwLTQuNy0yLjEtNC43LTQuOHYtMy42YzAtMi43LDAuOC00LjgsNC43LTQuOGMzLjksMCw0LjcsMi4xLDQuNyw0Ljh2My42DQoJQy02Mi4yLDE4Ny4xLTY1LDE4OS4yLTY2LjksMTg5LjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTM3LjcsMjIzaC0yMS41bDMuOC0xMS40bDAuNy0xLjhjNC4yLDEuNywxMy4xLDcuMiwxNy43LDExLjZDLTM2LjQsMjIyLjEtMzYuOCwyMjMtMzcuNywyMjN6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTU3LjMsMTkyLjlsLTE1LjksMTAuNGMtNC4yLTIuNS05LjItNS45LTEyLjItOC44Yy0wLjYtMC42LTAuMi0xLjUsMC43LTEuNUgtNTcuM3oiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0tNDguNiwxOTQuM2wtNiwxNS42bC0wLjcsMS44bC0zLjgsMTEuNEgtOTZjLTAuOCwwLTEuMy0wLjktMC44LTEuNWMwLjktMS4yLDEuOC0yLjMsMi43LTMuMw0KCWMyLjEtMi4yLDQuNC00LjEsNi45LTUuOGwwLjEtMC4xYzAuOC0wLjYsMS42LTEuMSwyLjQtMS42bDExLjQtNy40bDE1LjktMTAuNGg3LjdDLTQ4LjgsMTkyLjktNDguNCwxOTMuNi00OC42LDE5NC4zeiIvPg0KPC9zdmc+DQo=
+  description: "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n"
+servers:
+- url: https://www.zenduty.com
+security:
+- bearerAuth: []
+tags:
+- name: Integrations
+  description: This object represents the integrations associated with a service. You can checkout the integration docs here https://docs.zenduty.com/docs/integrations
+paths:
+  /api/account/teams/{}/services/{service_id}/integrations/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    - name: service_id
+      in: path
+      description: unique_id of the Service object
+      schema:
+        type: string
+      required: true
+    post:
+      tags:
+      - Integrations
+      summary: Create the Integration object
+      description: Create the Integration object by setting the values of all the required parameters passed in the request body.
+      requestBody:
+        description: Request body parameters to create the Integration object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationPayload'
+            example:
+              name: Infra custom Integration
+              summary: This is the summary for Infra custom Integration
+              application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/IntegrationPayload'
+            example:
+              name: Infra custom Integration
+              summary: This is the summary for Infra custom Integration
+              application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+                name: Infra custom Integration
+                creation_date: '2022-07-08T12:52:22.906327Z'
+                summary: This is the summary for Infra custom Integration
+                unique_id: 72da1133-a471-4e70-95f3-ce3a5650e9fd
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: 5f306dae-b327-4ba9-8f3a-ab4cffd57645
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+                name: Infra custom Integration
+                creation_date: '2022-07-08T12:52:22.906327Z'
+                summary: This is the summary for Infra custom Integration
+                unique_id: 72da1133-a471-4e70-95f3-ce3a5650e9fd
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: 5f306dae-b327-4ba9-8f3a-ab4cffd57645
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    get:
+      tags:
+      - Integrations
+      summary: List all Integration objects
+      description: Returns a list of Integration objects. The Integration objects are sorted by creation_date, with the most recent Integration object appearing last.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+              - name: Cloudwatch V2
+                creation_date: '2022-07-08T12:31:37.435711Z'
+                summary: Edit summary for this integration
+                unique_id: de8830c5-8596-4ab6-937e-8d5df08499d8
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: bf167d3d-93dc-43b6-9066-a10b0bafcc09
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/bf167d3d-93dc-43b6-9066-a10b0bafcc09/
+              - name: Conference bridge
+                creation_date: '2022-07-08T12:31:37.441939Z'
+                summary: Edit summary for this integration
+                unique_id: 38d5f0f9-a2d4-44dd-bc8c-4f2fdeea284e
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: bbfdaa85-a1c1-4d0a-b59a-0e24f081d237
+                application_reference:
+                  name: Conference bridge
+                  icon_url: https://www.softexia.com/wp-content/uploads/2020/03/ZOOM_logo.png
+                  summary: Conference bridge
+                  description: Conference bridge
+                  unique_id: bbfdaa85-a1c1-4d0a-b59a-0e24f081d237
+                  availability_plan_id: 1
+                  setup_instructions: Conference bridge
+                  extension: conf
+                  application_type: 1
+                  categories: API,Analytics,Collaboration
+                  documentation_link: http://docs.zenduty.com/
+                integration_key: 9efb306f-49b2-4b76-a428-845c7782deed
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/conf/9efb306f-49b2-4b76-a428-845c7782deed/
+              - name: Jira (2-way)
+                creation_date: '2022-07-08T12:31:37.448374Z'
+                summary: Edit summary for this integration
+                unique_id: c6a8fdf5-51a5-42a2-b3c9-c2d74b870e71
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 0625ca3a-b064-45d0-9438-ff09953ba7c2
+                application_reference:
+                  name: Jira (2-way)
+                  icon_url: https://images.squarespace-cdn.com/content/v1/5dc1ccd7e0292e070ef93a24/1582586865629-PN8VT9EY3DPJSTYL46AC/jira-small%402x.png?format=300w
+                  summary: Sample jira 2way integration
+                  description: Sample jira 2way integration
+                  unique_id: 0625ca3a-b064-45d0-9438-ff09953ba7c2
+                  availability_plan_id: 1
+                  setup_instructions: https://docs.zenduty.com/docs/jira
+                  extension: jiracloud
+                  application_type: 1
+                  categories: API,Popular
+                  documentation_link: https://docs.zenduty.com/docs/jira
+                integration_key: 5eb0fd9b-da65-4f36-8dff-f32fdd4dfdc9
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/jiracloud/5eb0fd9b-da65-4f36-8dff-f32fdd4dfdc9/
+              - name: Zoom
+                creation_date: '2022-07-08T12:31:37.453423Z'
+                summary: Edit summary for this integration
+                unique_id: faa5594e-aea5-4c5a-9d2b-846c02bd8cf9
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 41dc6d06-b33e-406d-a11f-efb11b74243c
+                application_reference:
+                  name: Zoom
+                  icon_url: https://pbs.twimg.com/media/EUjGOkTUEAAeKUL?format=png
+                  summary: Zoom Outgoing
+                  description: Zoom Outgoing
+                  unique_id: 41dc6d06-b33e-406d-a11f-efb11b74243c
+                  availability_plan_id: 1
+                  setup_instructions: Some setup instructions
+                  extension: zoom
+                  application_type: 1
+                  categories: Popular,APM
+                  documentation_link: https://docs.zenduty.com
+                integration_key: 181c2f90-a04a-41e5-a7ca-a16d68296e82
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/zoom/181c2f90-a04a-41e5-a7ca-a16d68296e82/
+              - name: Infra custom Integration
+                creation_date: '2022-07-08T12:52:22.906327Z'
+                summary: This is the summary for Infra custom Integration
+                unique_id: 72da1133-a471-4e70-95f3-ce3a5650e9fd
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: 5f306dae-b327-4ba9-8f3a-ab4cffd57645
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+              - name: Cloudwatch V2
+                creation_date: '2022-07-08T12:31:37.435711Z'
+                summary: Edit summary for this integration
+                unique_id: de8830c5-8596-4ab6-937e-8d5df08499d8
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: bf167d3d-93dc-43b6-9066-a10b0bafcc09
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/bf167d3d-93dc-43b6-9066-a10b0bafcc09/
+              - name: Conference bridge
+                creation_date: '2022-07-08T12:31:37.441939Z'
+                summary: Edit summary for this integration
+                unique_id: 38d5f0f9-a2d4-44dd-bc8c-4f2fdeea284e
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: bbfdaa85-a1c1-4d0a-b59a-0e24f081d237
+                application_reference:
+                  name: Conference bridge
+                  icon_url: https://www.softexia.com/wp-content/uploads/2020/03/ZOOM_logo.png
+                  summary: Conference bridge
+                  description: Conference bridge
+                  unique_id: bbfdaa85-a1c1-4d0a-b59a-0e24f081d237
+                  availability_plan_id: 1
+                  setup_instructions: Conference bridge
+                  extension: conf
+                  application_type: 1
+                  categories: API,Analytics,Collaboration
+                  documentation_link: http://docs.zenduty.com/
+                integration_key: 9efb306f-49b2-4b76-a428-845c7782deed
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/conf/9efb306f-49b2-4b76-a428-845c7782deed/
+              - name: Jira (2-way)
+                creation_date: '2022-07-08T12:31:37.448374Z'
+                summary: Edit summary for this integration
+                unique_id: c6a8fdf5-51a5-42a2-b3c9-c2d74b870e71
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 0625ca3a-b064-45d0-9438-ff09953ba7c2
+                application_reference:
+                  name: Jira (2-way)
+                  icon_url: https://images.squarespace-cdn.com/content/v1/5dc1ccd7e0292e070ef93a24/1582586865629-PN8VT9EY3DPJSTYL46AC/jira-small%402x.png?format=300w
+                  summary: Sample jira 2way integration
+                  description: Sample jira 2way integration
+                  unique_id: 0625ca3a-b064-45d0-9438-ff09953ba7c2
+                  availability_plan_id: 1
+                  setup_instructions: https://docs.zenduty.com/docs/jira
+                  extension: jiracloud
+                  application_type: 1
+                  categories: API,Popular
+                  documentation_link: https://docs.zenduty.com/docs/jira
+                integration_key: 5eb0fd9b-da65-4f36-8dff-f32fdd4dfdc9
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/jiracloud/5eb0fd9b-da65-4f36-8dff-f32fdd4dfdc9/
+              - name: Zoom
+                creation_date: '2022-07-08T12:31:37.453423Z'
+                summary: Edit summary for this integration
+                unique_id: faa5594e-aea5-4c5a-9d2b-846c02bd8cf9
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 41dc6d06-b33e-406d-a11f-efb11b74243c
+                application_reference:
+                  name: Zoom
+                  icon_url: https://pbs.twimg.com/media/EUjGOkTUEAAeKUL?format=png
+                  summary: Zoom Outgoing
+                  description: Zoom Outgoing
+                  unique_id: 41dc6d06-b33e-406d-a11f-efb11b74243c
+                  availability_plan_id: 1
+                  setup_instructions: Some setup instructions
+                  extension: zoom
+                  application_type: 1
+                  categories: Popular,APM
+                  documentation_link: https://docs.zenduty.com
+                integration_key: 181c2f90-a04a-41e5-a7ca-a16d68296e82
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/zoom/181c2f90-a04a-41e5-a7ca-a16d68296e82/
+              - name: Infra custom Integration
+                creation_date: '2022-07-08T12:52:22.906327Z'
+                summary: This is the summary for Infra custom Integration
+                unique_id: 72da1133-a471-4e70-95f3-ce3a5650e9fd
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: 5f306dae-b327-4ba9-8f3a-ab4cffd57645
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/teams/{team_id}/services/{service_id}/integrations/{integration_id}/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    - name: service_id
+      in: path
+      description: unique_id of the Service object
+      schema:
+        type: string
+      required: true
+    - name: integration_id
+      in: path
+      description: unique_id of the Integration object
+      schema:
+        type: string
+      required: true
+    get:
+      tags:
+      - Integrations
+      summary: Retrieve the Integration object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+                name: Infra custom Integration
+                creation_date: '2022-07-08T12:52:22.906327Z'
+                summary: This is the summary for Infra custom Integration
+                unique_id: 72da1133-a471-4e70-95f3-ce3a5650e9fd
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: 5f306dae-b327-4ba9-8f3a-ab4cffd57645
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+                name: Infra custom Integration
+                creation_date: '2022-07-08T12:52:22.906327Z'
+                summary: This is the summary for Infra custom Integration
+                unique_id: 72da1133-a471-4e70-95f3-ce3a5650e9fd
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: 5f306dae-b327-4ba9-8f3a-ab4cffd57645
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    put:
+      tags:
+      - Integrations
+      summary: Update the Integration object
+      description: Updates the specified Integration object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged.
+      requestBody:
+        description: Request body parameters to update the Integration object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationPayload'
+            example:
+              name: Modified Infra custom Integration
+              application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+                name: Modified Infra custom Integration
+                creation_date: '2022-07-08T12:52:22.906327Z'
+                summary: This is the summary for Infra custom Integration
+                unique_id: 72da1133-a471-4e70-95f3-ce3a5650e9fd
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: 5f306dae-b327-4ba9-8f3a-ab4cffd57645
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+                name: Modified Infra custom Integration
+                creation_date: '2022-07-08T12:52:22.906327Z'
+                summary: This is the summary for Infra custom Integration
+                unique_id: 72da1133-a471-4e70-95f3-ce3a5650e9fd
+                service: 191f5e2c-515e-4ee0-b501-3a292f8dae2f
+                application: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                application_reference:
+                  name: Cloudwatch V2
+                  icon_url: Cloudwatch V2
+                  summary: Cloudwatch V2
+                  description: Cloudwatch V2
+                  unique_id: 07c84d47-7e71-49ec-b781-1cc81a78086e
+                  availability_plan_id: 1
+                  setup_instructions: <IntegrationURL/>
+                  extension: cloudwatch_v2
+                  application_type: 0
+                  categories: API,Analytics
+                  documentation_link: Cloudwatch V2
+                integration_key: 5f306dae-b327-4ba9-8f3a-ab4cffd57645
+                created_by: 216bba3d-7268-4a8e-89e9-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    delete:
+      tags:
+      - Integrations
+      summary: Delete the Integration object
+      description: Delete the specified Integration object permanently
+      responses:
+        '204':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/regenerate_integration_key/:
+    post:
+      tags:
+      - Integrations
+      summary: Regenerate the Integration key
+      description: Regenerates the integration key.
+      requestBody:
+        description: The integration's unique ID
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationKeyRegenerationPayload'
+            example:
+              integration_unique_id: 84753076-129d-4706-a957-a7c751ca7ab1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+                name: AWS GuardDuty
+                creation_date: '2024-07-01T10:16:32.036085Z'
+                summary: AWS GuardDuty Integration
+                unique_id: 84753076-129d-4706-a957-a7c751ca7ab1
+                service: 34da0237-9825-454a-9297-3a23a4b78795
+                application: bb399bc6-9098-4afd-91d7-3cec4d8282eb
+                application_reference:
+                  name: AWS GuardDuty
+                  icon_url: https://media-assets-cdn.zenduty.com/assets/integrations/new_logos/guardduty.png
+                  summary: AWS GuardDuty Integration
+                  description: AWS GuardDuty Integration
+                  unique_id: bb399bc6-9098-4afd-91d7-3cec4d8282eb
+                  availability_plan_id: 4
+                  setup_instructions: To integrate Zenduty with AWS GuardDuty, follow the steps below...
+                  extension: guardduty
+                  application_type: 0
+                  categories: Cloud Monitoring,Server/Network Monitoring
+                  documentation_link: https://docs.zenduty.com/docs/guardduty
+                  is_active: 1
+                integration_key: c89e320f-a975-47e4-8437-1169e91eeed7
+                created_by: 39569d4b-6540-4b64-a086-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/guardduty/c89e320f-a975-47e4-8437-1169e91eeed7/
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Integration'
+              example:
+                name: AWS GuardDuty
+                creation_date: '2024-07-01T10:16:32.036085Z'
+                summary: AWS GuardDuty Integration
+                unique_id: 84753076-129d-4706-a957-a7c751ca7ab1
+                service: 34da0237-9825-454a-9297-3a23a4b78795
+                application: bb399bc6-9098-4afd-91d7-3cec4d8282eb
+                application_reference:
+                  name: AWS GuardDuty
+                  icon_url: https://media-assets-cdn.zenduty.com/assets/integrations/new_logos/guardduty.png
+                  summary: AWS GuardDuty Integration
+                  description: AWS GuardDuty Integration
+                  unique_id: bb399bc6-9098-4afd-91d7-3cec4d8282eb
+                  availability_plan_id: 4
+                  setup_instructions: To integrate Zenduty with AWS GuardDuty, follow the steps below...
+                  extension: guardduty
+                  application_type: 0
+                  categories: Cloud Monitoring,Server/Network Monitoring
+                  documentation_link: https://docs.zenduty.com/docs/guardduty
+                  is_active: 1
+                integration_key: c89e320f-a975-47e4-8437-1169e91eeed7
+                created_by: 39569d4b-6540-4b64-a086-6
+                is_enabled: true
+                create_incidents_for: 1
+                integration_type: 0
+                default_urgency: 1
+                webhook_url: https://www.zenduty.com/api/integration/guardduty/c89e320f-a975-47e4-8437-1169e91eeed7/
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                error: User does not have permission to regenerate integration key
+            application/xml:
+              example:
+                error: User does not have permission to regenerate integration key
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/integration-metadata/{integration_key}/:
+    parameters:
+    - name: integration_key
+      in: path
+      description: integration_key of the Integration object
+      schema:
+        type: string
+      required: true
+    get:
+      tags:
+      - Integrations
+      summary: Fetch metadata of the Integration object
+      description: Returns an object that contains metadata of the Integration object.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationMetadata'
+              example:
+                team:
+                  name: Backend
+                  unique_id: 15404fac-f608-40eb-947a-d1b81729d40b
+                service:
+                  name: Demo Service
+                  unique_id: 7e9f1add-645f-4acd-99d5-7cf51fdca3ce
+                integration:
+                  unique_id: 24ga3711-d8e3-4714-a5af-d355be143341
+                  name: Generic Integration
+                  extension: generic
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/IntegrationMetadata'
+              example:
+                team:
+                  name: Backend
+                  unique_id: 15404fac-f608-40eb-947a-d1b81729d40b
+                service:
+                  name: Demo Service
+                  unique_id: 7e9f1add-645f-4acd-99d5-7cf51fdca3ce
+                integration:
+                  unique_id: 24ga3711-d8e3-4714-a5af-d355be143341
+                  name: Generic Integration
+                  extension: generic
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+components:
+  schemas:
+    Integration:
+      description: Integration object schema
+      type: object
+      properties:
+        name:
+          type: string
+          description: A string that represents the Integration object's name
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Integration object's creation_date
+        summary:
+          type: string
+          description: A string that represents the Integration object's summary
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Integration object's unique_id
+        service:
+          type: string
+          description: A system-generated string that represents the Service object's unique_id
+        application:
+          type: string
+          description: A system-generated string that represents the Application object's unique_id
+        application_reference:
+          $ref: '#/components/schemas/Application'
+        integration_key:
+          type: string
+          description: A system-generated string that represents the Integration object's integration_key
+        created_by:
+          type: string
+          description: A system-generated string that represents the User object's username
+        is_enabled:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether an Integration is enabled or not
+        create_incidents_for:
+          type: integer
+          default: 1
+          description: An integer that represents the type of the Incidents this Integration object will create. 0 is do not create incidents. 1 is critical, 2 is critical and errors, and 3 is critical, errors and warnings.
+        integration_type:
+          type: integer
+          default: 0
+          description: An integer that represents the Integration object's integration_type. 0 is alert and 1 is outbound.
+        default_urgency:
+          type: integer
+          default: 1
+          description: An integer that represents the Integration object's default_urgency. 0 is low and 1 is high.
+        webhook_url:
+          type: string
+          description: A system-generated string that represents the Integration object's webhook url
+    IntegrationKeyRegenerationPayload:
+      type: object
+      description: Payload schema for the regenerating the key of the Integration
+      properties:
+        integration_unique_id:
+          type: string
+          description: A string that represents the relevant Integration's unique ID
+    IntegrationMetadata:
+      description: Integration Metadata object schema
+      type: object
+      properties:
+        team:
+          type: object
+          description: Response team schema for the Integration metadata
+          properties:
+            name:
+              type: string
+              description: A string that represents the Team object's name.
+            unique_id:
+              type: string
+              description: A string that represents the Team object's unique_id.
+        service:
+          type: object
+          description: Response service schema for the Integration metadata
+          properties:
+            name:
+              type: string
+              description: A string that represents the Service object's name.
+            unique_id:
+              type: string
+              description: A string that represents the Service object's unique_id.
+        integration:
+          type: object
+          description: Response integration schema for the Integration metadata
+          properties:
+            unique_id:
+              type: string
+              description: A string that represents the Integration object's unique_id.
+            name:
+              type: string
+              description: A string that represents the Integration object's name.
+            extension:
+              type: string
+              description: A string that represents the Integration object's extension.
+    Application:
+      description: Application object schema
+      type: object
+      properties:
+        name:
+          type: string
+          description: A string that represents Application object's name
+        icon_url:
+          type: string
+          description: A string that represents Application object's icon_url
+        summary:
+          type: string
+          description: A string that represents Application object's summary
+        description:
+          type: string
+          description: A string that represents Application object's description
+        unique_id:
+          type: string
+          description: A system-generated string that represents Application object's unique_id
+        availability_plan_id:
+          type: integer
+          description: An integer that represents Application object's availability_plan_id
+        setup_instructions:
+          type: string
+          description: A string that represents Application object's setup_instructions
+        extension:
+          type: string
+          description: A string that represents Application object's extension
+        application_type:
+          type: integer
+          description: An integer that represents Application object's application_type 0 for alert and 1 for outbound
+        categories:
+          type: string
+          description: A string that represents Application object's categories
+        documentation_link:
+          type: string
+          description: A string that represents Application object's documentation_link
+    IntegrationPayload:
+      type: object
+      description: Payload schema for the Integration object
+      required:
+      - application
+      properties:
+        name:
+          type: string
+          description: A string that represents the Integration object's name
+        summary:
+          type: string
+          description: A string that represents the Integration object's summary
+        application:
+          type: string
+          description: A system-generated string that represents the Application object's unique_id. To get application id, vist https://www.zenduty.com/api/account/applications/ and get unique_id of the application.
+        is_enabled:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether an Integration is enabled or not
+        create_incidents_for:
+          type: integer
+          default: 1
+          description: An integer that represents the type of the Incidents this Integration object will create. 0 is do not create incidents. 1 is critical, 2 is critical and errors, and 3 is critical, errors and warnings.
+        integration_type:
+          type: integer
+          default: 0
+          description: An integer that represents the Integration object's integration_type. 0 is alert and 1 is outbound.
+        default_urgency:
+          type: integer
+          default: 1
+          description: An integer that represents the Integration object's default_urgency. 0 is low and 1 is high.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token <api_key>

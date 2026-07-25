@@ -1,0 +1,694 @@
+openapi: 3.0.0
+info:
+  version: 1.1.0
+  title: Zenduty Account Custom Role Schedules API
+  termsOfService: https://zenduty.com
+  contact:
+    email: vishwa@zenduty.com
+  license:
+    name: Apache 2.0
+  x-logo:
+    url: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9Ii05OC4zIDE3My43IDIwNi4zIDUzLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgLTk4LjMgMTczLjcgMjA2LjMgNTMuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzBGMTcyQTt9DQoJLnN0MXtmaWxsOiNGRDlBMDA7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMjksMjEwLjJoNi4zYzIuNywwLDQuOSwyLjIsNC45LDQuOWgtMTguMWMwLTUuMyw0LjEtOS40LDcuOS0xMy4xbDMuOC0zLjdoLTcuMWMtMi41LDAtNC42LTIuMS00LjYtNC42aDE4DQoJYzAsNS4zLTQuMSw5LjQtNy44LDEzLjJMLTI5LDIxMC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTMuNywyMDUuOGgtMTUuNWMwLjEsMS41LDAuNiwyLjcsMS42LDMuNmMwLjksMC45LDIuMSwxLjIsMy41LDEuMmMyLDAsMy40LTAuOSw0LjMtMi41aDUuOA0KCWMtMC42LDItMS44LDMuNi0zLjUsNC45Yy0xLjgsMS4yLTMuOSwyLTYuNCwyYy0yLDAtMy45LTAuNS01LjUtMS40Yy0xLjYtMC45LTIuOS0yLjEtMy44LTMuN2MtMC45LTEuNi0xLjQtMy40LTEuNC01LjcNCgljMC0yLjEsMC41LTQuMSwxLjQtNS43YzAuOS0xLjYsMi4xLTIuOCwzLjgtMy43YzEuNi0wLjksMy40LTEuNCw1LjUtMS40YzIsMCwzLjgsMC40LDUuNCwxLjJjMS42LDAuOSwyLjgsMi4xLDMuNywzLjYNCgljMC45LDEuNiwxLjMsMy4zLDEuMyw1LjRDMy44LDIwNC42LDMuOCwyMDUuMiwzLjcsMjA1Ljh6IE0tMS43LDIwMi4yYzAtMS40LTAuNS0yLjUtMS41LTMuMmMtMS0wLjktMi4xLTEuMi0zLjUtMS4yDQoJYy0xLjQsMC0yLjQsMC40LTMuNCwxLjJjLTAuOSwwLjctMS41LDEuOC0xLjYsMy4zaDEwLjFWMjAyLjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcuOSwxOTguNGMwLjktMS42LDItMi45LDMuNS0zLjhjMS41LTAuOSwzLjEtMS40LDQuOS0xLjRjMS40LDAsMi42LDAuMywzLjksMC45YzEuMywwLjYsMi4zLDEuNCwzLDIuNHYtMTYuNw0KCWg1LjR2MzVoLTUuNHYtMy4xYy0wLjYsMS0xLjYsMS45LTIuOCwyLjVjLTEuMywwLjYtMi42LDEtNC4yLDFjLTEuOCwwLTMuNC0wLjUtNC45LTEuNGMtMS41LTAuOS0yLjYtMi4zLTMuNS0zLjkNCgljLTAuOS0xLjYtMS4zLTMuNS0xLjMtNS44QzI2LjYsMjAyLDI3LDIwMCwyNy45LDE5OC40eiBNNDIuNSwyMDAuOWMtMC41LTAuOS0xLjMtMS42LTItMi4xYy0wLjktMC41LTEuOC0wLjgtMi44LTAuOA0KCWMtMSwwLTEuOSwwLjMtMi44LDAuOGMtMC45LDAuNS0xLjUsMS4xLTIsMi4xYy0wLjUsMC45LTAuOCwyLTAuOCwzLjNjMCwxLjMsMC4zLDIuNCwwLjgsMy40YzAuNSwxLDEuMywxLjYsMiwyLjENCgljMC45LDAuNSwxLjgsMC44LDIuOCwwLjhjMSwwLDEuOS0wLjMsMi44LTAuOGMwLjktMC41LDEuNS0xLjMsMi0yLjFjMC41LTAuOSwwLjgtMiwwLjgtMy40UzQzLDIwMS44LDQyLjUsMjAwLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUuNCwyMDQuM3YxMC42aC01di0xMC42YzAtMi0wLjUtMy41LTEuNS00LjVjLTEtMS4xLTIuMS0xLjYtMy41LTEuNnMtMi41LDAuNS0zLjUsMS42DQoJYy0wLjksMS0xLjQsMi42LTEuNCw0LjV2MTAuNkg1LjV2LTEwLjZjMC0yLjEsMC41LTQsMS4zLTUuN2MwLjktMS42LDItMi45LDMuNS0zLjhzMy4xLTEuNCw1LTEuNHMzLjUsMC41LDUsMS40DQoJYzEuNSwwLjksMi42LDIuMSwzLjUsMy44QzI0LjksMjAwLjMsMjUuNCwyMDIuMiwyNS40LDIwNC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTUxLjMsMjA0LjF2LTEwLjRoNXYxMC40YzAsMiwwLjUsMy41LDEuNSw0LjVjMSwxLjEsMi4xLDEuNiwzLjUsMS42YzEuNCwwLDIuNS0wLjUsMy41LTEuNg0KCWMwLjktMSwxLjQtMi42LDEuNC00LjV2LTEwLjRoNC45djEwLjRjMCwyLjEtMC41LDQtMS4zLDUuN2MtMC45LDEuNi0yLDIuOS0zLjUsMy44Yy0xLjUsMC45LTMuMSwxLjQtNSwxLjRzLTMuNS0wLjUtNS0xLjQNCgljLTEuNS0wLjktMi42LTIuMS0zLjUtMy44QzUxLjcsMjA4LjEsNTEuMywyMDYuMiw1MS4zLDIwNC4xeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTgwLjcsMTk4djEwLjJjMCwwLjgsMC4xLDEuMywwLjUsMS41YzAuNCwwLjQsMC45LDAuNSwxLjgsMC41aDIuNXY0LjVoLTMuNGMtNC41LDAtNi44LTIuMS02LjgtNi41VjE5OGgtNS4xDQoJdi00LjRoNS4xdi04LjdoNS40djguN2g0LjhsMi42LDQuNEg4MC43eiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwNy40LDE5My42bC04LjcsMjAuNmwtNSwxMS44aC01LjdsNS4xLTExLjhsLTguNC0yMC42aDZsNS40LDE0LjdsNS41LTE0LjdIMTA3LjR6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTY2LjksMTg5LjJjLTEuOSwwLTQuNy0yLjEtNC43LTQuOHYtMy42YzAtMi43LDAuOC00LjgsNC43LTQuOGMzLjksMCw0LjcsMi4xLDQuNyw0Ljh2My42DQoJQy02Mi4yLDE4Ny4xLTY1LDE4OS4yLTY2LjksMTg5LjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTM3LjcsMjIzaC0yMS41bDMuOC0xMS40bDAuNy0xLjhjNC4yLDEuNywxMy4xLDcuMiwxNy43LDExLjZDLTM2LjQsMjIyLjEtMzYuOCwyMjMtMzcuNywyMjN6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTU3LjMsMTkyLjlsLTE1LjksMTAuNGMtNC4yLTIuNS05LjItNS45LTEyLjItOC44Yy0wLjYtMC42LTAuMi0xLjUsMC43LTEuNUgtNTcuM3oiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0tNDguNiwxOTQuM2wtNiwxNS42bC0wLjcsMS44bC0zLjgsMTEuNEgtOTZjLTAuOCwwLTEuMy0wLjktMC44LTEuNWMwLjktMS4yLDEuOC0yLjMsMi43LTMuMw0KCWMyLjEtMi4yLDQuNC00LjEsNi45LTUuOGwwLjEtMC4xYzAuOC0wLjYsMS42LTEuMSwyLjQtMS42bDExLjQtNy40bDE1LjktMTAuNGg3LjdDLTQ4LjgsMTkyLjktNDguNCwxOTMuNi00OC42LDE5NC4zeiIvPg0KPC9zdmc+DQo=
+  description: "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n"
+servers:
+- url: https://www.zenduty.com
+security:
+- bearerAuth: []
+tags:
+- name: Schedules
+  description: This object represents the schedule of a team. You can checkout the schedule docs here https://docs.zenduty.com/docs/schedules
+paths:
+  /api/account/teams/{}/schedules/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    post:
+      tags:
+      - Schedules
+      summary: Create the Schedule object
+      description: Create the Schedule object by setting the values of all the required parameters passed in the request body.
+      requestBody:
+        description: Request body parameters to create the Schedule object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchedulePayload'
+            example:
+              name: Daily Schedule
+              summary: Daily on call schedule for modified production team
+              time_zone: Asia/Kolkata
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SchedulePayload'
+            example:
+              name: Daily Schedule
+              summary: Daily on call schedule for modified production team
+              time_zone: Asia/Kolkata
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+              example:
+                name: Daily Schedule
+                summary: Daily on call schedule for modified production team
+                description: ''
+                time_zone: Asia/Kolkata
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers: []
+                overrides: []
+                unique_id: dadcec8e-e4d7-4e76-8a24-d8d6c1278d1f
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+              example:
+                name: Daily Schedule
+                summary: Daily on call schedule for modified production team
+                description: ''
+                time_zone: Asia/Kolkata
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers: []
+                overrides: []
+                unique_id: dadcec8e-e4d7-4e76-8a24-d8d6c1278d1f
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    get:
+      tags:
+      - Schedules
+      summary: List all Schedule objects
+      description: Returns a list of Schedule objects.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+              example:
+              - name: Weekly Schedule
+                summary: Weekly on call schedule for modified production team.
+                description: ''
+                time_zone: Asia/Calcutta
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers:
+                - shift_length: 604800
+                  restrictions:
+                  - duration: 14400
+                    start_day_of_week: 7
+                    start_time_of_day: 00:00:00
+                    unique_id: 35199b5e-a4ce-4456-8b97-2f3ee2083a85
+                  name: Schedule Layer 1
+                  users:
+                  - user: 216bba3d-7268-4a8e-89e9-6
+                    position: 1
+                    unique_id: d8772886-1812-4a03-9a48-051d34547cf4
+                  - user: 507dfda0-a1fd-40e5-943a-e
+                    position: 2
+                    unique_id: 8c3c8573-3e3c-442d-accd-4a62fee485e9
+                  rotation_start_time: '2022-07-08T11:26:33Z'
+                  rotation_end_time: '2023-07-15T11:26:33Z'
+                  unique_id: a5ec8d44-572b-4ecd-9935-078aef6a2837
+                  last_edited: '2022-07-08T11:28:47.218341Z'
+                  restriction_type: 1
+                  is_active: true
+                overrides:
+                - name: Override for Anshul
+                  user: 507dfda0-a1fd-40e5-943a-e
+                  start_time: '2022-07-09T05:57:14Z'
+                  end_time: '2022-07-10T05:57:14Z'
+                  unique_id: b4492ce7-7d6e-4ed1-8f41-e7c8bf4f4dfe
+                unique_id: 4a3025f3-836f-4d18-8923-7adfe5690d17
+              - name: Daily Schedule
+                summary: Daily on call schedule for modified production team
+                description: ''
+                time_zone: Asia/Kolkata
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers: []
+                overrides: []
+                unique_id: dadcec8e-e4d7-4e76-8a24-d8d6c1278d1f
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+              example:
+              - name: Weekly Schedule
+                summary: Weekly on call schedule for modified production team.
+                description: ''
+                time_zone: Asia/Calcutta
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers:
+                - shift_length: 604800
+                  restrictions:
+                  - duration: 14400
+                    start_day_of_week: 7
+                    start_time_of_day: 00:00:00
+                    unique_id: 35199b5e-a4ce-4456-8b97-2f3ee2083a85
+                  name: Schedule Layer 1
+                  users:
+                  - user: 216bba3d-7268-4a8e-89e9-6
+                    position: 1
+                    unique_id: d8772886-1812-4a03-9a48-051d34547cf4
+                  - user: 507dfda0-a1fd-40e5-943a-e
+                    position: 2
+                    unique_id: 8c3c8573-3e3c-442d-accd-4a62fee485e9
+                  rotation_start_time: '2022-07-08T11:26:33Z'
+                  rotation_end_time: '2023-07-15T11:26:33Z'
+                  unique_id: a5ec8d44-572b-4ecd-9935-078aef6a2837
+                  last_edited: '2022-07-08T11:28:47.218341Z'
+                  restriction_type: 1
+                  is_active: true
+                overrides:
+                - name: Override for Anshul
+                  user: 507dfda0-a1fd-40e5-943a-e
+                  start_time: '2022-07-09T05:57:14Z'
+                  end_time: '2022-07-10T05:57:14Z'
+                  unique_id: b4492ce7-7d6e-4ed1-8f41-e7c8bf4f4dfe
+                unique_id: 4a3025f3-836f-4d18-8923-7adfe5690d17
+              - name: Daily Schedule
+                summary: Daily on call schedule for modified production team
+                description: ''
+                time_zone: Asia/Kolkata
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers: []
+                overrides: []
+                unique_id: dadcec8e-e4d7-4e76-8a24-d8d6c1278d1f
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/teams/{team_id}/schedules/{schedule_id}/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    - name: schedule_id
+      in: path
+      description: unique_id of the Schedule object
+      schema:
+        type: string
+      required: true
+    get:
+      tags:
+      - Schedules
+      summary: Retrieve the Schedule object
+      description: Retrieve the specified Schedule object.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+              example:
+                name: Weekly Schedule
+                summary: Weekly on call schedule for modified production team.
+                description: ''
+                time_zone: Asia/Calcutta
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers:
+                - shift_length: 604800
+                  restrictions:
+                  - duration: 14400
+                    start_day_of_week: 7
+                    start_time_of_day: 00:00:00
+                    unique_id: 35199b5e-a4ce-4456-8b97-2f3ee2083a85
+                  name: Schedule Layer 1
+                  users:
+                  - user: 216bba3d-7268-4a8e-89e9-6
+                    position: 1
+                    unique_id: d8772886-1812-4a03-9a48-051d34547cf4
+                  - user: 507dfda0-a1fd-40e5-943a-e
+                    position: 2
+                    unique_id: 8c3c8573-3e3c-442d-accd-4a62fee485e9
+                  rotation_start_time: '2022-07-08T11:26:33Z'
+                  rotation_end_time: '2023-07-15T11:26:33Z'
+                  unique_id: a5ec8d44-572b-4ecd-9935-078aef6a2837
+                  last_edited: '2022-07-08T11:28:47.218341Z'
+                  restriction_type: 1
+                  is_active: true
+                overrides:
+                - name: Override for Anshul
+                  user: 507dfda0-a1fd-40e5-943a-e
+                  start_time: '2022-07-09T05:57:14Z'
+                  end_time: '2022-07-10T05:57:14Z'
+                  unique_id: b4492ce7-7d6e-4ed1-8f41-e7c8bf4f4dfe
+                unique_id: 4a3025f3-836f-4d18-8923-7adfe5690d17
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+              example:
+                name: Weekly Schedule
+                summary: Weekly on call schedule for modified production team.
+                description: ''
+                time_zone: Asia/Calcutta
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers:
+                - shift_length: 604800
+                  restrictions:
+                  - duration: 14400
+                    start_day_of_week: 7
+                    start_time_of_day: 00:00:00
+                    unique_id: 35199b5e-a4ce-4456-8b97-2f3ee2083a85
+                  name: Schedule Layer 1
+                  users:
+                  - user: 216bba3d-7268-4a8e-89e9-6
+                    position: 1
+                    unique_id: d8772886-1812-4a03-9a48-051d34547cf4
+                  - user: 507dfda0-a1fd-40e5-943a-e
+                    position: 2
+                    unique_id: 8c3c8573-3e3c-442d-accd-4a62fee485e9
+                  rotation_start_time: '2022-07-08T11:26:33Z'
+                  rotation_end_time: '2023-07-15T11:26:33Z'
+                  unique_id: a5ec8d44-572b-4ecd-9935-078aef6a2837
+                  last_edited: '2022-07-08T11:28:47.218341Z'
+                  restriction_type: 1
+                  is_active: true
+                overrides:
+                - name: Override for Anshul
+                  user: 507dfda0-a1fd-40e5-943a-e
+                  start_time: '2022-07-09T05:57:14Z'
+                  end_time: '2022-07-10T05:57:14Z'
+                  unique_id: b4492ce7-7d6e-4ed1-8f41-e7c8bf4f4dfe
+                unique_id: 4a3025f3-836f-4d18-8923-7adfe5690d17
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    put:
+      tags:
+      - Schedules
+      summary: Update the Schedule object
+      description: Updates the specified Schedule object by setting the values of the parameters passed in the request body.
+      requestBody:
+        description: Schedule update payload
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchedulePayload'
+            example:
+              name: Modified weekly Schedule
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SchedulePayload'
+            example:
+              name: Modified daily Schedule
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+              example:
+                name: Modified daily Schedule
+                summary: Daily on call schedule for modified production team
+                description: ''
+                time_zone: Asia/Kolkata
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers: []
+                overrides: []
+                unique_id: dadcec8e-e4d7-4e76-8a24-d8d6c1278d1f
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Schedule'
+              example:
+                name: Modified daily Schedule
+                summary: Daily on call schedule for modified production team
+                description: ''
+                time_zone: Asia/Kolkata
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                layers: []
+                overrides: []
+                unique_id: dadcec8e-e4d7-4e76-8a24-d8d6c1278d1f
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    delete:
+      tags:
+      - Schedules
+      summary: Delete the Schedule object
+      description: Delete the specified Schedule object permanently.
+      responses:
+        '204':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+components:
+  schemas:
+    SchedulePayload:
+      type: object
+      description: Payload schema for the Schedule object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule object's name
+        summary:
+          type: string
+          description: A string that represents the Schedule object's summary
+        description:
+          type: string
+          description: A string that represents the Schedule object's description
+        time_zone:
+          type: string
+          description: A formatted string that represents the Schedule object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
+        layers:
+          type: array
+          description: An array of Schedule Layer objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerPayload'
+        overrides:
+          type: array
+          description: An array of Schedule Overrides objects
+          items:
+            $ref: '#/components/schemas/ScheduleOverridePayload'
+    ScheduleLayer:
+      type: object
+      description: Schedule Layer object schema
+      properties:
+        shift_length:
+          type: integer
+          description: An integer that represents the Schedule Layer object's shift_length
+        restrictions:
+          type: array
+          description: An array of Schedule Layer Restriction objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerRestriction'
+        name:
+          type: string
+          description: A string that represents the Schedule Layer object's name
+        users:
+          type: array
+          description: An array of Schedule Layer User objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerUser'
+        rotation_start_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_start_time
+        rotation_end_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_end_time
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Layer object's unique_id
+        last_edited:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's last_edited
+        restriction_type:
+          type: integer
+          description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
+        is_active:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether the Schedule Layer is active or not
+    ScheduleOverride:
+      type: object
+      description: Schedule Override object schema
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule Overrides object's name
+        user:
+          type: string
+          description: A string that represents the User object's username
+        start_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's start_time
+        end_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's end_time
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Overrides object's unique_id
+    ScheduleLayerRestriction:
+      type: object
+      description: Schedule Layer Restriction object schema
+      properties:
+        duration:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's duration in seconds
+        start_day_of_week:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's start_day_of_week. 0 is daily and 1-7 is sunday to saturday
+        start_time_of_day:
+          type: string
+          format: time
+          description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Layer Restriction objects's unique_id
+    Schedule:
+      type: object
+      description: Schedule object schema
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule object's name
+        summary:
+          type: string
+          description: A string that represents the Schedule object's summary
+        description:
+          type: string
+          description: A string that represents the Schedule object's description
+        time_zone:
+          type: string
+          description: A formatted string that represents the Schedule object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
+        team:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
+        layers:
+          type: array
+          description: An array of Schedule Layer objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayer'
+        overrides:
+          type: array
+          description: An array of Schedule Overrides objects
+          items:
+            $ref: '#/components/schemas/ScheduleOverride'
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule object's unique_id
+    ScheduleLayerUserPayload:
+      type: object
+      description: Schedule Layer User Payload object schema
+      properties:
+        user:
+          type: string
+          description: A system-generated string that represents the User object's username
+        position:
+          type: integer
+          description: An integer that represents the Schedule Layer User objects's position
+    ScheduleLayerUser:
+      type: object
+      description: Schedule Layer User object schema
+      properties:
+        user:
+          type: string
+          description: A system-generated string that represents the User object's username
+        position:
+          type: integer
+          description: An integer that represents the Schedule Layer User objects's position
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Layer User objects's unique_id
+    ScheduleLayerPayload:
+      type: object
+      description: Schedule Layer Payload object schema
+      properties:
+        shift_length:
+          type: integer
+          description: An integer that represents the Schedule Layer object's shift_length
+        restrictions:
+          type: array
+          description: An array of Schedule Layer Restriction objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerRestrictionPayload'
+        name:
+          type: string
+          description: A string that represents the Schedule Layer object's name
+        users:
+          type: array
+          description: An array of Schedule Layer User objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerUserPayload'
+        rotation_start_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_start_time
+        rotation_end_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_end_time
+        restriction_type:
+          type: integer
+          description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
+    ScheduleLayerRestrictionPayload:
+      type: object
+      description: Schedule Layer Restriction Payload object schema
+      properties:
+        duration:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's duration in seconds
+        start_day_of_week:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's start_day_of_week. 0 is daily and 1-7 is sunday to saturday
+        start_time_of_day:
+          type: string
+          format: time
+          description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
+    ScheduleOverridePayload:
+      type: object
+      description: Schedule Override Payload object schema
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule Overrides object's name
+        user:
+          type: string
+          description: A string that represents the User object's username
+        start_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's start_time
+        end_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's end_time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token <api_key>

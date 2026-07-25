@@ -1,0 +1,475 @@
+openapi: 3.0.0
+info:
+  version: 1.1.0
+  title: Zenduty Account Custom Role SLA API
+  termsOfService: https://zenduty.com
+  contact:
+    email: vishwa@zenduty.com
+  license:
+    name: Apache 2.0
+  x-logo:
+    url: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9Ii05OC4zIDE3My43IDIwNi4zIDUzLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgLTk4LjMgMTczLjcgMjA2LjMgNTMuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzBGMTcyQTt9DQoJLnN0MXtmaWxsOiNGRDlBMDA7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMjksMjEwLjJoNi4zYzIuNywwLDQuOSwyLjIsNC45LDQuOWgtMTguMWMwLTUuMyw0LjEtOS40LDcuOS0xMy4xbDMuOC0zLjdoLTcuMWMtMi41LDAtNC42LTIuMS00LjYtNC42aDE4DQoJYzAsNS4zLTQuMSw5LjQtNy44LDEzLjJMLTI5LDIxMC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTMuNywyMDUuOGgtMTUuNWMwLjEsMS41LDAuNiwyLjcsMS42LDMuNmMwLjksMC45LDIuMSwxLjIsMy41LDEuMmMyLDAsMy40LTAuOSw0LjMtMi41aDUuOA0KCWMtMC42LDItMS44LDMuNi0zLjUsNC45Yy0xLjgsMS4yLTMuOSwyLTYuNCwyYy0yLDAtMy45LTAuNS01LjUtMS40Yy0xLjYtMC45LTIuOS0yLjEtMy44LTMuN2MtMC45LTEuNi0xLjQtMy40LTEuNC01LjcNCgljMC0yLjEsMC41LTQuMSwxLjQtNS43YzAuOS0xLjYsMi4xLTIuOCwzLjgtMy43YzEuNi0wLjksMy40LTEuNCw1LjUtMS40YzIsMCwzLjgsMC40LDUuNCwxLjJjMS42LDAuOSwyLjgsMi4xLDMuNywzLjYNCgljMC45LDEuNiwxLjMsMy4zLDEuMyw1LjRDMy44LDIwNC42LDMuOCwyMDUuMiwzLjcsMjA1Ljh6IE0tMS43LDIwMi4yYzAtMS40LTAuNS0yLjUtMS41LTMuMmMtMS0wLjktMi4xLTEuMi0zLjUtMS4yDQoJYy0xLjQsMC0yLjQsMC40LTMuNCwxLjJjLTAuOSwwLjctMS41LDEuOC0xLjYsMy4zaDEwLjFWMjAyLjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcuOSwxOTguNGMwLjktMS42LDItMi45LDMuNS0zLjhjMS41LTAuOSwzLjEtMS40LDQuOS0xLjRjMS40LDAsMi42LDAuMywzLjksMC45YzEuMywwLjYsMi4zLDEuNCwzLDIuNHYtMTYuNw0KCWg1LjR2MzVoLTUuNHYtMy4xYy0wLjYsMS0xLjYsMS45LTIuOCwyLjVjLTEuMywwLjYtMi42LDEtNC4yLDFjLTEuOCwwLTMuNC0wLjUtNC45LTEuNGMtMS41LTAuOS0yLjYtMi4zLTMuNS0zLjkNCgljLTAuOS0xLjYtMS4zLTMuNS0xLjMtNS44QzI2LjYsMjAyLDI3LDIwMCwyNy45LDE5OC40eiBNNDIuNSwyMDAuOWMtMC41LTAuOS0xLjMtMS42LTItMi4xYy0wLjktMC41LTEuOC0wLjgtMi44LTAuOA0KCWMtMSwwLTEuOSwwLjMtMi44LDAuOGMtMC45LDAuNS0xLjUsMS4xLTIsMi4xYy0wLjUsMC45LTAuOCwyLTAuOCwzLjNjMCwxLjMsMC4zLDIuNCwwLjgsMy40YzAuNSwxLDEuMywxLjYsMiwyLjENCgljMC45LDAuNSwxLjgsMC44LDIuOCwwLjhjMSwwLDEuOS0wLjMsMi44LTAuOGMwLjktMC41LDEuNS0xLjMsMi0yLjFjMC41LTAuOSwwLjgtMiwwLjgtMy40UzQzLDIwMS44LDQyLjUsMjAwLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUuNCwyMDQuM3YxMC42aC01di0xMC42YzAtMi0wLjUtMy41LTEuNS00LjVjLTEtMS4xLTIuMS0xLjYtMy41LTEuNnMtMi41LDAuNS0zLjUsMS42DQoJYy0wLjksMS0xLjQsMi42LTEuNCw0LjV2MTAuNkg1LjV2LTEwLjZjMC0yLjEsMC41LTQsMS4zLTUuN2MwLjktMS42LDItMi45LDMuNS0zLjhzMy4xLTEuNCw1LTEuNHMzLjUsMC41LDUsMS40DQoJYzEuNSwwLjksMi42LDIuMSwzLjUsMy44QzI0LjksMjAwLjMsMjUuNCwyMDIuMiwyNS40LDIwNC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTUxLjMsMjA0LjF2LTEwLjRoNXYxMC40YzAsMiwwLjUsMy41LDEuNSw0LjVjMSwxLjEsMi4xLDEuNiwzLjUsMS42YzEuNCwwLDIuNS0wLjUsMy41LTEuNg0KCWMwLjktMSwxLjQtMi42LDEuNC00LjV2LTEwLjRoNC45djEwLjRjMCwyLjEtMC41LDQtMS4zLDUuN2MtMC45LDEuNi0yLDIuOS0zLjUsMy44Yy0xLjUsMC45LTMuMSwxLjQtNSwxLjRzLTMuNS0wLjUtNS0xLjQNCgljLTEuNS0wLjktMi42LTIuMS0zLjUtMy44QzUxLjcsMjA4LjEsNTEuMywyMDYuMiw1MS4zLDIwNC4xeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTgwLjcsMTk4djEwLjJjMCwwLjgsMC4xLDEuMywwLjUsMS41YzAuNCwwLjQsMC45LDAuNSwxLjgsMC41aDIuNXY0LjVoLTMuNGMtNC41LDAtNi44LTIuMS02LjgtNi41VjE5OGgtNS4xDQoJdi00LjRoNS4xdi04LjdoNS40djguN2g0LjhsMi42LDQuNEg4MC43eiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwNy40LDE5My42bC04LjcsMjAuNmwtNSwxMS44aC01LjdsNS4xLTExLjhsLTguNC0yMC42aDZsNS40LDE0LjdsNS41LTE0LjdIMTA3LjR6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTY2LjksMTg5LjJjLTEuOSwwLTQuNy0yLjEtNC43LTQuOHYtMy42YzAtMi43LDAuOC00LjgsNC43LTQuOGMzLjksMCw0LjcsMi4xLDQuNyw0Ljh2My42DQoJQy02Mi4yLDE4Ny4xLTY1LDE4OS4yLTY2LjksMTg5LjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTM3LjcsMjIzaC0yMS41bDMuOC0xMS40bDAuNy0xLjhjNC4yLDEuNywxMy4xLDcuMiwxNy43LDExLjZDLTM2LjQsMjIyLjEtMzYuOCwyMjMtMzcuNywyMjN6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTU3LjMsMTkyLjlsLTE1LjksMTAuNGMtNC4yLTIuNS05LjItNS45LTEyLjItOC44Yy0wLjYtMC42LTAuMi0xLjUsMC43LTEuNUgtNTcuM3oiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0tNDguNiwxOTQuM2wtNiwxNS42bC0wLjcsMS44bC0zLjgsMTEuNEgtOTZjLTAuOCwwLTEuMy0wLjktMC44LTEuNWMwLjktMS4yLDEuOC0yLjMsMi43LTMuMw0KCWMyLjEtMi4yLDQuNC00LjEsNi45LTUuOGwwLjEtMC4xYzAuOC0wLjYsMS42LTEuMSwyLjQtMS42bDExLjQtNy40bDE1LjktMTAuNGg3LjdDLTQ4LjgsMTkyLjktNDguNCwxOTMuNi00OC42LDE5NC4zeiIvPg0KPC9zdmc+DQo=
+  description: "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n"
+servers:
+- url: https://www.zenduty.com
+security:
+- bearerAuth: []
+tags:
+- name: SLA
+  description: This object represents the SLA of an incident. You can checkout the SLA docs here https://docs.zenduty.com/docs/incidentsla
+paths:
+  /api/account/teams/{}/sla/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    post:
+      tags:
+      - SLA
+      summary: Create the SLA object
+      description: Create the SLA object by setting the values of all the required parameters passed in the request body.
+      requestBody:
+        description: Request body parameters to create the SLA object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SLAPayload'
+            example:
+              name: New Infra SLA
+              escalations: []
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SLAPayload'
+            example:
+              name: New Infra SLA
+              escalations: []
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SLAPostPut'
+              example:
+                escalations: []
+                unique_id: 010bc17d-f688-403d-b762-f039fb6f5ad9
+                name: New Infra SLA
+                description: ''
+                is_active: true
+                conditions: '{}'
+                acknowledge_time: null
+                resolve_time: null
+                team: 3674
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SLAPostPut'
+              example:
+                escalations: []
+                unique_id: 010bc17d-f688-403d-b762-f039fb6f5ad9
+                name: New Infra SLA
+                description: ''
+                is_active: true
+                conditions: '{}'
+                acknowledge_time: null
+                resolve_time: null
+                team: 3674
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    get:
+      tags:
+      - SLA
+      summary: List all SLA objects
+      description: Returns a list of SLA objects.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SLAGet'
+              example:
+              - unique_id: b3c6af23-2b9e-414e-9706-bbf3af76828c
+                name: Infra SLA
+                is_active: true
+                acknowledge_time: 30
+                resolve_time: 60
+                creation_date: '2022-07-08T12:29:08.545605Z'
+              - unique_id: 010bc17d-f688-403d-b762-f039fb6f5ad9
+                name: New Infra SLA
+                is_active: true
+                acknowledge_time: null
+                resolve_time: null
+                creation_date: '2022-07-08T14:45:21.096085Z'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SLAGet'
+              example:
+              - unique_id: b3c6af23-2b9e-414e-9706-bbf3af76828c
+                name: Infra SLA
+                is_active: true
+                acknowledge_time: 30
+                resolve_time: 60
+                creation_date: '2022-07-08T12:29:08.545605Z'
+              - unique_id: 010bc17d-f688-403d-b762-f039fb6f5ad9
+                name: New Infra SLA
+                is_active: true
+                acknowledge_time: null
+                resolve_time: null
+                creation_date: '2022-07-08T14:45:21.096085Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/teams/{team_id}/sla/{sla_id}/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    - name: sla_id
+      in: path
+      description: unique_id of the SLA object
+      schema:
+        type: string
+      required: true
+    get:
+      tags:
+      - SLA
+      summary: Retrieve the SLA object
+      description: Retrieve the specified SLA object.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SLAGet'
+              example:
+                escalations: []
+                unique_id: 010bc17d-f688-403d-b762-f039fb6f5ad9
+                name: New Infra SLA
+                description: ''
+                is_active: true
+                conditions: '{}'
+                acknowledge_time: null
+                resolve_time: null
+                team: 3674
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SLAGet'
+              example:
+                escalations: []
+                unique_id: 010bc17d-f688-403d-b762-f039fb6f5ad9
+                name: New Infra SLA
+                description: ''
+                is_active: true
+                conditions: '{}'
+                acknowledge_time: null
+                resolve_time: null
+                team: 3674
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    put:
+      tags:
+      - SLA
+      summary: Update the SLA object
+      description: Updates the specified SLA object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged.
+      requestBody:
+        description: Request body parameters to update the SLA object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SLAPayload'
+            example:
+              name: Modified Infra SLA
+              escalations: []
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SLAPayload'
+            example:
+              name: Modified Infra SLA
+              escalations: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SLAPostPut'
+              example:
+                escalations: []
+                unique_id: 010bc17d-f688-403d-b762-f039fb6f5ad9
+                name: Modified Infra SLA
+                description: ''
+                is_active: true
+                conditions: '{}'
+                acknowledge_time: null
+                resolve_time: null
+                team: 3674
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SLAPostPut'
+              example:
+                escalations: []
+                unique_id: 010bc17d-f688-403d-b762-f039fb6f5ad9
+                name: Modified Infra SLA
+                description: ''
+                is_active: true
+                conditions: '{}'
+                acknowledge_time: null
+                resolve_time: null
+                team: 3674
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    delete:
+      tags:
+      - SLA
+      summary: Delete the SLA object
+      description: Delete the specified SLA object permanently.
+      responses:
+        '204':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+components:
+  schemas:
+    SLAPayload:
+      type: object
+      description: Payload schema for the SLA object
+      required:
+      - escalations
+      properties:
+        name:
+          type: string
+          description: An arbitary string that represents the SLA object's name
+        escalations:
+          type: array
+          description: An array of SLA Escalation objects
+          items:
+            $ref: '#/components/schemas/SLA_Escalation'
+        is_active:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether the SLA object is active or not
+        acknowledge_time:
+          type: integer
+          description: An integer that represents the SLA object's acknowledge_time
+        resolve_time:
+          type: integer
+          description: An integer that represents the SLA object's resolve_time
+    SLA_Escalation:
+      type: object
+      description: SLA Escalation object schema
+      properties:
+        responder:
+          type: array
+          description: An array of Responder objects
+          items:
+            type: object
+            description: Responder object schema
+            properties:
+              user:
+                type: string
+                description: A system-generated string that represents the User object's username
+        unique_id:
+          type: string
+          description: A system-generated string that represents the SLA Escalation object's unique_id
+        time:
+          type: integer
+          description: An integer that represents the SLA Escalation object's time. The value will be -ve before sla breach and +ve after sla breach
+        type:
+          type: integer
+          description: An integer that represents the SLA Escalation object's type. 1 for acknowledge SLA escalation and 2 for resolve SLA escalation
+    SLAGet:
+      type: object
+      description: SLA object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the SLA object's unique_id
+        name:
+          type: string
+          description: An arbitary string that represents the SLA object's name
+        is_active:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether the SLA object is active or not
+        acknowledge_time:
+          type: integer
+          description: An integer that represents the SLA object's acknowledge_time
+        resolve_time:
+          type: integer
+          description: An integer that represents the SLA object's resolve_time
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the SLA object's creation_date
+    SLAPostPut:
+      type: object
+      description: SLA object schema
+      properties:
+        escalations:
+          type: array
+          description: An array of SLA Escalation object
+          items:
+            $ref: '#/components/schemas/SLA_Escalation'
+        unique_id:
+          type: string
+          description: A system-generated string that represents the SLA object's unique_id
+        name:
+          type: string
+          description: An arbitary string that represents the SLA object's name
+        description:
+          type: string
+          description: An arbitary string that represents the SLA object's description
+        is_active:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether the SLA object is active or not
+        conditions:
+          type: object
+          description: Additional conditions object to create or update the SLA object
+        acknowledge_time:
+          type: integer
+          description: An integer that represents the SLA object's acknowledge_time
+        resolve_time:
+          type: integer
+          description: An integer that represents the SLA object's resolve_time
+        team:
+          type: integer
+          description: An integer that respresents the Team object's id
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token <api_key>

@@ -1,0 +1,538 @@
+openapi: 3.0.0
+info:
+  version: 1.1.0
+  title: Zenduty Account Custom Role Account Member API
+  termsOfService: https://zenduty.com
+  contact:
+    email: vishwa@zenduty.com
+  license:
+    name: Apache 2.0
+  x-logo:
+    url: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9Ii05OC4zIDE3My43IDIwNi4zIDUzLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgLTk4LjMgMTczLjcgMjA2LjMgNTMuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzBGMTcyQTt9DQoJLnN0MXtmaWxsOiNGRDlBMDA7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMjksMjEwLjJoNi4zYzIuNywwLDQuOSwyLjIsNC45LDQuOWgtMTguMWMwLTUuMyw0LjEtOS40LDcuOS0xMy4xbDMuOC0zLjdoLTcuMWMtMi41LDAtNC42LTIuMS00LjYtNC42aDE4DQoJYzAsNS4zLTQuMSw5LjQtNy44LDEzLjJMLTI5LDIxMC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTMuNywyMDUuOGgtMTUuNWMwLjEsMS41LDAuNiwyLjcsMS42LDMuNmMwLjksMC45LDIuMSwxLjIsMy41LDEuMmMyLDAsMy40LTAuOSw0LjMtMi41aDUuOA0KCWMtMC42LDItMS44LDMuNi0zLjUsNC45Yy0xLjgsMS4yLTMuOSwyLTYuNCwyYy0yLDAtMy45LTAuNS01LjUtMS40Yy0xLjYtMC45LTIuOS0yLjEtMy44LTMuN2MtMC45LTEuNi0xLjQtMy40LTEuNC01LjcNCgljMC0yLjEsMC41LTQuMSwxLjQtNS43YzAuOS0xLjYsMi4xLTIuOCwzLjgtMy43YzEuNi0wLjksMy40LTEuNCw1LjUtMS40YzIsMCwzLjgsMC40LDUuNCwxLjJjMS42LDAuOSwyLjgsMi4xLDMuNywzLjYNCgljMC45LDEuNiwxLjMsMy4zLDEuMyw1LjRDMy44LDIwNC42LDMuOCwyMDUuMiwzLjcsMjA1Ljh6IE0tMS43LDIwMi4yYzAtMS40LTAuNS0yLjUtMS41LTMuMmMtMS0wLjktMi4xLTEuMi0zLjUtMS4yDQoJYy0xLjQsMC0yLjQsMC40LTMuNCwxLjJjLTAuOSwwLjctMS41LDEuOC0xLjYsMy4zaDEwLjFWMjAyLjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcuOSwxOTguNGMwLjktMS42LDItMi45LDMuNS0zLjhjMS41LTAuOSwzLjEtMS40LDQuOS0xLjRjMS40LDAsMi42LDAuMywzLjksMC45YzEuMywwLjYsMi4zLDEuNCwzLDIuNHYtMTYuNw0KCWg1LjR2MzVoLTUuNHYtMy4xYy0wLjYsMS0xLjYsMS45LTIuOCwyLjVjLTEuMywwLjYtMi42LDEtNC4yLDFjLTEuOCwwLTMuNC0wLjUtNC45LTEuNGMtMS41LTAuOS0yLjYtMi4zLTMuNS0zLjkNCgljLTAuOS0xLjYtMS4zLTMuNS0xLjMtNS44QzI2LjYsMjAyLDI3LDIwMCwyNy45LDE5OC40eiBNNDIuNSwyMDAuOWMtMC41LTAuOS0xLjMtMS42LTItMi4xYy0wLjktMC41LTEuOC0wLjgtMi44LTAuOA0KCWMtMSwwLTEuOSwwLjMtMi44LDAuOGMtMC45LDAuNS0xLjUsMS4xLTIsMi4xYy0wLjUsMC45LTAuOCwyLTAuOCwzLjNjMCwxLjMsMC4zLDIuNCwwLjgsMy40YzAuNSwxLDEuMywxLjYsMiwyLjENCgljMC45LDAuNSwxLjgsMC44LDIuOCwwLjhjMSwwLDEuOS0wLjMsMi44LTAuOGMwLjktMC41LDEuNS0xLjMsMi0yLjFjMC41LTAuOSwwLjgtMiwwLjgtMy40UzQzLDIwMS44LDQyLjUsMjAwLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUuNCwyMDQuM3YxMC42aC01di0xMC42YzAtMi0wLjUtMy41LTEuNS00LjVjLTEtMS4xLTIuMS0xLjYtMy41LTEuNnMtMi41LDAuNS0zLjUsMS42DQoJYy0wLjksMS0xLjQsMi42LTEuNCw0LjV2MTAuNkg1LjV2LTEwLjZjMC0yLjEsMC41LTQsMS4zLTUuN2MwLjktMS42LDItMi45LDMuNS0zLjhzMy4xLTEuNCw1LTEuNHMzLjUsMC41LDUsMS40DQoJYzEuNSwwLjksMi42LDIuMSwzLjUsMy44QzI0LjksMjAwLjMsMjUuNCwyMDIuMiwyNS40LDIwNC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTUxLjMsMjA0LjF2LTEwLjRoNXYxMC40YzAsMiwwLjUsMy41LDEuNSw0LjVjMSwxLjEsMi4xLDEuNiwzLjUsMS42YzEuNCwwLDIuNS0wLjUsMy41LTEuNg0KCWMwLjktMSwxLjQtMi42LDEuNC00LjV2LTEwLjRoNC45djEwLjRjMCwyLjEtMC41LDQtMS4zLDUuN2MtMC45LDEuNi0yLDIuOS0zLjUsMy44Yy0xLjUsMC45LTMuMSwxLjQtNSwxLjRzLTMuNS0wLjUtNS0xLjQNCgljLTEuNS0wLjktMi42LTIuMS0zLjUtMy44QzUxLjcsMjA4LjEsNTEuMywyMDYuMiw1MS4zLDIwNC4xeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTgwLjcsMTk4djEwLjJjMCwwLjgsMC4xLDEuMywwLjUsMS41YzAuNCwwLjQsMC45LDAuNSwxLjgsMC41aDIuNXY0LjVoLTMuNGMtNC41LDAtNi44LTIuMS02LjgtNi41VjE5OGgtNS4xDQoJdi00LjRoNS4xdi04LjdoNS40djguN2g0LjhsMi42LDQuNEg4MC43eiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwNy40LDE5My42bC04LjcsMjAuNmwtNSwxMS44aC01LjdsNS4xLTExLjhsLTguNC0yMC42aDZsNS40LDE0LjdsNS41LTE0LjdIMTA3LjR6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTY2LjksMTg5LjJjLTEuOSwwLTQuNy0yLjEtNC43LTQuOHYtMy42YzAtMi43LDAuOC00LjgsNC43LTQuOGMzLjksMCw0LjcsMi4xLDQuNyw0Ljh2My42DQoJQy02Mi4yLDE4Ny4xLTY1LDE4OS4yLTY2LjksMTg5LjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTM3LjcsMjIzaC0yMS41bDMuOC0xMS40bDAuNy0xLjhjNC4yLDEuNywxMy4xLDcuMiwxNy43LDExLjZDLTM2LjQsMjIyLjEtMzYuOCwyMjMtMzcuNywyMjN6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTU3LjMsMTkyLjlsLTE1LjksMTAuNGMtNC4yLTIuNS05LjItNS45LTEyLjItOC44Yy0wLjYtMC42LTAuMi0xLjUsMC43LTEuNUgtNTcuM3oiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0tNDguNiwxOTQuM2wtNiwxNS42bC0wLjcsMS44bC0zLjgsMTEuNEgtOTZjLTAuOCwwLTEuMy0wLjktMC44LTEuNWMwLjktMS4yLDEuOC0yLjMsMi43LTMuMw0KCWMyLjEtMi4yLDQuNC00LjEsNi45LTUuOGwwLjEtMC4xYzAuOC0wLjYsMS42LTEuMSwyLjQtMS42bDExLjQtNy40bDE1LjktMTAuNGg3LjdDLTQ4LjgsMTkyLjktNDguNCwxOTMuNi00OC42LDE5NC4zeiIvPg0KPC9zdmc+DQo=
+  description: "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n"
+servers:
+- url: https://www.zenduty.com
+security:
+- bearerAuth: []
+tags:
+- name: Account Member
+  description: This object represents a user of the account. Each account member object has a role, which can be owner, admin, or user. Each account has a single owner, but the admins and users can be multiple.
+paths:
+  /api/account/api_invite/:
+    post:
+      tags:
+      - Account Member
+      summary: Invite User
+      description: Returns an Account Member object.
+      requestBody:
+        description: Request body parameters to create the Account Member object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InviteUserPayload'
+            example:
+              team: db61f7ed-ba78-4536-9b2d-256b135a731d
+              user_detail:
+                first_name: Michael
+                last_name: Scott
+                email: michaelscott@zenduty.com
+                role: 3
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/InviteUserPayload'
+            example:
+              team: db61f7ed-ba78-4536-9b2d-256b135a731d
+              user_detail:
+                first_name: Michael
+                last_name: Scott
+                email: michaelscott@zenduty.com
+                role: 3
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMember'
+              example:
+                unique_id: e6931b6d-55d7-45e4-9f30-4dbf72bbcf06
+                team: db61f7ed-ba78-4536-9b2d-256b135a731d
+                user:
+                  username: 39f4dedd-2754-4ee1-9c0c-1
+                  first_name: Michael
+                  last_name: Scott
+                  email: michaelscott@zenduty.com
+                joining_date: '2022-09-20T14:29:05.997454Z'
+                role: 2
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TeamMember'
+              example:
+                unique_id: e6931b6d-55d7-45e4-9f30-4dbf72bbcf06
+                team: db61f7ed-ba78-4536-9b2d-256b135a731d
+                user:
+                  username: 39f4dedd-2754-4ee1-9c0c-1
+                  first_name: Michael
+                  last_name: Scott
+                  email: michaelscott@zenduty.com
+                joining_date: '2022-09-20T14:29:05.997454Z'
+                role: 2
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/members/:
+    get:
+      tags:
+      - Account Member
+      summary: List all Account Member objects
+      description: Returns a list of Account Member objects. The Account Member objects are sorted by joining_date, with the most recent Account Member object appearing last.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountMember'
+              example:
+              - unique_id: 96f437aa-ae86-46cc-a01a-b2ede620d25a
+                time_zone: UTC
+                user:
+                  username: 216bba3d-7268-4a8e-89e9-6
+                  first_name: Anshul
+                  last_name: Rajput
+                  email: anshulrajput229@gmail.com
+                joining_date: '2022-07-08T10:28:36.804578Z'
+                role: 1
+                is_verified: false
+              - unique_id: 49868e5e-aa68-471b-82e2-10b6238f42f6
+                time_zone: UTC
+                user:
+                  username: 507dfda0-a1fd-40e5-943a-e
+                  first_name: Mary
+                  last_name: Jane
+                  email: maryjane@sharklasers.com
+                joining_date: '2022-07-08T10:31:56.830785Z'
+                role: 3
+                is_verified: false
+              - unique_id: ab188a19-7f5c-4f6f-b7cd-d1bfa0725dcd
+                time_zone: UTC
+                user:
+                  username: 85b563c8-18d0-4668-9462-9
+                  first_name: Vishwa
+                  last_name: Krishnakumar
+                  email: vishwa@yellowant.com
+                joining_date: '2022-07-08T10:32:42.191552Z'
+                role: 2
+                is_verified: false
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AccountMember'
+              example:
+              - unique_id: 96f437aa-ae86-46cc-a01a-b2ede620d25a
+                time_zone: UTC
+                user:
+                  username: 216bba3d-7268-4a8e-89e9-6
+                  first_name: Anshul
+                  last_name: Rajput
+                  email: anshulrajput229@gmail.com
+                joining_date: '2022-07-08T10:28:36.804578Z'
+                role: 1
+                is_verified: false
+              - unique_id: 49868e5e-aa68-471b-82e2-10b6238f42f6
+                time_zone: UTC
+                user:
+                  username: 507dfda0-a1fd-40e5-943a-e
+                  first_name: Mary
+                  last_name: Jane
+                  email: maryjane@sharklasers.com
+                joining_date: '2022-07-08T10:31:56.830785Z'
+                role: 3
+                is_verified: false
+              - unique_id: ab188a19-7f5c-4f6f-b7cd-d1bfa0725dcd
+                time_zone: UTC
+                user:
+                  username: 85b563c8-18d0-4668-9462-9
+                  first_name: Vishwa
+                  last_name: Krishnakumar
+                  email: vishwa@yellowant.com
+                joining_date: '2022-07-08T10:32:42.191552Z'
+                role: 2
+                is_verified: false
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/members/{username}/:
+    parameters:
+    - name: username
+      in: path
+      schema:
+        type: string
+        description: A system-generated string that represents the User object's username
+      required: true
+    get:
+      tags:
+      - Account Member
+      summary: Retrieve the Account Member object
+      description: Retrieve the specified Account Member object.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountMember'
+              example:
+                unique_id: ab188a19-7f5c-4f6f-b7cd-d1bfa0725dcd
+                time_zone: UTC
+                user:
+                  username: 85b563c8-18d0-4668-9462-9
+                  first_name: Vishwa
+                  last_name: Krishnakumar
+                  email: vishwa@yellowant.com
+                joining_date: '2022-07-08T10:32:42.191552Z'
+                role: 2
+                is_verified: false
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AccountMember'
+              example:
+                unique_id: ab188a19-7f5c-4f6f-b7cd-d1bfa0725dcd
+                time_zone: UTC
+                user:
+                  username: 85b563c8-18d0-4668-9462-9
+                  first_name: Vishwa
+                  last_name: Krishnakumar
+                  email: vishwa@yellowant.com
+                joining_date: '2022-07-08T10:32:42.191552Z'
+                role: 2
+                is_verified: false
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    put:
+      tags:
+      - Account Member
+      summary: Update the Account Member object
+      description: Updates the specified Account Member object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged.
+      requestBody:
+        description: Request body parameters to update the Account Member object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountMemberPayload'
+            example:
+              user:
+                username: 507dfda0-a1fd-40e5-943a-e
+                first_name: Mary
+                last_name: Jane
+              role: 2
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AccountMemberPayload'
+            example:
+              user:
+                username: 507dfda0-a1fd-40e5-943a-e
+                first_name: Mary
+                last_name: Jane
+              role: 2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountMember'
+              example:
+                unique_id: 49868e5e-aa68-471b-82e2-10b6238f42f6
+                time_zone: UTC
+                user:
+                  username: 507dfda0-a1fd-40e5-943a-e
+                  first_name: Mary
+                  last_name: Jane
+                  email: maryjane@sharklasers.com
+                joining_date: '2022-07-08T10:31:56.830785Z'
+                role: 2
+                is_verified: false
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AccountMember'
+              example:
+                unique_id: 49868e5e-aa68-471b-82e2-10b6238f42f6
+                time_zone: UTC
+                user:
+                  username: 507dfda0-a1fd-40e5-943a-e
+                  first_name: Mary
+                  last_name: Jane
+                  email: maryjane@sharklasers.com
+                joining_date: '2022-07-08T10:31:56.830785Z'
+                role: 2
+                is_verified: false
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/deleteuser/:
+    post:
+      tags:
+      - Account Member
+      summary: Delete User
+      description: Delete the specified Account Member object
+      requestBody:
+        description: Request body parameters to create the Account Member object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteUserPayload'
+            example:
+              username: 6b2af4db-8b31-4bfb-9742-4
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DeleteUserPayload'
+            example:
+              username: 6b2af4db-8b31-4bfb-9742-4
+      responses:
+        '204':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+components:
+  schemas:
+    User:
+      type: object
+      description: User object schema
+      properties:
+        username:
+          type: string
+          description: A system-generated string that represents the User object's username
+        first_name:
+          type: string
+          description: A string that represents the User object's first_name
+        last_name:
+          type: string
+          description: A string that represents the User object's last_name
+        email:
+          type: string
+          description: A string that represents the User object's email
+    InviteUserPayload:
+      type: object
+      description: Payload schema for the Invite User object
+      required:
+      - team
+      - user_detail
+      properties:
+        team:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
+        user_detail:
+          type: object
+          description: User object schema
+          properties:
+            first_name:
+              type: string
+              description: A string that represents the User object's first_name
+            last_name:
+              type: string
+              description: A string that represents the User object's last_name
+            email:
+              type: string
+              description: A string that represents the User object's email
+            role:
+              type: integer
+              description: An integer that represents the Account Member object's role
+    AccountMember:
+      type: object
+      description: Account Member object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Account Member object's unique_id
+        time_zone:
+          type: string
+          default: UTC
+          description: A formatted string that represents the Account Member object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
+        user:
+          $ref: '#/components/schemas/User'
+        joining_date:
+          type: string
+          description: A formatted string that represents the Account Member object's joining_date
+        role:
+          type: integer
+          default: 3
+          description: An integer that represents the Account Member object's role. 1 is owner, 2 is admin and 3 is user
+        is_verified:
+          type: boolean
+          default: false
+          description: A boolean flag that represents the Account Member object's verification
+    DeleteUserPayload:
+      type: object
+      description: Payload schema for the Delete User object
+      required:
+      - username
+      properties:
+        username:
+          type: string
+          description: A system-generated string that represents the User object's username
+    TeamMember:
+      type: object
+      description: Team Member object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Team Member object's unique_id
+        team:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
+        user:
+          $ref: '#/components/schemas/User'
+        joining_date:
+          type: string
+          format: datetime
+          description: A formatted string that represents the Team Member object's joining_date
+        role:
+          type: integer
+          default: 2
+          description: An integer that represents the Team Member object's role. 1 is manager and 2 is user
+    AccountMemberPayload:
+      type: object
+      description: Payload schema for the Account Member object
+      required:
+      - user
+      properties:
+        time_zone:
+          type: string
+          default: UTC
+          description: A formatted string that represents the Account Member object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
+        user:
+          $ref: '#/components/schemas/User'
+        role:
+          type: integer
+          default: 3
+          description: An integer that represents the Account Member object's role. 1 is owner, 2 is admin and 3 is user
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token <api_key>

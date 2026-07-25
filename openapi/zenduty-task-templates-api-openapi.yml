@@ -1,0 +1,408 @@
+openapi: 3.0.0
+info:
+  version: 1.1.0
+  title: Zenduty Account Custom Role Task Templates API
+  termsOfService: https://zenduty.com
+  contact:
+    email: vishwa@zenduty.com
+  license:
+    name: Apache 2.0
+  x-logo:
+    url: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9Ii05OC4zIDE3My43IDIwNi4zIDUzLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgLTk4LjMgMTczLjcgMjA2LjMgNTMuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzBGMTcyQTt9DQoJLnN0MXtmaWxsOiNGRDlBMDA7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMjksMjEwLjJoNi4zYzIuNywwLDQuOSwyLjIsNC45LDQuOWgtMTguMWMwLTUuMyw0LjEtOS40LDcuOS0xMy4xbDMuOC0zLjdoLTcuMWMtMi41LDAtNC42LTIuMS00LjYtNC42aDE4DQoJYzAsNS4zLTQuMSw5LjQtNy44LDEzLjJMLTI5LDIxMC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTMuNywyMDUuOGgtMTUuNWMwLjEsMS41LDAuNiwyLjcsMS42LDMuNmMwLjksMC45LDIuMSwxLjIsMy41LDEuMmMyLDAsMy40LTAuOSw0LjMtMi41aDUuOA0KCWMtMC42LDItMS44LDMuNi0zLjUsNC45Yy0xLjgsMS4yLTMuOSwyLTYuNCwyYy0yLDAtMy45LTAuNS01LjUtMS40Yy0xLjYtMC45LTIuOS0yLjEtMy44LTMuN2MtMC45LTEuNi0xLjQtMy40LTEuNC01LjcNCgljMC0yLjEsMC41LTQuMSwxLjQtNS43YzAuOS0xLjYsMi4xLTIuOCwzLjgtMy43YzEuNi0wLjksMy40LTEuNCw1LjUtMS40YzIsMCwzLjgsMC40LDUuNCwxLjJjMS42LDAuOSwyLjgsMi4xLDMuNywzLjYNCgljMC45LDEuNiwxLjMsMy4zLDEuMyw1LjRDMy44LDIwNC42LDMuOCwyMDUuMiwzLjcsMjA1Ljh6IE0tMS43LDIwMi4yYzAtMS40LTAuNS0yLjUtMS41LTMuMmMtMS0wLjktMi4xLTEuMi0zLjUtMS4yDQoJYy0xLjQsMC0yLjQsMC40LTMuNCwxLjJjLTAuOSwwLjctMS41LDEuOC0xLjYsMy4zaDEwLjFWMjAyLjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcuOSwxOTguNGMwLjktMS42LDItMi45LDMuNS0zLjhjMS41LTAuOSwzLjEtMS40LDQuOS0xLjRjMS40LDAsMi42LDAuMywzLjksMC45YzEuMywwLjYsMi4zLDEuNCwzLDIuNHYtMTYuNw0KCWg1LjR2MzVoLTUuNHYtMy4xYy0wLjYsMS0xLjYsMS45LTIuOCwyLjVjLTEuMywwLjYtMi42LDEtNC4yLDFjLTEuOCwwLTMuNC0wLjUtNC45LTEuNGMtMS41LTAuOS0yLjYtMi4zLTMuNS0zLjkNCgljLTAuOS0xLjYtMS4zLTMuNS0xLjMtNS44QzI2LjYsMjAyLDI3LDIwMCwyNy45LDE5OC40eiBNNDIuNSwyMDAuOWMtMC41LTAuOS0xLjMtMS42LTItMi4xYy0wLjktMC41LTEuOC0wLjgtMi44LTAuOA0KCWMtMSwwLTEuOSwwLjMtMi44LDAuOGMtMC45LDAuNS0xLjUsMS4xLTIsMi4xYy0wLjUsMC45LTAuOCwyLTAuOCwzLjNjMCwxLjMsMC4zLDIuNCwwLjgsMy40YzAuNSwxLDEuMywxLjYsMiwyLjENCgljMC45LDAuNSwxLjgsMC44LDIuOCwwLjhjMSwwLDEuOS0wLjMsMi44LTAuOGMwLjktMC41LDEuNS0xLjMsMi0yLjFjMC41LTAuOSwwLjgtMiwwLjgtMy40UzQzLDIwMS44LDQyLjUsMjAwLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUuNCwyMDQuM3YxMC42aC01di0xMC42YzAtMi0wLjUtMy41LTEuNS00LjVjLTEtMS4xLTIuMS0xLjYtMy41LTEuNnMtMi41LDAuNS0zLjUsMS42DQoJYy0wLjksMS0xLjQsMi42LTEuNCw0LjV2MTAuNkg1LjV2LTEwLjZjMC0yLjEsMC41LTQsMS4zLTUuN2MwLjktMS42LDItMi45LDMuNS0zLjhzMy4xLTEuNCw1LTEuNHMzLjUsMC41LDUsMS40DQoJYzEuNSwwLjksMi42LDIuMSwzLjUsMy44QzI0LjksMjAwLjMsMjUuNCwyMDIuMiwyNS40LDIwNC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTUxLjMsMjA0LjF2LTEwLjRoNXYxMC40YzAsMiwwLjUsMy41LDEuNSw0LjVjMSwxLjEsMi4xLDEuNiwzLjUsMS42YzEuNCwwLDIuNS0wLjUsMy41LTEuNg0KCWMwLjktMSwxLjQtMi42LDEuNC00LjV2LTEwLjRoNC45djEwLjRjMCwyLjEtMC41LDQtMS4zLDUuN2MtMC45LDEuNi0yLDIuOS0zLjUsMy44Yy0xLjUsMC45LTMuMSwxLjQtNSwxLjRzLTMuNS0wLjUtNS0xLjQNCgljLTEuNS0wLjktMi42LTIuMS0zLjUtMy44QzUxLjcsMjA4LjEsNTEuMywyMDYuMiw1MS4zLDIwNC4xeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTgwLjcsMTk4djEwLjJjMCwwLjgsMC4xLDEuMywwLjUsMS41YzAuNCwwLjQsMC45LDAuNSwxLjgsMC41aDIuNXY0LjVoLTMuNGMtNC41LDAtNi44LTIuMS02LjgtNi41VjE5OGgtNS4xDQoJdi00LjRoNS4xdi04LjdoNS40djguN2g0LjhsMi42LDQuNEg4MC43eiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwNy40LDE5My42bC04LjcsMjAuNmwtNSwxMS44aC01LjdsNS4xLTExLjhsLTguNC0yMC42aDZsNS40LDE0LjdsNS41LTE0LjdIMTA3LjR6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTY2LjksMTg5LjJjLTEuOSwwLTQuNy0yLjEtNC43LTQuOHYtMy42YzAtMi43LDAuOC00LjgsNC43LTQuOGMzLjksMCw0LjcsMi4xLDQuNyw0Ljh2My42DQoJQy02Mi4yLDE4Ny4xLTY1LDE4OS4yLTY2LjksMTg5LjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTM3LjcsMjIzaC0yMS41bDMuOC0xMS40bDAuNy0xLjhjNC4yLDEuNywxMy4xLDcuMiwxNy43LDExLjZDLTM2LjQsMjIyLjEtMzYuOCwyMjMtMzcuNywyMjN6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTU3LjMsMTkyLjlsLTE1LjksMTAuNGMtNC4yLTIuNS05LjItNS45LTEyLjItOC44Yy0wLjYtMC42LTAuMi0xLjUsMC43LTEuNUgtNTcuM3oiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0tNDguNiwxOTQuM2wtNiwxNS42bC0wLjcsMS44bC0zLjgsMTEuNEgtOTZjLTAuOCwwLTEuMy0wLjktMC44LTEuNWMwLjktMS4yLDEuOC0yLjMsMi43LTMuMw0KCWMyLjEtMi4yLDQuNC00LjEsNi45LTUuOGwwLjEtMC4xYzAuOC0wLjYsMS42LTEuMSwyLjQtMS42bDExLjQtNy40bDE1LjktMTAuNGg3LjdDLTQ4LjgsMTkyLjktNDguNCwxOTMuNi00OC42LDE5NC4zeiIvPg0KPC9zdmc+DQo=
+  description: "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n"
+servers:
+- url: https://www.zenduty.com
+security:
+- bearerAuth: []
+tags:
+- name: Task Templates
+  description: This object represents the task templates of the team. You can checkout the task template docs here https://docs.zenduty.com/docs/tasktemplates
+paths:
+  /api/account/teams/{}/task_templates/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    post:
+      tags:
+      - Task Templates
+      summary: Create the Task Template object
+      description: Create the Template object object by setting the values of all the required parameters passed in the request body.
+      requestBody:
+        description: Request body parameters to create the Task Template object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TTPayload'
+            example:
+              name: New Infra Task Template
+              summary: This is the summary for New Infra Task Template
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TTPayload'
+            example:
+              name: New Infra Task Template
+              summary: This is the summary for New Infra Task Template
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskTemplatePostPut'
+              example:
+                unique_id: 94d836f1-4fda-4124-a339-ba7975a15559
+                name: New Infra Task Template
+                creation_date: '2022-07-08T14:22:08.597518Z'
+                summary: This is the summary for New Infra Task Template
+                due_immediately: 0
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaskTemplatePostPut'
+              example:
+                unique_id: 94d836f1-4fda-4124-a339-ba7975a15559
+                name: New Infra Task Template
+                creation_date: '2022-07-08T14:22:08.597518Z'
+                summary: This is the summary for New Infra Task Template
+                due_immediately: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    get:
+      tags:
+      - Task Templates
+      summary: List all Task Template objects
+      description: Returns a list of Task Templat objects. The Task Templat objects are sorted by creation_date, with the most recent Task Templat object appearing last.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskTemplateGet'
+              example:
+              - unique_id: 8d2640ca-c6ef-45f0-be5f-61dedcf85032
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                name: Infra Task Template
+                creation_date: '2022-07-08T12:26:47.700733Z'
+                summary: This is the summary for Infra Task Template
+                due_immediately: 0
+              - unique_id: 94d836f1-4fda-4124-a339-ba7975a15559
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                name: New Infra Task Template
+                creation_date: '2022-07-08T14:22:08.597518Z'
+                summary: This is the summary for New Infra Task Template
+                due_immediately: 0
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaskTemplateGet'
+              example:
+              - unique_id: 8d2640ca-c6ef-45f0-be5f-61dedcf85032
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                name: Infra Task Template
+                creation_date: '2022-07-08T12:26:47.700733Z'
+                summary: This is the summary for Infra Task Template
+                due_immediately: 0
+              - unique_id: 94d836f1-4fda-4124-a339-ba7975a15559
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                name: New Infra Task Template
+                creation_date: '2022-07-08T14:22:08.597518Z'
+                summary: This is the summary for New Infra Task Template
+                due_immediately: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/teams/{team_id}/task_templates/{task_template_id}/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    - name: task_template_id
+      in: path
+      description: unique_id of the Task Template object
+      schema:
+        type: string
+      required: true
+    get:
+      tags:
+      - Task Templates
+      summary: Retrieve the Task Template object
+      description: Retrieve the specified Task Template object.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskTemplateGet'
+              example:
+                unique_id: 94d836f1-4fda-4124-a339-ba7975a15559
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                name: New Infra Task Template
+                creation_date: '2022-07-08T14:22:08.597518Z'
+                summary: This is the summary for New Infra Task Template
+                due_immediately: 0
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaskTemplateGet'
+              example:
+                unique_id: 94d836f1-4fda-4124-a339-ba7975a15559
+                team: 61010821-08aa-4098-94f8-f88f1990b54a
+                name: New Infra Task Template
+                creation_date: '2022-07-08T14:22:08.597518Z'
+                summary: This is the summary for New Infra Task Template
+                due_immediately: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    put:
+      tags:
+      - Task Templates
+      summary: Update the Task Template object
+      requestBody:
+        description: Request body parameters to update the Task Template object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TTPayload'
+            example:
+              name: Modified Infra Task Template
+              summary: This is the summary for Modified Infra Task Template
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TTPayload'
+            example:
+              name: Modified Infra Task Template
+              summary: This is the summary for Modified Infra Task Template
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskTemplatePostPut'
+              example:
+                unique_id: 94d836f1-4fda-4124-a339-ba7975a15559
+                name: Modified Infra Task Template
+                creation_date: '2022-07-08T14:22:08.597518Z'
+                summary: This is the summary for Modified Infra Task Template
+                due_immediately: 0
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaskTemplatePostPut'
+              example:
+                unique_id: 94d836f1-4fda-4124-a339-ba7975a15559
+                name: Modified Infra Task Template
+                creation_date: '2022-07-08T14:22:08.597518Z'
+                summary: This is the summary for Modified Infra Task Template
+                due_immediately: 0
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    delete:
+      tags:
+      - Task Templates
+      summary: Delete the Task Template object
+      description: Delete the specified Task Template object permanently.
+      responses:
+        '204':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+components:
+  schemas:
+    TaskTemplatePostPut:
+      type: object
+      description: Task Template object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Task Template object's unique_id
+        name:
+          type: string
+          description: A string that represents the Task Template object's name
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Task Template object's creation_date
+        summary:
+          type: string
+          description: A string that represents the Task Template object's summary
+        due_immediately:
+          type: integer
+          default: 0
+          description: An integer that represents whether the Task Template object is due immediately or not. 0 is false and 1 is true.
+    TaskTemplateGet:
+      type: object
+      description: Task Template object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Task Template object's unique_id
+        team:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
+        name:
+          type: string
+          description: A string that represents the Task Template object's name
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Task Template object's creation_date
+        summary:
+          type: string
+          description: A string that represents the Task Template object's summary
+        due_immediately:
+          type: integer
+          default: 0
+          description: An integer that represents whether the Task Template object is due immediately or not. 0 is false and 1 is true.
+    TTPayload:
+      type: object
+      description: Payload schema for the Task Template object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: A string that represents the Task Template object's name
+        summary:
+          type: string
+          description: A string that represents the Task Template object's summary
+        due_immediately:
+          type: integer
+          default: 0
+          description: An integer that represents whether the Task Template object is due immediately or not. 0 is false and 1 is true.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token <api_key>

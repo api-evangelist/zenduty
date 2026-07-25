@@ -1,0 +1,695 @@
+openapi: 3.0.0
+info:
+  version: 1.1.0
+  title: Zenduty Account Custom Role Alert Rules API
+  termsOfService: https://zenduty.com
+  contact:
+    email: vishwa@zenduty.com
+  license:
+    name: Apache 2.0
+  x-logo:
+    url: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9Ii05OC4zIDE3My43IDIwNi4zIDUzLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgLTk4LjMgMTczLjcgMjA2LjMgNTMuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzBGMTcyQTt9DQoJLnN0MXtmaWxsOiNGRDlBMDA7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMjksMjEwLjJoNi4zYzIuNywwLDQuOSwyLjIsNC45LDQuOWgtMTguMWMwLTUuMyw0LjEtOS40LDcuOS0xMy4xbDMuOC0zLjdoLTcuMWMtMi41LDAtNC42LTIuMS00LjYtNC42aDE4DQoJYzAsNS4zLTQuMSw5LjQtNy44LDEzLjJMLTI5LDIxMC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTMuNywyMDUuOGgtMTUuNWMwLjEsMS41LDAuNiwyLjcsMS42LDMuNmMwLjksMC45LDIuMSwxLjIsMy41LDEuMmMyLDAsMy40LTAuOSw0LjMtMi41aDUuOA0KCWMtMC42LDItMS44LDMuNi0zLjUsNC45Yy0xLjgsMS4yLTMuOSwyLTYuNCwyYy0yLDAtMy45LTAuNS01LjUtMS40Yy0xLjYtMC45LTIuOS0yLjEtMy44LTMuN2MtMC45LTEuNi0xLjQtMy40LTEuNC01LjcNCgljMC0yLjEsMC41LTQuMSwxLjQtNS43YzAuOS0xLjYsMi4xLTIuOCwzLjgtMy43YzEuNi0wLjksMy40LTEuNCw1LjUtMS40YzIsMCwzLjgsMC40LDUuNCwxLjJjMS42LDAuOSwyLjgsMi4xLDMuNywzLjYNCgljMC45LDEuNiwxLjMsMy4zLDEuMyw1LjRDMy44LDIwNC42LDMuOCwyMDUuMiwzLjcsMjA1Ljh6IE0tMS43LDIwMi4yYzAtMS40LTAuNS0yLjUtMS41LTMuMmMtMS0wLjktMi4xLTEuMi0zLjUtMS4yDQoJYy0xLjQsMC0yLjQsMC40LTMuNCwxLjJjLTAuOSwwLjctMS41LDEuOC0xLjYsMy4zaDEwLjFWMjAyLjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcuOSwxOTguNGMwLjktMS42LDItMi45LDMuNS0zLjhjMS41LTAuOSwzLjEtMS40LDQuOS0xLjRjMS40LDAsMi42LDAuMywzLjksMC45YzEuMywwLjYsMi4zLDEuNCwzLDIuNHYtMTYuNw0KCWg1LjR2MzVoLTUuNHYtMy4xYy0wLjYsMS0xLjYsMS45LTIuOCwyLjVjLTEuMywwLjYtMi42LDEtNC4yLDFjLTEuOCwwLTMuNC0wLjUtNC45LTEuNGMtMS41LTAuOS0yLjYtMi4zLTMuNS0zLjkNCgljLTAuOS0xLjYtMS4zLTMuNS0xLjMtNS44QzI2LjYsMjAyLDI3LDIwMCwyNy45LDE5OC40eiBNNDIuNSwyMDAuOWMtMC41LTAuOS0xLjMtMS42LTItMi4xYy0wLjktMC41LTEuOC0wLjgtMi44LTAuOA0KCWMtMSwwLTEuOSwwLjMtMi44LDAuOGMtMC45LDAuNS0xLjUsMS4xLTIsMi4xYy0wLjUsMC45LTAuOCwyLTAuOCwzLjNjMCwxLjMsMC4zLDIuNCwwLjgsMy40YzAuNSwxLDEuMywxLjYsMiwyLjENCgljMC45LDAuNSwxLjgsMC44LDIuOCwwLjhjMSwwLDEuOS0wLjMsMi44LTAuOGMwLjktMC41LDEuNS0xLjMsMi0yLjFjMC41LTAuOSwwLjgtMiwwLjgtMy40UzQzLDIwMS44LDQyLjUsMjAwLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUuNCwyMDQuM3YxMC42aC01di0xMC42YzAtMi0wLjUtMy41LTEuNS00LjVjLTEtMS4xLTIuMS0xLjYtMy41LTEuNnMtMi41LDAuNS0zLjUsMS42DQoJYy0wLjksMS0xLjQsMi42LTEuNCw0LjV2MTAuNkg1LjV2LTEwLjZjMC0yLjEsMC41LTQsMS4zLTUuN2MwLjktMS42LDItMi45LDMuNS0zLjhzMy4xLTEuNCw1LTEuNHMzLjUsMC41LDUsMS40DQoJYzEuNSwwLjksMi42LDIuMSwzLjUsMy44QzI0LjksMjAwLjMsMjUuNCwyMDIuMiwyNS40LDIwNC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTUxLjMsMjA0LjF2LTEwLjRoNXYxMC40YzAsMiwwLjUsMy41LDEuNSw0LjVjMSwxLjEsMi4xLDEuNiwzLjUsMS42YzEuNCwwLDIuNS0wLjUsMy41LTEuNg0KCWMwLjktMSwxLjQtMi42LDEuNC00LjV2LTEwLjRoNC45djEwLjRjMCwyLjEtMC41LDQtMS4zLDUuN2MtMC45LDEuNi0yLDIuOS0zLjUsMy44Yy0xLjUsMC45LTMuMSwxLjQtNSwxLjRzLTMuNS0wLjUtNS0xLjQNCgljLTEuNS0wLjktMi42LTIuMS0zLjUtMy44QzUxLjcsMjA4LjEsNTEuMywyMDYuMiw1MS4zLDIwNC4xeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTgwLjcsMTk4djEwLjJjMCwwLjgsMC4xLDEuMywwLjUsMS41YzAuNCwwLjQsMC45LDAuNSwxLjgsMC41aDIuNXY0LjVoLTMuNGMtNC41LDAtNi44LTIuMS02LjgtNi41VjE5OGgtNS4xDQoJdi00LjRoNS4xdi04LjdoNS40djguN2g0LjhsMi42LDQuNEg4MC43eiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwNy40LDE5My42bC04LjcsMjAuNmwtNSwxMS44aC01LjdsNS4xLTExLjhsLTguNC0yMC42aDZsNS40LDE0LjdsNS41LTE0LjdIMTA3LjR6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTY2LjksMTg5LjJjLTEuOSwwLTQuNy0yLjEtNC43LTQuOHYtMy42YzAtMi43LDAuOC00LjgsNC43LTQuOGMzLjksMCw0LjcsMi4xLDQuNyw0Ljh2My42DQoJQy02Mi4yLDE4Ny4xLTY1LDE4OS4yLTY2LjksMTg5LjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTM3LjcsMjIzaC0yMS41bDMuOC0xMS40bDAuNy0xLjhjNC4yLDEuNywxMy4xLDcuMiwxNy43LDExLjZDLTM2LjQsMjIyLjEtMzYuOCwyMjMtMzcuNywyMjN6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTU3LjMsMTkyLjlsLTE1LjksMTAuNGMtNC4yLTIuNS05LjItNS45LTEyLjItOC44Yy0wLjYtMC42LTAuMi0xLjUsMC43LTEuNUgtNTcuM3oiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0tNDguNiwxOTQuM2wtNiwxNS42bC0wLjcsMS44bC0zLjgsMTEuNEgtOTZjLTAuOCwwLTEuMy0wLjktMC44LTEuNWMwLjktMS4yLDEuOC0yLjMsMi43LTMuMw0KCWMyLjEtMi4yLDQuNC00LjEsNi45LTUuOGwwLjEtMC4xYzAuOC0wLjYsMS42LTEuMSwyLjQtMS42bDExLjQtNy40bDE1LjktMTAuNGg3LjdDLTQ4LjgsMTkyLjktNDguNCwxOTMuNi00OC42LDE5NC4zeiIvPg0KPC9zdmc+DQo=
+  description: "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n"
+servers:
+- url: https://www.zenduty.com
+security:
+- bearerAuth: []
+tags:
+- name: Alert Rules
+  description: Alert Rules in Zenduty are advanced conditions for incoming alerts. They dictate how Zenduty handles alerts and their incidents upon receipt, altering behavior and routing based on predefined rules and actions set by the user within Zenduty Integrations.Visit this link to view the documentation for the alert rules https://www.zenduty.com/docs/alertrules/
+paths:
+  /api/account/teams/{team_id}/services/{service_id}/integrations/{integration_id}/transformers/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    - name: service_id
+      in: path
+      description: unique_id of the Service object
+      schema:
+        type: string
+      required: true
+    - name: integration_id
+      in: path
+      description: unique_id of the Integration object
+      schema:
+        type: string
+      required: true
+    post:
+      tags:
+      - Alert Rules
+      summary: Create the Alert Rule object
+      description: Create the Alert Rule object by setting the values of all the required parameters passed in the request body.
+      requestBody:
+        description: Request body parameters to create the Alert Rule object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertTransformerPayload'
+            example:
+              actions:
+              - unique_id: 992d6573-fb54-4a2b-8d5a-82619d477c3e
+                action_type: 9
+                key: ''
+                value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                escalation_policy: null
+                schedule: null
+                assign_to: null
+                task_template: null
+              description: Add links to alert summary
+              rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AlertTransformerPayload'
+            example:
+              actions:
+              - unique_id: 992d6573-fb54-4a2b-8d5a-82619d477c3e
+                action_type: 9
+                key: ''
+                value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                escalation_policy: null
+                schedule: null
+                assign_to: null
+                task_template: null
+              description: Add links to alert summary
+              rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertTransformer'
+              example:
+                rule_type: 0
+                unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+                description: Add links to alert summary
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: 13eddca2-38a2-4efd-a8a9-08adcb036416
+                  action_type: 9
+                  key: ''
+                  value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AlertTransformer'
+              example:
+                rule_type: 0
+                unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+                description: Add links to alert summary
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: 13eddca2-38a2-4efd-a8a9-08adcb036416
+                  action_type: 9
+                  key: ''
+                  value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    get:
+      tags:
+      - Alert Rules
+      summary: List all Alert Rules objects
+      description: Returns a list of Alert Rules objects.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertTransformer'
+              example:
+              - rule_type: 0
+                unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+                description: Add links to alert summary
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: 13eddca2-38a2-4efd-a8a9-08adcb036416
+                  action_type: 9
+                  key: ''
+                  value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+              - rule_type: 0
+                unique_id: ec73021b-1017-4909-a85f-ff9ad04f38db
+                description: Create Incident for every alert
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: 55754d02-b91a-4138-81fe-5b3b7b01a51e
+                  action_type: 10
+                  key: ''
+                  value: ''
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AlertTransformer'
+              example:
+              - rule_type: 0
+                unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+                description: Add links to alert summary
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: 13eddca2-38a2-4efd-a8a9-08adcb036416
+                  action_type: 9
+                  key: ''
+                  value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+              - rule_type: 0
+                unique_id: ec73021b-1017-4909-a85f-ff9ad04f38db
+                description: Create Incident for every alert
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: 55754d02-b91a-4138-81fe-5b3b7b01a51e
+                  action_type: 10
+                  key: ''
+                  value: ''
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/account/teams/{team_id}/services/{service_id}/integrations/{integration_id}/transformers/{transformers_id}/:
+    parameters:
+    - name: team_id
+      in: path
+      description: unique_id of the Team object
+      schema:
+        type: string
+      required: true
+    - name: service_id
+      in: path
+      description: unique_id of the Service object
+      schema:
+        type: string
+      required: true
+    - name: integration_id
+      in: path
+      description: unique_id of the Integration object
+      schema:
+        type: string
+      required: true
+    - name: transformers_id
+      in: path
+      description: unique_id of the Alert Rule object
+      schema:
+        type: string
+      required: true
+    get:
+      tags:
+      - Alert Rules
+      summary: Retrieve the Alert Rule object
+      description: Retrieve the specified Alert Rule object.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertTransformer'
+              example:
+                rule_type: 0
+                unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+                description: Add links to alert summary
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: 13eddca2-38a2-4efd-a8a9-08adcb036416
+                  action_type: 9
+                  key: ''
+                  value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AlertTransformer'
+              example:
+                rule_type: 0
+                unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+                description: Add links to alert summary
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: 13eddca2-38a2-4efd-a8a9-08adcb036416
+                  action_type: 9
+                  key: ''
+                  value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    patch:
+      tags:
+      - Alert Rules
+      summary: Update the Alert Rule data
+      description: Updates the specified Alert Rule object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged.
+      requestBody:
+        description: Request body parameters to update the Alert Rule object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlertTransformerPayload'
+            example:
+              rule_type: 0
+              unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+              description: Add links to alert summary updated
+              stop: false
+              position: 1
+              conditions: []
+              actions:
+              - unique_id: 13eddca2-38a2-4efd-a8a9-08adcb036416
+                action_type: 9
+                key: ''
+                value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                value_reference_name: null
+                escalation_policy: null
+                escalation_policy_name: null
+                assign_to: null
+                assign_to_name: null
+                schedule: null
+                sla: null
+                team_priority: null
+                task_template: null
+              rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AlertTransformerPayload'
+            example:
+              rule_type: 0
+              unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+              description: Add links to alert summary updated
+              stop: false
+              position: 1
+              conditions: []
+              actions:
+              - unique_id: 13eddca2-38a2-4efd-a8a9-08adcb036416
+                action_type: 9
+                key: ''
+                value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                value_reference_name: null
+                escalation_policy: null
+                escalation_policy_name: null
+                assign_to: null
+                assign_to_name: null
+                schedule: null
+                sla: null
+                team_priority: null
+                task_template: null
+              rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertTransformer'
+              example:
+                rule_type: 0
+                unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+                description: Add links to alert summary updated
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: c6d6028b-74f3-4f51-b748-b14f207e380f
+                  action_type: 9
+                  key: ''
+                  value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AlertTransformer'
+              example:
+                rule_type: 0
+                unique_id: 8de24581-eade-4b50-a7f0-ac20594fde98
+                description: Add links to alert summary updated
+                stop: false
+                position: 1
+                conditions: []
+                actions:
+                - unique_id: c6d6028b-74f3-4f51-b748-b14f207e380f
+                  action_type: 9
+                  key: ''
+                  value: '{{summary}} https://www.zenduty.com/docs/alertrules/'
+                  value_reference_name: null
+                  escalation_policy: null
+                  escalation_policy_name: null
+                  assign_to: null
+                  assign_to_name: null
+                  schedule: null
+                  sla: null
+                  team_priority: null
+                  task_template: null
+                rule_json: '{"type":"group","id":"9a99988a-0123-4456-b89a-b1607f326fd8","children1":{"898aa9ba-0123-4456-b89a-b16a429f5d94":{"type":"rule","id":"898aa9ba-0123-4456-b89a-b16a429f5d94","properties":{"field":"alert.message","operator":"is_not_empty","value":[],"valueSrc":[],"operatorOptions":null,"valueType":[]},"path":["9a99988a-0123-4456-b89a-b1607f326fd8","898aa9ba-0123-4456-b89a-b16a429f5d94"]}},"properties":{"conjunction":"AND","not":false},"path":["9a99988a-0123-4456-b89a-b1607f326fd8"]}'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+    delete:
+      tags:
+      - Alert Rules
+      summary: Delete the Alert Rule object
+      description: Delete the specified Alert Rule object permanently.
+      responses:
+        '204':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+components:
+  schemas:
+    AlertTransformer:
+      type: object
+      description: Alert Transformer Action object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Alert Transformer unique_id
+        description:
+          type: string
+          description: A string that represents the Alert Transformer object's description
+        actions:
+          type: array
+          description: An array of Alert Transformer Action objects
+          items:
+            $ref: '#/components/schemas/AlertTransformerAction'
+        rule_json:
+          type: string
+          description: A string that represents the all the conditions of the alert rule
+    AlertTransformerPayload:
+      type: object
+      description: Alert Transformer Action object payload schema
+      properties:
+        description:
+          type: string
+          description: A string that represents the Alert Transformer object's description
+        actions:
+          type: array
+          description: An array of Alert Transformer Action objects
+          items:
+            $ref: '#/components/schemas/AlertTransformerActionPayload'
+        rule_json:
+          type: string
+          description: A string that represents the all the conditions of the alert rule
+    AlertTransformerActionPayload:
+      type: object
+      description: Alert Transformer Action payload object schema
+      properties:
+        action_type:
+          type: integer
+          description: An integer that represents the Alert Transformer Action object's action_type in an Alert Rule
+        key:
+          type: string
+          description: A string that represents the Alert Transformer Action object's key
+        value:
+          type: string
+          description: A system-generated string that represents the User object username or Schedule object unique_id
+        value_reference_name:
+          type: string
+          description: A string that represents the name of the responder(user or schedule)
+        escalation_policy:
+          type: string
+          description: A system-generated string that represents the Escalation Policy object's unique_id
+        escalation_policy_name:
+          type: string
+          description: A string that represents the Escalation Policy object's name
+        assign_to:
+          type: string
+          description: A system-generated string that represents the User object's username
+        assign_to_name:
+          type: string
+          description: A string that represents the name of the assignee
+        schedule:
+          type: string
+          description: A system-generated string that represents the Schedule object's unique_id
+        sla:
+          type: string
+          description: A system-generated string that represents the Team SLA object's unique_id
+        team_priority:
+          type: string
+          description: A system-generated string that represents the Team Priority object's unique_id
+        task_template:
+          type: string
+          description: A system-generated string that represents the Task Template object's unique_id
+    AlertTransformerAction:
+      type: object
+      description: Alert Transformer Action object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Alert Transformer Action object's unique_id
+        action_type:
+          type: integer
+          description: An integer that represents the Alert Transformer Action object's action_type in an Alert Rule
+        key:
+          type: string
+          description: A string that represents the Alert Transformer Action object's key
+        value:
+          type: string
+          description: A system-generated string that represents the User object username or Schedule object unique_id
+        value_reference_name:
+          type: string
+          description: A string that represents the name of the responder(user or schedule)
+        escalation_policy:
+          type: string
+          description: A system-generated string that represents the Escalation Policy object's unique_id
+        escalation_policy_name:
+          type: string
+          description: A string that represents the Escalation Policy object's name
+        assign_to:
+          type: string
+          description: A system-generated string that represents the User object's username
+        assign_to_name:
+          type: string
+          description: A string that represents the name of the assignee
+        schedule:
+          type: string
+          description: A system-generated string that represents the Schedule object's unique_id
+        sla:
+          type: string
+          description: A system-generated string that represents the Team SLA object's unique_id
+        team_priority:
+          type: string
+          description: A system-generated string that represents the Team Priority object's unique_id
+        task_template:
+          type: string
+          description: A system-generated string that represents the Task Template object's unique_id
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token <api_key>

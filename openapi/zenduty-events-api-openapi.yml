@@ -1,0 +1,646 @@
+openapi: 3.0.0
+info:
+  version: 1.1.0
+  title: Zenduty Account Custom Role Events API
+  termsOfService: https://zenduty.com
+  contact:
+    email: vishwa@zenduty.com
+  license:
+    name: Apache 2.0
+  x-logo:
+    url: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9Ii05OC4zIDE3My43IDIwNi4zIDUzLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgLTk4LjMgMTczLjcgMjA2LjMgNTMuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzBGMTcyQTt9DQoJLnN0MXtmaWxsOiNGRDlBMDA7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMjksMjEwLjJoNi4zYzIuNywwLDQuOSwyLjIsNC45LDQuOWgtMTguMWMwLTUuMyw0LjEtOS40LDcuOS0xMy4xbDMuOC0zLjdoLTcuMWMtMi41LDAtNC42LTIuMS00LjYtNC42aDE4DQoJYzAsNS4zLTQuMSw5LjQtNy44LDEzLjJMLTI5LDIxMC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTMuNywyMDUuOGgtMTUuNWMwLjEsMS41LDAuNiwyLjcsMS42LDMuNmMwLjksMC45LDIuMSwxLjIsMy41LDEuMmMyLDAsMy40LTAuOSw0LjMtMi41aDUuOA0KCWMtMC42LDItMS44LDMuNi0zLjUsNC45Yy0xLjgsMS4yLTMuOSwyLTYuNCwyYy0yLDAtMy45LTAuNS01LjUtMS40Yy0xLjYtMC45LTIuOS0yLjEtMy44LTMuN2MtMC45LTEuNi0xLjQtMy40LTEuNC01LjcNCgljMC0yLjEsMC41LTQuMSwxLjQtNS43YzAuOS0xLjYsMi4xLTIuOCwzLjgtMy43YzEuNi0wLjksMy40LTEuNCw1LjUtMS40YzIsMCwzLjgsMC40LDUuNCwxLjJjMS42LDAuOSwyLjgsMi4xLDMuNywzLjYNCgljMC45LDEuNiwxLjMsMy4zLDEuMyw1LjRDMy44LDIwNC42LDMuOCwyMDUuMiwzLjcsMjA1Ljh6IE0tMS43LDIwMi4yYzAtMS40LTAuNS0yLjUtMS41LTMuMmMtMS0wLjktMi4xLTEuMi0zLjUtMS4yDQoJYy0xLjQsMC0yLjQsMC40LTMuNCwxLjJjLTAuOSwwLjctMS41LDEuOC0xLjYsMy4zaDEwLjFWMjAyLjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcuOSwxOTguNGMwLjktMS42LDItMi45LDMuNS0zLjhjMS41LTAuOSwzLjEtMS40LDQuOS0xLjRjMS40LDAsMi42LDAuMywzLjksMC45YzEuMywwLjYsMi4zLDEuNCwzLDIuNHYtMTYuNw0KCWg1LjR2MzVoLTUuNHYtMy4xYy0wLjYsMS0xLjYsMS45LTIuOCwyLjVjLTEuMywwLjYtMi42LDEtNC4yLDFjLTEuOCwwLTMuNC0wLjUtNC45LTEuNGMtMS41LTAuOS0yLjYtMi4zLTMuNS0zLjkNCgljLTAuOS0xLjYtMS4zLTMuNS0xLjMtNS44QzI2LjYsMjAyLDI3LDIwMCwyNy45LDE5OC40eiBNNDIuNSwyMDAuOWMtMC41LTAuOS0xLjMtMS42LTItMi4xYy0wLjktMC41LTEuOC0wLjgtMi44LTAuOA0KCWMtMSwwLTEuOSwwLjMtMi44LDAuOGMtMC45LDAuNS0xLjUsMS4xLTIsMi4xYy0wLjUsMC45LTAuOCwyLTAuOCwzLjNjMCwxLjMsMC4zLDIuNCwwLjgsMy40YzAuNSwxLDEuMywxLjYsMiwyLjENCgljMC45LDAuNSwxLjgsMC44LDIuOCwwLjhjMSwwLDEuOS0wLjMsMi44LTAuOGMwLjktMC41LDEuNS0xLjMsMi0yLjFjMC41LTAuOSwwLjgtMiwwLjgtMy40UzQzLDIwMS44LDQyLjUsMjAwLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUuNCwyMDQuM3YxMC42aC01di0xMC42YzAtMi0wLjUtMy41LTEuNS00LjVjLTEtMS4xLTIuMS0xLjYtMy41LTEuNnMtMi41LDAuNS0zLjUsMS42DQoJYy0wLjksMS0xLjQsMi42LTEuNCw0LjV2MTAuNkg1LjV2LTEwLjZjMC0yLjEsMC41LTQsMS4zLTUuN2MwLjktMS42LDItMi45LDMuNS0zLjhzMy4xLTEuNCw1LTEuNHMzLjUsMC41LDUsMS40DQoJYzEuNSwwLjksMi42LDIuMSwzLjUsMy44QzI0LjksMjAwLjMsMjUuNCwyMDIuMiwyNS40LDIwNC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTUxLjMsMjA0LjF2LTEwLjRoNXYxMC40YzAsMiwwLjUsMy41LDEuNSw0LjVjMSwxLjEsMi4xLDEuNiwzLjUsMS42YzEuNCwwLDIuNS0wLjUsMy41LTEuNg0KCWMwLjktMSwxLjQtMi42LDEuNC00LjV2LTEwLjRoNC45djEwLjRjMCwyLjEtMC41LDQtMS4zLDUuN2MtMC45LDEuNi0yLDIuOS0zLjUsMy44Yy0xLjUsMC45LTMuMSwxLjQtNSwxLjRzLTMuNS0wLjUtNS0xLjQNCgljLTEuNS0wLjktMi42LTIuMS0zLjUtMy44QzUxLjcsMjA4LjEsNTEuMywyMDYuMiw1MS4zLDIwNC4xeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTgwLjcsMTk4djEwLjJjMCwwLjgsMC4xLDEuMywwLjUsMS41YzAuNCwwLjQsMC45LDAuNSwxLjgsMC41aDIuNXY0LjVoLTMuNGMtNC41LDAtNi44LTIuMS02LjgtNi41VjE5OGgtNS4xDQoJdi00LjRoNS4xdi04LjdoNS40djguN2g0LjhsMi42LDQuNEg4MC43eiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwNy40LDE5My42bC04LjcsMjAuNmwtNSwxMS44aC01LjdsNS4xLTExLjhsLTguNC0yMC42aDZsNS40LDE0LjdsNS41LTE0LjdIMTA3LjR6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTY2LjksMTg5LjJjLTEuOSwwLTQuNy0yLjEtNC43LTQuOHYtMy42YzAtMi43LDAuOC00LjgsNC43LTQuOGMzLjksMCw0LjcsMi4xLDQuNyw0Ljh2My42DQoJQy02Mi4yLDE4Ny4xLTY1LDE4OS4yLTY2LjksMTg5LjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTM3LjcsMjIzaC0yMS41bDMuOC0xMS40bDAuNy0xLjhjNC4yLDEuNywxMy4xLDcuMiwxNy43LDExLjZDLTM2LjQsMjIyLjEtMzYuOCwyMjMtMzcuNywyMjN6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTU3LjMsMTkyLjlsLTE1LjksMTAuNGMtNC4yLTIuNS05LjItNS45LTEyLjItOC44Yy0wLjYtMC42LTAuMi0xLjUsMC43LTEuNUgtNTcuM3oiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0tNDguNiwxOTQuM2wtNiwxNS42bC0wLjcsMS44bC0zLjgsMTEuNEgtOTZjLTAuOCwwLTEuMy0wLjktMC44LTEuNWMwLjktMS4yLDEuOC0yLjMsMi43LTMuMw0KCWMyLjEtMi4yLDQuNC00LjEsNi45LTUuOGwwLjEtMC4xYzAuOC0wLjYsMS42LTEuMSwyLjQtMS42bDExLjQtNy40bDE1LjktMTAuNGg3LjdDLTQ4LjgsMTkyLjktNDguNCwxOTMuNi00OC42LDE5NC4zeiIvPg0KPC9zdmc+DQo=
+  description: "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n"
+servers:
+- url: https://www.zenduty.com
+security:
+- bearerAuth: []
+tags:
+- name: Events
+  description: This object represents the events of an integration.
+paths:
+  /api/events/{integration_key}/:
+    parameters:
+    - name: integration_key
+      in: path
+      description: integration_key of the Integration object
+      schema:
+        type: string
+      required: true
+    post:
+      deprecated: true
+      tags:
+      - Events
+      summary: Create the Event object
+      description: Create the Event object by setting the values of all the required parameters passed in the request body.
+      requestBody:
+        description: Request body parameters to create the Event object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventPayload'
+            example:
+              alert_type: info
+              message: This is info alert
+              summary: This is the incident summary
+              entity_id: 12345
+              payload:
+                status: ACME Payments are failing
+                severity: '1'
+                project: kubeprod
+              urls:
+              - link_url: https://www.example.com/alerts/12345/
+                link_text: Alert URL
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EventPayload'
+            example:
+              alert_type: info
+              message: This is info alert
+              summary: This is the incident summary
+              entity_id: 12345
+              payload:
+                status: ACME Payments are failing
+                severity: '1'
+                project: kubeprod
+              urls:
+              - link_url: https://www.example.com/alerts/1234/
+                link_text: Alert URL
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+              example:
+                integration_object:
+                  name: API
+                  creation_date: '2022-11-14T14:08:56.089450Z'
+                  summary: Zenduty API integration
+                  unique_id: 828361de-681f-4f00-9420-07a185a83e46
+                  service: 1587103f-6ed2-4eac-8a56-866128df036f
+                  team: db61f7ed-ba78-4536-9b2d-256b135a731d
+                  integration_key: 082a1af8-064c-40a2-a99c-bc9c27d2042d
+                  is_enabled: true
+                  integration_type: 0
+                summary: This is the incident summary
+                incident: null
+                creation_date: '2023-04-05T12:40:35.405170Z'
+                message: This is info alert
+                integration: 828361de-681f-4f00-9420-07a185a83e46
+                suppressed: false
+                entity_id: '12345'
+                payload: {}
+                alert_type: '0'
+                unique_id: hD5dKNDyFDVADEYdrLViM7
+                images: []
+                urls:
+                - unique_id: b7cc93a2-6f64-46c6-bed7-2dd0504917f6
+                  link_url: https://www.example.com/alerts/1234/
+                  link_text: Alert URL
+                notes: []
+                incident_created: false
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Event'
+              example:
+                integration_object:
+                  name: API
+                  creation_date: '2022-11-14T14:08:56.089450Z'
+                  summary: Zenduty API integration
+                  unique_id: 828361de-681f-4f00-9420-07a185a83e46
+                  service: 1587103f-6ed2-4eac-8a56-866128df036f
+                  team: db61f7ed-ba78-4536-9b2d-256b135a731d
+                  integration_key: 082a1af8-064c-40a2-a99c-bc9c27d2042d
+                  is_enabled: true
+                  integration_type: 0
+                summary: This is the incident summary
+                incident: null
+                creation_date: '2023-04-05T12:40:35.405170Z'
+                message: This is info alert
+                integration: 828361de-681f-4f00-9420-07a185a83e46
+                suppressed: false
+                entity_id: '12345'
+                payload: {}
+                alert_type: '0'
+                unique_id: hD5dKNDyFDVADEYdrLViM7
+                images: []
+                urls:
+                - unique_id: b7cc93a2-6f64-46c6-bed7-2dd0504917f6
+                  link_url: https://www.example.com/alerts/1234/
+                  link_text: Alert URL
+                notes: []
+                incident_created: false
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                detail: This request can not be processed.
+            application/xml:
+              example:
+                detail: This request can not be processed.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /integration/{account_id}/generic/{integration_key}/:
+    servers:
+    - url: https://events.zenduty.com
+    parameters:
+    - name: account_id
+      in: path
+      description: 5 character long account identifier
+      schema:
+        type: string
+      required: true
+    - name: integration_key
+      in: path
+      description: integration_key of the Integration object
+      schema:
+        type: string
+      required: true
+    post:
+      tags:
+      - Events
+      summary: Create the Event object
+      description: Create the Event object by setting the values of all the required parameters passed in the request body.
+      requestBody:
+        description: Request body parameters to create the Event object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenericEventPayload'
+            example:
+              alert_type: info
+              message: This is info alert
+              summary: This is the incident summary
+              entity_id: 12345
+              payload:
+                status: ACME Payments are failing
+                severity: '1'
+                project: kubeprod
+              urls:
+              - link_url: https://www.example.com/alerts/12345/
+                link_text: Alert URL
+              sla: cfb927ec-8316-4464-8770-deca07f75b49
+              escalation_policy: 272841e2-2cbf-40a8-9a9a-64227fd3d722
+              priority: b535c8c0-7c75-4911-a9c6-27a3be2f2da9
+              stakeholders:
+                users:
+                - 85e1569d-79a4-4205-850f-a
+                - b80daf25-8a47-4365-baa4-0
+                teams:
+                - 4a106e05-09af-4aef-9439-40c6f4aaff0f
+                - c1de7905-352f-424a-b8d0-f84406f76314
+                emails:
+                - maryjane@sharklasers.com
+              tags:
+              - bdb4f470-b04b-4036-b8a4-5b66d9097b25
+              - ee99cc9c-a8ef-4a69-937c-07379e99d853
+              stakeholder_comms:
+                subject: 'New incident #12345 triggered'
+                body: We’re currently experiencing an incident affecting billing. Our team is actively working on it, and we’ll provide updates as soon as we have more information.
+                timezone: UTC
+                created_by: 85e1569d-79a4-4205-850f-a
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/GenericEventPayload'
+            example:
+              alert_type: info
+              message: This is info alert
+              summary: This is the incident summary
+              entity_id: 12345
+              payload:
+                status: ACME Payments are failing
+                severity: '1'
+                project: kubeprod
+              urls:
+              - link_url: https://www.example.com/alerts/1234/
+                link_text: Alert URL
+              sla: cfb927ec-8316-4464-8770-deca07f75b49
+              escalation_policy: 272841e2-2cbf-40a8-9a9a-64227fd3d722
+              priority: b535c8c0-7c75-4911-a9c6-27a3be2f2da9
+              stakeholders:
+                users:
+                - 85e1569d-79a4-4205-850f-a
+                - b80daf25-8a47-4365-baa4-0
+                teams:
+                - 4a106e05-09af-4aef-9439-40c6f4aaff0f
+                - c1de7905-352f-424a-b8d0-f84406f76314
+                emails:
+                - maryjane@sharklasers.com
+              tags:
+              - bdb4f470-b04b-4036-b8a4-5b66d9097b25
+              - ee99cc9c-a8ef-4a69-937c-07379e99d853
+              stakeholder_comms:
+                subject: 'New incident #12345 triggered'
+                body: We’re currently experiencing an incident affecting billing. Our team is actively working on it, and we’ll provide updates as soon as we have more information.
+                timezone: UTC
+                created_by: 85e1569d-79a4-4205-850f-a
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventV3'
+              example:
+                message: success
+                trace_id: 2f7c427c-3dd4-4bfc-84c5-74a1fb936df7
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EventV3'
+              example:
+                message: success
+                trace_id: 174f924aeb6ef4c944e20ebb9d71c2db
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              example:
+                error: This request can not be processed.
+            application/xml:
+              example:
+                error: This request can not be processed.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+  /api/alert/status/{trace_id}/:
+    servers:
+    - url: https://events.zenduty.com
+    parameters:
+    - name: trace_id
+      in: path
+      description: trace id of the alert object
+      schema:
+        type: string
+      required: true
+    get:
+      tags:
+      - Events
+      summary: Get the status of an Alert
+      description: Get the Alert object for specific trace id.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertStatus'
+              example:
+                status: completed
+                alert: JVPDBpGdpBQgRKdTGz2Qir
+                integration:
+                  name: API
+                incident:
+                  incident_number: 123
+                  unique_id: 22cWPt3h3REvZCkHVHNsfm
+                suppressed: false
+                is_incident_created: false
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AlertStatus'
+              example:
+                status: completed
+                alert: JVPDBpGdpBQgRKdTGz2Qir
+                integration:
+                  name: API
+                incident:
+                  incident_number: 123
+                  unique_id: 22cWPt3h3REvZCkHVHNsfm
+                suppressed: false
+                is_incident_created: false
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              example:
+                detail: You do not have permission to perform this action.
+            application/xml:
+              example:
+                detail: You do not have permission to perform this action.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                detail: Not Found.
+            application/xml:
+              example:
+                detail: Not Found.
+components:
+  schemas:
+    EventV3:
+      type: object
+      description: Event object schema
+      properties:
+        message:
+          description: success if alert processed successfully
+          type: string
+        trace_id:
+          description: unique id to trace an alert
+          type: string
+    Event:
+      type: object
+      description: Event object schema
+      properties:
+        integration_object:
+          description: Integration object schema for Event object schema
+          type: object
+          properties:
+            name:
+              type: string
+              description: A string that represents the Integration object's name
+            creation_date:
+              type: string
+              format: date-time
+              description: A formatted string that represents the Integration object's creation_date
+            summary:
+              type: string
+              description: A string that represents the Integration object's summary
+            unique_id:
+              type: string
+              description: A system-generated string that represents the Integration object's unique_id
+            service:
+              type: string
+              description: A system-generated string that represents the Service object's unique_id
+            team:
+              type: string
+              description: A system-generated string that represents the Team object's unique_id
+            integration_key:
+              type: string
+              description: A system-generated string that represents the Integration object's integration_key
+            is_enabled:
+              type: boolean
+              default: true
+              description: A boolean flag that represents whether an Integration is enabled or not
+            integration_type:
+              type: integer
+              default: 0
+              description: An integer that represents the Integration object's integration_type. 0 is alert and 1 is outbound.
+        summary:
+          type: string
+          description: A string that represents the Event object's summary
+        incident:
+          type: integer
+          description: An integer that represents the Incident object's incident_number
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Event object's creation_date
+        message:
+          type: string
+          description: A string that represents the Event object's message
+        integration:
+          type: string
+          description: A string that represents the Integration object's unique_id
+        suppressed:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether the Event object is suppressed or not
+        entity_id:
+          type: string
+          description: A system-generated string that represents the Event object's entitiy_id
+        payload:
+          type: object
+          description: Additional payload of the Event object
+        alert_type:
+          type: integer
+          default: 1
+          description: An integer that represents the Event object's alert_type. 0 is for info, 1 is for warning, 2 for error, 3 is  for critical, 4 is for acknowledged and 5 is for resolved.
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Event object's unique_id
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventImage'
+        urls:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventUrl'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventNote'
+        incident_created:
+          type: boolean
+          description: A boolean flag that represents whether the Incident Alert object created an incident or not.
+    StakeholderMessage:
+      type: object
+      description: Stakeholder message object schema
+      properties:
+        subject:
+          type: string
+          description: Subject of the stakeholder communication email
+          items:
+            type: string
+        body:
+          type: string
+          description: Body of the stakeholder communication email
+          items:
+            type: string
+        timezone:
+          type: string
+          description: Timezone in which datetime object will be converted in email body
+          items:
+            type: string
+        created_by:
+          type: string
+          description: User's username who's sending communication
+          items:
+            type: string
+    EventUrl:
+      type: object
+      description: Event URL object schema
+      properties:
+        link_url:
+          type: string
+          description: A string that represents the Event URL object's link_url
+        link_text:
+          type: string
+          description: A string that represents the Event URL object's link_text
+    GenericEventPayload:
+      type: object
+      description: Payload schema for the Generic Event object
+      required:
+      - message
+      - alert_type
+      properties:
+        message:
+          type: string
+          description: A string that represents the Event object's message
+        summary:
+          type: string
+          description: A string that represents the Event object's summary
+        alert_type:
+          type: string
+          default: info
+          description: A pre-defined string that represents the Event object's alert_type. Choices - `critical`, `acknowledged`, `resolved`, `error`, `warning`, `info`.
+        entity_id:
+          type: string
+          description: A unique id for the alert. If not provided, the Zenduty API will create one.
+        payload:
+          type: object
+          description: A JSON payload containing additional information about the alert.
+        urls:
+          type: array
+          description: An array containing JSON schema of urls related to alerts.
+          items:
+            type: string
+        sla:
+          type: string
+          description: A unique id for the SLA object. If not provided or provided invalid unique_id, the Zenduty will ignore the provided value.
+        escalation_policy:
+          type: string
+          description: A unique id for the alert. If not provided or provided invalid unique_id, the Zenduty will ignore the provided value.
+        priority:
+          type: string
+          description: A unique id for the alert. If not provided or provided invalid unique_id, the Zenduty will ignore the provided value.
+        tags:
+          type: array
+          description: An array containing unique_id for the tag objects.
+          items:
+            type: string
+        stakeholders:
+          $ref: '#/components/schemas/Stakeholder'
+        stakeholders_comms:
+          $ref: '#/components/schemas/StakeholderMessage'
+    EventNote:
+      type: object
+      description: Event Note object schema
+      properties:
+        note_title:
+          type: string
+          description: A string that represents the Event Note object's note_title
+        note_text:
+          type: string
+          description: A string that represents the Event Note object's note_text
+    EventImage:
+      type: object
+      description: Event Image object schema
+      properties:
+        image_src:
+          type: string
+          description: A string that represents the Event Image object's image_src
+        image_url:
+          type: string
+          description: A string that represents the Event Image object's image_url
+        image_text:
+          type: string
+          description: A string that represents the Event Image object's image_text
+    AlertStatus:
+      type: object
+      description: Alert Status object schema
+      properties:
+        status:
+          description: Status of an Alert. Possible statuses are queued, completed and failed
+          type: string
+        alert:
+          description: unique_id of an alert object
+          type: string
+        integration:
+          $ref: '#/components/schemas/AlertStatusIntegration'
+        incident:
+          $ref: '#/components/schemas/AlertStatusIncident'
+        is_incident_created:
+          type: boolean
+          description: A boolean flag that represents whether the Incident Alert object created an incident or not.
+        suppressed:
+          type: boolean
+          description: A boolean flag that represents whether the Event object is suppressed or not
+        error:
+          description: short error message if any error in alert creation
+          type: string
+    AlertStatusIntegration:
+      type: object
+      description: Integration schema for Alert Status object
+      properties:
+        name:
+          type: string
+          description: A string that represents the name of an Integration object
+    AlertStatusIncident:
+      type: object
+      description: Incident schema for Alert Status object
+      properties:
+        incident_number:
+          type: integer
+          description: A integer that represents the number of an Incident object
+        unique_id:
+          type: string
+          description: A string that represents the unique_id of an Incident object
+    EventPayload:
+      type: object
+      description: Payload schema for the Event object
+      required:
+      - message
+      - alert_type
+      properties:
+        message:
+          type: string
+          description: A string that represents the Event object's message
+        summary:
+          type: string
+          description: A string that represents the Event object's summary
+        alert_type:
+          type: string
+          default: info
+          description: A pre-defined string that represents the Event object's alert_type. Choices - `critical`, `acknowledged`, `resolved`, `error`, `warning`, `info`.
+        entity_id:
+          type: string
+          description: A unique id for the alert. If not provided, the Zenduty API will create one.
+        payload:
+          type: object
+          description: A JSON payload containing additional information about the alert.
+        urls:
+          type: array
+          description: An array containing JSON schema of urls related to alerts.
+          items:
+            type: string
+    Stakeholder:
+      type: object
+      description: Incident stakeholder object schema
+      properties:
+        users:
+          type: array
+          description: An array containing Users username.
+          items:
+            type: string
+        teams:
+          type: array
+          description: An array containing unique_id for team objects.
+          items:
+            type: string
+        emails:
+          type: array
+          description: An array containing email ids.
+          items:
+            type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: Token <api_key>
