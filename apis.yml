@@ -9,7 +9,19 @@ description: >-
   services, teams, schedules, and escalation policies, plus an Events API for
   ingesting alerts, all secured with Token authentication.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zenduty.png
 tags:
   - Incident Management
   - On-Call
@@ -23,37 +35,403 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: zenduty:rest-api
-    name: Zenduty REST API
-    description: >-
-      Management REST API for incidents, services, teams, users, schedules,
-      escalation policies, and integrations. Authenticated via
-      "Authorization: Token <token>" header.
-    humanURL: https://apidocs.zenduty.com
-    baseURL: https://www.zenduty.com/api
-    tags:
-      - Incident Management
-      - On-Call
-      - Alerting
-    properties:
-      - type: Documentation
-        url: https://apidocs.zenduty.com
-      - type: API Keys Guide
-        url: https://zenduty.com/docs/api-keys
-  - aid: zenduty:events-api
-    name: Zenduty Events API
-    description: >-
-      Alert ingestion API for sending incident events from monitoring,
-      observability, and custom systems into Zenduty.
-    humanURL: https://zenduty.com/docs/api-integration
-    baseURL: https://events.zenduty.com/api/events
-    tags:
-      - Alerting
-      - Events
-    properties:
-      - type: Documentation
-        url: https://zenduty.com/docs/api-integration
-
+- aid: zenduty:rest-api
+  name: Zenduty REST API
+  description: >-
+    Management REST API for incidents, services, teams, users, schedules, escalation policies, and integrations.
+    Authenticated via "Authorization: Token <token>" header.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Incident Management
+  - On-Call
+  - Alerting
+  properties:
+  - type: Documentation
+    url: https://apidocs.zenduty.com
+  - type: API Keys Guide
+    url: https://zenduty.com/docs/api-keys
+- aid: zenduty:events-api
+  name: Zenduty Events API
+  description: >-
+    Alert ingestion API for sending incident events from monitoring, observability, and custom systems
+    into Zenduty.
+  humanURL: https://zenduty.com/docs/api-integration
+  baseURL: https://events.zenduty.com/api/events
+  tags:
+  - Alerting
+  - Events
+  properties:
+  - type: Documentation
+    url: https://zenduty.com/docs/api-integration
+- aid: zenduty:zenduty-account-custom-role-api
+  name: Zenduty Account Custom Role API
+  description: >-
+    This object represents a custom role of the account. Each custom role object has custom permissions,
+    which the account admin can set from account level permissions and assign this custom role to a particular
+    user.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Account Custom Role
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-account-custom-role-api-openapi.yml
+- aid: zenduty:zenduty-account-member-api
+  name: Zenduty Account Member API
+  description: >-
+    This object represents a user of the account. Each account member object has a role, which can be
+    owner, admin, or user. Each account has a single owner, but the admins and users can be multiple.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Account Member
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-account-member-api-openapi.yml
+- aid: zenduty:zenduty-alert-rules-api
+  name: Zenduty Alert Rules API
+  description: >-
+    Alert Rules in Zenduty are advanced conditions for incoming alerts. They dictate how Zenduty handles
+    alerts and their incidents upon receipt, altering behavior and routing based on predefined rules and
+    actions set by the user within Zenduty Integrations.Visit this link to view the documentation for
+    the alert rules https://www.zenduty.com/docs/alertrules/
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Alert Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-alert-rules-api-openapi.yml
+- aid: zenduty:zenduty-analytics-api
+  name: Zenduty Analytics API
+  description: >-
+    These endpoints provide incident analytics for your account. All analytics endpoints accept POST requests
+    with optional filter parameters and return metrics such as incident counts, MTTA, and MTTR.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-analytics-api-openapi.yml
+- aid: zenduty:zenduty-contact-methods-api
+  name: Zenduty Contact Methods API
+  description: >-
+    This object represents one of the following communication channels(Email, SMS, Phone Call, Slack,
+    Microsoft Team, Google Chat). A user can add multiple contacts methods.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Contact Methods
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-contact-methods-api-openapi.yml
+- aid: zenduty:zenduty-escalation-policies-api
+  name: Zenduty Escalation Policies API
+  description: >-
+    This object represents the escalation policy of a team. You can checkout the escalation policy docs
+    here https://docs.zenduty.com/docs/escalationpolicies
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Escalation Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-escalation-policies-api-openapi.yml
+- aid: zenduty:zenduty-events-api
+  name: Zenduty Events API
+  description: This object represents the events of an integration.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-events-api-openapi.yml
+- aid: zenduty:zenduty-forwarding-rules-api
+  name: Zenduty Forwarding Rules API
+  description: >-
+    This object represents a user's forwarding rules. A user can forward his notifications to the other
+    account members in case an incident occurs.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Forwarding Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-forwarding-rules-api-openapi.yml
+- aid: zenduty:zenduty-global-router-api
+  name: Zenduty Global Router API
+  description: >-
+    This object represents the Global Router of the Account. You can checkout the global alert routing
+    docs here https://docs.zenduty.com/docs/globalalertrouting
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Global Router
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-global-router-api-openapi.yml
+- aid: zenduty:zenduty-global-router-rules-api
+  name: Zenduty Global Router Rules API
+  description: >-
+    The Rules of the Global Router in an Account are represented by this object. Visit this link to view
+    the documentation for the global alert routing rules https://docs.zenduty.com/docs/globalalertrouting
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Global Router Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-global-router-rules-api-openapi.yml
+- aid: zenduty:zenduty-incident-alerts-api
+  name: Zenduty Incident Alerts API
+  description: This object represents the incident alerts of an incident.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Incident Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-incident-alerts-api-openapi.yml
+- aid: zenduty:zenduty-incident-notes-api
+  name: Zenduty Incident Notes API
+  description: This object represents the incident notes of an incident.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Incident Notes
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-incident-notes-api-openapi.yml
+- aid: zenduty:zenduty-incident-responders-api
+  name: Zenduty Incident Responders API
+  description: This object represents the incident responders of an incident.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Incident Responders
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-incident-responders-api-openapi.yml
+- aid: zenduty:zenduty-incident-roles-api
+  name: Zenduty Incident Roles API
+  description: >-
+    This object represents the incident roles of an incident. You can checkout the incident role docs
+    here https://docs.zenduty.com/docs/incidentroles
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Incident Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-incident-roles-api-openapi.yml
+- aid: zenduty:zenduty-incident-tags-api
+  name: Zenduty Incident Tags API
+  description: This object represents the incident tags of an incident.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Incident Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-incident-tags-api-openapi.yml
+- aid: zenduty:zenduty-incidents-api
+  name: Zenduty Incidents API
+  description: >-
+    This object represents the incidents of the account. You can checkout the incident docs here https://docs.zenduty.com/docs/incidents
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Incidents
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-incidents-api-openapi.yml
+- aid: zenduty:zenduty-integrations-api
+  name: Zenduty Integrations API
+  description: >-
+    This object represents the integrations associated with a service. You can checkout the integration
+    docs here https://docs.zenduty.com/docs/integrations
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-integrations-api-openapi.yml
+- aid: zenduty:zenduty-notification-rules-api
+  name: Zenduty Notification Rules API
+  description: >-
+    This object represents a user's notification rules. A user can have notification rules for high urgency
+    and low urgency incidents.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Notification Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-notification-rules-api-openapi.yml
+- aid: zenduty:zenduty-oncall-api
+  name: Zenduty OnCall API
+  description: This object represents the user who is oncall.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - OnCall
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-oncall-api-openapi.yml
+- aid: zenduty:zenduty-postmortem-api
+  name: Zenduty Postmortem API
+  description: >-
+    This object represents the postmortem of an incident. You can checkout the postmortem docs here https://docs.zenduty.com/docs/incidentpostmortem
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Postmortem
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-postmortem-api-openapi.yml
+- aid: zenduty:zenduty-priorities-api
+  name: Zenduty Priorities API
+  description: >-
+    This object represents the priority of an incident. You can checkout the priority docs here https://docs.zenduty.com/docs/incidentpriority
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Priorities
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-priorities-api-openapi.yml
+- aid: zenduty:zenduty-schedule-overrides-api
+  name: Zenduty Schedule Overrides API
+  description: >-
+    This object represents the Override of a Schedule. You can checkout the Schedule Override docs here
+    https://docs.zenduty.com/docs/schedules/#schedule-override
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Schedule Overrides
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-schedule-overrides-api-openapi.yml
+- aid: zenduty:zenduty-schedules-api
+  name: Zenduty Schedules API
+  description: >-
+    This object represents the schedule of a team. You can checkout the schedule docs here https://docs.zenduty.com/docs/schedules
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Schedules
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-schedules-api-openapi.yml
+- aid: zenduty:zenduty-services-api
+  name: Zenduty Services API
+  description: >-
+    This object represents the services associated with a team. You can checkout the services docs here
+    https://docs.zenduty.com/docs/services
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Services
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-services-api-openapi.yml
+- aid: zenduty:zenduty-sla-api
+  name: Zenduty SLA API
+  description: >-
+    This object represents the SLA of an incident. You can checkout the SLA docs here https://docs.zenduty.com/docs/incidentsla
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - SLA
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-sla-api-openapi.yml
+- aid: zenduty:zenduty-tags-api
+  name: Zenduty Tags API
+  description: >-
+    This object represents the tags of an incident. You can checkout the tag docs here https://docs.zenduty.com/docs/incidenttags
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-tags-api-openapi.yml
+- aid: zenduty:zenduty-task-templates-api
+  name: Zenduty Task Templates API
+  description: >-
+    This object represents the task templates of the team. You can checkout the task template docs here
+    https://docs.zenduty.com/docs/tasktemplates
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Task Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-task-templates-api-openapi.yml
+- aid: zenduty:zenduty-team-maintenance-mode-api
+  name: Zenduty Team Maintenance Mode API
+  description: >-
+    This object represents the maintenance mode of a team. You can checkout the team maintenance mode
+    docs here https://docs.zenduty.com/docs/maintenancewindows
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Team Maintenance Mode
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-team-maintenance-mode-api-openapi.yml
+- aid: zenduty:zenduty-team-members-api
+  name: Zenduty Team Members API
+  description: >-
+    This object represents the users of a team. Each team member has a role which can be a manager or
+    a user. You can checkout the team member docs here https://docs.zenduty.com/docs/users
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Team Members
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-team-members-api-openapi.yml
+- aid: zenduty:zenduty-team-permissions-api
+  name: Zenduty Team Permissions API
+  description: >-
+    This object represents the permissions of a team. It lets you access the particular team elements
+    that the team has given permissions to use.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Team Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-team-permissions-api-openapi.yml
+- aid: zenduty:zenduty-teams-api
+  name: Zenduty Teams API
+  description: >-
+    This object represents a team of the account. It lets you create different independent operational
+    units in the account. You can check out the team docs here https://docs.zenduty.com/docs/teams.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - Teams
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-teams-api-openapi.yml
+- aid: zenduty:zenduty-user-custom-role-api
+  name: Zenduty User Custom Role API
+  description: >-
+    This object represents a user's custom role. Each user can be assigned to only one custom role.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - User Custom Role
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-user-custom-role-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/zenduty-agentic-access.yml
