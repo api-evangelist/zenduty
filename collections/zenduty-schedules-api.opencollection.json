@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Schedules API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Schedule objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/schedules/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Schedule objects."
+        },
+        {
+          "info": {
+            "name": "Create the Schedule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/schedules/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Schedule object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Schedule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/schedules/:schedule_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Schedule object."
+        },
+        {
+          "info": {
+            "name": "Update the Schedule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/schedules/:schedule_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Schedule object by setting the values of the parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Delete the Schedule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/schedules/:schedule_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Schedule object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

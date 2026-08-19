@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Team Maintenance Mode API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Team Maintenance Mode",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Team Maintenance Mode objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/maintenance/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Team Maintenance Mode objects. The Team Maintenance Mode objects are sorted by creation_date, with the most recent Team Maintenance Mode object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Team Maintenance Mode object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/maintenance/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Team Maintenance Mode object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Team Maintenance Mode object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/maintenance/:maintenance_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "maintenance_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Maintenance Mode object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Team Maintenance Mode object."
+        },
+        {
+          "info": {
+            "name": "Update Team Maintenance Mode object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/maintenance/:maintenance_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "maintenance_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Maintenance Mode object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Team Maintenance Mode object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Team Maintenance Mode object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/maintenance/:maintenance_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "maintenance_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Maintenance Mode object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Team Maintenance Mode object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

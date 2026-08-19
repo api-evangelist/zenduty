@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Team Members API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Team Members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Team Member objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/members/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Team Member objects. The Team Member objects are sorted by joining_date, with the most recent Team Member object appearing last."
+        },
+        {
+          "info": {
+            "name": "Add user to Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/members/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Team Member object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Team Member object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/members/:member_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Member object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Team Member object."
+        },
+        {
+          "info": {
+            "name": "Update the Team Member object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/members/:member_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Member object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Team Member object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Team Member object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/members/:member_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team Member object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Team Member object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

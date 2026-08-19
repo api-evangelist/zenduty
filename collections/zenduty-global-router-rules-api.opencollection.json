@@ -1,0 +1,168 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Global Router Rules API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Global Router Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Global Router Rule objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Global Router Rule objects."
+        },
+        {
+          "info": {
+            "name": "Create the Global Router Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Global Router Rule object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Update the Global Router Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the position of the Global Router Rule object by setting the position and rule unique id passed in the request body"
+        },
+        {
+          "info": {
+            "name": "Retrieve the Global Router Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/:ruleset_id/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              },
+              {
+                "name": "ruleset_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router Rule object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Global Router Rule object."
+        },
+        {
+          "info": {
+            "name": "Update the Global Router Rule data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/:ruleset_id/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              },
+              {
+                "name": "ruleset_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router Rule object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Global Router Rule object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Global Router Rule data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/v2/account/events/router/:router_id/rulesets/:ruleset_id/",
+            "params": [
+              {
+                "name": "router_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router object"
+              },
+              {
+                "name": "ruleset_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Global Router Rule object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Global Router Rule object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

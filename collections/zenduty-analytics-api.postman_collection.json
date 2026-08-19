@@ -1,0 +1,701 @@
+{
+  "item": [
+    {
+      "id": "8c98dcfd-0247-4381-8c9d-9b6586d001f2",
+      "name": "Analytics",
+      "description": {
+        "content": "These endpoints provide incident analytics for your account. All analytics endpoints accept POST requests with optional filter parameters and return metrics such as incident counts, MTTA, and MTTR.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a66a80fe-2b8a-4850-805d-a440f7063ef7",
+          "name": "Get Incident Stats",
+          "request": {
+            "name": "Get Incident Stats",
+            "description": {
+              "content": "Returns incident counts for the account and the requesting user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "analytics",
+                "incident_stats",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from_date\": \"<date>\",\n  \"to_date\": \"<date>\",\n  \"team_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"service_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"user_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"priority_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"sla_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"escalation_policy_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"tag_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"urgency\": {},\n  \"child_incident\": \"<string>\",\n  \"tta\": \"<number>\",\n  \"tta_comparator\": \"<string>\",\n  \"ttr\": \"<number>\",\n  \"ttr_comparator\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e140711-05db-441f-94a9-705fc45e6903",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "analytics",
+                    "incident_stats",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_date\": \"2025-09-24\",\n  \"to_date\": \"2025-12-23\",\n  \"team_ids\": [],\n  \"service_ids\": [],\n  \"user_ids\": [],\n  \"priority_ids\": [],\n  \"sla_ids\": [],\n  \"escalation_policy_ids\": [],\n  \"tag_ids\": [],\n  \"urgency\": \"\",\n  \"child_incident\": \"include\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_incidents\": 150,\n  \"total_triggered_incidents\": 20,\n  \"total_acknowledged_incidents\": 30,\n  \"total_resolved_incidents\": 100,\n  \"user_total_incidents\": 40,\n  \"user_triggered_incidents\": 5,\n  \"user_acknowledged_incidents\": 10,\n  \"user_resolved_incidents\": 25\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5476d305-c050-4f76-a176-6305fdf011bb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "analytics",
+                    "incident_stats",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_date\": \"2025-09-24\",\n  \"to_date\": \"2025-12-23\",\n  \"team_ids\": [],\n  \"service_ids\": [],\n  \"user_ids\": [],\n  \"priority_ids\": [],\n  \"sla_ids\": [],\n  \"escalation_policy_ids\": [],\n  \"tag_ids\": [],\n  \"urgency\": \"\",\n  \"child_incident\": \"include\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5def985-b4f2-42ba-9920-ba1dc6d0e70c",
+          "name": "Get Team Analytics",
+          "request": {
+            "name": "Get Team Analytics",
+            "description": {
+              "content": "Returns incident metrics for each team.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "analytics",
+                "team_analytics",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from_date\": \"<date>\",\n  \"to_date\": \"<date>\",\n  \"team_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"service_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"user_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"priority_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"sla_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"escalation_policy_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"tag_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"urgency\": {},\n  \"child_incident\": \"<string>\",\n  \"tta\": \"<number>\",\n  \"tta_comparator\": \"<string>\",\n  \"ttr\": \"<number>\",\n  \"ttr_comparator\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "346b91af-3aa3-401f-97ed-eeaf9528587d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "analytics",
+                    "team_analytics",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_date\": \"2025-09-24\",\n  \"to_date\": \"2025-12-23\",\n  \"team_ids\": [],\n  \"service_ids\": [],\n  \"user_ids\": [],\n  \"priority_ids\": [],\n  \"sla_ids\": [],\n  \"escalation_policy_ids\": [],\n  \"tag_ids\": [],\n  \"urgency\": \"\",\n  \"child_incident\": \"include\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"all_teams\": {\n    \"total_incidents\": 500,\n    \"total_acknowledged\": 400,\n    \"total_resolved\": 300,\n    \"mtta_seconds\": 120.5,\n    \"mttr_seconds\": 3600\n  },\n  \"team_records\": [\n    {\n      \"team\": {\n        \"name\": \"Platform Team\",\n        \"unique_id\": \"abc-def-123\"\n      },\n      \"total_incidents\": 100,\n      \"total_acknowledged\": 80,\n      \"total_resolved\": 60,\n      \"mtta_seconds\": 90.2,\n      \"mttr_seconds\": 2400\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a95c8cf4-6a0d-4b65-916e-a90c6abaed7a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "analytics",
+                    "team_analytics",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_date\": \"2025-09-24\",\n  \"to_date\": \"2025-12-23\",\n  \"team_ids\": [],\n  \"service_ids\": [],\n  \"user_ids\": [],\n  \"priority_ids\": [],\n  \"sla_ids\": [],\n  \"escalation_policy_ids\": [],\n  \"tag_ids\": [],\n  \"urgency\": \"\",\n  \"child_incident\": \"include\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afaaad9d-b2dc-498d-91ce-0611b74de764",
+          "name": "Get Service Analytics",
+          "request": {
+            "name": "Get Service Analytics",
+            "description": {
+              "content": "Returns incident metrics for each service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "analytics",
+                "service_analytics",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from_date\": \"<date>\",\n  \"to_date\": \"<date>\",\n  \"team_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"service_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"user_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"priority_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"sla_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"escalation_policy_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"tag_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"urgency\": {},\n  \"child_incident\": \"<string>\",\n  \"tta\": \"<number>\",\n  \"tta_comparator\": \"<string>\",\n  \"ttr\": \"<number>\",\n  \"ttr_comparator\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ff195c0-1e5d-4315-92d7-f1f775fbae5c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "analytics",
+                    "service_analytics",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_date\": \"2025-09-24\",\n  \"to_date\": \"2025-12-23\",\n  \"team_ids\": [],\n  \"service_ids\": [],\n  \"user_ids\": [],\n  \"priority_ids\": [],\n  \"sla_ids\": [],\n  \"escalation_policy_ids\": [],\n  \"tag_ids\": [],\n  \"urgency\": \"\",\n  \"child_incident\": \"include\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"all_services\": {\n    \"total_incidents\": 500,\n    \"total_acknowledged\": 400,\n    \"total_resolved\": 300,\n    \"mtta_seconds\": 120.5,\n    \"mttr_seconds\": 3600\n  },\n  \"service_records\": [\n    {\n      \"team\": {\n        \"name\": \"Platform Team\",\n        \"unique_id\": \"abc-def-123\"\n      },\n      \"service\": {\n        \"name\": \"API Gateway\",\n        \"unique_id\": \"xyz-789\"\n      },\n      \"total_incidents\": 100,\n      \"total_acknowledged\": 80,\n      \"total_resolved\": 60,\n      \"mtta_seconds\": 90.2,\n      \"mttr_seconds\": 2400\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3ad8252-7a7a-43a8-8053-dc8c6cbc86fc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "analytics",
+                    "service_analytics",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_date\": \"2025-09-24\",\n  \"to_date\": \"2025-12-23\",\n  \"team_ids\": [],\n  \"service_ids\": [],\n  \"user_ids\": [],\n  \"priority_ids\": [],\n  \"sla_ids\": [],\n  \"escalation_policy_ids\": [],\n  \"tag_ids\": [],\n  \"urgency\": \"\",\n  \"child_incident\": \"include\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7714a5f0-8c54-49d1-b957-c6b8ef5751ef",
+          "name": "Get User Analytics",
+          "request": {
+            "name": "Get User Analytics",
+            "description": {
+              "content": "Returns incident metrics for each user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "analytics",
+                "user_analytics",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from_date\": \"<date>\",\n  \"to_date\": \"<date>\",\n  \"team_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"service_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"user_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"priority_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"sla_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"escalation_policy_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"tag_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"urgency\": {},\n  \"child_incident\": \"<string>\",\n  \"tta\": \"<number>\",\n  \"tta_comparator\": \"<string>\",\n  \"ttr\": \"<number>\",\n  \"ttr_comparator\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "32af7125-1923-4402-9111-c997cbc94e51",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "analytics",
+                    "user_analytics",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_date\": \"2025-09-24\",\n  \"to_date\": \"2025-12-23\",\n  \"team_ids\": [],\n  \"service_ids\": [],\n  \"user_ids\": [],\n  \"priority_ids\": [],\n  \"sla_ids\": [],\n  \"escalation_policy_ids\": [],\n  \"tag_ids\": [],\n  \"urgency\": \"\",\n  \"child_incident\": \"include\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"all_users\": {\n    \"total_incidents\": 500,\n    \"total_acknowledged\": 400,\n    \"total_resolved\": 300,\n    \"mtta_seconds\": 120.5,\n    \"mttr_seconds\": 3600\n  },\n  \"user_records\": [\n    {\n      \"user\": {\n        \"full_name\": \"Jane Doe\",\n        \"username\": \"jane.doe\"\n      },\n      \"total_incidents\": 100,\n      \"total_acknowledged\": 80,\n      \"total_resolved\": 60,\n      \"mtta_seconds\": 90.2,\n      \"mttr_seconds\": 2400\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0f58e44-1820-44ec-8ae8-b39b2b91c113",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "analytics",
+                    "user_analytics",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_date\": \"2025-09-24\",\n  \"to_date\": \"2025-12-23\",\n  \"team_ids\": [],\n  \"service_ids\": [],\n  \"user_ids\": [],\n  \"priority_ids\": [],\n  \"sla_ids\": [],\n  \"escalation_policy_ids\": [],\n  \"tag_ids\": [],\n  \"urgency\": \"\",\n  \"child_incident\": \"include\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zenduty.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "61077fa2-7a6f-486c-8e02-ef15dbd8d2ea",
+    "name": "Zenduty Account Custom Role Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n\n\nContact Support:\n Email: vishwa@zenduty.com",
+      "type": "text/plain"
+    }
+  }
+}

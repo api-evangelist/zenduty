@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Priorities API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Priorities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Priority objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/priority/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Priority objects. The Priority objects are sorted by creation_date, with the most recent Priority object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Priority object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/priority/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Priority object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Priority object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/priority/:priority_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "priority_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Priority object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Priority object."
+        },
+        {
+          "info": {
+            "name": "Update the Priority object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/priority/:priority_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "priority_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Priority object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Priority object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Priority object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/priority/:priority_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "priority_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Priority object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Priority object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

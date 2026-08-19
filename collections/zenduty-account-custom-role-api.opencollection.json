@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account Custom Role",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Account Custom Role objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/customroles/"
+          },
+          "docs": "Returns a list of Account Custom Role objects."
+        },
+        {
+          "info": {
+            "name": "Create the Account Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/customroles/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Account Custom Role object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Account Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/customroles/:custom_role_id/",
+            "params": [
+              {
+                "name": "custom_role_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Account Custom Role object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Account Custom Role object."
+        },
+        {
+          "info": {
+            "name": "Update the Account Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/customroles/:custom_role_id/",
+            "params": [
+              {
+                "name": "custom_role_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Account Custom Role object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Account Custom Role object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Account Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/customroles/:custom_role_id/",
+            "params": [
+              {
+                "name": "custom_role_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Account Custom Role object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Account Custom Role object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

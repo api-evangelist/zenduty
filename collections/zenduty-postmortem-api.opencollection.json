@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Postmortem API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Postmortem",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Postmortem objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/postmortem/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Postmortem objects."
+        },
+        {
+          "info": {
+            "name": "Create the Postmortem object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/postmortem/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Postmortem object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Postmortem object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/postmortem/:postmortem_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "postmortem_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Postmortem object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Postmortem object."
+        },
+        {
+          "info": {
+            "name": "Update the Postmortem data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/postmortem/:postmortem_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "postmortem_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Postmortem object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Postmortem object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Postmortem data",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/postmortem/:postmortem_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "postmortem_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Postmortem object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Postmortem object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

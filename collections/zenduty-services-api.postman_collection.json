@@ -1,0 +1,1604 @@
+{
+  "item": [
+    {
+      "id": "e350d33f-7ca0-465e-bcef-eb00d3edfc73",
+      "name": "Services",
+      "description": {
+        "content": "This object represents the services associated with a team. You can checkout the services docs here https://docs.zenduty.com/docs/services",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e0a5b225-0097-41bb-b18f-cb3921478bc6",
+          "name": "Create the Service object",
+          "request": {
+            "name": "Create the Service object",
+            "description": {
+              "content": "Create the Service object by setting the values of all the required parameters passed in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                "{}",
+                "services",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"team_priority\": \"<string>\",\n  \"escalation_policy\": \"<string>\",\n  \"sla\": \"<string>\",\n  \"name\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"description\": \"<string>\",\n  \"auto_resolve_timeout\": 0,\n  \"task_template\": \"<string>\",\n  \"acknowledgement_timeout_enabled\": false,\n  \"acknowledgement_timeout\": 600,\n  \"status\": 1,\n  \"under_maintenance\": false,\n  \"collation\": 0,\n  \"collation_time\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "397353d4-f9e1-42ae-97c3-05d9037d2ff3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Production Service\",\n  \"description\": \"This is the description for Production Service\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Production Service\",\n  \"creation_date\": \"2022-07-08T12:38:50.511179Z\",\n  \"summary\": \"\",\n  \"description\": \"This is the description for Production Service\",\n  \"unique_id\": \"3605fdfb-07fb-4a6c-bd05-9e557dc4ec6e\",\n  \"auto_resolve_timeout\": 0,\n  \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"acknowledgement_timeout\": 0,\n  \"acknowledgement_timeout_enabled\": false,\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"team\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n  \"collation_time\": 0,\n  \"collation\": 0,\n  \"under_maintenance\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61fceea4-263e-453e-8a7a-6955b39fcb23",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Production Service\",\n  \"description\": \"This is the description for Production Service\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "485267e0-7339-4ef7-81dd-dc473a477b0c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Production Service\",\n  \"description\": \"This is the description for Production Service\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e139ade-53d7-471a-9460-6ff7ea417c0e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Production Service\",\n  \"description\": \"This is the description for Production Service\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5022e125-4b65-4020-ba7f-b399e06b991f",
+          "name": "List all Service objects",
+          "request": {
+            "name": "List all Service objects",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                "{}",
+                "services",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6246d9cf-377c-40af-a8c7-3830e925c18b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"Infra Service\",\n    \"creation_date\": \"2022-07-08T12:31:37.429973Z\",\n    \"summary\": \"\",\n    \"description\": \"This is the description for Infra Service\",\n    \"unique_id\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n    \"auto_resolve_timeout\": 0,\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n    \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n    \"acknowledgement_timeout\": 0,\n    \"acknowledgement_timeout_enabled\": false,\n    \"status\": 1,\n    \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n    \"team\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n    \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n    \"under_maintenance\": false,\n    \"collation\": 1,\n    \"collation_time\": 2\n  },\n  {\n    \"name\": \"Production Service\",\n    \"creation_date\": \"2022-07-08T12:38:50.511179Z\",\n    \"summary\": \"\",\n    \"description\": \"This is the description for Production Service\",\n    \"unique_id\": \"3605fdfb-07fb-4a6c-bd05-9e557dc4ec6e\",\n    \"auto_resolve_timeout\": 0,\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n    \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n    \"acknowledgement_timeout\": 0,\n    \"acknowledgement_timeout_enabled\": false,\n    \"status\": 1,\n    \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n    \"team\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n    \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n    \"under_maintenance\": false,\n    \"collation\": 0,\n    \"collation_time\": 0\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f7cb68f-9482-42c9-8f8c-c630519af4c2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3f60df5-51b4-4b41-92a5-d44c329fad5d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a125421c-d936-4eb0-9c0f-86c4eb73f8db",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a9f0beb-6df0-403e-bc10-80cdd62996cf",
+          "name": "Retrieve the Service object",
+          "request": {
+            "name": "Retrieve the Service object",
+            "description": {
+              "content": "Retrieve the specified Service object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "177b61ca-83b2-4163-a32a-f4d843c65ad0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Production Service\",\n  \"creation_date\": \"2022-07-08T12:38:50.511179Z\",\n  \"summary\": \"\",\n  \"description\": \"This is the description for Production Service\",\n  \"unique_id\": \"3605fdfb-07fb-4a6c-bd05-9e557dc4ec6e\",\n  \"auto_resolve_timeout\": 0,\n  \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"acknowledgement_timeout\": 0,\n  \"acknowledgement_timeout_enabled\": false,\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"team\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n  \"under_maintenance\": false,\n  \"collation\": 0,\n  \"collation_time\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b57ab8d7-4ffb-4b1d-b421-c7adbf5d311d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0588a207-add7-43bf-9b64-b399e224238a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5872b75-3450-4d4e-9598-c22948a9271d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24b1230c-ee7c-48c7-b3e2-279dfe9a0fc2",
+          "name": "Update the Service object",
+          "request": {
+            "name": "Update the Service object",
+            "description": {
+              "content": "Updates the specified Service object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"team_priority\": \"<string>\",\n  \"escalation_policy\": \"<string>\",\n  \"sla\": \"<string>\",\n  \"name\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"description\": \"<string>\",\n  \"auto_resolve_timeout\": 0,\n  \"task_template\": \"<string>\",\n  \"acknowledgement_timeout_enabled\": false,\n  \"acknowledgement_timeout\": 600,\n  \"status\": 1,\n  \"under_maintenance\": false,\n  \"collation\": 0,\n  \"collation_time\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "292d40a7-609d-4e2a-994e-0a78b46a26c9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Modified Production Service\",\n  \"description\": \"This is the description for Production Service\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Modified Production Service\",\n  \"creation_date\": \"2022-07-08T12:38:50.511179Z\",\n  \"summary\": \"\",\n  \"description\": \"This is the description for Production Service\",\n  \"unique_id\": \"3605fdfb-07fb-4a6c-bd05-9e557dc4ec6e\",\n  \"auto_resolve_timeout\": 0,\n  \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"acknowledgement_timeout\": 0,\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"team\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n  \"collation_time\": 0,\n  \"collation\": 0,\n  \"under_maintenance\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "589b158f-07b8-4603-9a38-a40c04268e88",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Modified Production Service\",\n  \"description\": \"This is the description for Production Service\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5398ca16-afa0-471b-869c-e67ff8704bc7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Modified Production Service\",\n  \"description\": \"This is the description for Production Service\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d028545-2288-4e87-90a5-6275f0aa6bf0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Modified Production Service\",\n  \"description\": \"This is the description for Production Service\",\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n  \"status\": 1,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a5c7428-53f3-4df8-b5e8-306567dc0ff4",
+          "name": "Delete the Service object",
+          "request": {
+            "name": "Delete the Service object",
+            "description": {
+              "content": "Delete the specified Service object permanently.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0884eae-6e78-4918-ac1d-49c119c95a89",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b629bbd-ece7-4df0-be03-a145601cf3f6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a987d0a9-c0df-4975-af70-abed6f63c985",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb43a203-7c31-4659-a0ef-cb2ba6f7ba09",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zenduty.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d2201b75-1a6e-4cb7-bcb7-14432e632210",
+    "name": "Zenduty Account Custom Role Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n\n\nContact Support:\n Email: vishwa@zenduty.com",
+      "type": "text/plain"
+    }
+  }
+}

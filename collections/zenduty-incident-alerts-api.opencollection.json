@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Incident Alerts API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Incident Alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident Alert objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/alerts/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Incident Alert objects. The Incident Alert objects are sorted by creation_date, with the most recent Incident Alert object appearing last."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Incidents API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Incidents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident objects(filtered)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/incidents/filter/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "pagination page number. example - `page=1`"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a list of filtered Incident objects. The Incident objects are sorted by creation_date, with the most recent Incident object appearing last. for pagination please use 'next' and 'previous' links in the response."
+        },
+        {
+          "info": {
+            "name": "Create the Incident object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/incidents/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Incident object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Update the Incident object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.zenduty.com/api/incidents/:unique_id/",
+            "params": [
+              {
+                "name": "unique_id",
+                "value": "",
+                "type": "path",
+                "description": "A system-generated string that represents the Incident object's unique ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Incident object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Incident object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ]
+          },
+          "docs": "Retrieves the specified Incident object."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

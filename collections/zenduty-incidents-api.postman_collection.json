@@ -1,0 +1,1166 @@
+{
+  "item": [
+    {
+      "id": "2f4ba260-f9c0-49a6-973a-c7b1cec7cb3c",
+      "name": "Incidents",
+      "description": {
+        "content": "This object represents the incidents of the account. You can checkout the incident docs here https://docs.zenduty.com/docs/incidents",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b13f5bd-48c0-40ba-bfae-40e8edc26b41",
+          "name": "List all Incident objects(filtered)",
+          "request": {
+            "name": "List all Incident objects(filtered)",
+            "description": {
+              "content": "Returns a list of filtered Incident objects. The Incident objects are sorted by creation_date, with the most recent Incident object appearing last. for pagination please use 'next' and 'previous' links in the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "incidents",
+                "filter",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "pagination page number. example - `page=1`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"all_teams\": 1,\n  \"escalation_policy_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"postmortem_filter\": -1,\n  \"priority_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"priority_name\": \"<string>\",\n  \"service_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sla_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": 1,\n  \"tag_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"team_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"user_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a4d90e13-0c5a-4fe8-802b-fd2050096fb8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    "filter",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": 1,\n  \"team_ids\": [\n    \"4cce18ea-57c5-4beb-bca8-60dc7a68ae3a\",\n    \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n  ],\n  \"all_teams\": 1,\n  \"service_ids\": [\n    \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n  ],\n  \"user_ids\": [\n    \"7e26fed1-f11c-4e78-afc6-a\"\n  ],\n  \"priority_name\": \"\",\n  \"priority_ids\": [\n    \"7064efff-55f2-448b-92e5-a3a53179aa76\"\n  ],\n  \"tag_ids\": [\n    \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\"\n  ],\n  \"sla_ids\": [\n    \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\"\n  ],\n  \"from_date\": [],\n  \"to_date\": [],\n  \"postmortem_filter\": -1,\n  \"escalation_policy_ids\": [\n    \"52fe68d3-cead-40b3-b0ac-d616d38d8e32\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next\": \"https://www.zenduty.com/api/incidents/filter/?page=4&page_size=10\",\n  \"previous\": \"https://www.zenduty.com/api/incidents/filter/?page=2&page_size=10\",\n  \"results\": [\n    {\n      \"incident_number\": 255,\n      \"creation_date\": \"2023-10-26T14:22:56.338690Z\",\n      \"status\": 1,\n      \"unique_id\": \"aYfQPqqEUGvoMPftRAMSaB\",\n      \"sla\": \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\",\n      \"service_object\": {\n        \"name\": \"Main\",\n        \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\",\n        \"team\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\",\n        \"team_name\": \"Backend\"\n      },\n      \"title\": \"[P-21041]Browser monitor global outage\",\n      \"assigned_to_name\": \"Michael Scott\",\n      \"tags\": [\n        {\n          \"unique_id\": \"4b2634c6-2c7c-40ea-9a30-020dfddee187\",\n          \"incident\": 255,\n          \"creation_date\": \"2023-10-26T14:22:56.475799Z\",\n          \"name\": \"TAG\",\n          \"color\": \"magenta\",\n          \"tag_id\": \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\",\n          \"team_tag\": \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\"\n        }\n      ],\n      \"sla_object\": {\n        \"unique_id\": \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\",\n        \"name\": \"SLA\",\n        \"is_active\": true,\n        \"acknowledge_time\": 5,\n        \"resolve_time\": 30,\n        \"creation_date\": \"2022-10-11T11:42:46.438776Z\"\n      },\n      \"team_priority_object\": {\n        \"unique_id\": \"7064efff-55f2-448b-92e5-a3a53179aa76\",\n        \"name\": \"P1\",\n        \"description\": \"P1 - high priority incidents\",\n        \"color\": \"magenta\"\n      },\n      \"is_child_incident\": false,\n      \"postmortems\": [],\n      \"is_parent_incident\": false,\n      \"assigned_to\": \"7e26fed1-f11c-4e78-afc6-a\",\n      \"acknowledged_date\": null,\n      \"resolved_date\": null,\n      \"snooze_time\": null,\n      \"snoozed_till\": null\n    },\n    {\n      \"incident_number\": 254,\n      \"creation_date\": \"2023-10-26T14:21:28.828936Z\",\n      \"status\": 1,\n      \"unique_id\": \"7ze6Q9YAgvVTUAkQntrViC\",\n      \"sla\": \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\",\n      \"service_object\": {\n        \"name\": \"Main\",\n        \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\",\n        \"team\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\",\n        \"team_name\": \"Backend\"\n      },\n      \"title\": \"[P-21041]Browser monitor global outage\",\n      \"assigned_to_name\": \"Michael Scott\",\n      \"tags\": [\n        {\n          \"unique_id\": \"93f008cf-f55d-4348-9091-f1e70e3a92a6\",\n          \"incident\": 254,\n          \"creation_date\": \"2023-10-26T14:21:29.017156Z\",\n          \"name\": \"TAG\",\n          \"color\": \"magenta\",\n          \"tag_id\": \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\",\n          \"team_tag\": \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\"\n        }\n      ],\n      \"sla_object\": {\n        \"unique_id\": \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\",\n        \"name\": \"SLA\",\n        \"is_active\": true,\n        \"acknowledge_time\": 5,\n        \"resolve_time\": 30,\n        \"creation_date\": \"2022-10-11T11:42:46.438776Z\"\n      },\n      \"team_priority_object\": {\n        \"unique_id\": \"7064efff-55f2-448b-92e5-a3a53179aa76\",\n        \"name\": \"P1\",\n        \"description\": \"P1 - high priority incidents\",\n        \"color\": \"magenta\"\n      },\n      \"is_child_incident\": false,\n      \"postmortems\": [],\n      \"is_parent_incident\": false,\n      \"assigned_to\": \"7e26fed1-f11c-4e78-afc6-a\",\n      \"acknowledged_date\": null,\n      \"resolved_date\": null,\n      \"snooze_time\": null,\n      \"snoozed_till\": null\n    },\n    {\n      \"incident_number\": 253,\n      \"creation_date\": \"2023-10-26T14:20:18.980264Z\",\n      \"status\": 1,\n      \"unique_id\": \"fAe5HrVSR8JfigxvB5p9eF\",\n      \"sla\": \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\",\n      \"service_object\": {\n        \"name\": \"Main\",\n        \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\",\n        \"team\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\",\n        \"team_name\": \"Backend\"\n      },\n      \"title\": \"[P-21041]Browser monitor global outage\",\n      \"assigned_to_name\": \"Michael Scott\",\n      \"tags\": [\n        {\n          \"unique_id\": \"6d2dadec-69a7-45f7-a2fb-99cc32a38419\",\n          \"incident\": 253,\n          \"creation_date\": \"2023-10-26T14:20:19.168974Z\",\n          \"name\": \"TAG\",\n          \"color\": \"magenta\",\n          \"tag_id\": \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\",\n          \"team_tag\": \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\"\n        }\n      ],\n      \"sla_object\": {\n        \"unique_id\": \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\",\n        \"name\": \"SLA\",\n        \"is_active\": true,\n        \"acknowledge_time\": 5,\n        \"resolve_time\": 30,\n        \"creation_date\": \"2022-10-11T11:42:46.438776Z\"\n      },\n      \"team_priority_object\": {\n        \"unique_id\": \"7064efff-55f2-448b-92e5-a3a53179aa76\",\n        \"name\": \"P1\",\n        \"description\": \"P1 - high priority incidents\",\n        \"color\": \"magenta\"\n      },\n      \"is_child_incident\": false,\n      \"postmortems\": [],\n      \"is_parent_incident\": false,\n      \"assigned_to\": \"7e26fed1-f11c-4e78-afc6-a\",\n      \"acknowledged_date\": null,\n      \"resolved_date\": null,\n      \"snooze_time\": null,\n      \"snoozed_till\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85e78d8b-199c-4795-ae4e-f2a1e14e11b7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    "filter",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": 1,\n  \"team_ids\": [\n    \"4cce18ea-57c5-4beb-bca8-60dc7a68ae3a\",\n    \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n  ],\n  \"all_teams\": 1,\n  \"service_ids\": [\n    \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n  ],\n  \"user_ids\": [\n    \"7e26fed1-f11c-4e78-afc6-a\"\n  ],\n  \"priority_name\": \"\",\n  \"priority_ids\": [\n    \"7064efff-55f2-448b-92e5-a3a53179aa76\"\n  ],\n  \"tag_ids\": [\n    \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\"\n  ],\n  \"sla_ids\": [\n    \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\"\n  ],\n  \"from_date\": [],\n  \"to_date\": [],\n  \"postmortem_filter\": -1,\n  \"escalation_policy_ids\": [\n    \"52fe68d3-cead-40b3-b0ac-d616d38d8e32\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d268a76a-5498-4c85-afb9-ee4680a1e226",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    "filter",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": 1,\n  \"team_ids\": [\n    \"4cce18ea-57c5-4beb-bca8-60dc7a68ae3a\",\n    \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n  ],\n  \"all_teams\": 1,\n  \"service_ids\": [\n    \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n  ],\n  \"user_ids\": [\n    \"7e26fed1-f11c-4e78-afc6-a\"\n  ],\n  \"priority_name\": \"\",\n  \"priority_ids\": [\n    \"7064efff-55f2-448b-92e5-a3a53179aa76\"\n  ],\n  \"tag_ids\": [\n    \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\"\n  ],\n  \"sla_ids\": [\n    \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\"\n  ],\n  \"from_date\": [],\n  \"to_date\": [],\n  \"postmortem_filter\": -1,\n  \"escalation_policy_ids\": [\n    \"52fe68d3-cead-40b3-b0ac-d616d38d8e32\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d08cabf-ed8b-47bf-98f3-b36cb69c7834",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    "filter",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": 1,\n  \"team_ids\": [\n    \"4cce18ea-57c5-4beb-bca8-60dc7a68ae3a\",\n    \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n  ],\n  \"all_teams\": 1,\n  \"service_ids\": [\n    \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n  ],\n  \"user_ids\": [\n    \"7e26fed1-f11c-4e78-afc6-a\"\n  ],\n  \"priority_name\": \"\",\n  \"priority_ids\": [\n    \"7064efff-55f2-448b-92e5-a3a53179aa76\"\n  ],\n  \"tag_ids\": [\n    \"bc56a5d1-3ec3-4802-9f6a-3f93519ec2a4\"\n  ],\n  \"sla_ids\": [\n    \"f14a16aa-15d1-49a1-be27-0c266b15c7fa\"\n  ],\n  \"from_date\": [],\n  \"to_date\": [],\n  \"postmortem_filter\": -1,\n  \"escalation_policy_ids\": [\n    \"52fe68d3-cead-40b3-b0ac-d616d38d8e32\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c595e445-d863-4b76-a2e3-96b88fca52de",
+          "name": "Create the Incident object",
+          "request": {
+            "name": "Create the Incident object",
+            "description": {
+              "content": "Create the Incident object by setting the values of all the required parameters passed in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "incidents",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"service\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"status\": 1,\n  \"assigned_to\": \"<string>\",\n  \"escalation_policy\": \"<string>\",\n  \"sla\": \"<string>\",\n  \"team_priority\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e01194f-6943-473d-9f0f-040aa35f5238",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Production Incident\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"\",\n  \"incident_number\": 3,\n  \"creation_date\": \"2022-07-08T13:21:25.846623Z\",\n  \"status\": 1,\n  \"unique_id\": \"uJVWfdAeoPDm3pk2gG2URn\",\n  \"service_object\": {\n    \"name\": \"Infra Service\",\n    \"creation_date\": \"2022-07-08T12:31:37.429973Z\",\n    \"summary\": \"\",\n    \"description\": \"This is the description for Infra Service\",\n    \"unique_id\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n    \"auto_resolve_timeout\": 0,\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n    \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n    \"acknowledgement_timeout\": 0,\n    \"status\": 1,\n    \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n    \"team\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n    \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n    \"collation_time\": 2,\n    \"collation\": 1,\n    \"under_maintenance\": false\n  },\n  \"title\": \"Production Incident\",\n  \"incident_key\": \"Q5NmEbsgc4ZjLknsw97VZJ\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n  \"urgency\": 1,\n  \"merged_with\": null,\n  \"assigned_to\": null,\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"escalation_policy_object\": {\n    \"unique_id\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n    \"name\": \"Infra Escalation Policy\"\n  },\n  \"assigned_to_name\": \"\",\n  \"resolved_date\": null,\n  \"acknowledged_date\": null,\n  \"context_window_start\": null,\n  \"context_window_end\": null,\n  \"tags\": [],\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n  \"sla_object\": {\n    \"unique_id\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n    \"name\": \"Infra SLA\",\n    \"is_active\": true,\n    \"acknowledge_time\": 30,\n    \"resolve_time\": 60,\n    \"creation_date\": \"2022-07-08T12:29:08.545605Z\"\n  },\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"team_priority_object\": {\n    \"unique_id\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n    \"name\": \"Infra Priority\",\n    \"description\": \"This is the description for Infra Priority\",\n    \"color\": \"orange\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40dff987-79b7-48f7-ac52-ec7a9c5c78ff",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Production Incident\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7385d190-f86c-404f-b675-adda3d471088",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Production Incident\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e21effa-a2ef-4c24-84ab-90772231a134",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Production Incident\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "863d9255-8939-418c-9b1e-06510ac2a353",
+          "name": "Update the Incident object",
+          "request": {
+            "name": "Update the Incident object",
+            "description": {
+              "content": "Updates the specified Incident object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "incidents",
+                ":unique_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unique_id",
+                  "description": "(Required) A system-generated string that represents the Incident object's unique ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"summary\": \"<string>\",\n  \"status\": 1,\n  \"title\": \"<string>\",\n  \"assigned_to\": \"<string>\",\n  \"escalation_policy\": \"<string>\",\n  \"sla\": \"<string>\",\n  \"team_priority\": \"<string>\",\n  \"urgency\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4284ccc7-b97d-4263-8449-17b2acc376a5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":unique_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unique_id",
+                      "description": "(Required) A system-generated string that represents the Incident object's unique ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"\",\n  \"incident_number\": 3,\n  \"creation_date\": \"2022-07-08T13:21:25.846623Z\",\n  \"status\": 2,\n  \"unique_id\": \"uJVWfdAeoPDm3pk2gG2URn\",\n  \"service_object\": {\n    \"name\": \"Infra Service\",\n    \"creation_date\": \"2022-07-08T12:31:37.429973Z\",\n    \"summary\": \"\",\n    \"description\": \"This is the description for Infra Service\",\n    \"unique_id\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n    \"auto_resolve_timeout\": 0,\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n    \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n    \"acknowledgement_timeout\": 0,\n    \"status\": 1,\n    \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n    \"team\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n    \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n    \"collation_time\": 2,\n    \"collation\": 1,\n    \"under_maintenance\": false\n  },\n  \"title\": \"Modified Production Incident\",\n  \"incident_key\": \"Q5NmEbsgc4ZjLknsw97VZJ\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n  \"urgency\": 1,\n  \"merged_with\": null,\n  \"assigned_to\": \"507dfda0-a1fd-40e5-943a-e\",\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"escalation_policy_object\": {\n    \"unique_id\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n    \"name\": \"Infra Escalation Policy\"\n  },\n  \"assigned_to_name\": \"Mary Jane\",\n  \"resolved_date\": null,\n  \"acknowledged_date\": null,\n  \"context_window_start\": null,\n  \"context_window_end\": null,\n  \"tags\": [],\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n  \"sla_object\": {\n    \"unique_id\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n    \"name\": \"Infra SLA\",\n    \"is_active\": true,\n    \"acknowledge_time\": 30,\n    \"resolve_time\": 60,\n    \"creation_date\": \"2022-07-08T12:29:08.545605Z\"\n  },\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"team_priority_object\": {\n    \"unique_id\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n    \"name\": \"Infra Priority\",\n    \"description\": \"This is the description for Infra Priority\",\n    \"color\": \"orange\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0932d95c-7541-4c90-bdc8-d9761ea5b15d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":unique_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unique_id",
+                      "description": "(Required) A system-generated string that represents the Incident object's unique ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e315bcd0-313f-4e9e-83ab-fc915f11a2ae",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":unique_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unique_id",
+                      "description": "(Required) A system-generated string that represents the Incident object's unique ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1c1dc5a-52bf-4f17-a04c-053a083a6fed",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":unique_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unique_id",
+                      "description": "(Required) A system-generated string that represents the Incident object's unique ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bed95011-cf4a-4cfd-bc5e-5a655d9a6fbb",
+          "name": "Retrieve the Incident object",
+          "request": {
+            "name": "Retrieve the Incident object",
+            "description": {
+              "content": "Retrieves the specified Incident object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "incidents",
+                ":incident_number",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "incident_number",
+                  "description": "(Required) incident_number of the Incident object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "367d52da-efe8-4d95-a050-78a4f2fec1ef",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":incident_number",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) incident_number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"\",\n  \"incident_number\": 3,\n  \"creation_date\": \"2022-07-08T13:21:25.846623Z\",\n  \"status\": 1,\n  \"unique_id\": \"uJVWfdAeoPDm3pk2gG2URn\",\n  \"service_object\": {\n    \"name\": \"Infra Service\",\n    \"creation_date\": \"2022-07-08T12:31:37.429973Z\",\n    \"summary\": \"\",\n    \"description\": \"This is the description for Infra Service\",\n    \"unique_id\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n    \"auto_resolve_timeout\": 0,\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n    \"task_template\": \"8d2640ca-c6ef-45f0-be5f-61dedcf85032\",\n    \"acknowledgement_timeout\": 0,\n    \"status\": 1,\n    \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n    \"team\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n    \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n    \"collation_time\": 2,\n    \"collation\": 1,\n    \"under_maintenance\": false\n  },\n  \"title\": \"Production Incident\",\n  \"incident_key\": \"Q5NmEbsgc4ZjLknsw97VZJ\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n  \"urgency\": 1,\n  \"merged_with\": null,\n  \"assigned_to\": \"507dfda0-a1fd-40e5-943a-e\",\n  \"escalation_policy\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n  \"escalation_policy_object\": {\n    \"unique_id\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n    \"name\": \"Infra Escalation Policy\"\n  },\n  \"assigned_to_name\": \"Mary Jane\",\n  \"resolved_date\": null,\n  \"acknowledged_date\": null,\n  \"context_window_start\": null,\n  \"context_window_end\": null,\n  \"tags\": [],\n  \"sla\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n  \"sla_object\": {\n    \"unique_id\": \"b3c6af23-2b9e-414e-9706-bbf3af76828c\",\n    \"name\": \"Infra SLA\",\n    \"is_active\": true,\n    \"acknowledge_time\": 30,\n    \"resolve_time\": 60,\n    \"creation_date\": \"2022-07-08T12:29:08.545605Z\"\n  },\n  \"team_priority\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n  \"team_priority_object\": {\n    \"unique_id\": \"6d100d52-998b-41c8-8928-a7e3aa68e329\",\n    \"name\": \"Infra Priority\",\n    \"description\": \"This is the description for Infra Priority\",\n    \"color\": \"orange\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2464acda-a252-49fc-b528-597193dc165a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":incident_number",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) incident_number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbc121a4-ebb4-4950-b259-31ca6a062e17",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":incident_number",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) incident_number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cb5cea5-a39d-4da5-a353-d724ed20e20b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":incident_number",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) incident_number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zenduty.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7d9d1330-10cf-4aba-b92e-5c175f2bf79c",
+    "name": "Zenduty Account Custom Role Incidents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n\n\nContact Support:\n Email: vishwa@zenduty.com",
+      "type": "text/plain"
+    }
+  }
+}

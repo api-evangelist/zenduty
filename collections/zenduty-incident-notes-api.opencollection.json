@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Incident Notes API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Incident Notes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident Note objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Incident Note objects. The Incident Note objects are sorted by creation_date, with the most recent Incident Note object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Incident Note object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Incident Note object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Incident Note object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/:note_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "note_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Note object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Incident Note object."
+        },
+        {
+          "info": {
+            "name": "Update the Incident Note object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/:note_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "note_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Note object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Incident Note object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Incident Note object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/note/:note_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "note_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Note object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Incident Note object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

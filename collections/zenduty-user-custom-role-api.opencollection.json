@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role User Custom Role API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Custom Role",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all User Custom Role objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/users/:username/customroles/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ]
+          },
+          "docs": "Returns a list of User Custom Role objects."
+        },
+        {
+          "info": {
+            "name": "Create the User Custom Role object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/users/:username/customroles/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "username of the User object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the User Custom Role object by setting the values of all the required parameters passed in the request body."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

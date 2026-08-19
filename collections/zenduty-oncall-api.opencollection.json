@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role OnCall API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OnCall",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Escalation Policy OnCall object's in a Team V1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/oncall/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Team"
+              }
+            ]
+          },
+          "docs": "Returns all OnCall Users of a Team Escalation Policies."
+        },
+        {
+          "info": {
+            "name": "List all Escalation Policy OnCall object's in a Team V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/teams/:team_id/oncall/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Team"
+              }
+            ]
+          },
+          "docs": "Returns all OnCall Users of a Team Escalation Policies."
+        },
+        {
+          "info": {
+            "name": "Retrieve Escalation Policy OnCall object in an Escalation Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/teams/:team_id/escalation_policies/:ep_id/oncall/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Team"
+              },
+              {
+                "name": "ep_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of an Escalation Policy"
+              }
+            ]
+          },
+          "docs": "Returns all OnCall Users of an Escalation Policy."
+        },
+        {
+          "info": {
+            "name": "Retrieve Escalation Policy OnCall object in a Service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/teams/:team_id/services/:service_id/oncall/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Team"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of a Service"
+              }
+            ]
+          },
+          "docs": "Returns all OnCall Users of a Service Escalation Policy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

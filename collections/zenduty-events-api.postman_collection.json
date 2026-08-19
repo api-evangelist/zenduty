@@ -1,0 +1,847 @@
+{
+  "item": [
+    {
+      "id": "835a4750-2968-4512-93a2-9eb23529f6d7",
+      "name": "Events",
+      "description": {
+        "content": "This object represents the events of an integration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4cbfed86-f165-4d92-8e87-f2d56bec0b86",
+          "name": "Create the Event object",
+          "request": {
+            "name": "Create the Event object",
+            "description": {
+              "content": "Create the Event object by setting the values of all the required parameters passed in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "events",
+                ":integration_key",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_key",
+                  "description": "(Required) integration_key of the Integration object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\",\n  \"alert_type\": \"info\",\n  \"summary\": \"<string>\",\n  \"entity_id\": \"<string>\",\n  \"payload\": \"<object>\",\n  \"urls\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ca545bd8-5a59-4812-811e-f7763aa6322b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alert_type\": \"info\",\n  \"message\": \"This is info alert\",\n  \"summary\": \"This is the incident summary\",\n  \"entity_id\": 12345,\n  \"payload\": {\n    \"status\": \"ACME Payments are failing\",\n    \"severity\": \"1\",\n    \"project\": \"kubeprod\"\n  },\n  \"urls\": [\n    {\n      \"link_url\": \"https://www.example.com/alerts/12345/\",\n      \"link_text\": \"Alert URL\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_object\": {\n    \"name\": \"API\",\n    \"creation_date\": \"2022-11-14T14:08:56.089450Z\",\n    \"summary\": \"Zenduty API integration\",\n    \"unique_id\": \"828361de-681f-4f00-9420-07a185a83e46\",\n    \"service\": \"1587103f-6ed2-4eac-8a56-866128df036f\",\n    \"team\": \"db61f7ed-ba78-4536-9b2d-256b135a731d\",\n    \"integration_key\": \"082a1af8-064c-40a2-a99c-bc9c27d2042d\",\n    \"is_enabled\": true,\n    \"integration_type\": 0\n  },\n  \"summary\": \"This is the incident summary\",\n  \"incident\": null,\n  \"creation_date\": \"2023-04-05T12:40:35.405170Z\",\n  \"message\": \"This is info alert\",\n  \"integration\": \"828361de-681f-4f00-9420-07a185a83e46\",\n  \"suppressed\": false,\n  \"entity_id\": \"12345\",\n  \"payload\": {},\n  \"alert_type\": \"0\",\n  \"unique_id\": \"hD5dKNDyFDVADEYdrLViM7\",\n  \"images\": [],\n  \"urls\": [\n    {\n      \"unique_id\": \"b7cc93a2-6f64-46c6-bed7-2dd0504917f6\",\n      \"link_url\": \"https://www.example.com/alerts/1234/\",\n      \"link_text\": \"Alert URL\"\n    }\n  ],\n  \"notes\": [],\n  \"incident_created\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96f50302-70c1-42bc-b266-ce23205c5ecf",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alert_type\": \"info\",\n  \"message\": \"This is info alert\",\n  \"summary\": \"This is the incident summary\",\n  \"entity_id\": 12345,\n  \"payload\": {\n    \"status\": \"ACME Payments are failing\",\n    \"severity\": \"1\",\n    \"project\": \"kubeprod\"\n  },\n  \"urls\": [\n    {\n      \"link_url\": \"https://www.example.com/alerts/12345/\",\n      \"link_text\": \"Alert URL\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fc7f9e3-7210-4ed4-ad65-192661c63621",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alert_type\": \"info\",\n  \"message\": \"This is info alert\",\n  \"summary\": \"This is the incident summary\",\n  \"entity_id\": 12345,\n  \"payload\": {\n    \"status\": \"ACME Payments are failing\",\n    \"severity\": \"1\",\n    \"project\": \"kubeprod\"\n  },\n  \"urls\": [\n    {\n      \"link_url\": \"https://www.example.com/alerts/12345/\",\n      \"link_text\": \"Alert URL\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e3af4de-9527-46ad-8f5e-c2bc1790733c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alert_type\": \"info\",\n  \"message\": \"This is info alert\",\n  \"summary\": \"This is the incident summary\",\n  \"entity_id\": 12345,\n  \"payload\": {\n    \"status\": \"ACME Payments are failing\",\n    \"severity\": \"1\",\n    \"project\": \"kubeprod\"\n  },\n  \"urls\": [\n    {\n      \"link_url\": \"https://www.example.com/alerts/12345/\",\n      \"link_text\": \"Alert URL\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ce4ba2d-00c2-4bd7-81b5-f3e5a3e1d52d",
+          "name": "Create the Event object",
+          "request": {
+            "name": "Create the Event object",
+            "description": {
+              "content": "Create the Event object by setting the values of all the required parameters passed in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "integration",
+                ":account_id",
+                "generic",
+                ":integration_key",
+                ""
+              ],
+              "host": [
+                "{{integration-account_id-generic-integration_key--Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) 5 character long account identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_key",
+                  "description": "(Required) integration_key of the Integration object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\",\n  \"alert_type\": \"info\",\n  \"summary\": \"<string>\",\n  \"entity_id\": \"<string>\",\n  \"payload\": \"<object>\",\n  \"urls\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sla\": \"<string>\",\n  \"escalation_policy\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"stakeholders\": {\n    \"users\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"teams\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"emails\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"stakeholders_comms\": {\n    \"subject\": \"<string>\",\n    \"body\": \"<string>\",\n    \"timezone\": \"<string>\",\n    \"created_by\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c5d17c4-b255-42e0-bf0d-5352ff939208",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integration",
+                    ":account_id",
+                    "generic",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{integration-account_id-generic-integration_key--Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) 5 character long account identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alert_type\": \"info\",\n  \"message\": \"This is info alert\",\n  \"summary\": \"This is the incident summary\",\n  \"entity_id\": 12345,\n  \"payload\": {\n    \"status\": \"ACME Payments are failing\",\n    \"severity\": \"1\",\n    \"project\": \"kubeprod\"\n  },\n  \"urls\": [\n    {\n      \"link_url\": \"https://www.example.com/alerts/12345/\",\n      \"link_text\": \"Alert URL\"\n    }\n  ],\n  \"sla\": \"cfb927ec-8316-4464-8770-deca07f75b49\",\n  \"escalation_policy\": \"272841e2-2cbf-40a8-9a9a-64227fd3d722\",\n  \"priority\": \"b535c8c0-7c75-4911-a9c6-27a3be2f2da9\",\n  \"stakeholders\": {\n    \"users\": [\n      \"85e1569d-79a4-4205-850f-a\",\n      \"b80daf25-8a47-4365-baa4-0\"\n    ],\n    \"teams\": [\n      \"4a106e05-09af-4aef-9439-40c6f4aaff0f\",\n      \"c1de7905-352f-424a-b8d0-f84406f76314\"\n    ],\n    \"emails\": [\n      \"maryjane@sharklasers.com\"\n    ]\n  },\n  \"tags\": [\n    \"bdb4f470-b04b-4036-b8a4-5b66d9097b25\",\n    \"ee99cc9c-a8ef-4a69-937c-07379e99d853\"\n  ],\n  \"stakeholder_comms\": {\n    \"subject\": \"New incident #12345 triggered\",\n    \"body\": \"We’re currently experiencing an incident affecting billing. Our team is actively working on it, and we’ll provide updates as soon as we have more information.\",\n    \"timezone\": \"UTC\",\n    \"created_by\": \"85e1569d-79a4-4205-850f-a\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\",\n  \"trace_id\": \"2f7c427c-3dd4-4bfc-84c5-74a1fb936df7\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb9794af-c06c-42ef-be4e-aaa05aaad41d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integration",
+                    ":account_id",
+                    "generic",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{integration-account_id-generic-integration_key--Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) 5 character long account identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alert_type\": \"info\",\n  \"message\": \"This is info alert\",\n  \"summary\": \"This is the incident summary\",\n  \"entity_id\": 12345,\n  \"payload\": {\n    \"status\": \"ACME Payments are failing\",\n    \"severity\": \"1\",\n    \"project\": \"kubeprod\"\n  },\n  \"urls\": [\n    {\n      \"link_url\": \"https://www.example.com/alerts/12345/\",\n      \"link_text\": \"Alert URL\"\n    }\n  ],\n  \"sla\": \"cfb927ec-8316-4464-8770-deca07f75b49\",\n  \"escalation_policy\": \"272841e2-2cbf-40a8-9a9a-64227fd3d722\",\n  \"priority\": \"b535c8c0-7c75-4911-a9c6-27a3be2f2da9\",\n  \"stakeholders\": {\n    \"users\": [\n      \"85e1569d-79a4-4205-850f-a\",\n      \"b80daf25-8a47-4365-baa4-0\"\n    ],\n    \"teams\": [\n      \"4a106e05-09af-4aef-9439-40c6f4aaff0f\",\n      \"c1de7905-352f-424a-b8d0-f84406f76314\"\n    ],\n    \"emails\": [\n      \"maryjane@sharklasers.com\"\n    ]\n  },\n  \"tags\": [\n    \"bdb4f470-b04b-4036-b8a4-5b66d9097b25\",\n    \"ee99cc9c-a8ef-4a69-937c-07379e99d853\"\n  ],\n  \"stakeholder_comms\": {\n    \"subject\": \"New incident #12345 triggered\",\n    \"body\": \"We’re currently experiencing an incident affecting billing. Our team is actively working on it, and we’ll provide updates as soon as we have more information.\",\n    \"timezone\": \"UTC\",\n    \"created_by\": \"85e1569d-79a4-4205-850f-a\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4da53d17-0800-4823-b234-7e9647de2996",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "integration",
+                    ":account_id",
+                    "generic",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{integration-account_id-generic-integration_key--Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) 5 character long account identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alert_type\": \"info\",\n  \"message\": \"This is info alert\",\n  \"summary\": \"This is the incident summary\",\n  \"entity_id\": 12345,\n  \"payload\": {\n    \"status\": \"ACME Payments are failing\",\n    \"severity\": \"1\",\n    \"project\": \"kubeprod\"\n  },\n  \"urls\": [\n    {\n      \"link_url\": \"https://www.example.com/alerts/12345/\",\n      \"link_text\": \"Alert URL\"\n    }\n  ],\n  \"sla\": \"cfb927ec-8316-4464-8770-deca07f75b49\",\n  \"escalation_policy\": \"272841e2-2cbf-40a8-9a9a-64227fd3d722\",\n  \"priority\": \"b535c8c0-7c75-4911-a9c6-27a3be2f2da9\",\n  \"stakeholders\": {\n    \"users\": [\n      \"85e1569d-79a4-4205-850f-a\",\n      \"b80daf25-8a47-4365-baa4-0\"\n    ],\n    \"teams\": [\n      \"4a106e05-09af-4aef-9439-40c6f4aaff0f\",\n      \"c1de7905-352f-424a-b8d0-f84406f76314\"\n    ],\n    \"emails\": [\n      \"maryjane@sharklasers.com\"\n    ]\n  },\n  \"tags\": [\n    \"bdb4f470-b04b-4036-b8a4-5b66d9097b25\",\n    \"ee99cc9c-a8ef-4a69-937c-07379e99d853\"\n  ],\n  \"stakeholder_comms\": {\n    \"subject\": \"New incident #12345 triggered\",\n    \"body\": \"We’re currently experiencing an incident affecting billing. Our team is actively working on it, and we’ll provide updates as soon as we have more information.\",\n    \"timezone\": \"UTC\",\n    \"created_by\": \"85e1569d-79a4-4205-850f-a\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d34e8b84-9cbc-4164-8289-4d9c15b0db4c",
+          "name": "Get the status of an Alert",
+          "request": {
+            "name": "Get the status of an Alert",
+            "description": {
+              "content": "Get the Alert object for specific trace id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "alert",
+                "status",
+                ":trace_id",
+                ""
+              ],
+              "host": [
+                "{{api-alert-status-trace_id--Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trace_id",
+                  "description": "(Required) trace id of the alert object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28192154-539b-4104-92b4-b171cf6b62fa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alert",
+                    "status",
+                    ":trace_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{api-alert-status-trace_id--Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trace_id",
+                      "description": "(Required) trace id of the alert object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"completed\",\n  \"alert\": \"JVPDBpGdpBQgRKdTGz2Qir\",\n  \"integration\": {\n    \"name\": \"API\"\n  },\n  \"incident\": {\n    \"incident_number\": 123,\n    \"unique_id\": \"22cWPt3h3REvZCkHVHNsfm\"\n  },\n  \"suppressed\": false,\n  \"is_incident_created\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c2b0d10-f832-4eb3-a640-12e6063e8354",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alert",
+                    "status",
+                    ":trace_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{api-alert-status-trace_id--Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trace_id",
+                      "description": "(Required) trace id of the alert object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6c45d91-2bbc-48eb-8c1b-a7ef398443ed",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alert",
+                    "status",
+                    ":trace_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{api-alert-status-trace_id--Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trace_id",
+                      "description": "(Required) trace id of the alert object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zenduty.com",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://events.zenduty.com",
+      "key": "integration-account_id-generic-integration_key--Url"
+    },
+    {
+      "type": "string",
+      "value": "https://events.zenduty.com",
+      "key": "api-alert-status-trace_id--Url"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eb39c985-e397-4b87-aefe-2858cf7de25a",
+    "name": "Zenduty Account Custom Role Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n\n\nContact Support:\n Email: vishwa@zenduty.com",
+      "type": "text/plain"
+    }
+  }
+}

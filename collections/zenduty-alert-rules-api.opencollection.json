@@ -1,0 +1,205 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Alert Rules API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Alert Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Alert Rules objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Alert Rules objects."
+        },
+        {
+          "info": {
+            "name": "Create the Alert Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Alert Rule object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Alert Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/:transformers_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              },
+              {
+                "name": "transformers_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Alert Rule object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Alert Rule object."
+        },
+        {
+          "info": {
+            "name": "Update the Alert Rule data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/:transformers_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              },
+              {
+                "name": "transformers_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Alert Rule object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified Alert Rule object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged."
+        },
+        {
+          "info": {
+            "name": "Delete the Alert Rule object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/services/:service_id/integrations/:integration_id/transformers/:transformers_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Service object"
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Integration object"
+              },
+              {
+                "name": "transformers_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Alert Rule object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Alert Rule object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

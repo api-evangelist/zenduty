@@ -1,0 +1,2363 @@
+{
+  "item": [
+    {
+      "id": "928bda27-b7fe-4e24-89d5-8a0ff93e97a2",
+      "name": "Integrations",
+      "description": {
+        "content": "This object represents the integrations associated with a service. You can checkout the integration docs here https://docs.zenduty.com/docs/integrations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b525218-d5f9-46f9-b745-32c4d0e36101",
+          "name": "Create the Integration object",
+          "request": {
+            "name": "Create the Integration object",
+            "description": {
+              "content": "Create the Integration object by setting the values of all the required parameters passed in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                "{}",
+                "services",
+                ":service_id",
+                "integrations",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"application\": \"<string>\",\n  \"name\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"is_enabled\": true,\n  \"create_incidents_for\": 1,\n  \"integration_type\": 0,\n  \"default_urgency\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "482dfd6e-3223-4fda-a90b-73399d3ce2b7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Infra custom Integration\",\n  \"summary\": \"This is the summary for Infra custom Integration\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Infra custom Integration\",\n  \"creation_date\": \"2022-07-08T12:52:22.906327Z\",\n  \"summary\": \"This is the summary for Infra custom Integration\",\n  \"unique_id\": \"72da1133-a471-4e70-95f3-ce3a5650e9fd\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n  \"application_reference\": {\n    \"name\": \"Cloudwatch V2\",\n    \"icon_url\": \"Cloudwatch V2\",\n    \"summary\": \"Cloudwatch V2\",\n    \"description\": \"Cloudwatch V2\",\n    \"unique_id\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n    \"availability_plan_id\": 1,\n    \"setup_instructions\": \"<IntegrationURL/>\",\n    \"extension\": \"cloudwatch_v2\",\n    \"application_type\": 0,\n    \"categories\": \"API,Analytics\",\n    \"documentation_link\": \"Cloudwatch V2\"\n  },\n  \"integration_key\": \"5f306dae-b327-4ba9-8f3a-ab4cffd57645\",\n  \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n  \"is_enabled\": true,\n  \"create_incidents_for\": 1,\n  \"integration_type\": 0,\n  \"default_urgency\": 1,\n  \"webhook_url\": \"https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d60d39a8-69c9-40af-8007-329998d95092",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Infra custom Integration\",\n  \"summary\": \"This is the summary for Infra custom Integration\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe57c690-60d8-4ca1-8d2b-4e406a18003c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Infra custom Integration\",\n  \"summary\": \"This is the summary for Infra custom Integration\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ed086bf-e75b-4821-9283-7c610991fbe5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Infra custom Integration\",\n  \"summary\": \"This is the summary for Infra custom Integration\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ed7e3bd-6777-443d-aeb2-6303b6b00dd5",
+          "name": "List all Integration objects",
+          "request": {
+            "name": "List all Integration objects",
+            "description": {
+              "content": "Returns a list of Integration objects. The Integration objects are sorted by creation_date, with the most recent Integration object appearing last.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                "{}",
+                "services",
+                ":service_id",
+                "integrations",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "613a016b-fa4d-45ac-8f20-5a527ac68a57",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"Cloudwatch V2\",\n    \"creation_date\": \"2022-07-08T12:31:37.435711Z\",\n    \"summary\": \"Edit summary for this integration\",\n    \"unique_id\": \"de8830c5-8596-4ab6-937e-8d5df08499d8\",\n    \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n    \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n    \"application_reference\": {\n      \"name\": \"Cloudwatch V2\",\n      \"icon_url\": \"Cloudwatch V2\",\n      \"summary\": \"Cloudwatch V2\",\n      \"description\": \"Cloudwatch V2\",\n      \"unique_id\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n      \"availability_plan_id\": 1,\n      \"setup_instructions\": \"<IntegrationURL/>\",\n      \"extension\": \"cloudwatch_v2\",\n      \"application_type\": 0,\n      \"categories\": \"API,Analytics\",\n      \"documentation_link\": \"Cloudwatch V2\"\n    },\n    \"integration_key\": \"bf167d3d-93dc-43b6-9066-a10b0bafcc09\",\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"is_enabled\": true,\n    \"create_incidents_for\": 1,\n    \"integration_type\": 0,\n    \"default_urgency\": 1,\n    \"webhook_url\": \"https://www.zenduty.com/api/integration/cloudwatch_v2/bf167d3d-93dc-43b6-9066-a10b0bafcc09/\"\n  },\n  {\n    \"name\": \"Conference bridge\",\n    \"creation_date\": \"2022-07-08T12:31:37.441939Z\",\n    \"summary\": \"Edit summary for this integration\",\n    \"unique_id\": \"38d5f0f9-a2d4-44dd-bc8c-4f2fdeea284e\",\n    \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n    \"application\": \"bbfdaa85-a1c1-4d0a-b59a-0e24f081d237\",\n    \"application_reference\": {\n      \"name\": \"Conference bridge\",\n      \"icon_url\": \"https://www.softexia.com/wp-content/uploads/2020/03/ZOOM_logo.png\",\n      \"summary\": \"Conference bridge\",\n      \"description\": \"Conference bridge\",\n      \"unique_id\": \"bbfdaa85-a1c1-4d0a-b59a-0e24f081d237\",\n      \"availability_plan_id\": 1,\n      \"setup_instructions\": \"Conference bridge\",\n      \"extension\": \"conf\",\n      \"application_type\": 1,\n      \"categories\": \"API,Analytics,Collaboration\",\n      \"documentation_link\": \"http://docs.zenduty.com/\"\n    },\n    \"integration_key\": \"9efb306f-49b2-4b76-a428-845c7782deed\",\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"is_enabled\": true,\n    \"create_incidents_for\": 1,\n    \"integration_type\": 0,\n    \"default_urgency\": 1,\n    \"webhook_url\": \"https://www.zenduty.com/api/integration/conf/9efb306f-49b2-4b76-a428-845c7782deed/\"\n  },\n  {\n    \"name\": \"Jira (2-way)\",\n    \"creation_date\": \"2022-07-08T12:31:37.448374Z\",\n    \"summary\": \"Edit summary for this integration\",\n    \"unique_id\": \"c6a8fdf5-51a5-42a2-b3c9-c2d74b870e71\",\n    \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n    \"application\": \"0625ca3a-b064-45d0-9438-ff09953ba7c2\",\n    \"application_reference\": {\n      \"name\": \"Jira (2-way)\",\n      \"icon_url\": \"https://images.squarespace-cdn.com/content/v1/5dc1ccd7e0292e070ef93a24/1582586865629-PN8VT9EY3DPJSTYL46AC/jira-small%402x.png?format=300w\",\n      \"summary\": \"Sample jira 2way integration\",\n      \"description\": \"Sample jira 2way integration\",\n      \"unique_id\": \"0625ca3a-b064-45d0-9438-ff09953ba7c2\",\n      \"availability_plan_id\": 1,\n      \"setup_instructions\": \"https://docs.zenduty.com/docs/jira\",\n      \"extension\": \"jiracloud\",\n      \"application_type\": 1,\n      \"categories\": \"API,Popular\",\n      \"documentation_link\": \"https://docs.zenduty.com/docs/jira\"\n    },\n    \"integration_key\": \"5eb0fd9b-da65-4f36-8dff-f32fdd4dfdc9\",\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"is_enabled\": true,\n    \"create_incidents_for\": 1,\n    \"integration_type\": 0,\n    \"default_urgency\": 1,\n    \"webhook_url\": \"https://www.zenduty.com/api/integration/jiracloud/5eb0fd9b-da65-4f36-8dff-f32fdd4dfdc9/\"\n  },\n  {\n    \"name\": \"Zoom\",\n    \"creation_date\": \"2022-07-08T12:31:37.453423Z\",\n    \"summary\": \"Edit summary for this integration\",\n    \"unique_id\": \"faa5594e-aea5-4c5a-9d2b-846c02bd8cf9\",\n    \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n    \"application\": \"41dc6d06-b33e-406d-a11f-efb11b74243c\",\n    \"application_reference\": {\n      \"name\": \"Zoom\",\n      \"icon_url\": \"https://pbs.twimg.com/media/EUjGOkTUEAAeKUL?format=png\",\n      \"summary\": \"Zoom Outgoing\",\n      \"description\": \"Zoom Outgoing\",\n      \"unique_id\": \"41dc6d06-b33e-406d-a11f-efb11b74243c\",\n      \"availability_plan_id\": 1,\n      \"setup_instructions\": \"Some setup instructions\",\n      \"extension\": \"zoom\",\n      \"application_type\": 1,\n      \"categories\": \"Popular,APM\",\n      \"documentation_link\": \"https://docs.zenduty.com\"\n    },\n    \"integration_key\": \"181c2f90-a04a-41e5-a7ca-a16d68296e82\",\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"is_enabled\": true,\n    \"create_incidents_for\": 1,\n    \"integration_type\": 0,\n    \"default_urgency\": 1,\n    \"webhook_url\": \"https://www.zenduty.com/api/integration/zoom/181c2f90-a04a-41e5-a7ca-a16d68296e82/\"\n  },\n  {\n    \"name\": \"Infra custom Integration\",\n    \"creation_date\": \"2022-07-08T12:52:22.906327Z\",\n    \"summary\": \"This is the summary for Infra custom Integration\",\n    \"unique_id\": \"72da1133-a471-4e70-95f3-ce3a5650e9fd\",\n    \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n    \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n    \"application_reference\": {\n      \"name\": \"Cloudwatch V2\",\n      \"icon_url\": \"Cloudwatch V2\",\n      \"summary\": \"Cloudwatch V2\",\n      \"description\": \"Cloudwatch V2\",\n      \"unique_id\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n      \"availability_plan_id\": 1,\n      \"setup_instructions\": \"<IntegrationURL/>\",\n      \"extension\": \"cloudwatch_v2\",\n      \"application_type\": 0,\n      \"categories\": \"API,Analytics\",\n      \"documentation_link\": \"Cloudwatch V2\"\n    },\n    \"integration_key\": \"5f306dae-b327-4ba9-8f3a-ab4cffd57645\",\n    \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n    \"is_enabled\": true,\n    \"create_incidents_for\": 1,\n    \"integration_type\": 0,\n    \"default_urgency\": 1,\n    \"webhook_url\": \"https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9683c09c-8d1a-4bac-9341-724b152cdba4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "103f0045-ac5e-48af-94c2-443406d89a5a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ce7f870-35ee-4b33-a359-80e51e014e5a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    "{}",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21c32dd0-ae38-4ac6-9d78-82b4e91d4703",
+          "name": "Retrieve the Integration object",
+          "request": {
+            "name": "Retrieve the Integration object",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                "integrations",
+                ":integration_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) unique_id of the Integration object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "362691d3-9c38-452d-912b-dac26b5f476c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Infra custom Integration\",\n  \"creation_date\": \"2022-07-08T12:52:22.906327Z\",\n  \"summary\": \"This is the summary for Infra custom Integration\",\n  \"unique_id\": \"72da1133-a471-4e70-95f3-ce3a5650e9fd\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n  \"application_reference\": {\n    \"name\": \"Cloudwatch V2\",\n    \"icon_url\": \"Cloudwatch V2\",\n    \"summary\": \"Cloudwatch V2\",\n    \"description\": \"Cloudwatch V2\",\n    \"unique_id\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n    \"availability_plan_id\": 1,\n    \"setup_instructions\": \"<IntegrationURL/>\",\n    \"extension\": \"cloudwatch_v2\",\n    \"application_type\": 0,\n    \"categories\": \"API,Analytics\",\n    \"documentation_link\": \"Cloudwatch V2\"\n  },\n  \"integration_key\": \"5f306dae-b327-4ba9-8f3a-ab4cffd57645\",\n  \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n  \"is_enabled\": true,\n  \"create_incidents_for\": 1,\n  \"integration_type\": 0,\n  \"default_urgency\": 1,\n  \"webhook_url\": \"https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bce511ee-f5f4-460e-8c7e-1e3fd664647a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a139c98-fcf3-4651-874f-061fa48a764f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eac6d9db-1901-4ba1-8c19-1c2124c050c4",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf89fc28-9e8e-457d-853b-9298543e2892",
+          "name": "Update the Integration object",
+          "request": {
+            "name": "Update the Integration object",
+            "description": {
+              "content": "Updates the specified Integration object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                "integrations",
+                ":integration_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) unique_id of the Integration object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"application\": \"<string>\",\n  \"name\": \"<string>\",\n  \"summary\": \"<string>\",\n  \"is_enabled\": true,\n  \"create_incidents_for\": 1,\n  \"integration_type\": 0,\n  \"default_urgency\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f49fea86-7c62-4c93-84c6-a59982465bea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Modified Infra custom Integration\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Modified Infra custom Integration\",\n  \"creation_date\": \"2022-07-08T12:52:22.906327Z\",\n  \"summary\": \"This is the summary for Infra custom Integration\",\n  \"unique_id\": \"72da1133-a471-4e70-95f3-ce3a5650e9fd\",\n  \"service\": \"191f5e2c-515e-4ee0-b501-3a292f8dae2f\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n  \"application_reference\": {\n    \"name\": \"Cloudwatch V2\",\n    \"icon_url\": \"Cloudwatch V2\",\n    \"summary\": \"Cloudwatch V2\",\n    \"description\": \"Cloudwatch V2\",\n    \"unique_id\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\",\n    \"availability_plan_id\": 1,\n    \"setup_instructions\": \"<IntegrationURL/>\",\n    \"extension\": \"cloudwatch_v2\",\n    \"application_type\": 0,\n    \"categories\": \"API,Analytics\",\n    \"documentation_link\": \"Cloudwatch V2\"\n  },\n  \"integration_key\": \"5f306dae-b327-4ba9-8f3a-ab4cffd57645\",\n  \"created_by\": \"216bba3d-7268-4a8e-89e9-6\",\n  \"is_enabled\": true,\n  \"create_incidents_for\": 1,\n  \"integration_type\": 0,\n  \"default_urgency\": 1,\n  \"webhook_url\": \"https://www.zenduty.com/api/integration/cloudwatch_v2/5f306dae-b327-4ba9-8f3a-ab4cffd57645/\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e329fabf-b2cb-4659-9611-d436314b07f4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Modified Infra custom Integration\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4df7c0d7-ad8c-4065-9627-ae9fb98ff3da",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Modified Infra custom Integration\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a421c5c1-1a4f-45d0-850e-d78ae80fe765",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Modified Infra custom Integration\",\n  \"application\": \"07c84d47-7e71-49ec-b781-1cc81a78086e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dbd7920e-9355-4723-bf31-e5a4014c8f89",
+          "name": "Delete the Integration object",
+          "request": {
+            "name": "Delete the Integration object",
+            "description": {
+              "content": "Delete the specified Integration object permanently",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                "integrations",
+                ":integration_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) unique_id of the Integration object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c63e9703-5d8f-4f31-8346-6909f5ecec6a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6eec88ae-145d-4b10-b873-b57769d81159",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a804059a-d7f8-4810-ae9f-e8f29c47c9b1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9d6c8ce-f946-40d1-8388-e583a086022a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7736cc9d-d1de-47bc-b06b-8ecef039b3cf",
+          "name": "Regenerate the Integration key",
+          "request": {
+            "name": "Regenerate the Integration key",
+            "description": {
+              "content": "Regenerates the integration key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "regenerate_integration_key",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"integration_unique_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "987d56c3-9c1c-4019-8efc-9fbf177bee77",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "regenerate_integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"integration_unique_id\": \"84753076-129d-4706-a957-a7c751ca7ab1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"AWS GuardDuty\",\n  \"creation_date\": \"2024-07-01T10:16:32.036085Z\",\n  \"summary\": \"AWS GuardDuty Integration\",\n  \"unique_id\": \"84753076-129d-4706-a957-a7c751ca7ab1\",\n  \"service\": \"34da0237-9825-454a-9297-3a23a4b78795\",\n  \"application\": \"bb399bc6-9098-4afd-91d7-3cec4d8282eb\",\n  \"application_reference\": {\n    \"name\": \"AWS GuardDuty\",\n    \"icon_url\": \"https://media-assets-cdn.zenduty.com/assets/integrations/new_logos/guardduty.png\",\n    \"summary\": \"AWS GuardDuty Integration\",\n    \"description\": \"AWS GuardDuty Integration\",\n    \"unique_id\": \"bb399bc6-9098-4afd-91d7-3cec4d8282eb\",\n    \"availability_plan_id\": 4,\n    \"setup_instructions\": \"To integrate Zenduty with AWS GuardDuty, follow the steps below...\",\n    \"extension\": \"guardduty\",\n    \"application_type\": 0,\n    \"categories\": \"Cloud Monitoring,Server/Network Monitoring\",\n    \"documentation_link\": \"https://docs.zenduty.com/docs/guardduty\",\n    \"is_active\": 1\n  },\n  \"integration_key\": \"c89e320f-a975-47e4-8437-1169e91eeed7\",\n  \"created_by\": \"39569d4b-6540-4b64-a086-6\",\n  \"is_enabled\": true,\n  \"create_incidents_for\": 1,\n  \"integration_type\": 0,\n  \"default_urgency\": 1,\n  \"webhook_url\": \"https://www.zenduty.com/api/integration/guardduty/c89e320f-a975-47e4-8437-1169e91eeed7/\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2d88427-9d07-41af-bcde-541acce028d0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "regenerate_integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"integration_unique_id\": \"84753076-129d-4706-a957-a7c751ca7ab1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9069bee-d66e-4a92-aea2-dd123a895846",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "regenerate_integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"integration_unique_id\": \"84753076-129d-4706-a957-a7c751ca7ab1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"User does not have permission to regenerate integration key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e726f49b-bfa9-4364-91e6-734204abc1ed",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "regenerate_integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"integration_unique_id\": \"84753076-129d-4706-a957-a7c751ca7ab1\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65cd85a4-7aac-4e4a-80d9-b571ca201765",
+          "name": "Fetch metadata of the Integration object",
+          "request": {
+            "name": "Fetch metadata of the Integration object",
+            "description": {
+              "content": "Returns an object that contains metadata of the Integration object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "integration-metadata",
+                ":integration_key",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_key",
+                  "description": "(Required) integration_key of the Integration object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ae5593b-2e77-4839-a796-aa7f670c1e60",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "integration-metadata",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"team\": {\n    \"name\": \"Backend\",\n    \"unique_id\": \"15404fac-f608-40eb-947a-d1b81729d40b\"\n  },\n  \"service\": {\n    \"name\": \"Demo Service\",\n    \"unique_id\": \"7e9f1add-645f-4acd-99d5-7cf51fdca3ce\"\n  },\n  \"integration\": {\n    \"unique_id\": \"24ga3711-d8e3-4714-a5af-d355be143341\",\n    \"name\": \"Generic Integration\",\n    \"extension\": \"generic\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81067f94-7f38-4f2f-b473-c73e11fae0f2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "integration-metadata",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2234808b-63d2-4dee-b36d-4722b0b10c8d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "integration-metadata",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09636919-dd85-46ce-a668-f4cec42aba8d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "integration-metadata",
+                    ":integration_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_key",
+                      "description": "(Required) integration_key of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zenduty.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7d39de27-5582-43ee-93b2-b0eb631e328e",
+    "name": "Zenduty Account Custom Role Integrations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n\n\nContact Support:\n Email: vishwa@zenduty.com",
+      "type": "text/plain"
+    }
+  }
+}

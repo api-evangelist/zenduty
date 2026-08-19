@@ -1,0 +1,898 @@
+{
+  "item": [
+    {
+      "id": "2b8e2b90-a12f-4016-9890-e010de806e99",
+      "name": "Incident Responders",
+      "description": {
+        "content": "This object represents the incident responders of an incident.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3fb12f6c-1cc0-4396-acfb-4dd0fb67fcae",
+          "name": "List all Incident Responders objects",
+          "request": {
+            "name": "List all Incident Responders objects",
+            "description": {
+              "content": "Returns a list of Incident Responders objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "incidents",
+                ":incident_number",
+                "responders",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "incident_number",
+                  "description": "(Required) Incident number of the Incident object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c543772a-6875-4ae6-b5ef-81404272c05f",
+              "name": "A list of Incident Responders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"count\": 6815,\n    \"next\": \"string\",\n    \"previous\": \"string\",\n    \"results\": [\n      {\n        \"unique_id\": \"string\",\n        \"incident\": 5265,\n        \"user\": \"string\",\n        \"user_name\": \"string\",\n        \"escalation_policy\": \"string\",\n        \"escalation_policy_name\": \"string\",\n        \"subject\": \"string\",\n        \"message\": \"string\",\n        \"response_status\": 839,\n        \"creation_date\": \"1992-05-14T21:39:19.122Z\"\n      },\n      {\n        \"unique_id\": \"string\",\n        \"incident\": 1798,\n        \"user\": \"string\",\n        \"user_name\": \"string\",\n        \"escalation_policy\": \"string\",\n        \"escalation_policy_name\": \"string\",\n        \"subject\": \"string\",\n        \"message\": \"string\",\n        \"response_status\": 6837,\n        \"creation_date\": \"1946-09-12T23:44:57.063Z\"\n      }\n    ]\n  },\n  {\n    \"count\": 4829,\n    \"next\": \"string\",\n    \"previous\": \"string\",\n    \"results\": [\n      {\n        \"unique_id\": \"string\",\n        \"incident\": 1893,\n        \"user\": \"string\",\n        \"user_name\": \"string\",\n        \"escalation_policy\": \"string\",\n        \"escalation_policy_name\": \"string\",\n        \"subject\": \"string\",\n        \"message\": \"string\",\n        \"response_status\": 3688,\n        \"creation_date\": \"1977-05-26T14:29:07.838Z\"\n      },\n      {\n        \"unique_id\": \"string\",\n        \"incident\": 1429,\n        \"user\": \"string\",\n        \"user_name\": \"string\",\n        \"escalation_policy\": \"string\",\n        \"escalation_policy_name\": \"string\",\n        \"subject\": \"string\",\n        \"message\": \"string\",\n        \"response_status\": 3743,\n        \"creation_date\": \"1962-12-08T13:47:57.844Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c01d83fc-a613-433d-84ea-9a3f04c729e2",
+              "name": "Invalid incident number",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "643df449-842c-467c-ad29-998d693a14d2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7946fd3b-ddf2-486e-9749-cb682ad70cd9",
+              "name": "Incident not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1545c339-cd17-4d8e-90ee-e120bc6d1bcc",
+          "name": "Add an Incident Responder",
+          "request": {
+            "name": "Add an Incident Responder",
+            "description": {
+              "content": "Add an Incident Responder to the incident",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "incidents",
+                ":incident_number",
+                "responders",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "incident_number",
+                  "description": "(Required) Incident number of the Incident object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a08c9272-5e7c-4266-8e22-6d620e610d96",
+              "name": "Incident Responder created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"85b563c8-18d0-4668-9462-9\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"unique_id\": \"k8Ds9iL768XMdGbdSWjthA\",\n  \"incident\": 4,\n  \"user\": \"85b563c8-18d0-4668-9462-9\",\n  \"subject\": null,\n  \"message\": null,\n  \"user_name\": \"Vishwa Kirshnakumar\",\n  \"creation_date\": \"2024-05-20T09:06:09.580Z\",\n  \"escalation_policy\": \"4a106e05-09af-4aef-9439-40c6f4aaff0f\",\n  \"escalation_policy_name\": \"Primary Escalation Policy\",\n  \"response_status\": 3\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67d4bff4-a413-4b60-809e-fe744bf757a7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"85b563c8-18d0-4668-9462-9\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "906bf432-fc92-4d63-ae18-bef6377a5d68",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"85b563c8-18d0-4668-9462-9\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4cea4dae-1031-4590-9bc4-ba68259a4a90",
+          "name": "Retrieve an Incident Responder",
+          "request": {
+            "name": "Retrieve an Incident Responder",
+            "description": {
+              "content": "Retrieve details of an Incident Responder",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "incidents",
+                ":incident_number",
+                "responders",
+                ":unique_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "incident_number",
+                  "description": "(Required) Incident number of the Incident object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unique_id",
+                  "description": "(Required) unique_id of the Incident Responder Object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c341c2ef-6e14-42d5-a15a-3281e09335f1",
+              "name": "Incident Responder retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ":unique_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unique_id",
+                      "description": "(Required) unique_id of the Incident Responder Object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"unique_id\": \"k8Ds9iL768XMdGbdSWjthA\",\n  \"incident\": 4,\n  \"user\": \"85b563c8-18d0-4668-9462-9\",\n  \"subject\": null,\n  \"message\": null,\n  \"user_name\": \"Vishwa Kirshnakumar\",\n  \"creation_date\": \"2024-05-20T09:06:09.580Z\",\n  \"escalation_policy\": \"4a106e05-09af-4aef-9439-40c6f4aaff0f\",\n  \"escalation_policy_name\": \"Primary Escalation Policy\",\n  \"response_status\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bd2be18-d01a-4de9-aa2d-5b2313875a02",
+              "name": "Incident Responder not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ":unique_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unique_id",
+                      "description": "(Required) unique_id of the Incident Responder Object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01228b79-38b0-47bf-942c-95836d11681f",
+          "name": "Delete an Incident Responder",
+          "request": {
+            "name": "Delete an Incident Responder",
+            "description": {
+              "content": "Delete an Incident Responder from the incident",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "incidents",
+                ":incident_number",
+                "responders",
+                ":unique_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "incident_number",
+                  "description": "(Required) Incident number of the Incident object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unique_id",
+                  "description": "(Required) unique_id of the Incident Responder Object"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f635efe1-1df9-4157-9610-4a08da6ceee8",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ":unique_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unique_id",
+                      "description": "(Required) unique_id of the Incident Responder Object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "511d2123-f988-4b63-8386-42e68cd4b827",
+              "name": "Incident Responder not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "incidents",
+                    ":incident_number",
+                    "responders",
+                    ":unique_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "incident_number",
+                      "description": "(Required) Incident number of the Incident object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unique_id",
+                      "description": "(Required) unique_id of the Incident Responder Object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zenduty.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f6e90f3e-9cc7-4a3a-9adb-a8642049d3e2",
+    "name": "Zenduty Account Custom Role Incident Responders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n\n\nContact Support:\n Email: vishwa@zenduty.com",
+      "type": "text/plain"
+    }
+  }
+}

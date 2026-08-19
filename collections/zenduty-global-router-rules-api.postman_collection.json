@@ -1,0 +1,1984 @@
+{
+  "item": [
+    {
+      "id": "6367cf8b-53d8-4124-924a-b435e6de8e6b",
+      "name": "Global Router Rules",
+      "description": {
+        "content": "The Rules of the Global Router in an Account are represented by this object. Visit this link to view the documentation for the global alert routing rules https://docs.zenduty.com/docs/globalalertrouting",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0c230d2a-7b9b-4d78-9fd7-40c3cf69d4dd",
+          "name": "Create the Global Router Rule object",
+          "request": {
+            "name": "Create the Global Router Rule object",
+            "description": {
+              "content": "Create the Global Router Rule object by setting the values of all the required parameters passed in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "events",
+                "router",
+                ":router_id",
+                "rulesets",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "router_id",
+                  "description": "(Required) unique_id of the Global Router object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"rule_json\": \"<string>\",\n  \"actions\": [\n    {\n      \"action_type\": \"<integer>\",\n      \"integration\": \"<string>\"\n    },\n    {\n      \"action_type\": \"<integer>\",\n      \"integration\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e22fb47a-b640-4ee3-900b-ccc5166d1ed9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Rule for Grafana Integration\",\n  \"actions\": [\n    {\n      \"action_type\": 0,\n      \"integration\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\"\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"unique_id\": \"4c9924cc-d051-4e58-978b-d673a7de540a\",\n  \"name\": \"Rule for Grafana Integration\",\n  \"position\": 7,\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n  \"actions\": [\n    {\n      \"unique_id\": \"fb742645-dc2f-4b76-bf44-8a0a8aa48e09\",\n      \"action_type\": 0,\n      \"service\": {\n        \"name\": \"Team 1 Service 1\",\n        \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n      },\n      \"team\": {\n        \"name\": \"Team 1\",\n        \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n      },\n      \"integration_obj\": {\n        \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n        \"name\": \"Anodot\"\n      }\n    }\n  ],\n  \"router\": \"e9be034e-6076-4953-a315-9a3666ffe774\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87e3b8d4-f7e5-4a86-ba51-816e700186df",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Rule for Grafana Integration\",\n  \"actions\": [\n    {\n      \"action_type\": 0,\n      \"integration\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\"\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "420d6c27-2645-48f7-bcff-910a2dee5115",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Rule for Grafana Integration\",\n  \"actions\": [\n    {\n      \"action_type\": 0,\n      \"integration\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\"\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb979c23-d15c-458c-aaf0-44ee3dc5606f",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Rule for Grafana Integration\",\n  \"actions\": [\n    {\n      \"action_type\": 0,\n      \"integration\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\"\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f85ef9e-b849-42d6-8ef6-fe28f6823e59",
+          "name": "List all Global Router Rule objects",
+          "request": {
+            "name": "List all Global Router Rule objects",
+            "description": {
+              "content": "Returns a list of Global Router Rule objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "events",
+                "router",
+                ":router_id",
+                "rulesets",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "router_id",
+                  "description": "(Required) unique_id of the Global Router object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bca4a13f-edac-4933-ba98-c13c3c60be9d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"unique_id\": \"12edd6c5-2217-4b53-b635-83083f420dd8\",\n    \"name\": \"position 1\",\n    \"position\": 1,\n    \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"8bbbbaba-cdef-4012-b456-7184d20607aa\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"8bbbbaba-cdef-4012-b456-7184d20607aa\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.payload.summary\\\",\\\"testing\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"8bbbbaba-cdef-4012-b456-7184d20607aa\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n    \"actions\": [\n      {\n        \"unique_id\": \"6d90b452-6b5f-4ea1-8b58-9ad091aba040\",\n        \"action_type\": 0,\n        \"service\": {\n          \"name\": \"Team 1 Service 1\",\n          \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n        },\n        \"team\": {\n          \"name\": \"Team 1\",\n          \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n        },\n        \"integration_obj\": {\n          \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n          \"name\": \"Anodot\"\n        }\n      },\n      {\n        \"unique_id\": \"be64664d-ab1d-419a-ab50-d48b05cbc1e6\",\n        \"action_type\": 0,\n        \"service\": {\n          \"name\": \"Team 1 Service 1\",\n          \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n        },\n        \"team\": {\n          \"name\": \"Team 1\",\n          \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n        },\n        \"integration_obj\": {\n          \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n          \"name\": \"Anodot\"\n        }\n      }\n    ],\n    \"router\": \"e9be034e-6076-4953-a315-9a3666ffe774\"\n  },\n  {\n    \"unique_id\": \"4c9924cc-d051-4e58-978b-d673a7de540a\",\n    \"name\": \"Rule for Grafana Integration\",\n    \"position\": 2,\n    \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n    \"actions\": [\n      {\n        \"unique_id\": \"fb742645-dc2f-4b76-bf44-8a0a8aa48e09\",\n        \"action_type\": 0,\n        \"service\": {\n          \"name\": \"Team 1 Service 1\",\n          \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n        },\n        \"team\": {\n          \"name\": \"Team 1\",\n          \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n        },\n        \"integration_obj\": {\n          \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n          \"name\": \"Anodot\"\n        }\n      }\n    ],\n    \"router\": \"e9be034e-6076-4953-a315-9a3666ffe774\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "910b23e1-418b-4d51-9465-fb5be47dc446",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a22a19d-358e-4622-b53c-bd4426ded1e5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79c17981-205f-46e4-86fe-dbedf92d590c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "511f12a6-4cb3-49c9-8fa7-a9e5b0d5da56",
+          "name": "Update the Global Router Rule object",
+          "request": {
+            "name": "Update the Global Router Rule object",
+            "description": {
+              "content": "Updates the position of the Global Router Rule object by setting the position and rule unique id passed in the request body",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "events",
+                "router",
+                ":router_id",
+                "rulesets",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "router_id",
+                  "description": "(Required) unique_id of the Global Router object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rule\": \"<string>\",\n  \"position\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a87c5fa7-7130-4260-9b57-924387208ca5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rule\": \"12edd6c5-2217-4b53-b635-83083f420dd8\",\n  \"position\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"unique_id\": \"12edd6c5-2217-4b53-b635-83083f420dd8\",\n    \"name\": \"position 1\",\n    \"position\": 1,\n    \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"8bbbbaba-cdef-4012-b456-7184d20607aa\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"8bbbbaba-cdef-4012-b456-7184d20607aa\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.payload.summary\\\",\\\"testing\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"8bbbbaba-cdef-4012-b456-7184d20607aa\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n    \"actions\": [\n      {\n        \"unique_id\": \"6d90b452-6b5f-4ea1-8b58-9ad091aba040\",\n        \"action_type\": 0,\n        \"service\": {\n          \"name\": \"Team 1 Service 1\",\n          \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n        },\n        \"team\": {\n          \"name\": \"Team 1\",\n          \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n        },\n        \"integration_obj\": {\n          \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n          \"name\": \"Anodot\"\n        }\n      },\n      {\n        \"unique_id\": \"be64664d-ab1d-419a-ab50-d48b05cbc1e6\",\n        \"action_type\": 0,\n        \"service\": {\n          \"name\": \"Team 1 Service 1\",\n          \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n        },\n        \"team\": {\n          \"name\": \"Team 1\",\n          \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n        },\n        \"integration_obj\": {\n          \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n          \"name\": \"Anodot\"\n        }\n      }\n    ],\n    \"router\": \"e9be034e-6076-4953-a315-9a3666ffe774\"\n  },\n  {\n    \"unique_id\": \"c757e713-e2c4-40f1-813a-6c82b487d9b2\",\n    \"name\": \"position 2\",\n    \"position\": 2,\n    \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"8bbbbaba-cdef-4012-b456-7184d20607aa\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"8bbbbaba-cdef-4012-b456-7184d20607aa\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.payload.summary\\\",\\\"testing\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"8bbbbaba-cdef-4012-b456-7184d20607aa\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n    \"actions\": [\n      {\n        \"unique_id\": \"69efe5d0-450e-4842-98ce-2bd4235ed4f7\",\n        \"action_type\": 0,\n        \"service\": {\n          \"name\": \"Team 1 Service 1\",\n          \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n        },\n        \"team\": {\n          \"name\": \"Team 1\",\n          \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n        },\n        \"integration_obj\": {\n          \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n          \"name\": \"Anodot\"\n        }\n      },\n      {\n        \"unique_id\": \"ca20dc3c-bbd8-467d-8aba-ad50547858c2\",\n        \"action_type\": 0,\n        \"service\": {\n          \"name\": \"Team 1 Service 1\",\n          \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n        },\n        \"team\": {\n          \"name\": \"Team 1\",\n          \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n        },\n        \"integration_obj\": {\n          \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n          \"name\": \"Anodot\"\n        }\n      }\n    ],\n    \"router\": \"e9be034e-6076-4953-a315-9a3666ffe774\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "704e7cd1-50d0-42c5-8d4c-31a69ded2704",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rule\": \"12edd6c5-2217-4b53-b635-83083f420dd8\",\n  \"position\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "412ff165-afd6-4510-a93b-743671f910f3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rule\": \"12edd6c5-2217-4b53-b635-83083f420dd8\",\n  \"position\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cf67688-2af6-4256-a764-77cf7c173ed1",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rule\": \"12edd6c5-2217-4b53-b635-83083f420dd8\",\n  \"position\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2608933-e0a4-4b37-a723-bb0c8ed58e72",
+          "name": "Retrieve the Global Router Rule object",
+          "request": {
+            "name": "Retrieve the Global Router Rule object",
+            "description": {
+              "content": "Retrieve the specified Global Router Rule object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "events",
+                "router",
+                ":router_id",
+                "rulesets",
+                ":ruleset_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "router_id",
+                  "description": "(Required) unique_id of the Global Router object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleset_id",
+                  "description": "(Required) unique_id of the Global Router Rule object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3eac54be-10ca-4924-963e-7e777a47aede",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"unique_id\": \"4c9924cc-d051-4e58-978b-d673a7de540a\",\n  \"name\": \"Rule for Grafana Integration\",\n  \"position\": 2,\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n  \"actions\": [\n    {\n      \"unique_id\": \"fb742645-dc2f-4b76-bf44-8a0a8aa48e09\",\n      \"action_type\": 0,\n      \"service\": {\n        \"name\": \"Team 1 Service 1\",\n        \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n      },\n      \"team\": {\n        \"name\": \"Team 1\",\n        \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n      },\n      \"integration_obj\": {\n        \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n        \"name\": \"Anodot\"\n      }\n    }\n  ],\n  \"router\": \"e9be034e-6076-4953-a315-9a3666ffe774\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a511b63-c304-420a-a181-ba03cb314a6a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe5a0bc8-e2c9-467d-9a12-2b640f941d82",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36a8d8c6-cc06-41e8-bbf5-8181b47d9174",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "715cde14-007b-40ec-8489-f3c898ec3adb",
+          "name": "Update the Global Router Rule data",
+          "request": {
+            "name": "Update the Global Router Rule data",
+            "description": {
+              "content": "Updates the specified Global Router Rule object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "events",
+                "router",
+                ":router_id",
+                "rulesets",
+                ":ruleset_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "router_id",
+                  "description": "(Required) unique_id of the Global Router object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleset_id",
+                  "description": "(Required) unique_id of the Global Router Rule object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"rule_json\": \"<string>\",\n  \"actions\": [\n    {\n      \"action_type\": \"<integer>\",\n      \"integration\": \"<string>\"\n    },\n    {\n      \"action_type\": \"<integer>\",\n      \"integration\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "68f42763-0ce1-4a08-935f-2fdb2192625f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Rule for Grafana Integration Updated\",\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n  \"actions\": [\n    {\n      \"action_type\": 0,\n      \"integration\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"unique_id\": \"4c9924cc-d051-4e58-978b-d673a7de540a\",\n  \"name\": \"Rule for Grafana Integration Updated\",\n  \"position\": 2,\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n  \"actions\": [\n    {\n      \"unique_id\": \"d926e67a-60ae-4ed4-8ece-b93c31da6bc7\",\n      \"action_type\": 0,\n      \"service\": {\n        \"name\": \"Team 1 Service 1\",\n        \"unique_id\": \"32a7c77f-aa0a-49de-ab52-e52f0aa77888\"\n      },\n      \"team\": {\n        \"name\": \"Team 1\",\n        \"unique_id\": \"91fd3cc0-ebd6-43b8-aab3-67a05762ba0c\"\n      },\n      \"integration_obj\": {\n        \"unique_id\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\",\n        \"name\": \"Anodot\"\n      }\n    }\n  ],\n  \"router\": \"e9be034e-6076-4953-a315-9a3666ffe774\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08765e2a-bd3c-4f4d-b180-aaf9f3d1eb69",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Rule for Grafana Integration Updated\",\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n  \"actions\": [\n    {\n      \"action_type\": 0,\n      \"integration\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ca81e2a-b17f-4afa-8830-78545b347cb1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Rule for Grafana Integration Updated\",\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n  \"actions\": [\n    {\n      \"action_type\": 0,\n      \"integration\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d478bbb9-0c5b-466b-ae25-0d20881caf27",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Rule for Grafana Integration Updated\",\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.payload\\\",\\\"operator\\\":\\\"payloadsearch\\\",\\\"value\\\":[\\\"$.commonLabels.alertname\\\",\\\"grafana\\\"],\\\"valueSrc\\\":[\\\"value\\\",\\\"value\\\"],\\\"operatorOptions\\\":{\\\"ploperator\\\":\\\"equal\\\"},\\\"valueType\\\":[\\\"text\\\",\\\"text\\\"]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\",\n  \"actions\": [\n    {\n      \"action_type\": 0,\n      \"integration\": \"0c4e939d-6d54-401e-ad83-6114368bdd0b\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0c4fe93-ff9a-464d-b34e-abe791979b60",
+          "name": "Delete the Global Router Rule data",
+          "request": {
+            "name": "Delete the Global Router Rule data",
+            "description": {
+              "content": "Delete the specified Global Router Rule object permanently.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "events",
+                "router",
+                ":router_id",
+                "rulesets",
+                ":ruleset_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "router_id",
+                  "description": "(Required) unique_id of the Global Router object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleset_id",
+                  "description": "(Required) unique_id of the Global Router Rule object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a562f700-7387-4a89-99f3-ba3ffccc334d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b8573ebc-f7ed-4fd3-9267-3134f74f33c3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04dd13bd-f458-4f26-8f77-7752498c7f1d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1af8f3fa-7e79-44a2-bccb-5f1831483e1f",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "events",
+                    "router",
+                    ":router_id",
+                    "rulesets",
+                    ":ruleset_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "router_id",
+                      "description": "(Required) unique_id of the Global Router object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleset_id",
+                      "description": "(Required) unique_id of the Global Router Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zenduty.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1d3da456-b545-404d-93b7-9a2d3696fc98",
+    "name": "Zenduty Account Custom Role Global Router Rules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n\n\nContact Support:\n Email: vishwa@zenduty.com",
+      "type": "text/plain"
+    }
+  }
+}

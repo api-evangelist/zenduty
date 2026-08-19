@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Incident Tags API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Incident Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Incident Tag objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/tags/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Incident Tag objects. The Incident Tag objects are sorted by creation_date, with the most recent Incident Note object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Incident Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/tags/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Incident Tag object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Incident Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/tags/:tag_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "tag_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Tag object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Incident Tag object."
+        },
+        {
+          "info": {
+            "name": "Delete the Incident Tag object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/incidents/:incident_number/tags/:tag_unique_id/",
+            "params": [
+              {
+                "name": "incident_number",
+                "value": "",
+                "type": "path",
+                "description": "incident_number of the Incident object"
+              },
+              {
+                "name": "tag_unique_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Incident Tag object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Incident Tag object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

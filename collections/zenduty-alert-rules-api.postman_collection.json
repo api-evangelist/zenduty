@@ -1,0 +1,2057 @@
+{
+  "item": [
+    {
+      "id": "6af6aed1-2247-4509-8291-90f9e9983108",
+      "name": "Alert Rules",
+      "description": {
+        "content": "Alert Rules in Zenduty are advanced conditions for incoming alerts. They dictate how Zenduty handles alerts and their incidents upon receipt, altering behavior and routing based on predefined rules and actions set by the user within Zenduty Integrations.Visit this link to view the documentation for the alert rules https://www.zenduty.com/docs/alertrules/",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "74de8de5-a9e5-49d0-b061-11640f4cce8b",
+          "name": "Create the Alert Rule object",
+          "request": {
+            "name": "Create the Alert Rule object",
+            "description": {
+              "content": "Create the Alert Rule object by setting the values of all the required parameters passed in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                "integrations",
+                ":integration_id",
+                "transformers",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) unique_id of the Integration object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"actions\": [\n    {\n      \"action_type\": \"<integer>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"value_reference_name\": \"<string>\",\n      \"escalation_policy\": \"<string>\",\n      \"escalation_policy_name\": \"<string>\",\n      \"assign_to\": \"<string>\",\n      \"assign_to_name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"sla\": \"<string>\",\n      \"team_priority\": \"<string>\",\n      \"task_template\": \"<string>\"\n    },\n    {\n      \"action_type\": \"<integer>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"value_reference_name\": \"<string>\",\n      \"escalation_policy\": \"<string>\",\n      \"escalation_policy_name\": \"<string>\",\n      \"assign_to\": \"<string>\",\n      \"assign_to_name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"sla\": \"<string>\",\n      \"team_priority\": \"<string>\",\n      \"task_template\": \"<string>\"\n    }\n  ],\n  \"rule_json\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "05df0989-cbc7-45b8-a93c-d792f8cfe444",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actions\": [\n    {\n      \"unique_id\": \"992d6573-fb54-4a2b-8d5a-82619d477c3e\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"escalation_policy\": null,\n      \"schedule\": null,\n      \"assign_to\": null,\n      \"task_template\": null\n    }\n  ],\n  \"description\": \"Add links to alert summary\",\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rule_type\": 0,\n  \"unique_id\": \"8de24581-eade-4b50-a7f0-ac20594fde98\",\n  \"description\": \"Add links to alert summary\",\n  \"stop\": false,\n  \"position\": 1,\n  \"conditions\": [],\n  \"actions\": [\n    {\n      \"unique_id\": \"13eddca2-38a2-4efd-a8a9-08adcb036416\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"value_reference_name\": null,\n      \"escalation_policy\": null,\n      \"escalation_policy_name\": null,\n      \"assign_to\": null,\n      \"assign_to_name\": null,\n      \"schedule\": null,\n      \"sla\": null,\n      \"team_priority\": null,\n      \"task_template\": null\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7813aea6-94c6-448b-9fda-fdeb69427ee9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actions\": [\n    {\n      \"unique_id\": \"992d6573-fb54-4a2b-8d5a-82619d477c3e\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"escalation_policy\": null,\n      \"schedule\": null,\n      \"assign_to\": null,\n      \"task_template\": null\n    }\n  ],\n  \"description\": \"Add links to alert summary\",\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d6daa44-17e8-4cf7-94cb-3390531519f9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actions\": [\n    {\n      \"unique_id\": \"992d6573-fb54-4a2b-8d5a-82619d477c3e\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"escalation_policy\": null,\n      \"schedule\": null,\n      \"assign_to\": null,\n      \"task_template\": null\n    }\n  ],\n  \"description\": \"Add links to alert summary\",\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3a29f68-9012-465c-8e9a-9546d66dbf67",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actions\": [\n    {\n      \"unique_id\": \"992d6573-fb54-4a2b-8d5a-82619d477c3e\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"escalation_policy\": null,\n      \"schedule\": null,\n      \"assign_to\": null,\n      \"task_template\": null\n    }\n  ],\n  \"description\": \"Add links to alert summary\",\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03606c3a-2c9c-4f33-a837-3542a4c9afb7",
+          "name": "List all Alert Rules objects",
+          "request": {
+            "name": "List all Alert Rules objects",
+            "description": {
+              "content": "Returns a list of Alert Rules objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                "integrations",
+                ":integration_id",
+                "transformers",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) unique_id of the Integration object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32ae919b-b1da-4665-a3fb-afb9531b8dd8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"rule_type\": 0,\n    \"unique_id\": \"8de24581-eade-4b50-a7f0-ac20594fde98\",\n    \"description\": \"Add links to alert summary\",\n    \"stop\": false,\n    \"position\": 1,\n    \"conditions\": [],\n    \"actions\": [\n      {\n        \"unique_id\": \"13eddca2-38a2-4efd-a8a9-08adcb036416\",\n        \"action_type\": 9,\n        \"key\": \"\",\n        \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n        \"value_reference_name\": null,\n        \"escalation_policy\": null,\n        \"escalation_policy_name\": null,\n        \"assign_to\": null,\n        \"assign_to_name\": null,\n        \"schedule\": null,\n        \"sla\": null,\n        \"team_priority\": null,\n        \"task_template\": null\n      }\n    ],\n    \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n  },\n  {\n    \"rule_type\": 0,\n    \"unique_id\": \"ec73021b-1017-4909-a85f-ff9ad04f38db\",\n    \"description\": \"Create Incident for every alert\",\n    \"stop\": false,\n    \"position\": 1,\n    \"conditions\": [],\n    \"actions\": [\n      {\n        \"unique_id\": \"55754d02-b91a-4138-81fe-5b3b7b01a51e\",\n        \"action_type\": 10,\n        \"key\": \"\",\n        \"value\": \"\",\n        \"value_reference_name\": null,\n        \"escalation_policy\": null,\n        \"escalation_policy_name\": null,\n        \"assign_to\": null,\n        \"assign_to_name\": null,\n        \"schedule\": null,\n        \"sla\": null,\n        \"team_priority\": null,\n        \"task_template\": null\n      }\n    ],\n    \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "851e75b7-d891-4728-8e4d-9a63879d0b39",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c56f3809-e22e-49f0-82b3-3a7c9029002d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddac737f-8172-49e7-8fcc-6104f4cd2819",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26f3d25b-6721-403a-a5ce-56c1e8d766ae",
+          "name": "Retrieve the Alert Rule object",
+          "request": {
+            "name": "Retrieve the Alert Rule object",
+            "description": {
+              "content": "Retrieve the specified Alert Rule object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                "integrations",
+                ":integration_id",
+                "transformers",
+                ":transformers_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) unique_id of the Integration object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transformers_id",
+                  "description": "(Required) unique_id of the Alert Rule object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8beb390f-8bf1-4beb-8dda-7fa892b20cf3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rule_type\": 0,\n  \"unique_id\": \"8de24581-eade-4b50-a7f0-ac20594fde98\",\n  \"description\": \"Add links to alert summary\",\n  \"stop\": false,\n  \"position\": 1,\n  \"conditions\": [],\n  \"actions\": [\n    {\n      \"unique_id\": \"13eddca2-38a2-4efd-a8a9-08adcb036416\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"value_reference_name\": null,\n      \"escalation_policy\": null,\n      \"escalation_policy_name\": null,\n      \"assign_to\": null,\n      \"assign_to_name\": null,\n      \"schedule\": null,\n      \"sla\": null,\n      \"team_priority\": null,\n      \"task_template\": null\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "332889bf-c1a3-415b-9abf-89c9df2c0169",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d01b0ea-2b78-479b-b471-8ba8ceacad1d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1bf4cb8-fccb-4829-addb-32d0567cd962",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c198618-86f0-4c84-8435-0f9e0edfa5f6",
+          "name": "Update the Alert Rule data",
+          "request": {
+            "name": "Update the Alert Rule data",
+            "description": {
+              "content": "Updates the specified Alert Rule object by setting the values of the parameters passed in the request body. Any parameters not provided will be left unchanged.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                "integrations",
+                ":integration_id",
+                "transformers",
+                ":transformers_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) unique_id of the Integration object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transformers_id",
+                  "description": "(Required) unique_id of the Alert Rule object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"actions\": [\n    {\n      \"action_type\": \"<integer>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"value_reference_name\": \"<string>\",\n      \"escalation_policy\": \"<string>\",\n      \"escalation_policy_name\": \"<string>\",\n      \"assign_to\": \"<string>\",\n      \"assign_to_name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"sla\": \"<string>\",\n      \"team_priority\": \"<string>\",\n      \"task_template\": \"<string>\"\n    },\n    {\n      \"action_type\": \"<integer>\",\n      \"key\": \"<string>\",\n      \"value\": \"<string>\",\n      \"value_reference_name\": \"<string>\",\n      \"escalation_policy\": \"<string>\",\n      \"escalation_policy_name\": \"<string>\",\n      \"assign_to\": \"<string>\",\n      \"assign_to_name\": \"<string>\",\n      \"schedule\": \"<string>\",\n      \"sla\": \"<string>\",\n      \"team_priority\": \"<string>\",\n      \"task_template\": \"<string>\"\n    }\n  ],\n  \"rule_json\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8673a965-2ed6-4579-9b18-a13201bd09a9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rule_type\": 0,\n  \"unique_id\": \"8de24581-eade-4b50-a7f0-ac20594fde98\",\n  \"description\": \"Add links to alert summary updated\",\n  \"stop\": false,\n  \"position\": 1,\n  \"conditions\": [],\n  \"actions\": [\n    {\n      \"unique_id\": \"13eddca2-38a2-4efd-a8a9-08adcb036416\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"value_reference_name\": null,\n      \"escalation_policy\": null,\n      \"escalation_policy_name\": null,\n      \"assign_to\": null,\n      \"assign_to_name\": null,\n      \"schedule\": null,\n      \"sla\": null,\n      \"team_priority\": null,\n      \"task_template\": null\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rule_type\": 0,\n  \"unique_id\": \"8de24581-eade-4b50-a7f0-ac20594fde98\",\n  \"description\": \"Add links to alert summary updated\",\n  \"stop\": false,\n  \"position\": 1,\n  \"conditions\": [],\n  \"actions\": [\n    {\n      \"unique_id\": \"c6d6028b-74f3-4f51-b748-b14f207e380f\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"value_reference_name\": null,\n      \"escalation_policy\": null,\n      \"escalation_policy_name\": null,\n      \"assign_to\": null,\n      \"assign_to_name\": null,\n      \"schedule\": null,\n      \"sla\": null,\n      \"team_priority\": null,\n      \"task_template\": null\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6c1f931-77a4-4c96-9afc-b082733ec54a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rule_type\": 0,\n  \"unique_id\": \"8de24581-eade-4b50-a7f0-ac20594fde98\",\n  \"description\": \"Add links to alert summary updated\",\n  \"stop\": false,\n  \"position\": 1,\n  \"conditions\": [],\n  \"actions\": [\n    {\n      \"unique_id\": \"13eddca2-38a2-4efd-a8a9-08adcb036416\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"value_reference_name\": null,\n      \"escalation_policy\": null,\n      \"escalation_policy_name\": null,\n      \"assign_to\": null,\n      \"assign_to_name\": null,\n      \"schedule\": null,\n      \"sla\": null,\n      \"team_priority\": null,\n      \"task_template\": null\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88b39acc-4d2a-4163-b19c-da8985dd1cd1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rule_type\": 0,\n  \"unique_id\": \"8de24581-eade-4b50-a7f0-ac20594fde98\",\n  \"description\": \"Add links to alert summary updated\",\n  \"stop\": false,\n  \"position\": 1,\n  \"conditions\": [],\n  \"actions\": [\n    {\n      \"unique_id\": \"13eddca2-38a2-4efd-a8a9-08adcb036416\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"value_reference_name\": null,\n      \"escalation_policy\": null,\n      \"escalation_policy_name\": null,\n      \"assign_to\": null,\n      \"assign_to_name\": null,\n      \"schedule\": null,\n      \"sla\": null,\n      \"team_priority\": null,\n      \"task_template\": null\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa3b2f4d-5b76-402f-9052-f07c3100e945",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rule_type\": 0,\n  \"unique_id\": \"8de24581-eade-4b50-a7f0-ac20594fde98\",\n  \"description\": \"Add links to alert summary updated\",\n  \"stop\": false,\n  \"position\": 1,\n  \"conditions\": [],\n  \"actions\": [\n    {\n      \"unique_id\": \"13eddca2-38a2-4efd-a8a9-08adcb036416\",\n      \"action_type\": 9,\n      \"key\": \"\",\n      \"value\": \"{{summary}} https://www.zenduty.com/docs/alertrules/\",\n      \"value_reference_name\": null,\n      \"escalation_policy\": null,\n      \"escalation_policy_name\": null,\n      \"assign_to\": null,\n      \"assign_to_name\": null,\n      \"schedule\": null,\n      \"sla\": null,\n      \"team_priority\": null,\n      \"task_template\": null\n    }\n  ],\n  \"rule_json\": \"{\\\"type\\\":\\\"group\\\",\\\"id\\\":\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"children1\\\":{\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\":{\\\"type\\\":\\\"rule\\\",\\\"id\\\":\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\",\\\"properties\\\":{\\\"field\\\":\\\"alert.message\\\",\\\"operator\\\":\\\"is_not_empty\\\",\\\"value\\\":[],\\\"valueSrc\\\":[],\\\"operatorOptions\\\":null,\\\"valueType\\\":[]},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\",\\\"898aa9ba-0123-4456-b89a-b16a429f5d94\\\"]}},\\\"properties\\\":{\\\"conjunction\\\":\\\"AND\\\",\\\"not\\\":false},\\\"path\\\":[\\\"9a99988a-0123-4456-b89a-b1607f326fd8\\\"]}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3dfbd18b-1b1d-42fa-81d0-3038b78dc388",
+          "name": "Delete the Alert Rule object",
+          "request": {
+            "name": "Delete the Alert Rule object",
+            "description": {
+              "content": "Delete the specified Alert Rule object permanently.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                "integrations",
+                ":integration_id",
+                "transformers",
+                ":transformers_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) unique_id of the Team object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) unique_id of the Service object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "integration_id",
+                  "description": "(Required) unique_id of the Integration object"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transformers_id",
+                  "description": "(Required) unique_id of the Alert Rule object"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2817f553-d213-4b74-8812-90d7abb3091e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b1b26f6-aa67-4776-b83b-67eba40f95ac",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9463de3f-b971-45d7-adf5-ecd224190367",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "369b0393-3500-4485-9b9d-b7843be9934a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "integrations",
+                    ":integration_id",
+                    "transformers",
+                    ":transformers_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) unique_id of the Team object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) unique_id of the Service object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "integration_id",
+                      "description": "(Required) unique_id of the Integration object"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transformers_id",
+                      "description": "(Required) unique_id of the Alert Rule object"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zenduty.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4f397db8-a2a9-4119-b43f-5bda701f1c56",
+    "name": "Zenduty Account Custom Role Alert Rules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n\n\nContact Support:\n Email: vishwa@zenduty.com",
+      "type": "text/plain"
+    }
+  }
+}

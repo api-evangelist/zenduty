@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Events API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create the Event object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/events/:integration_key/",
+            "params": [
+              {
+                "name": "integration_key",
+                "value": "",
+                "type": "path",
+                "description": "integration_key of the Integration object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Event object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Create the Event object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/integration/:account_id/generic/:integration_key/",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "5 character long account identifier"
+              },
+              {
+                "name": "integration_key",
+                "value": "",
+                "type": "path",
+                "description": "integration_key of the Integration object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Event object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Get the status of an Alert",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/alert/status/:trace_id/",
+            "params": [
+              {
+                "name": "trace_id",
+                "value": "",
+                "type": "path",
+                "description": "trace id of the alert object"
+              }
+            ]
+          },
+          "docs": "Get the Alert object for specific trace id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

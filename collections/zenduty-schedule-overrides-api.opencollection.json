@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Schedule Overrides API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedule Overrides",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Schedule overrides objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/v2/account/teams/{}/schedules/{}/overrides/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Schedule override objects with overridden users and their respective start and end times. refer to overridden_details object key (Note - Rate limits are 1/sec and 20/minute)"
+        },
+        {
+          "info": {
+            "name": "Create the Schedule Override object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/v2/account/teams/{}/schedules/{}/overrides/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Schedule object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Schedule Override object by setting the values of all the required parameters passed in the request body. (Note - Rate limits are 1/sec and 20/minute)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

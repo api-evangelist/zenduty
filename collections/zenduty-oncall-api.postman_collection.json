@@ -1,0 +1,1234 @@
+{
+  "item": [
+    {
+      "id": "e066734f-4b39-4c8b-94ab-50f34453aefb",
+      "name": "OnCall",
+      "description": {
+        "content": "This object represents the user who is oncall.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bf082f7a-38e0-4adf-8530-ff124d7d9bb2",
+          "name": "List all Escalation Policy OnCall object's in a Team V1",
+          "request": {
+            "name": "List all Escalation Policy OnCall object's in a Team V1",
+            "description": {
+              "content": "Returns all OnCall Users of a Team Escalation Policies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "teams",
+                ":team_id",
+                "oncall",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) Unique ID of a Team"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea5c8f7a-3adf-4469-b860-8e12091cef6e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"escalation_policy\": {\n      \"name\": \"Default Escalation Policy\",\n      \"summary\": \"This is the default escalation policy for this team\",\n      \"description\": \"\",\n      \"unique_id\": \"19fdd4c3-0d4a-4a6e-9885-8c8d33ef1488\",\n      \"repeat_policy\": 0,\n      \"move_to_next\": true,\n      \"global_ep\": false\n    },\n    \"team\": {\n      \"unique_id\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n      \"name\": \"Modified Production Team\"\n    },\n    \"users\": [\n      {\n        \"username\": \"216bba3d-7268-4a8e-89e9-6\",\n        \"first_name\": \"Anshul\",\n        \"email\": \"anshulrajput229@gmail.com\",\n        \"last_name\": \"Rajput\"\n      }\n    ]\n  },\n  {\n    \"escalation_policy\": {\n      \"name\": \"Infra Escalation Policy\",\n      \"summary\": \"\",\n      \"description\": \"\",\n      \"unique_id\": \"9ea1f98d-b5a3-4d72-8057-2f5f3d743a44\",\n      \"repeat_policy\": 2,\n      \"move_to_next\": true,\n      \"global_ep\": false\n    },\n    \"team\": {\n      \"unique_id\": \"61010821-08aa-4098-94f8-f88f1990b54a\",\n      \"name\": \"Modified Production Team\"\n    },\n    \"users\": [\n      {\n        \"username\": \"216bba3d-7268-4a8e-89e9-6\",\n        \"first_name\": \"Anshul\",\n        \"email\": \"anshulrajput229@gmail.com\",\n        \"last_name\": \"Rajput\"\n      },\n      {\n        \"username\": \"507dfda0-a1fd-40e5-943a-e\",\n        \"first_name\": \"Mary\",\n        \"email\": \"maryjane@sharklasers.com\",\n        \"last_name\": \"Jane\"\n      },\n      {\n        \"username\": \"85b563c8-18d0-4668-9462-9\",\n        \"first_name\": \"Vishwa\",\n        \"email\": \"vishwa@yellowant.com\",\n        \"last_name\": \"Krishnakumar\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ce9bf2b-5dad-4f6e-b734-f2f248930df9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db2cb986-3abf-4a98-be53-91c786a5a0d2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cb92c9c-ea0c-4726-9c83-1fdb91424e1a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b53ffd9c-61a1-4713-9e17-34263d2d135b",
+          "name": "List all Escalation Policy OnCall object's in a Team V2",
+          "request": {
+            "name": "List all Escalation Policy OnCall object's in a Team V2",
+            "description": {
+              "content": "Returns all OnCall Users of a Team Escalation Policies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "teams",
+                ":team_id",
+                "oncall",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) Unique ID of a Team"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "560f824c-28f2-4a71-9298-08d838575b93",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"unique_id\": \"0c9120eb-12a7-4daa-a23b-64e208dcb6a3\",\n    \"name\": \"Default Escalation Policy\",\n    \"oncalls\": [\n      {\n        \"ep_rule\": \"5bf14fc1-67a5-4f51-bc7b-33be2f4454c4\",\n        \"position\": 1,\n        \"delay\": 0,\n        \"oncalls\": [\n          {\n            \"username\": \"d24b310c-b9b2-4cc7-aa4b-4\",\n            \"first_name\": \"Nitin\",\n            \"last_name\": \"Chavan\",\n            \"email\": \"initinbc@gmail.com\"\n          }\n        ]\n      },\n      {\n        \"ep_rule\": \"f433c672-fa4b-40c8-92cc-2641c0705f54\",\n        \"position\": 2,\n        \"delay\": 2,\n        \"oncalls\": [\n          {\n            \"username\": \"b115be42-9c4f-4277-a885-9\",\n            \"first_name\": \"Deepak .D\",\n            \"last_name\": \"Kumar\",\n            \"email\": \"deepakdx7@gmail.com\"\n          },\n          {\n            \"username\": \"fc02c22a-da4b-4807-bbf7-5\",\n            \"first_name\": \"Ankur\",\n            \"last_name\": \"Rawal\",\n            \"email\": \"ankurrawalnitk@gmail.com\"\n          }\n        ]\n      },\n      {\n        \"ep_rule\": \"a24ffd7e-adb9-4c2e-ac6a-6320988f8c98\",\n        \"position\": 3,\n        \"delay\": 4,\n        \"oncalls\": [\n          {\n            \"username\": \"fc02c22a-da4b-4807-bbf7-5\",\n            \"first_name\": \"Ankur\",\n            \"last_name\": \"Rawal\",\n            \"email\": \"ankurrawalnitk@gmail.com\"\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"unique_id\": \"77fefd9e-e96c-4992-a63b-8995f2740cf1\",\n    \"name\": \"TEST DELAY\",\n    \"oncalls\": [\n      {\n        \"ep_rule\": \"cee87bfb-85d4-420e-b7aa-25b9e25b53c7\",\n        \"position\": 1,\n        \"delay\": 0,\n        \"oncalls\": [\n          {\n            \"username\": \"259d67f8-c975-4403-b9b8-8\",\n            \"first_name\": \"Michael\",\n            \"last_name\": \"Scott\",\n            \"email\": \"dheerukreddy@gmail.com\"\n          },\n          {\n            \"username\": \"18e76e66-7c24-4daa-9c58-e\",\n            \"first_name\": \"nithin\",\n            \"last_name\": \" \",\n            \"email\": \"nithin@zenduty.com\"\n          },\n          {\n            \"username\": \"b115be42-9c4f-4277-a885-9\",\n            \"first_name\": \"Deepak .D\",\n            \"last_name\": \"Kumar\",\n            \"email\": \"deepakdx7@gmail.com\"\n          }\n        ]\n      },\n      {\n        \"ep_rule\": \"03dc65e5-268a-41df-aae4-6313cad3d8a6\",\n        \"position\": 2,\n        \"delay\": 2,\n        \"oncalls\": [\n          {\n            \"username\": \"fc02c22a-da4b-4807-bbf7-5\",\n            \"first_name\": \"Ankur\",\n            \"last_name\": \"Rawal\",\n            \"email\": \"ankurrawalnitk@gmail.com\"\n          }\n        ]\n      },\n      {\n        \"ep_rule\": \"43ade01e-6443-4ab7-91c9-5d9061b509da\",\n        \"position\": 3,\n        \"delay\": 5,\n        \"oncalls\": [\n          {\n            \"username\": \"b115be42-9c4f-4277-a885-9\",\n            \"first_name\": \"Deepak .D\",\n            \"last_name\": \"Kumar\",\n            \"email\": \"deepakdx7@gmail.com\"\n          },\n          {\n            \"username\": \"fc02c22a-da4b-4807-bbf7-5\",\n            \"first_name\": \"Ankur\",\n            \"last_name\": \"Rawal\",\n            \"email\": \"ankurrawalnitk@gmail.com\"\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"unique_id\": \"7c8e75dd-ad6a-46a8-98e4-70bd4416462a\",\n    \"name\": \"Test schedule deletion\",\n    \"oncalls\": [\n      {\n        \"ep_rule\": \"54c082b4-9a38-43d6-889f-2d2f70725af5\",\n        \"position\": 1,\n        \"delay\": 0,\n        \"oncalls\": []\n      },\n      {\n        \"ep_rule\": \"fb0fa91c-cc3d-4090-9c68-e1801b6318c7\",\n        \"position\": 2,\n        \"delay\": 1,\n        \"oncalls\": [\n          {\n            \"username\": \"b115be42-9c4f-4277-a885-9\",\n            \"first_name\": \"Deepak .D\",\n            \"last_name\": \"Kumar\",\n            \"email\": \"deepakdx7@gmail.com\"\n          },\n          {\n            \"username\": \"fc02c22a-da4b-4807-bbf7-5\",\n            \"first_name\": \"Ankur\",\n            \"last_name\": \"Rawal\",\n            \"email\": \"ankurrawalnitk@gmail.com\"\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"unique_id\": \"83ea11e4-52cb-46f6-9f55-b0037c792078\",\n    \"name\": \"test preserve resolve incident\",\n    \"oncalls\": [\n      {\n        \"ep_rule\": \"e33daa6b-2814-4e5b-ac1d-0feef28c4aad\",\n        \"position\": 1,\n        \"delay\": 0,\n        \"oncalls\": [\n          {\n            \"username\": \"08a4805c-8f07-4221-85c2-1\",\n            \"first_name\": \"Test\",\n            \"last_name\": \"Rajput\",\n            \"email\": \"anshulrajput229@gmail.com\"\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ed35525-babe-4af5-b807-1e2dbc834774",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ca9033e-1a62-47be-b542-05177ba082f7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "715ad53a-90f6-43f6-bb88-630d1f1282d8",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be192f9e-27c6-4ba9-b274-1c00fac083d6",
+          "name": "Retrieve Escalation Policy OnCall object in an Escalation Policy",
+          "request": {
+            "name": "Retrieve Escalation Policy OnCall object in an Escalation Policy",
+            "description": {
+              "content": "Returns all OnCall Users of an Escalation Policy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "teams",
+                ":team_id",
+                "escalation_policies",
+                ":ep_id",
+                "oncall",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) Unique ID of a Team"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ep_id",
+                  "description": "(Required) Unique ID of an Escalation Policy"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ad75e2d-2412-44eb-b7f5-39bb42a97df8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "escalation_policies",
+                    ":ep_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ep_id",
+                      "description": "(Required) Unique ID of an Escalation Policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"unique_id\": \"77fefd9e-e96c-4992-a63b-8995f2740cf1\",\n    \"name\": \"TEST DELAY\",\n    \"oncalls\": [\n      {\n        \"ep_rule\": \"cee87bfb-85d4-420e-b7aa-25b9e25b53c7\",\n        \"position\": 1,\n        \"delay\": 0,\n        \"oncalls\": [\n          {\n            \"username\": \"259d67f8-c975-4403-b9b8-8\",\n            \"first_name\": \"Michael\",\n            \"last_name\": \"Scott\",\n            \"email\": \"dheerukreddy@gmail.com\"\n          },\n          {\n            \"username\": \"18e76e66-7c24-4daa-9c58-e\",\n            \"first_name\": \"nithin\",\n            \"last_name\": \" \",\n            \"email\": \"nithin@zenduty.com\"\n          },\n          {\n            \"username\": \"b115be42-9c4f-4277-a885-9\",\n            \"first_name\": \"Deepak .D\",\n            \"last_name\": \"Kumar\",\n            \"email\": \"deepakdx7@gmail.com\"\n          }\n        ]\n      },\n      {\n        \"ep_rule\": \"03dc65e5-268a-41df-aae4-6313cad3d8a6\",\n        \"position\": 2,\n        \"delay\": 2,\n        \"oncalls\": [\n          {\n            \"username\": \"fc02c22a-da4b-4807-bbf7-5\",\n            \"first_name\": \"Ankur\",\n            \"last_name\": \"Rawal\",\n            \"email\": \"ankurrawalnitk@gmail.com\"\n          }\n        ]\n      },\n      {\n        \"ep_rule\": \"43ade01e-6443-4ab7-91c9-5d9061b509da\",\n        \"position\": 3,\n        \"delay\": 5,\n        \"oncalls\": [\n          {\n            \"username\": \"b115be42-9c4f-4277-a885-9\",\n            \"first_name\": \"Deepak .D\",\n            \"last_name\": \"Kumar\",\n            \"email\": \"deepakdx7@gmail.com\"\n          },\n          {\n            \"username\": \"fc02c22a-da4b-4807-bbf7-5\",\n            \"first_name\": \"Ankur\",\n            \"last_name\": \"Rawal\",\n            \"email\": \"ankurrawalnitk@gmail.com\"\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4635e28a-44c3-418e-95f8-a003453f25ea",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "escalation_policies",
+                    ":ep_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ep_id",
+                      "description": "(Required) Unique ID of an Escalation Policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "353df1e0-ceb2-4431-a10d-c5ba74db4502",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "escalation_policies",
+                    ":ep_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ep_id",
+                      "description": "(Required) Unique ID of an Escalation Policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "282de59f-3995-42dd-87fb-2a584d6cf1dd",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "escalation_policies",
+                    ":ep_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ep_id",
+                      "description": "(Required) Unique ID of an Escalation Policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "957f143e-15ac-484d-ab90-70abd6172e0b",
+          "name": "Retrieve Escalation Policy OnCall object in a Service",
+          "request": {
+            "name": "Retrieve Escalation Policy OnCall object in a Service",
+            "description": {
+              "content": "Returns all OnCall Users of a Service Escalation Policy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "account",
+                "teams",
+                ":team_id",
+                "services",
+                ":service_id",
+                "oncall",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) Unique ID of a Team"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service_id",
+                  "description": "(Required) Unique ID of a Service"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f485a46-608e-4fbd-955a-dfdea668c6ed",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) Unique ID of a Service"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"unique_id\": \"0c9120eb-12a7-4daa-a23b-64e208dcb6a3\",\n    \"name\": \"Default Escalation Policy\",\n    \"oncalls\": [\n      {\n        \"ep_rule\": \"5bf14fc1-67a5-4f51-bc7b-33be2f4454c4\",\n        \"position\": 1,\n        \"delay\": 0,\n        \"oncalls\": [\n          {\n            \"username\": \"d24b310c-b9b2-4cc7-aa4b-4\",\n            \"first_name\": \"Nitin\",\n            \"last_name\": \"Chavan\",\n            \"email\": \"initinbc@gmail.com\"\n          }\n        ]\n      },\n      {\n        \"ep_rule\": \"f433c672-fa4b-40c8-92cc-2641c0705f54\",\n        \"position\": 2,\n        \"delay\": 2,\n        \"oncalls\": [\n          {\n            \"username\": \"b115be42-9c4f-4277-a885-9\",\n            \"first_name\": \"Deepak .D\",\n            \"last_name\": \"Kumar\",\n            \"email\": \"deepakdx7@gmail.com\"\n          },\n          {\n            \"username\": \"fc02c22a-da4b-4807-bbf7-5\",\n            \"first_name\": \"Ankur\",\n            \"last_name\": \"Rawal\",\n            \"email\": \"ankurrawalnitk@gmail.com\"\n          }\n        ]\n      },\n      {\n        \"ep_rule\": \"a24ffd7e-adb9-4c2e-ac6a-6320988f8c98\",\n        \"position\": 3,\n        \"delay\": 4,\n        \"oncalls\": [\n          {\n            \"username\": \"fc02c22a-da4b-4807-bbf7-5\",\n            \"first_name\": \"Ankur\",\n            \"last_name\": \"Rawal\",\n            \"email\": \"ankurrawalnitk@gmail.com\"\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f26cbb7a-9e0e-41a0-aa04-a923c02c819f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) Unique ID of a Service"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"This request can not be processed.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "424fcf40-3b11-48e5-aad9-435b5f77e9d4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) Unique ID of a Service"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"You do not have permission to perform this action.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49bf880f-2cfa-400f-8a4e-0d091da37019",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "account",
+                    "teams",
+                    ":team_id",
+                    "services",
+                    ":service_id",
+                    "oncall",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) Unique ID of a Team"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service_id",
+                      "description": "(Required) Unique ID of a Service"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"Not Found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.zenduty.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "32233379-3f7c-4ea7-9128-16bc4346bf93",
+    "name": "Zenduty Account Custom Role OnCall API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n\n\nContact Support:\n Email: vishwa@zenduty.com",
+      "type": "text/plain"
+    }
+  }
+}

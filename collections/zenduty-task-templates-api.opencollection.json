@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenduty Account Custom Role Task Templates API",
+    "version": "1.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Task Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Task Template objects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/{}/task_templates/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ]
+          },
+          "docs": "Returns a list of Task Templat objects. The Task Templat objects are sorted by creation_date, with the most recent Task Templat object appearing last."
+        },
+        {
+          "info": {
+            "name": "Create the Task Template object",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://www.zenduty.com/api/account/teams/{}/task_templates/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the Template object object by setting the values of all the required parameters passed in the request body."
+        },
+        {
+          "info": {
+            "name": "Retrieve the Task Template object",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/task_templates/:task_template_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "task_template_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Task Template object"
+              }
+            ]
+          },
+          "docs": "Retrieve the specified Task Template object."
+        },
+        {
+          "info": {
+            "name": "Update the Task Template object",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/task_templates/:task_template_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "task_template_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Task Template object"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the Task Template object"
+        },
+        {
+          "info": {
+            "name": "Delete the Task Template object",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://www.zenduty.com/api/account/teams/:team_id/task_templates/:task_template_id/",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Team object"
+              },
+              {
+                "name": "task_template_id",
+                "value": "",
+                "type": "path",
+                "description": "unique_id of the Task Template object"
+              }
+            ]
+          },
+          "docs": "Delete the specified Task Template object permanently."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
