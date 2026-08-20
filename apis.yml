@@ -60,6 +60,9 @@ apis:
   baseURL: https://events.zenduty.com/api/events
   tags:
   - Alerting
+  - Event
+  tags_raw:
+  - Alerting
   - Events
   properties:
   - type: Documentation
@@ -145,6 +148,8 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -157,6 +162,8 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
+  - ForwardingRules
+  tags_raw:
   - Forwarding Rules
   properties:
   - type: OpenAPI
@@ -256,6 +263,8 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
@@ -278,6 +287,8 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
+  - On-Call
+  tags_raw:
   - OnCall
   properties:
   - type: OpenAPI
@@ -417,6 +428,8 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
