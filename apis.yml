@@ -174,7 +174,7 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
-  - ForwardingRules
+  - Forwarding Rules
   tags_raw:
   - Forwarding Rules
   properties:
@@ -299,7 +299,7 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
-  - On-Call
+  - OnCall
   tags_raw:
   - OnCall
   properties:
