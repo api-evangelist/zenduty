@@ -299,7 +299,7 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
-  - OnCall
+  - On-Call
   tags_raw:
   - OnCall
   properties:
