@@ -23,15 +23,16 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: unknown
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Unknown
+  confidence: low
   source:
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zenduty.png
 tags:
@@ -458,6 +459,9 @@ apis:
   - type: OpenAPI
     url: openapi/zenduty-user-custom-role-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/zenduty-capability-edges.yml
+    name: Zenduty Business Capability Map
   - type: AgenticAccess
     url: agentic-access/zenduty-agentic-access.yml
   - type: TrustCenter
