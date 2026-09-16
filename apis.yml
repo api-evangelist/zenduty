@@ -294,18 +294,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/zenduty-notification-rules-api-openapi.yml
-- aid: zenduty:zenduty-oncall-api
-  name: Zenduty OnCall API
-  description: This object represents the user who is oncall.
-  humanURL: https://apidocs.zenduty.com
-  baseURL: https://www.zenduty.com/api
-  tags:
-  - On-Call
-  tags_raw:
-  - OnCall
-  properties:
-  - type: OpenAPI
-    url: openapi/zenduty-oncall-api-openapi.yml
 - aid: zenduty:zenduty-postmortem-api
   name: Zenduty Postmortem API
   description: >-
@@ -458,6 +446,16 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/zenduty-user-custom-role-api-openapi.yml
+- aid: zenduty:zenduty-on-call-api
+  name: Zenduty On Call API
+  description: This object represents the user who is oncall.
+  humanURL: https://apidocs.zenduty.com
+  baseURL: https://www.zenduty.com/api
+  tags:
+  - On Call
+  properties:
+  - type: OpenAPI
+    url: openapi/zenduty-on-call-api-openapi.yml
 common:
   - type: CapabilityMap
     url: capabilities/zenduty-capability-edges.yml
