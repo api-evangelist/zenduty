@@ -335,6 +335,8 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
+  - Schedule
+  tags_raw:
   - Schedules
   properties:
   - type: OpenAPI
@@ -452,6 +454,8 @@ apis:
   humanURL: https://apidocs.zenduty.com
   baseURL: https://www.zenduty.com/api
   tags:
+  - On-Call
+  tags_raw:
   - On Call
   properties:
   - type: OpenAPI
