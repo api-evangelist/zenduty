@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 1.1.0
-  title: Zenduty Account Custom Role Schedules API
+  title: Zenduty Schedules API
   termsOfService: https://zenduty.com
   contact:
     email: vishwa@zenduty.com
@@ -9,7 +9,10 @@ info:
     name: Apache 2.0
   x-logo:
     url: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9Ii05OC4zIDE3My43IDIwNi4zIDUzLjIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgLTk4LjMgMTczLjcgMjA2LjMgNTMuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzBGMTcyQTt9DQoJLnN0MXtmaWxsOiNGRDlBMDA7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0tMjksMjEwLjJoNi4zYzIuNywwLDQuOSwyLjIsNC45LDQuOWgtMTguMWMwLTUuMyw0LjEtOS40LDcuOS0xMy4xbDMuOC0zLjdoLTcuMWMtMi41LDAtNC42LTIuMS00LjYtNC42aDE4DQoJYzAsNS4zLTQuMSw5LjQtNy44LDEzLjJMLTI5LDIxMC4yeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTMuNywyMDUuOGgtMTUuNWMwLjEsMS41LDAuNiwyLjcsMS42LDMuNmMwLjksMC45LDIuMSwxLjIsMy41LDEuMmMyLDAsMy40LTAuOSw0LjMtMi41aDUuOA0KCWMtMC42LDItMS44LDMuNi0zLjUsNC45Yy0xLjgsMS4yLTMuOSwyLTYuNCwyYy0yLDAtMy45LTAuNS01LjUtMS40Yy0xLjYtMC45LTIuOS0yLjEtMy44LTMuN2MtMC45LTEuNi0xLjQtMy40LTEuNC01LjcNCgljMC0yLjEsMC41LTQuMSwxLjQtNS43YzAuOS0xLjYsMi4xLTIuOCwzLjgtMy43YzEuNi0wLjksMy40LTEuNCw1LjUtMS40YzIsMCwzLjgsMC40LDUuNCwxLjJjMS42LDAuOSwyLjgsMi4xLDMuNywzLjYNCgljMC45LDEuNiwxLjMsMy4zLDEuMyw1LjRDMy44LDIwNC42LDMuOCwyMDUuMiwzLjcsMjA1Ljh6IE0tMS43LDIwMi4yYzAtMS40LTAuNS0yLjUtMS41LTMuMmMtMS0wLjktMi4xLTEuMi0zLjUtMS4yDQoJYy0xLjQsMC0yLjQsMC40LTMuNCwxLjJjLTAuOSwwLjctMS41LDEuOC0xLjYsMy4zaDEwLjFWMjAyLjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcuOSwxOTguNGMwLjktMS42LDItMi45LDMuNS0zLjhjMS41LTAuOSwzLjEtMS40LDQuOS0xLjRjMS40LDAsMi42LDAuMywzLjksMC45YzEuMywwLjYsMi4zLDEuNCwzLDIuNHYtMTYuNw0KCWg1LjR2MzVoLTUuNHYtMy4xYy0wLjYsMS0xLjYsMS45LTIuOCwyLjVjLTEuMywwLjYtMi42LDEtNC4yLDFjLTEuOCwwLTMuNC0wLjUtNC45LTEuNGMtMS41LTAuOS0yLjYtMi4zLTMuNS0zLjkNCgljLTAuOS0xLjYtMS4zLTMuNS0xLjMtNS44QzI2LjYsMjAyLDI3LDIwMCwyNy45LDE5OC40eiBNNDIuNSwyMDAuOWMtMC41LTAuOS0xLjMtMS42LTItMi4xYy0wLjktMC41LTEuOC0wLjgtMi44LTAuOA0KCWMtMSwwLTEuOSwwLjMtMi44LDAuOGMtMC45LDAuNS0xLjUsMS4xLTIsMi4xYy0wLjUsMC45LTAuOCwyLTAuOCwzLjNjMCwxLjMsMC4zLDIuNCwwLjgsMy40YzAuNSwxLDEuMywxLjYsMiwyLjENCgljMC45LDAuNSwxLjgsMC44LDIuOCwwLjhjMSwwLDEuOS0wLjMsMi44LTAuOGMwLjktMC41LDEuNS0xLjMsMi0yLjFjMC41LTAuOSwwLjgtMiwwLjgtMy40UzQzLDIwMS44LDQyLjUsMjAwLjl6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUuNCwyMDQuM3YxMC42aC01di0xMC42YzAtMi0wLjUtMy41LTEuNS00LjVjLTEtMS4xLTIuMS0xLjYtMy41LTEuNnMtMi41LDAuNS0zLjUsMS42DQoJYy0wLjksMS0xLjQsMi42LTEuNCw0LjV2MTAuNkg1LjV2LTEwLjZjMC0yLjEsMC41LTQsMS4zLTUuN2MwLjktMS42LDItMi45LDMuNS0zLjhzMy4xLTEuNCw1LTEuNHMzLjUsMC41LDUsMS40DQoJYzEuNSwwLjksMi42LDIuMSwzLjUsMy44QzI0LjksMjAwLjMsMjUuNCwyMDIuMiwyNS40LDIwNC4zeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTUxLjMsMjA0LjF2LTEwLjRoNXYxMC40YzAsMiwwLjUsMy41LDEuNSw0LjVjMSwxLjEsMi4xLDEuNiwzLjUsMS42YzEuNCwwLDIuNS0wLjUsMy41LTEuNg0KCWMwLjktMSwxLjQtMi42LDEuNC00LjV2LTEwLjRoNC45djEwLjRjMCwyLjEtMC41LDQtMS4zLDUuN2MtMC45LDEuNi0yLDIuOS0zLjUsMy44Yy0xLjUsMC45LTMuMSwxLjQtNSwxLjRzLTMuNS0wLjUtNS0xLjQNCgljLTEuNS0wLjktMi42LTIuMS0zLjUtMy44QzUxLjcsMjA4LjEsNTEuMywyMDYuMiw1MS4zLDIwNC4xeiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTgwLjcsMTk4djEwLjJjMCwwLjgsMC4xLDEuMywwLjUsMS41YzAuNCwwLjQsMC45LDAuNSwxLjgsMC41aDIuNXY0LjVoLTMuNGMtNC41LDAtNi44LTIuMS02LjgtNi41VjE5OGgtNS4xDQoJdi00LjRoNS4xdi04LjdoNS40djguN2g0LjhsMi42LDQuNEg4MC43eiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwNy40LDE5My42bC04LjcsMjAuNmwtNSwxMS44aC01LjdsNS4xLTExLjhsLTguNC0yMC42aDZsNS40LDE0LjdsNS41LTE0LjdIMTA3LjR6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTY2LjksMTg5LjJjLTEuOSwwLTQuNy0yLjEtNC43LTQuOHYtMy42YzAtMi43LDAuOC00LjgsNC43LTQuOGMzLjksMCw0LjcsMi4xLDQuNyw0Ljh2My42DQoJQy02Mi4yLDE4Ny4xLTY1LDE4OS4yLTY2LjksMTg5LjJ6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTM3LjcsMjIzaC0yMS41bDMuOC0xMS40bDAuNy0xLjhjNC4yLDEuNywxMy4xLDcuMiwxNy43LDExLjZDLTM2LjQsMjIyLjEtMzYuOCwyMjMtMzcuNywyMjN6Ii8+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLTU3LjMsMTkyLjlsLTE1LjksMTAuNGMtNC4yLTIuNS05LjItNS45LTEyLjItOC44Yy0wLjYtMC42LTAuMi0xLjUsMC43LTEuNUgtNTcuM3oiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0tNDguNiwxOTQuM2wtNiwxNS42bC0wLjcsMS44bC0zLjgsMTEuNEgtOTZjLTAuOCwwLTEuMy0wLjktMC44LTEuNWMwLjktMS4yLDEuOC0yLjMsMi43LTMuMw0KCWMyLjEtMi4yLDQuNC00LjEsNi45LTUuOGwwLjEtMC4xYzAuOC0wLjYsMS42LTEuMSwyLjQtMS42bDExLjQtNy40bDE1LjktMTAuNGg3LjdDLTQ4LjgsMTkyLjktNDguNCwxOTMuNi00OC42LDE5NC4zeiIvPg0KPC9zdmc+DQo=
-  description: "# Introduction\n\nZenduty is a cutting edge platform for incident management. With high level automation, Zenduty enables faster and better incident resolution keeping developers first.\n\n\n  Javascript Libraries: https://github.com/Zenduty/zenduty-js\n\n  Ruby Libraries: https://github.com/Zenduty/zenduty-ruby\n\n  Python Libraries: https://github.com/Zenduty/zenduty-python-sdk\n\n  Postman Collection for Zenduty API: https://github.com/Zenduty/zenduty-api-postman.git\n\n  Account-level roles and permissions: https://docs.zenduty.com/docs/users#account-level-roles-and-permissions\n\n  Team-level roles and permissions: https://docs.zenduty.com/docs/users#team-level-roles-and-permissions\n"
+  description: '# Introduction
+
+
+    Zenduty is a cutting edge platform for incident management.'
 servers:
 - url: https://www.zenduty.com
 security:
@@ -104,6 +107,8 @@ paths:
             application/xml:
               example:
                 detail: Not Found.
+      operationId: postApiAccountTeamsBySchedules
+      x-operation-id-source: derived
     get:
       tags:
       - Schedules
@@ -230,6 +235,8 @@ paths:
             application/xml:
               example:
                 detail: Not Found.
+      operationId: getApiAccountTeamsBySchedules
+      x-operation-id-source: derived
   /api/account/teams/{team_id}/schedules/{schedule_id}/:
     parameters:
     - name: team_id
@@ -354,6 +361,8 @@ paths:
             application/xml:
               example:
                 detail: Not Found.
+      operationId: getApiAccountTeamsByTeamIdSchedulesByScheduleId
+      x-operation-id-source: derived
     put:
       tags:
       - Schedules
@@ -428,6 +437,8 @@ paths:
             application/xml:
               example:
                 detail: Not Found.
+      operationId: putApiAccountTeamsByTeamIdSchedulesByScheduleId
+      x-operation-id-source: derived
     delete:
       tags:
       - Schedules
@@ -463,100 +474,13 @@ paths:
             application/xml:
               example:
                 detail: Not Found.
+      operationId: deleteApiAccountTeamsByTeamIdSchedulesByScheduleId
+      x-operation-id-source: derived
 components:
   schemas:
-    SchedulePayload:
+    ScheduleLayerRestrictionPayload:
       type: object
-      description: Payload schema for the Schedule object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: A string that represents the Schedule object's name
-        summary:
-          type: string
-          description: A string that represents the Schedule object's summary
-        description:
-          type: string
-          description: A string that represents the Schedule object's description
-        time_zone:
-          type: string
-          description: A formatted string that represents the Schedule object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
-        layers:
-          type: array
-          description: An array of Schedule Layer objects
-          items:
-            $ref: '#/components/schemas/ScheduleLayerPayload'
-        overrides:
-          type: array
-          description: An array of Schedule Overrides objects
-          items:
-            $ref: '#/components/schemas/ScheduleOverridePayload'
-    ScheduleLayer:
-      type: object
-      description: Schedule Layer object schema
-      properties:
-        shift_length:
-          type: integer
-          description: An integer that represents the Schedule Layer object's shift_length
-        restrictions:
-          type: array
-          description: An array of Schedule Layer Restriction objects
-          items:
-            $ref: '#/components/schemas/ScheduleLayerRestriction'
-        name:
-          type: string
-          description: A string that represents the Schedule Layer object's name
-        users:
-          type: array
-          description: An array of Schedule Layer User objects
-          items:
-            $ref: '#/components/schemas/ScheduleLayerUser'
-        rotation_start_time:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Schedule Layer object's rotation_start_time
-        rotation_end_time:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Schedule Layer object's rotation_end_time
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Schedule Layer object's unique_id
-        last_edited:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Schedule Layer object's last_edited
-        restriction_type:
-          type: integer
-          description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
-        is_active:
-          type: boolean
-          default: true
-          description: A boolean flag that represents whether the Schedule Layer is active or not
-    ScheduleOverride:
-      type: object
-      description: Schedule Override object schema
-      properties:
-        name:
-          type: string
-          description: A string that represents the Schedule Overrides object's name
-        user:
-          type: string
-          description: A string that represents the User object's username
-        start_time:
-          type: string
-          description: A fromatted string that represents the Schedule Overrides object's start_time
-        end_time:
-          type: string
-          description: A fromatted string that represents the Schedule Overrides object's end_time
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Schedule Overrides object's unique_id
-    ScheduleLayerRestriction:
-      type: object
-      description: Schedule Layer Restriction object schema
+      description: Schedule Layer Restriction Payload object schema
       properties:
         duration:
           type: integer
@@ -568,9 +492,6 @@ components:
           type: string
           format: time
           description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Schedule Layer Restriction objects's unique_id
     Schedule:
       type: object
       description: Schedule object schema
@@ -613,19 +534,92 @@ components:
         position:
           type: integer
           description: An integer that represents the Schedule Layer User objects's position
-    ScheduleLayerUser:
+    SchedulePayload:
       type: object
-      description: Schedule Layer User object schema
+      description: Payload schema for the Schedule object
+      required:
+      - name
       properties:
+        name:
+          type: string
+          description: A string that represents the Schedule object's name
+        summary:
+          type: string
+          description: A string that represents the Schedule object's summary
+        description:
+          type: string
+          description: A string that represents the Schedule object's description
+        time_zone:
+          type: string
+          description: A formatted string that represents the Schedule object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
+        layers:
+          type: array
+          description: An array of Schedule Layer objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerPayload'
+        overrides:
+          type: array
+          description: An array of Schedule Overrides objects
+          items:
+            $ref: '#/components/schemas/ScheduleOverridePayload'
+    ScheduleOverridePayload:
+      type: object
+      description: Schedule Override Payload object schema
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule Overrides object's name
         user:
           type: string
-          description: A system-generated string that represents the User object's username
-        position:
+          description: A string that represents the User object's username
+        start_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's start_time
+        end_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's end_time
+    ScheduleLayer:
+      type: object
+      description: Schedule Layer object schema
+      properties:
+        shift_length:
           type: integer
-          description: An integer that represents the Schedule Layer User objects's position
+          description: An integer that represents the Schedule Layer object's shift_length
+        restrictions:
+          type: array
+          description: An array of Schedule Layer Restriction objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerRestriction'
+        name:
+          type: string
+          description: A string that represents the Schedule Layer object's name
+        users:
+          type: array
+          description: An array of Schedule Layer User objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerUser'
+        rotation_start_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_start_time
+        rotation_end_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_end_time
         unique_id:
           type: string
-          description: A system-generated string that represents the Schedule Layer User objects's unique_id
+          description: A system-generated string that represents the Schedule Layer object's unique_id
+        last_edited:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's last_edited
+        restriction_type:
+          type: integer
+          description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
+        is_active:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether the Schedule Layer is active or not
     ScheduleLayerPayload:
       type: object
       description: Schedule Layer Payload object schema
@@ -657,23 +651,9 @@ components:
         restriction_type:
           type: integer
           description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
-    ScheduleLayerRestrictionPayload:
+    ScheduleOverride:
       type: object
-      description: Schedule Layer Restriction Payload object schema
-      properties:
-        duration:
-          type: integer
-          description: An integer that represents the Schedule Layer Restriction objects's duration in seconds
-        start_day_of_week:
-          type: integer
-          description: An integer that represents the Schedule Layer Restriction objects's start_day_of_week. 0 is daily and 1-7 is sunday to saturday
-        start_time_of_day:
-          type: string
-          format: time
-          description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
-    ScheduleOverridePayload:
-      type: object
-      description: Schedule Override Payload object schema
+      description: Schedule Override object schema
       properties:
         name:
           type: string
@@ -687,6 +667,39 @@ components:
         end_time:
           type: string
           description: A fromatted string that represents the Schedule Overrides object's end_time
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Overrides object's unique_id
+    ScheduleLayerUser:
+      type: object
+      description: Schedule Layer User object schema
+      properties:
+        user:
+          type: string
+          description: A system-generated string that represents the User object's username
+        position:
+          type: integer
+          description: An integer that represents the Schedule Layer User objects's position
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Layer User objects's unique_id
+    ScheduleLayerRestriction:
+      type: object
+      description: Schedule Layer Restriction object schema
+      properties:
+        duration:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's duration in seconds
+        start_day_of_week:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's start_day_of_week. 0 is daily and 1-7 is sunday to saturday
+        start_time_of_day:
+          type: string
+          format: time
+          description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Layer Restriction objects's unique_id
   securitySchemes:
     bearerAuth:
       type: http
