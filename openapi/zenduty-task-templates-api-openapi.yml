@@ -353,16 +353,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TaskTemplateGet:
+    TaskTemplatePostPut:
       type: object
       description: Task Template object schema
       properties:
         unique_id:
           type: string
           description: A system-generated string that represents the Task Template object's unique_id
-        team:
-          type: string
-          description: A system-generated string that represents the Team object's unique_id
         name:
           type: string
           description: A string that represents the Task Template object's name
@@ -377,13 +374,16 @@ components:
           type: integer
           default: 0
           description: An integer that represents whether the Task Template object is due immediately or not. 0 is false and 1 is true.
-    TaskTemplatePostPut:
+    TaskTemplateGet:
       type: object
       description: Task Template object schema
       properties:
         unique_id:
           type: string
           description: A system-generated string that represents the Task Template object's unique_id
+        team:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
         name:
           type: string
           description: A string that represents the Task Template object's name

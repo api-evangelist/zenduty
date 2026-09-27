@@ -164,6 +164,28 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ScheduleOverrideList:
+      type: object
+      description: Schedule Override List object schema
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule Overrides object's name
+        user:
+          type: string
+          description: A string that represents the User object's username
+        start_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's start_time
+        end_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's end_time
+        overridden_details:
+          type: string
+          description: A string that represents the Overridden details of the Schedule Overrides object
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Overrides object's unique_id
     ScheduleOverride:
       type: object
       description: Schedule Override object schema
@@ -199,28 +221,6 @@ components:
         end_time:
           type: string
           description: A fromatted string that represents the Schedule Overrides object's end_time
-    ScheduleOverrideList:
-      type: object
-      description: Schedule Override List object schema
-      properties:
-        name:
-          type: string
-          description: A string that represents the Schedule Overrides object's name
-        user:
-          type: string
-          description: A string that represents the User object's username
-        start_time:
-          type: string
-          description: A fromatted string that represents the Schedule Overrides object's start_time
-        end_time:
-          type: string
-          description: A fromatted string that represents the Schedule Overrides object's end_time
-        overridden_details:
-          type: string
-          description: A string that represents the Overridden details of the Schedule Overrides object
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Schedule Overrides object's unique_id
   securitySchemes:
     bearerAuth:
       type: http

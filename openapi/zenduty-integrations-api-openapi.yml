@@ -887,50 +887,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IntegrationMetadata:
-      description: Integration Metadata object schema
-      type: object
-      properties:
-        team:
-          type: object
-          description: Response team schema for the Integration metadata
-          properties:
-            name:
-              type: string
-              description: A string that represents the Team object's name.
-            unique_id:
-              type: string
-              description: A string that represents the Team object's unique_id.
-        service:
-          type: object
-          description: Response service schema for the Integration metadata
-          properties:
-            name:
-              type: string
-              description: A string that represents the Service object's name.
-            unique_id:
-              type: string
-              description: A string that represents the Service object's unique_id.
-        integration:
-          type: object
-          description: Response integration schema for the Integration metadata
-          properties:
-            unique_id:
-              type: string
-              description: A string that represents the Integration object's unique_id.
-            name:
-              type: string
-              description: A string that represents the Integration object's name.
-            extension:
-              type: string
-              description: A string that represents the Integration object's extension.
-    IntegrationKeyRegenerationPayload:
-      type: object
-      description: Payload schema for the regenerating the key of the Integration
-      properties:
-        integration_unique_id:
-          type: string
-          description: A string that represents the relevant Integration's unique ID
     Integration:
       description: Integration object schema
       type: object
@@ -1018,6 +974,50 @@ components:
         documentation_link:
           type: string
           description: A string that represents Application object's documentation_link
+    IntegrationMetadata:
+      description: Integration Metadata object schema
+      type: object
+      properties:
+        team:
+          type: object
+          description: Response team schema for the Integration metadata
+          properties:
+            name:
+              type: string
+              description: A string that represents the Team object's name.
+            unique_id:
+              type: string
+              description: A string that represents the Team object's unique_id.
+        service:
+          type: object
+          description: Response service schema for the Integration metadata
+          properties:
+            name:
+              type: string
+              description: A string that represents the Service object's name.
+            unique_id:
+              type: string
+              description: A string that represents the Service object's unique_id.
+        integration:
+          type: object
+          description: Response integration schema for the Integration metadata
+          properties:
+            unique_id:
+              type: string
+              description: A string that represents the Integration object's unique_id.
+            name:
+              type: string
+              description: A string that represents the Integration object's name.
+            extension:
+              type: string
+              description: A string that represents the Integration object's extension.
+    IntegrationKeyRegenerationPayload:
+      type: object
+      description: Payload schema for the regenerating the key of the Integration
+      properties:
+        integration_unique_id:
+          type: string
+          description: A string that represents the relevant Integration's unique ID
     IntegrationPayload:
       type: object
       description: Payload schema for the Integration object

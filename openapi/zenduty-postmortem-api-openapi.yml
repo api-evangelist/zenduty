@@ -433,6 +433,45 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    PostmortemPostPut:
+      type: object
+      description: Postmortem object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Postmortem object's unique_id
+        author:
+          type: string
+          description: A system-generated string that represents the User object's username
+        status:
+          type: string
+          description: A string that represents the Postmortem object's status
+        incidents:
+          type: array
+          description: An array of Postmortem Incident objects
+          items:
+            type: object
+            description: Postmortem Incident object schema
+            properties:
+              unique_id:
+                type: string
+                description: A system-generated string that represents the Postmortem Incident object's unique_id
+              incident:
+                type: string
+                description: A system-generated string that represents the Incident object's unique_id
+        author_name:
+          type: string
+          description: A string that represents the User object's full name
+        title:
+          type: string
+          description: A string that represents the Postmortem object's title
+        postmortem_data:
+          type: string
+          description: A string that represents the Postmortem object's postmortem_data
+        download_status:
+          type: integer
+          default: 0
+          description: An integer that represents the Postmortem object's download_status. 1 is uninitiated, 2 is initiated, 3 is finished and 4 is error
     PostmortemGet:
       type: object
       description: Postmortem object schema
@@ -489,45 +528,6 @@ components:
           type: string
           format: date-time
           description: A formatted string that represents the Postmortem object's creation_date
-    PostmortemPostPut:
-      type: object
-      description: Postmortem object schema
-      properties:
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Postmortem object's unique_id
-        author:
-          type: string
-          description: A system-generated string that represents the User object's username
-        status:
-          type: string
-          description: A string that represents the Postmortem object's status
-        incidents:
-          type: array
-          description: An array of Postmortem Incident objects
-          items:
-            type: object
-            description: Postmortem Incident object schema
-            properties:
-              unique_id:
-                type: string
-                description: A system-generated string that represents the Postmortem Incident object's unique_id
-              incident:
-                type: string
-                description: A system-generated string that represents the Incident object's unique_id
-        author_name:
-          type: string
-          description: A string that represents the User object's full name
-        title:
-          type: string
-          description: A string that represents the Postmortem object's title
-        postmortem_data:
-          type: string
-          description: A string that represents the Postmortem object's postmortem_data
-        download_status:
-          type: integer
-          default: 0
-          description: An integer that represents the Postmortem object's download_status. 1 is uninitiated, 2 is initiated, 3 is finished and 4 is error
     PostmortemPayload:
       type: object
       description: Payload schema for the Postmortem object

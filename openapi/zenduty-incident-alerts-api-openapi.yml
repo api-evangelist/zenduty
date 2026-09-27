@@ -134,6 +134,64 @@ components:
         image_text:
           type: string
           description: A string that represents the Event Image object's image_text
+    EventUrl:
+      type: object
+      description: Event URL object schema
+      properties:
+        link_url:
+          type: string
+          description: A string that represents the Event URL object's link_url
+        link_text:
+          type: string
+          description: A string that represents the Event URL object's link_text
+    IncidentAlert:
+      type: object
+      description: Incident Alert object schema
+      properties:
+        integration_object:
+          $ref: '#/components/schemas/Integration'
+        summary:
+          type: string
+          description: A string that represents the Incident Alert object's summary
+        incident:
+          type: integer
+          description: An integer that represents the Incident object's incident_number
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Incident Alert object's creation_date
+        message:
+          type: string
+          description: A string that represents the Incident Alert object's message
+        integration:
+          type: string
+          description: A system-generated string that represents the Integration object's unique_id
+        suppressed:
+          type: boolean
+          default: false
+          description: A boolean flag that represents whether the Incident Alert object is suppressed or not.
+        entity_id:
+          type: string
+          description: A system-generated string that represents the Incident Alert object's entity_id
+        alert_type:
+          type: integer
+          default: 1
+          description: An integer that represents the Incident Alert object's type. 0 is info, 1 is warning, 2 is error, 3 is critical, 4 is acknowledged and 5 is resolved
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Incident Alert object's unique_id
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventImage'
+        urls:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventUrl'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventNote'
     Integration:
       description: Integration object schema
       type: object
@@ -184,54 +242,16 @@ components:
         webhook_url:
           type: string
           description: A system-generated string that represents the Integration object's webhook url
-    IncidentAlert:
+    EventNote:
       type: object
-      description: Incident Alert object schema
+      description: Event Note object schema
       properties:
-        integration_object:
-          $ref: '#/components/schemas/Integration'
-        summary:
+        note_title:
           type: string
-          description: A string that represents the Incident Alert object's summary
-        incident:
-          type: integer
-          description: An integer that represents the Incident object's incident_number
-        creation_date:
+          description: A string that represents the Event Note object's note_title
+        note_text:
           type: string
-          format: date-time
-          description: A formatted string that represents the Incident Alert object's creation_date
-        message:
-          type: string
-          description: A string that represents the Incident Alert object's message
-        integration:
-          type: string
-          description: A system-generated string that represents the Integration object's unique_id
-        suppressed:
-          type: boolean
-          default: false
-          description: A boolean flag that represents whether the Incident Alert object is suppressed or not.
-        entity_id:
-          type: string
-          description: A system-generated string that represents the Incident Alert object's entity_id
-        alert_type:
-          type: integer
-          default: 1
-          description: An integer that represents the Incident Alert object's type. 0 is info, 1 is warning, 2 is error, 3 is critical, 4 is acknowledged and 5 is resolved
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Incident Alert object's unique_id
-        images:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventImage'
-        urls:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventUrl'
-        notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventNote'
+          description: A string that represents the Event Note object's note_text
     Application:
       description: Application object schema
       type: object
@@ -269,26 +289,6 @@ components:
         documentation_link:
           type: string
           description: A string that represents Application object's documentation_link
-    EventNote:
-      type: object
-      description: Event Note object schema
-      properties:
-        note_title:
-          type: string
-          description: A string that represents the Event Note object's note_title
-        note_text:
-          type: string
-          description: A string that represents the Event Note object's note_text
-    EventUrl:
-      type: object
-      description: Event URL object schema
-      properties:
-        link_url:
-          type: string
-          description: A string that represents the Event URL object's link_url
-        link_text:
-          type: string
-          description: A string that represents the Event URL object's link_text
   securitySchemes:
     bearerAuth:
       type: http

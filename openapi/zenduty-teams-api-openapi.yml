@@ -573,39 +573,22 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TeamPayload:
+    User:
       type: object
-      description: Payload schema for the Team object
-      required:
-      - name
+      description: User object schema
       properties:
-        name:
-          type: string
-          description: A that represents the Team object's name
-    Team:
-      type: object
-      description: Team object schema
-      properties:
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Team object's unique_id
-        name:
-          type: string
-          description: A that represents the Team object's name
-        account:
-          type: string
-          description: A system-generated string that represents the Account object's unique_id
-        creation_date:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Team object's creation_date
-        members:
-          $ref: '#/components/schemas/TeamMember'
-        owner:
+        username:
           type: string
           description: A system-generated string that represents the User object's username
-        roles:
-          $ref: '#/components/schemas/IncidentRoleGet'
+        first_name:
+          type: string
+          description: A string that represents the User object's first_name
+        last_name:
+          type: string
+          description: A string that represents the User object's last_name
+        email:
+          type: string
+          description: A string that represents the User object's email
     IncidentRoleGet:
       type: object
       description: Incident Role object schema
@@ -630,6 +613,39 @@ components:
           type: integer
           default: 1
           description: An integer that represents the Incident Role object's rank
+    Team:
+      type: object
+      description: Team object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
+        name:
+          type: string
+          description: A that represents the Team object's name
+        account:
+          type: string
+          description: A system-generated string that represents the Account object's unique_id
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Team object's creation_date
+        members:
+          $ref: '#/components/schemas/TeamMember'
+        owner:
+          type: string
+          description: A system-generated string that represents the User object's username
+        roles:
+          $ref: '#/components/schemas/IncidentRoleGet'
+    TeamPayload:
+      type: object
+      description: Payload schema for the Team object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: A that represents the Team object's name
     TeamMember:
       type: object
       description: Team Member object schema
@@ -650,22 +666,6 @@ components:
           type: integer
           default: 2
           description: An integer that represents the Team Member object's role. 1 is manager and 2 is user
-    User:
-      type: object
-      description: User object schema
-      properties:
-        username:
-          type: string
-          description: A system-generated string that represents the User object's username
-        first_name:
-          type: string
-          description: A string that represents the User object's first_name
-        last_name:
-          type: string
-          description: A string that represents the User object's last_name
-        email:
-          type: string
-          description: A string that represents the User object's email
   securitySchemes:
     bearerAuth:
       type: http

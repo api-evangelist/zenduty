@@ -354,29 +354,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PriorityGet:
-      type: object
-      description: Priority object schema
-      properties:
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Priority object's unique_id
-        team:
-          type: string
-          description: A system-generated string that represents the Team object's unique_id
-        description:
-          type: string
-          description: A string that represents the Priority object's description
-        name:
-          type: string
-          description: A string that represents the Priority object's name
-        creation_date:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Priority object's creation_date
-        color:
-          type: string
-          description: A string that represents the Priority object's color
     PriorityPostPut:
       type: object
       description: Priority object schema
@@ -400,6 +377,29 @@ components:
         team:
           type: integer
           description: An integer that represents the Team object's id
+    PriorityGet:
+      type: object
+      description: Priority object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Priority object's unique_id
+        team:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
+        description:
+          type: string
+          description: A string that represents the Priority object's description
+        name:
+          type: string
+          description: A string that represents the Priority object's name
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Priority object's creation_date
+        color:
+          type: string
+          description: A string that represents the Priority object's color
     PriorityPayload:
       type: object
       description: Payload schema for the Priority object

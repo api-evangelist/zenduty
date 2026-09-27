@@ -375,6 +375,35 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AccountCustomRole:
+      type: object
+      description: Account Custom Role object's schema
+      properties:
+        unique_id:
+          type: string
+          description: A system generated string that represents the Account Custom Role object's unique_id
+        name:
+          type: string
+          description: A string that represents the unique name for Account Custom Role object
+        description:
+          type: string
+          description: A string that represents the description for Account Custom Role object
+        permissions:
+          type: string
+          description: An array of account level permissions
+    AccountCustomRolePostAndPutResponse:
+      type: object
+      description: Account Custom Role object's put and post response schema
+      properties:
+        unique_id:
+          type: string
+          description: A system generated string that represents the Account Custom Role object's unique_id
+        name:
+          type: string
+          description: A string that represents the unique name for Account Custom Role object
+        description:
+          type: string
+          description: A string that represents the description for Account Custom Role object
     AccountCustomRolePayload:
       type: object
       description: Payload schema for the Account Custom Role object
@@ -392,35 +421,6 @@ components:
           description: An array of account level permissions
           items:
             type: string
-    AccountCustomRolePostAndPutResponse:
-      type: object
-      description: Account Custom Role object's put and post response schema
-      properties:
-        unique_id:
-          type: string
-          description: A system generated string that represents the Account Custom Role object's unique_id
-        name:
-          type: string
-          description: A string that represents the unique name for Account Custom Role object
-        description:
-          type: string
-          description: A string that represents the description for Account Custom Role object
-    AccountCustomRole:
-      type: object
-      description: Account Custom Role object's schema
-      properties:
-        unique_id:
-          type: string
-          description: A system generated string that represents the Account Custom Role object's unique_id
-        name:
-          type: string
-          description: A string that represents the unique name for Account Custom Role object
-        description:
-          type: string
-          description: A string that represents the description for Account Custom Role object
-        permissions:
-          type: string
-          description: An array of account level permissions
   securitySchemes:
     bearerAuth:
       type: http

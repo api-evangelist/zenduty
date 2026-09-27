@@ -585,39 +585,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    AlertTransformerPayload:
-      type: object
-      description: Alert Transformer Action object payload schema
-      properties:
-        description:
-          type: string
-          description: A string that represents the Alert Transformer object's description
-        actions:
-          type: array
-          description: An array of Alert Transformer Action objects
-          items:
-            $ref: '#/components/schemas/AlertTransformerActionPayload'
-        rule_json:
-          type: string
-          description: A string that represents the all the conditions of the alert rule
-    AlertTransformer:
-      type: object
-      description: Alert Transformer Action object schema
-      properties:
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Alert Transformer unique_id
-        description:
-          type: string
-          description: A string that represents the Alert Transformer object's description
-        actions:
-          type: array
-          description: An array of Alert Transformer Action objects
-          items:
-            $ref: '#/components/schemas/AlertTransformerAction'
-        rule_json:
-          type: string
-          description: A string that represents the all the conditions of the alert rule
     AlertTransformerAction:
       type: object
       description: Alert Transformer Action object schema
@@ -661,6 +628,24 @@ components:
         task_template:
           type: string
           description: A system-generated string that represents the Task Template object's unique_id
+    AlertTransformer:
+      type: object
+      description: Alert Transformer Action object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Alert Transformer unique_id
+        description:
+          type: string
+          description: A string that represents the Alert Transformer object's description
+        actions:
+          type: array
+          description: An array of Alert Transformer Action objects
+          items:
+            $ref: '#/components/schemas/AlertTransformerAction'
+        rule_json:
+          type: string
+          description: A string that represents the all the conditions of the alert rule
     AlertTransformerActionPayload:
       type: object
       description: Alert Transformer Action payload object schema
@@ -701,6 +686,21 @@ components:
         task_template:
           type: string
           description: A system-generated string that represents the Task Template object's unique_id
+    AlertTransformerPayload:
+      type: object
+      description: Alert Transformer Action object payload schema
+      properties:
+        description:
+          type: string
+          description: A string that represents the Alert Transformer object's description
+        actions:
+          type: array
+          description: An array of Alert Transformer Action objects
+          items:
+            $ref: '#/components/schemas/AlertTransformerActionPayload'
+        rule_json:
+          type: string
+          description: A string that represents the all the conditions of the alert rule
   securitySchemes:
     bearerAuth:
       type: http

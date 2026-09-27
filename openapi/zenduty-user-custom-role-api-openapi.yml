@@ -153,6 +153,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    UserCustomRolePayload:
+      type: object
+      description: Payload schema for the User Custom Role object
+      required:
+      - custom_role
+      properties:
+        custom_role:
+          type: string
+          description: A system-generated string that represents the User Custom Role object's unique_id
     UserCustomRole:
       type: object
       description: User Custom Role object's schema
@@ -170,15 +179,6 @@ components:
             name:
               type: string
               description: A string that represents the name for Account Custom Role object
-    UserCustomRolePayload:
-      type: object
-      description: Payload schema for the User Custom Role object
-      required:
-      - custom_role
-      properties:
-        custom_role:
-          type: string
-          description: A system-generated string that represents the User Custom Role object's unique_id
   securitySchemes:
     bearerAuth:
       type: http

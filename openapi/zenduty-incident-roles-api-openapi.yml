@@ -352,6 +352,30 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IncidentRoleGet:
+      type: object
+      description: Incident Role object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Incident Role object's unique_id
+        team:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
+        title:
+          type: string
+          description: An arbitary string that represents the Incident Role object's title
+        description:
+          type: string
+          description: An arbitary string that represents the Incident Role object's description
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Incident Role object's creation_date
+        rank:
+          type: integer
+          default: 1
+          description: An integer that represents the Incident Role object's rank
     IncidentRolePostPut:
       type: object
       description: Incident Role object schema
@@ -385,30 +409,6 @@ components:
         description:
           type: string
           description: An arbitary string that represents the Incident Role object's description
-        rank:
-          type: integer
-          default: 1
-          description: An integer that represents the Incident Role object's rank
-    IncidentRoleGet:
-      type: object
-      description: Incident Role object schema
-      properties:
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Incident Role object's unique_id
-        team:
-          type: string
-          description: A system-generated string that represents the Team object's unique_id
-        title:
-          type: string
-          description: An arbitary string that represents the Incident Role object's title
-        description:
-          type: string
-          description: An arbitary string that represents the Incident Role object's description
-        creation_date:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Incident Role object's creation_date
         rank:
           type: integer
           default: 1

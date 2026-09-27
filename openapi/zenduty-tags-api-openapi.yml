@@ -368,6 +368,16 @@ components:
         color:
           type: string
           description: A string that represents the Tag object's color
+    TagPayload:
+      type: object
+      description: Payload schema for the Tag object
+      properties:
+        name:
+          type: string
+          description: A string that represents the Tag object's name
+        color:
+          type: string
+          description: A string that represents the Tag object's color
     TagPostPut:
       type: object
       description: Tag object schema
@@ -388,16 +398,6 @@ components:
         team:
           type: integer
           description: An integer that represents the Team object's id
-    TagPayload:
-      type: object
-      description: Payload schema for the Tag object
-      properties:
-        name:
-          type: string
-          description: A string that represents the Tag object's name
-        color:
-          type: string
-          description: A string that represents the Tag object's color
   securitySchemes:
     bearerAuth:
       type: http

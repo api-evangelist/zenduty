@@ -298,6 +298,21 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    UserNotificationRulePayload:
+      type: object
+      description: Payload schema for the User Notification Rules object
+      required:
+      - contact
+      properties:
+        contact:
+          type: string
+          description: A system-generated string that represents the User Contact Method object's unique_id
+        start_delay:
+          type: integer
+          description: An integer that represents the User Notification Rules object's delay field in minutes.
+        urgency:
+          type: integer
+          description: An integer that represents the User Notification Rules object's urgency field. 1 is for high urgency incidents and 0 is for low urgency incidents.
     UserNotificationRule:
       type: object
       description: User Notification Rules object's schema
@@ -318,21 +333,6 @@ components:
         contact:
           type: string
           description: A system-generated string that represents the User Contact Method object's unique_id
-        urgency:
-          type: integer
-          description: An integer that represents the User Notification Rules object's urgency field. 1 is for high urgency incidents and 0 is for low urgency incidents.
-    UserNotificationRulePayload:
-      type: object
-      description: Payload schema for the User Notification Rules object
-      required:
-      - contact
-      properties:
-        contact:
-          type: string
-          description: A system-generated string that represents the User Contact Method object's unique_id
-        start_delay:
-          type: integer
-          description: An integer that represents the User Notification Rules object's delay field in minutes.
         urgency:
           type: integer
           description: An integer that represents the User Notification Rules object's urgency field. 1 is for high urgency incidents and 0 is for low urgency incidents.

@@ -671,6 +671,21 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    EscalationPolicyOnCallV2:
+      type: object
+      description: Team OnCall object schema v2
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Escalation Policy object's unique_id
+        name:
+          type: string
+          description: A string that represents the Escalation Policy object's name
+        oncalls:
+          type: array
+          description: An array of Escalation Policy Rule OnCall objects
+          items:
+            $ref: '#/components/schemas/EscalationPolicyRuleOnCall'
     EscalationPolicyRuleOnCall:
       type: object
       description: Escalation Policy OnCall object schema
@@ -689,21 +704,6 @@ components:
           description: An array of User objects who is on call in an Escalation Policy Rule
           items:
             $ref: '#/components/schemas/User'
-    EscalationPolicyOnCallV2:
-      type: object
-      description: Team OnCall object schema v2
-      properties:
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Escalation Policy object's unique_id
-        name:
-          type: string
-          description: A string that represents the Escalation Policy object's name
-        oncalls:
-          type: array
-          description: An array of Escalation Policy Rule OnCall objects
-          items:
-            $ref: '#/components/schemas/EscalationPolicyRuleOnCall'
     User:
       type: object
       description: User object schema
