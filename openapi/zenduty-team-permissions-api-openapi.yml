@@ -199,6 +199,17 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TeamPermissionPayload:
+      type: object
+      description: Payload schema for the Team Permission object
+      required:
+      - account_permissions
+      properties:
+        account_permissions:
+          type: array
+          description: An array of team level permissions
+          items:
+            type: string
     TeamPermission:
       type: object
       description: Team Permission object's schema
@@ -206,17 +217,6 @@ components:
         unique_id:
           type: string
           description: A system generated string that represents the Team object's unique_id
-        account_permissions:
-          type: array
-          description: An array of team level permissions
-          items:
-            type: string
-    TeamPermissionPayload:
-      type: object
-      description: Payload schema for the Team Permission object
-      required:
-      - account_permissions
-      properties:
         account_permissions:
           type: array
           description: An array of team level permissions

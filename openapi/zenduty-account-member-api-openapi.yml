@@ -433,6 +433,22 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    User:
+      type: object
+      description: User object schema
+      properties:
+        username:
+          type: string
+          description: A system-generated string that represents the User object's username
+        first_name:
+          type: string
+          description: A string that represents the User object's first_name
+        last_name:
+          type: string
+          description: A string that represents the User object's last_name
+        email:
+          type: string
+          description: A string that represents the User object's email
     InviteUserPayload:
       type: object
       description: Payload schema for the Invite User object
@@ -459,67 +475,6 @@ components:
             role:
               type: integer
               description: An integer that represents the Account Member object's role
-    AccountMemberPayload:
-      type: object
-      description: Payload schema for the Account Member object
-      required:
-      - user
-      properties:
-        time_zone:
-          type: string
-          default: UTC
-          description: A formatted string that represents the Account Member object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
-        user:
-          $ref: '#/components/schemas/User'
-        role:
-          type: integer
-          default: 3
-          description: An integer that represents the Account Member object's role. 1 is owner, 2 is admin and 3 is user
-    DeleteUserPayload:
-      type: object
-      description: Payload schema for the Delete User object
-      required:
-      - username
-      properties:
-        username:
-          type: string
-          description: A system-generated string that represents the User object's username
-    User:
-      type: object
-      description: User object schema
-      properties:
-        username:
-          type: string
-          description: A system-generated string that represents the User object's username
-        first_name:
-          type: string
-          description: A string that represents the User object's first_name
-        last_name:
-          type: string
-          description: A string that represents the User object's last_name
-        email:
-          type: string
-          description: A string that represents the User object's email
-    TeamMember:
-      type: object
-      description: Team Member object schema
-      properties:
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Team Member object's unique_id
-        team:
-          type: string
-          description: A system-generated string that represents the Team object's unique_id
-        user:
-          $ref: '#/components/schemas/User'
-        joining_date:
-          type: string
-          format: datetime
-          description: A formatted string that represents the Team Member object's joining_date
-        role:
-          type: integer
-          default: 2
-          description: An integer that represents the Team Member object's role. 1 is manager and 2 is user
     AccountMember:
       type: object
       description: Account Member object schema
@@ -544,6 +499,51 @@ components:
           type: boolean
           default: false
           description: A boolean flag that represents the Account Member object's verification
+    DeleteUserPayload:
+      type: object
+      description: Payload schema for the Delete User object
+      required:
+      - username
+      properties:
+        username:
+          type: string
+          description: A system-generated string that represents the User object's username
+    AccountMemberPayload:
+      type: object
+      description: Payload schema for the Account Member object
+      required:
+      - user
+      properties:
+        time_zone:
+          type: string
+          default: UTC
+          description: A formatted string that represents the Account Member object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
+        user:
+          $ref: '#/components/schemas/User'
+        role:
+          type: integer
+          default: 3
+          description: An integer that represents the Account Member object's role. 1 is owner, 2 is admin and 3 is user
+    TeamMember:
+      type: object
+      description: Team Member object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Team Member object's unique_id
+        team:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
+        user:
+          $ref: '#/components/schemas/User'
+        joining_date:
+          type: string
+          format: datetime
+          description: A formatted string that represents the Team Member object's joining_date
+        role:
+          type: integer
+          default: 2
+          description: An integer that represents the Team Member object's role. 1 is manager and 2 is user
   securitySchemes:
     bearerAuth:
       type: http

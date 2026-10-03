@@ -370,22 +370,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TeamMember:
+    TeamMemberPayload:
       type: object
-      description: Team Member object schema
+      description: Payload schema for the Team Member object
+      required:
+      - user
       properties:
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Team Member object's unique_id
-        team:
-          type: string
-          description: A system-generated string that represents the Team object's unique_id
         user:
-          $ref: '#/components/schemas/User'
-        joining_date:
           type: string
-          format: datetime
-          description: A formatted string that represents the Team Member object's joining_date
+          description: A string that represents the User's username
         role:
           type: integer
           default: 2
@@ -406,15 +399,22 @@ components:
         email:
           type: string
           description: A string that represents the User object's email
-    TeamMemberPayload:
+    TeamMember:
       type: object
-      description: Payload schema for the Team Member object
-      required:
-      - user
+      description: Team Member object schema
       properties:
-        user:
+        unique_id:
           type: string
-          description: A string that represents the User's username
+          description: A system-generated string that represents the Team Member object's unique_id
+        team:
+          type: string
+          description: A system-generated string that represents the Team object's unique_id
+        user:
+          $ref: '#/components/schemas/User'
+        joining_date:
+          type: string
+          format: datetime
+          description: A formatted string that represents the Team Member object's joining_date
         role:
           type: integer
           default: 2

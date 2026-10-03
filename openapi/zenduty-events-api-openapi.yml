@@ -362,6 +362,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AlertStatusIncident:
+      type: object
+      description: Incident schema for Alert Status object
+      properties:
+        incident_number:
+          type: integer
+          description: A integer that represents the number of an Incident object
+        unique_id:
+          type: string
+          description: A string that represents the unique_id of an Incident object
     EventV3:
       type: object
       description: Event object schema
@@ -372,13 +382,16 @@ components:
         trace_id:
           description: unique id to trace an alert
           type: string
-    AlertStatusIntegration:
+    EventNote:
       type: object
-      description: Integration schema for Alert Status object
+      description: Event Note object schema
       properties:
-        name:
+        note_title:
           type: string
-          description: A string that represents the name of an Integration object
+          description: A string that represents the Event Note object's note_title
+        note_text:
+          type: string
+          description: A string that represents the Event Note object's note_text
     StakeholderMessage:
       type: object
       description: Stakeholder message object schema
@@ -403,57 +416,13 @@ components:
           description: User's username who's sending communication
           items:
             type: string
-    EventPayload:
+    AlertStatusIntegration:
       type: object
-      description: Payload schema for the Event object
-      required:
-      - message
-      - alert_type
+      description: Integration schema for Alert Status object
       properties:
-        message:
+        name:
           type: string
-          description: A string that represents the Event object's message
-        summary:
-          type: string
-          description: A string that represents the Event object's summary
-        alert_type:
-          type: string
-          default: info
-          description: A pre-defined string that represents the Event object's alert_type. Choices - `critical`, `acknowledged`, `resolved`, `error`, `warning`, `info`.
-        entity_id:
-          type: string
-          description: A unique id for the alert. If not provided, the Zenduty API will create one.
-        payload:
-          type: object
-          description: A JSON payload containing additional information about the alert.
-        urls:
-          type: array
-          description: An array containing JSON schema of urls related to alerts.
-          items:
-            type: string
-    EventImage:
-      type: object
-      description: Event Image object schema
-      properties:
-        image_src:
-          type: string
-          description: A string that represents the Event Image object's image_src
-        image_url:
-          type: string
-          description: A string that represents the Event Image object's image_url
-        image_text:
-          type: string
-          description: A string that represents the Event Image object's image_text
-    EventUrl:
-      type: object
-      description: Event URL object schema
-      properties:
-        link_url:
-          type: string
-          description: A string that represents the Event URL object's link_url
-        link_text:
-          type: string
-          description: A string that represents the Event URL object's link_text
+          description: A string that represents the name of an Integration object
     AlertStatus:
       type: object
       description: Alert Status object schema
@@ -477,16 +446,6 @@ components:
         error:
           description: short error message if any error in alert creation
           type: string
-    AlertStatusIncident:
-      type: object
-      description: Incident schema for Alert Status object
-      properties:
-        incident_number:
-          type: integer
-          description: A integer that represents the number of an Incident object
-        unique_id:
-          type: string
-          description: A string that represents the unique_id of an Incident object
     Event:
       type: object
       description: Event object schema
@@ -573,16 +532,6 @@ components:
         incident_created:
           type: boolean
           description: A boolean flag that represents whether the Incident Alert object created an incident or not.
-    EventNote:
-      type: object
-      description: Event Note object schema
-      properties:
-        note_title:
-          type: string
-          description: A string that represents the Event Note object's note_title
-        note_text:
-          type: string
-          description: A string that represents the Event Note object's note_text
     Stakeholder:
       type: object
       description: Incident stakeholder object schema
@@ -602,6 +551,19 @@ components:
           description: An array containing email ids.
           items:
             type: string
+    EventImage:
+      type: object
+      description: Event Image object schema
+      properties:
+        image_src:
+          type: string
+          description: A string that represents the Event Image object's image_src
+        image_url:
+          type: string
+          description: A string that represents the Event Image object's image_url
+        image_text:
+          type: string
+          description: A string that represents the Event Image object's image_text
     GenericEventPayload:
       type: object
       description: Payload schema for the Generic Event object
@@ -648,6 +610,44 @@ components:
           $ref: '#/components/schemas/Stakeholder'
         stakeholders_comms:
           $ref: '#/components/schemas/StakeholderMessage'
+    EventUrl:
+      type: object
+      description: Event URL object schema
+      properties:
+        link_url:
+          type: string
+          description: A string that represents the Event URL object's link_url
+        link_text:
+          type: string
+          description: A string that represents the Event URL object's link_text
+    EventPayload:
+      type: object
+      description: Payload schema for the Event object
+      required:
+      - message
+      - alert_type
+      properties:
+        message:
+          type: string
+          description: A string that represents the Event object's message
+        summary:
+          type: string
+          description: A string that represents the Event object's summary
+        alert_type:
+          type: string
+          default: info
+          description: A pre-defined string that represents the Event object's alert_type. Choices - `critical`, `acknowledged`, `resolved`, `error`, `warning`, `info`.
+        entity_id:
+          type: string
+          description: A unique id for the alert. If not provided, the Zenduty API will create one.
+        payload:
+          type: object
+          description: A JSON payload containing additional information about the alert.
+        urls:
+          type: array
+          description: An array containing JSON schema of urls related to alerts.
+          items:
+            type: string
   securitySchemes:
     bearerAuth:
       type: http

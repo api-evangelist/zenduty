@@ -662,21 +662,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    GlobalRouterRulePayload:
-      description: Payload schema for Global Router Rule object
+    GlobalRouterRulePositionPayload:
       type: object
+      description: Payload schema for the Global Router Rule position update object
       properties:
-        name:
+        rule:
           type: string
-          description: A string that represents the Global Router Rule object's name
-        rule_json:
-          type: string
-          description: A string that represents the rule json of Global Router Rule object
-        actions:
-          type: array
-          description: An array of Global Router Rule Action objects
-          items:
-            $ref: '#/components/schemas/GlobalRouterRuleActionPayload'
+          description: A system generated string that represents the unique id of the Global Router Rule object
+        position:
+          type: integer
+          description: An integer that represents that position of the Global Router Rule object
     GlobalRouterRuleActionPayload:
       type: object
       description: Payload schema for Global Router Rule Action object
@@ -727,16 +722,6 @@ components:
             unique_id:
               type: string
               description: A system generated string that represents the unique_id of the Integration object
-    GlobalRouterRulePositionPayload:
-      type: object
-      description: Payload schema for the Global Router Rule position update object
-      properties:
-        rule:
-          type: string
-          description: A system generated string that represents the unique id of the Global Router Rule object
-        position:
-          type: integer
-          description: An integer that represents that position of the Global Router Rule object
     GlobalRouterRule:
       description: Global Router Rule object schema
       type: object
@@ -761,6 +746,21 @@ components:
         router:
           type: string
           description: A system-generated string that represents the Global Router object's unique_id
+    GlobalRouterRulePayload:
+      description: Payload schema for Global Router Rule object
+      type: object
+      properties:
+        name:
+          type: string
+          description: A string that represents the Global Router Rule object's name
+        rule_json:
+          type: string
+          description: A string that represents the rule json of Global Router Rule object
+        actions:
+          type: array
+          description: An array of Global Router Rule Action objects
+          items:
+            $ref: '#/components/schemas/GlobalRouterRuleActionPayload'
   securitySchemes:
     bearerAuth:
       type: http

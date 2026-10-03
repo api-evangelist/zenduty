@@ -348,6 +348,26 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TagPostPut:
+      type: object
+      description: Tag object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Tag object's unique_id
+        name:
+          type: string
+          description: A string that represents the Tag object's name
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Tag object's creation_date
+        color:
+          type: string
+          description: A string that represents the Tag object's color
+        team:
+          type: integer
+          description: An integer that represents the Team object's id
     TagGet:
       type: object
       description: Tag object schema
@@ -378,26 +398,6 @@ components:
         color:
           type: string
           description: A string that represents the Tag object's color
-    TagPostPut:
-      type: object
-      description: Tag object schema
-      properties:
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Tag object's unique_id
-        name:
-          type: string
-          description: A string that represents the Tag object's name
-        creation_date:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Tag object's creation_date
-        color:
-          type: string
-          description: A string that represents the Tag object's color
-        team:
-          type: integer
-          description: An integer that represents the Team object's id
   securitySchemes:
     bearerAuth:
       type: http

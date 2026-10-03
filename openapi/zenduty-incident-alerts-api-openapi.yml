@@ -121,29 +121,53 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EventImage:
+    EventNote:
       type: object
-      description: Event Image object schema
+      description: Event Note object schema
       properties:
-        image_src:
+        note_title:
           type: string
-          description: A string that represents the Event Image object's image_src
-        image_url:
+          description: A string that represents the Event Note object's note_title
+        note_text:
           type: string
-          description: A string that represents the Event Image object's image_url
-        image_text:
-          type: string
-          description: A string that represents the Event Image object's image_text
-    EventUrl:
+          description: A string that represents the Event Note object's note_text
+    Application:
+      description: Application object schema
       type: object
-      description: Event URL object schema
       properties:
-        link_url:
+        name:
           type: string
-          description: A string that represents the Event URL object's link_url
-        link_text:
+          description: A string that represents Application object's name
+        icon_url:
           type: string
-          description: A string that represents the Event URL object's link_text
+          description: A string that represents Application object's icon_url
+        summary:
+          type: string
+          description: A string that represents Application object's summary
+        description:
+          type: string
+          description: A string that represents Application object's description
+        unique_id:
+          type: string
+          description: A system-generated string that represents Application object's unique_id
+        availability_plan_id:
+          type: integer
+          description: An integer that represents Application object's availability_plan_id
+        setup_instructions:
+          type: string
+          description: A string that represents Application object's setup_instructions
+        extension:
+          type: string
+          description: A string that represents Application object's extension
+        application_type:
+          type: integer
+          description: An integer that represents Application object's application_type 0 for alert and 1 for outbound
+        categories:
+          type: string
+          description: A string that represents Application object's categories
+        documentation_link:
+          type: string
+          description: A string that represents Application object's documentation_link
     IncidentAlert:
       type: object
       description: Incident Alert object schema
@@ -242,53 +266,29 @@ components:
         webhook_url:
           type: string
           description: A system-generated string that represents the Integration object's webhook url
-    EventNote:
+    EventImage:
       type: object
-      description: Event Note object schema
+      description: Event Image object schema
       properties:
-        note_title:
+        image_src:
           type: string
-          description: A string that represents the Event Note object's note_title
-        note_text:
+          description: A string that represents the Event Image object's image_src
+        image_url:
           type: string
-          description: A string that represents the Event Note object's note_text
-    Application:
-      description: Application object schema
+          description: A string that represents the Event Image object's image_url
+        image_text:
+          type: string
+          description: A string that represents the Event Image object's image_text
+    EventUrl:
       type: object
+      description: Event URL object schema
       properties:
-        name:
+        link_url:
           type: string
-          description: A string that represents Application object's name
-        icon_url:
+          description: A string that represents the Event URL object's link_url
+        link_text:
           type: string
-          description: A string that represents Application object's icon_url
-        summary:
-          type: string
-          description: A string that represents Application object's summary
-        description:
-          type: string
-          description: A string that represents Application object's description
-        unique_id:
-          type: string
-          description: A system-generated string that represents Application object's unique_id
-        availability_plan_id:
-          type: integer
-          description: An integer that represents Application object's availability_plan_id
-        setup_instructions:
-          type: string
-          description: A string that represents Application object's setup_instructions
-        extension:
-          type: string
-          description: A string that represents Application object's extension
-        application_type:
-          type: integer
-          description: An integer that represents Application object's application_type 0 for alert and 1 for outbound
-        categories:
-          type: string
-          description: A string that represents Application object's categories
-        documentation_link:
-          type: string
-          description: A string that represents Application object's documentation_link
+          description: A string that represents the Event URL object's link_text
   securitySchemes:
     bearerAuth:
       type: http

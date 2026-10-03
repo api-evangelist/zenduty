@@ -243,23 +243,25 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UserAnalyticsRecord:
+    AnalyticsTeamInfo:
       type: object
       properties:
-        user:
-          $ref: '#/components/schemas/AnalyticsUserInfo'
-        total_incidents:
-          type: integer
-        total_acknowledged:
-          type: integer
-        total_resolved:
-          type: integer
-        mtta_seconds:
-          type: number
-          format: float
-        mttr_seconds:
-          type: number
-          format: float
+        name:
+          type: string
+          description: Team name.
+        unique_id:
+          type: string
+          format: uuid
+          description: Team unique identifier.
+    UserAnalyticsResponse:
+      type: object
+      properties:
+        all_users:
+          $ref: '#/components/schemas/AnalyticsMetrics'
+        user_records:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAnalyticsRecord'
     ServiceAnalyticsRecord:
       type: object
       properties:
@@ -279,52 +281,23 @@ components:
         mttr_seconds:
           type: number
           format: float
-    ServiceAnalyticsResponse:
+    TeamAnalyticsRecord:
       type: object
       properties:
-        all_services:
-          $ref: '#/components/schemas/AnalyticsMetrics'
-        service_records:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceAnalyticsRecord'
-    TeamAnalyticsResponse:
-      type: object
-      properties:
-        all_teams:
-          $ref: '#/components/schemas/AnalyticsMetrics'
-        team_records:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamAnalyticsRecord'
-    IncidentStatsResponse:
-      type: object
-      description: Aggregate incident counts for the account and for the requesting user.
-      properties:
+        team:
+          $ref: '#/components/schemas/AnalyticsTeamInfo'
         total_incidents:
           type: integer
-          description: Total incidents matching filters.
-        total_triggered_incidents:
+        total_acknowledged:
           type: integer
-          description: Incidents with status = triggered (1).
-        total_acknowledged_incidents:
+        total_resolved:
           type: integer
-          description: Incidents with status = acknowledged (2).
-        total_resolved_incidents:
-          type: integer
-          description: Incidents with status = resolved (3).
-        user_total_incidents:
-          type: integer
-          description: Incidents assigned to the requesting user.
-        user_triggered_incidents:
-          type: integer
-          description: User's incidents with status = triggered.
-        user_acknowledged_incidents:
-          type: integer
-          description: User's incidents with status = acknowledged.
-        user_resolved_incidents:
-          type: integer
-          description: User's incidents with status = resolved.
+        mtta_seconds:
+          type: number
+          format: float
+        mttr_seconds:
+          type: number
+          format: float
     AnalyticsServiceInfo:
       type: object
       properties:
@@ -335,6 +308,50 @@ components:
           type: string
           format: uuid
           description: Service unique identifier.
+    UserAnalyticsRecord:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/AnalyticsUserInfo'
+        total_incidents:
+          type: integer
+        total_acknowledged:
+          type: integer
+        total_resolved:
+          type: integer
+        mtta_seconds:
+          type: number
+          format: float
+        mttr_seconds:
+          type: number
+          format: float
+    TeamAnalyticsResponse:
+      type: object
+      properties:
+        all_teams:
+          $ref: '#/components/schemas/AnalyticsMetrics'
+        team_records:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamAnalyticsRecord'
+    AnalyticsUserInfo:
+      type: object
+      properties:
+        full_name:
+          type: string
+          description: User's full name (first + last name).
+        username:
+          type: string
+          description: Username.
+    ServiceAnalyticsResponse:
+      type: object
+      properties:
+        all_services:
+          $ref: '#/components/schemas/AnalyticsMetrics'
+        service_records:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceAnalyticsRecord'
     AnalyticsRequestBody:
       type: object
       description: Common request body for all analytics endpoints. All fields are optional.
@@ -436,51 +453,34 @@ components:
           type: number
           format: float
           description: Weighted average Mean Time to Resolve in seconds.
-    UserAnalyticsResponse:
+    IncidentStatsResponse:
       type: object
+      description: Aggregate incident counts for the account and for the requesting user.
       properties:
-        all_users:
-          $ref: '#/components/schemas/AnalyticsMetrics'
-        user_records:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserAnalyticsRecord'
-    AnalyticsTeamInfo:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Team name.
-        unique_id:
-          type: string
-          format: uuid
-          description: Team unique identifier.
-    TeamAnalyticsRecord:
-      type: object
-      properties:
-        team:
-          $ref: '#/components/schemas/AnalyticsTeamInfo'
         total_incidents:
           type: integer
-        total_acknowledged:
+          description: Total incidents matching filters.
+        total_triggered_incidents:
           type: integer
-        total_resolved:
+          description: Incidents with status = triggered (1).
+        total_acknowledged_incidents:
           type: integer
-        mtta_seconds:
-          type: number
-          format: float
-        mttr_seconds:
-          type: number
-          format: float
-    AnalyticsUserInfo:
-      type: object
-      properties:
-        full_name:
-          type: string
-          description: User's full name (first + last name).
-        username:
-          type: string
-          description: Username.
+          description: Incidents with status = acknowledged (2).
+        total_resolved_incidents:
+          type: integer
+          description: Incidents with status = resolved (3).
+        user_total_incidents:
+          type: integer
+          description: Incidents assigned to the requesting user.
+        user_triggered_incidents:
+          type: integer
+          description: User's incidents with status = triggered.
+        user_acknowledged_incidents:
+          type: integer
+          description: User's incidents with status = acknowledged.
+        user_resolved_incidents:
+          type: integer
+          description: User's incidents with status = resolved.
   securitySchemes:
     bearerAuth:
       type: http

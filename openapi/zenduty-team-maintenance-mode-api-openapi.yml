@@ -414,6 +414,47 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TMMPayload:
+      type: object
+      description: Payload schema for the Team Maintenance Mode object
+      required:
+      - start_time
+      - end_time
+      - services
+      properties:
+        start_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Team Maintenance Mode object's start_time
+        end_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Team Maintenance Mode object's end_time
+        repeat_interval:
+          type: integer
+          default: 0
+          description: An integer that represents the Team Maintenance Mode object's repeat_interval
+        services:
+          type: array
+          description: Array of Service objects
+          items:
+            type: object
+            description: Service object schema for Team Maintenance Mode object schema
+            properties:
+              service:
+                type: string
+                description: A system-generated string that represents the Service object's unique_id
+        name:
+          type: string
+          description: A string that represents the Team Maintenance Mode object's name
+        time_zone:
+          type: string
+          default: UTC
+          description: A formatted string that represents the Team Maintenance Mode object's time_zone. You can check out the time zone list here https://timezonedb.com/time-zones
+        repeat_until:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Team Maintenance Mode object's repeat_until
     TMM:
       type: object
       description: Team Maintenance Mode object schema
@@ -450,47 +491,6 @@ components:
           type: string
           format: date-time
           description: A formatted string that represents the Team Maintenance Mode object's creation_date
-        name:
-          type: string
-          description: A string that represents the Team Maintenance Mode object's name
-        time_zone:
-          type: string
-          default: UTC
-          description: A formatted string that represents the Team Maintenance Mode object's time_zone. You can check out the time zone list here https://timezonedb.com/time-zones
-        repeat_until:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Team Maintenance Mode object's repeat_until
-    TMMPayload:
-      type: object
-      description: Payload schema for the Team Maintenance Mode object
-      required:
-      - start_time
-      - end_time
-      - services
-      properties:
-        start_time:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Team Maintenance Mode object's start_time
-        end_time:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Team Maintenance Mode object's end_time
-        repeat_interval:
-          type: integer
-          default: 0
-          description: An integer that represents the Team Maintenance Mode object's repeat_interval
-        services:
-          type: array
-          description: Array of Service objects
-          items:
-            type: object
-            description: Service object schema for Team Maintenance Mode object schema
-            properties:
-              service:
-                type: string
-                description: A system-generated string that represents the Service object's unique_id
         name:
           type: string
           description: A string that represents the Team Maintenance Mode object's name

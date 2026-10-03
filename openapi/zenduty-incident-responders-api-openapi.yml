@@ -209,26 +209,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    IncidentResponderUserPayload:
-      title: User
-      type: object
-      description: Payload to add a user as Incident Responder
-      required:
-      - user
-      properties:
-        user:
-          type: string
-          description: Unique identifier of the User object
-    IncidentResponderEscalationPolicyPayload:
-      title: Escalation Policy
-      type: object
-      description: Payload to add an escalation policy as Incident Responder
-      required:
-      - escalation_policy
-      properties:
-        escalation_policy:
-          type: string
-          description: Unique identifier of the Escalation Policy object
     IncidentResponderDetail:
       type: object
       description: Incident Responder detail object
@@ -264,6 +244,16 @@ components:
           type: string
           format: date-time
           description: Date and time when the Incident Responder was added
+    IncidentResponderEscalationPolicyPayload:
+      title: Escalation Policy
+      type: object
+      description: Payload to add an escalation policy as Incident Responder
+      required:
+      - escalation_policy
+      properties:
+        escalation_policy:
+          type: string
+          description: Unique identifier of the Escalation Policy object
     IncidentResponderResponse:
       type: object
       properties:
@@ -280,6 +270,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/IncidentResponderDetail'
+    IncidentResponderUserPayload:
+      title: User
+      type: object
+      description: Payload to add a user as Incident Responder
+      required:
+      - user
+      properties:
+        user:
+          type: string
+          description: Unique identifier of the User object
   securitySchemes:
     bearerAuth:
       type: http

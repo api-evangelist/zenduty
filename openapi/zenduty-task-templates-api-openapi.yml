@@ -353,6 +353,22 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TTPayload:
+      type: object
+      description: Payload schema for the Task Template object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: A string that represents the Task Template object's name
+        summary:
+          type: string
+          description: A string that represents the Task Template object's summary
+        due_immediately:
+          type: integer
+          default: 0
+          description: An integer that represents whether the Task Template object is due immediately or not. 0 is false and 1 is true.
     TaskTemplatePostPut:
       type: object
       description: Task Template object schema
@@ -391,22 +407,6 @@ components:
           type: string
           format: date-time
           description: A formatted string that represents the Task Template object's creation_date
-        summary:
-          type: string
-          description: A string that represents the Task Template object's summary
-        due_immediately:
-          type: integer
-          default: 0
-          description: An integer that represents whether the Task Template object is due immediately or not. 0 is false and 1 is true.
-    TTPayload:
-      type: object
-      description: Payload schema for the Task Template object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: A string that represents the Task Template object's name
         summary:
           type: string
           description: A string that represents the Task Template object's summary

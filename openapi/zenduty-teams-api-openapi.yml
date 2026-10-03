@@ -589,6 +589,15 @@ components:
         email:
           type: string
           description: A string that represents the User object's email
+    TeamPayload:
+      type: object
+      description: Payload schema for the Team object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: A that represents the Team object's name
     IncidentRoleGet:
       type: object
       description: Incident Role object schema
@@ -637,15 +646,6 @@ components:
           description: A system-generated string that represents the User object's username
         roles:
           $ref: '#/components/schemas/IncidentRoleGet'
-    TeamPayload:
-      type: object
-      description: Payload schema for the Team object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: A that represents the Team object's name
     TeamMember:
       type: object
       description: Team Member object schema

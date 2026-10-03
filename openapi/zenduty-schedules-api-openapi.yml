@@ -478,19 +478,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ScheduleLayerUser:
-      type: object
-      description: Schedule Layer User object schema
-      properties:
-        user:
-          type: string
-          description: A system-generated string that represents the User object's username
-        position:
-          type: integer
-          description: An integer that represents the Schedule Layer User objects's position
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Schedule Layer User objects's unique_id
     ScheduleOverridePayload:
       type: object
       description: Schedule Override Payload object schema
@@ -507,6 +494,99 @@ components:
         end_time:
           type: string
           description: A fromatted string that represents the Schedule Overrides object's end_time
+    ScheduleLayer:
+      type: object
+      description: Schedule Layer object schema
+      properties:
+        shift_length:
+          type: integer
+          description: An integer that represents the Schedule Layer object's shift_length
+        restrictions:
+          type: array
+          description: An array of Schedule Layer Restriction objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerRestriction'
+        name:
+          type: string
+          description: A string that represents the Schedule Layer object's name
+        users:
+          type: array
+          description: An array of Schedule Layer User objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerUser'
+        rotation_start_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_start_time
+        rotation_end_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_end_time
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Layer object's unique_id
+        last_edited:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's last_edited
+        restriction_type:
+          type: integer
+          description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
+        is_active:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether the Schedule Layer is active or not
+    ScheduleLayerUserPayload:
+      type: object
+      description: Schedule Layer User Payload object schema
+      properties:
+        user:
+          type: string
+          description: A system-generated string that represents the User object's username
+        position:
+          type: integer
+          description: An integer that represents the Schedule Layer User objects's position
+    ScheduleLayerUser:
+      type: object
+      description: Schedule Layer User object schema
+      properties:
+        user:
+          type: string
+          description: A system-generated string that represents the User object's username
+        position:
+          type: integer
+          description: An integer that represents the Schedule Layer User objects's position
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Layer User objects's unique_id
+    SchedulePayload:
+      type: object
+      description: Payload schema for the Schedule object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule object's name
+        summary:
+          type: string
+          description: A string that represents the Schedule object's summary
+        description:
+          type: string
+          description: A string that represents the Schedule object's description
+        time_zone:
+          type: string
+          description: A formatted string that represents the Schedule object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
+        layers:
+          type: array
+          description: An array of Schedule Layer objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerPayload'
+        overrides:
+          type: array
+          description: An array of Schedule Overrides objects
+          items:
+            $ref: '#/components/schemas/ScheduleOverridePayload'
     ScheduleLayerRestrictionPayload:
       type: object
       description: Schedule Layer Restriction Payload object schema
@@ -521,37 +601,6 @@ components:
           type: string
           format: time
           description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
-    ScheduleLayerPayload:
-      type: object
-      description: Schedule Layer Payload object schema
-      properties:
-        shift_length:
-          type: integer
-          description: An integer that represents the Schedule Layer object's shift_length
-        restrictions:
-          type: array
-          description: An array of Schedule Layer Restriction objects
-          items:
-            $ref: '#/components/schemas/ScheduleLayerRestrictionPayload'
-        name:
-          type: string
-          description: A string that represents the Schedule Layer object's name
-        users:
-          type: array
-          description: An array of Schedule Layer User objects
-          items:
-            $ref: '#/components/schemas/ScheduleLayerUserPayload'
-        rotation_start_time:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Schedule Layer object's rotation_start_time
-        rotation_end_time:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Schedule Layer object's rotation_end_time
-        restriction_type:
-          type: integer
-          description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
     Schedule:
       type: object
       description: Schedule object schema
@@ -601,34 +650,37 @@ components:
         unique_id:
           type: string
           description: A system-generated string that represents the Schedule Layer Restriction objects's unique_id
-    SchedulePayload:
+    ScheduleLayerPayload:
       type: object
-      description: Payload schema for the Schedule object
-      required:
-      - name
+      description: Schedule Layer Payload object schema
       properties:
+        shift_length:
+          type: integer
+          description: An integer that represents the Schedule Layer object's shift_length
+        restrictions:
+          type: array
+          description: An array of Schedule Layer Restriction objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerRestrictionPayload'
         name:
           type: string
-          description: A string that represents the Schedule object's name
-        summary:
-          type: string
-          description: A string that represents the Schedule object's summary
-        description:
-          type: string
-          description: A string that represents the Schedule object's description
-        time_zone:
-          type: string
-          description: A formatted string that represents the Schedule object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
-        layers:
+          description: A string that represents the Schedule Layer object's name
+        users:
           type: array
-          description: An array of Schedule Layer objects
+          description: An array of Schedule Layer User objects
           items:
-            $ref: '#/components/schemas/ScheduleLayerPayload'
-        overrides:
-          type: array
-          description: An array of Schedule Overrides objects
-          items:
-            $ref: '#/components/schemas/ScheduleOverridePayload'
+            $ref: '#/components/schemas/ScheduleLayerUserPayload'
+        rotation_start_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_start_time
+        rotation_end_time:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Schedule Layer object's rotation_end_time
+        restriction_type:
+          type: integer
+          description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
     ScheduleOverride:
       type: object
       description: Schedule Override object schema
@@ -648,58 +700,6 @@ components:
         unique_id:
           type: string
           description: A system-generated string that represents the Schedule Overrides object's unique_id
-    ScheduleLayerUserPayload:
-      type: object
-      description: Schedule Layer User Payload object schema
-      properties:
-        user:
-          type: string
-          description: A system-generated string that represents the User object's username
-        position:
-          type: integer
-          description: An integer that represents the Schedule Layer User objects's position
-    ScheduleLayer:
-      type: object
-      description: Schedule Layer object schema
-      properties:
-        shift_length:
-          type: integer
-          description: An integer that represents the Schedule Layer object's shift_length
-        restrictions:
-          type: array
-          description: An array of Schedule Layer Restriction objects
-          items:
-            $ref: '#/components/schemas/ScheduleLayerRestriction'
-        name:
-          type: string
-          description: A string that represents the Schedule Layer object's name
-        users:
-          type: array
-          description: An array of Schedule Layer User objects
-          items:
-            $ref: '#/components/schemas/ScheduleLayerUser'
-        rotation_start_time:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Schedule Layer object's rotation_start_time
-        rotation_end_time:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Schedule Layer object's rotation_end_time
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Schedule Layer object's unique_id
-        last_edited:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Schedule Layer object's last_edited
-        restriction_type:
-          type: integer
-          description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
-        is_active:
-          type: boolean
-          default: true
-          description: A boolean flag that represents whether the Schedule Layer is active or not
   securitySchemes:
     bearerAuth:
       type: http
