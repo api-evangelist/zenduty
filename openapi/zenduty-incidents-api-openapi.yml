@@ -1011,12 +1011,78 @@ components:
           - 'null'
           format: date-time
           description: A formatted string that represents till when the Incident object's will be snoozed
-    IncidentPayload:
+    IncidentFilterPayload:
       type: object
       description: Payload schema for the Incident object
-      required:
-      - title
-      - service
+      properties:
+        all_teams:
+          type: integer
+          default: 1
+          description: This query parameter can be `0` or `1`. To filter incidents based on all teams use `1` and to filter incidents based on the teams the requesting user belongs to, use `0`. example - `all_teams=1`
+        escalation_policy_ids:
+          type: array
+          description: A list of escalation policy unique ids
+          items:
+            type: string
+            description: unique_id of an Escalation Policy
+        from_date:
+          type: string
+          default: []
+          description: Represents from_date and filters incidents whose creation_date is greater than the specified from_date. example - `from_date="2023-02-01"`
+        postmortem_filter:
+          type: integer
+          default: -1
+          description: An integer that represents weather the postmortem is attached to the incident or not
+        priority_ids:
+          type: array
+          description: A list of Team Priority unique ids
+          items:
+            type: string
+            description: unique_id of a Team Priority object
+        priority_name:
+          type: string
+          description: Name of the Team priroty object
+        service_ids:
+          type: array
+          description: A list of Service unique ids
+          items:
+            type: string
+            description: unique_id of a Service object
+        sla_ids:
+          type: array
+          description: A list of Team SLA unique ids
+          items:
+            type: string
+            description: unique_id of a Team SLA object
+        status:
+          type: integer
+          default: 1
+          description: Status of the Incident object. For open incidents(triggered and acknowledged) use `-1`, for all incidents(triggered, acknowledged and resolved) use `0`, for triggered incidents use `1`, for acknowledged incidents use `2` and for resolved incidents use `3`. example - `status=1`
+        tag_ids:
+          type: array
+          description: A list of Team Tag unique ids
+          items:
+            type: string
+            description: unique_id of a Team Tag object
+        team_ids:
+          type: array
+          description: A list of Team unique ids
+          items:
+            type: string
+            description: unique_id of a Team object
+        to_date:
+          type: string
+          default: []
+          description: Represents to_date and filters incidents whose creation_date is lesser than the specified to_date. example - `to_date="2023-02-01"`
+        user_ids:
+          type: array
+          description: A list of User usernames
+          items:
+            type: string
+            description: username of an User object
+    IncidentUpdatePayload:
+      type: object
+      description: Payload schema for updating an Incident object. At least one parameter must be provided in the request body.
       properties:
         summary:
           type: string
@@ -1028,9 +1094,6 @@ components:
         title:
           type: string
           description: A string that represents the Incident object's title
-        service:
-          type: string
-          description: A system-generated string that represents the Service object's unique_id
         assigned_to:
           type: string
           description: A system-generated string that represents the User object's username
@@ -1043,6 +1106,19 @@ components:
         team_priority:
           type: string
           description: A system-generated string that represents the Priority object's unique_id
+        urgency:
+          type: integer
+          description: An integer that represents the Incident object's urgency field. 1 is for high urgency incidents and 0 is for low urgency incidents.
+    IncidentFilterPostmortemObject:
+      type: object
+      description: Postmortem object schema
+      properties:
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Postmortem object's unique_id
+        title:
+          type: string
+          description: A string that represents the Postmortem object's title
     IncidentFilter:
       type: object
       description: Incident filter object schema
@@ -1129,16 +1205,38 @@ components:
           type: boolean
           default: false
           description: A boolean flag that represents whether the service object is under maintenance or not
-    IncidentFilterPostmortemObject:
+    IncidentPayload:
       type: object
-      description: Postmortem object schema
+      description: Payload schema for the Incident object
+      required:
+      - title
+      - service
       properties:
-        unique_id:
+        summary:
           type: string
-          description: A system-generated string that represents the Postmortem object's unique_id
+          description: A string that represents the Incident object's summary
+        status:
+          type: integer
+          default: 1
+          description: An integer that represents the Incident object's status. 1 is triggered, 2 is acknowledged and 3 is resolved
         title:
           type: string
-          description: A string that represents the Postmortem object's title
+          description: A string that represents the Incident object's title
+        service:
+          type: string
+          description: A system-generated string that represents the Service object's unique_id
+        assigned_to:
+          type: string
+          description: A system-generated string that represents the User object's username
+        escalation_policy:
+          type: string
+          description: A system-generated string that represents the Escalation Policy object's unique_id
+        sla:
+          type: string
+          description: A system-generated string that represents the SLA object's unique_id
+        team_priority:
+          type: string
+          description: A system-generated string that represents the Priority object's unique_id
     Incident:
       type: object
       description: Incident object schema
@@ -1287,104 +1385,6 @@ components:
             color:
               type: string
               description: A string that represents the Priority object's color
-    IncidentFilterPayload:
-      type: object
-      description: Payload schema for the Incident object
-      properties:
-        all_teams:
-          type: integer
-          default: 1
-          description: This query parameter can be `0` or `1`. To filter incidents based on all teams use `1` and to filter incidents based on the teams the requesting user belongs to, use `0`. example - `all_teams=1`
-        escalation_policy_ids:
-          type: array
-          description: A list of escalation policy unique ids
-          items:
-            type: string
-            description: unique_id of an Escalation Policy
-        from_date:
-          type: string
-          default: []
-          description: Represents from_date and filters incidents whose creation_date is greater than the specified from_date. example - `from_date="2023-02-01"`
-        postmortem_filter:
-          type: integer
-          default: -1
-          description: An integer that represents weather the postmortem is attached to the incident or not
-        priority_ids:
-          type: array
-          description: A list of Team Priority unique ids
-          items:
-            type: string
-            description: unique_id of a Team Priority object
-        priority_name:
-          type: string
-          description: Name of the Team priroty object
-        service_ids:
-          type: array
-          description: A list of Service unique ids
-          items:
-            type: string
-            description: unique_id of a Service object
-        sla_ids:
-          type: array
-          description: A list of Team SLA unique ids
-          items:
-            type: string
-            description: unique_id of a Team SLA object
-        status:
-          type: integer
-          default: 1
-          description: Status of the Incident object. For open incidents(triggered and acknowledged) use `-1`, for all incidents(triggered, acknowledged and resolved) use `0`, for triggered incidents use `1`, for acknowledged incidents use `2` and for resolved incidents use `3`. example - `status=1`
-        tag_ids:
-          type: array
-          description: A list of Team Tag unique ids
-          items:
-            type: string
-            description: unique_id of a Team Tag object
-        team_ids:
-          type: array
-          description: A list of Team unique ids
-          items:
-            type: string
-            description: unique_id of a Team object
-        to_date:
-          type: string
-          default: []
-          description: Represents to_date and filters incidents whose creation_date is lesser than the specified to_date. example - `to_date="2023-02-01"`
-        user_ids:
-          type: array
-          description: A list of User usernames
-          items:
-            type: string
-            description: username of an User object
-    IncidentUpdatePayload:
-      type: object
-      description: Payload schema for updating an Incident object. At least one parameter must be provided in the request body.
-      properties:
-        summary:
-          type: string
-          description: A string that represents the Incident object's summary
-        status:
-          type: integer
-          default: 1
-          description: An integer that represents the Incident object's status. 1 is triggered, 2 is acknowledged and 3 is resolved
-        title:
-          type: string
-          description: A string that represents the Incident object's title
-        assigned_to:
-          type: string
-          description: A system-generated string that represents the User object's username
-        escalation_policy:
-          type: string
-          description: A system-generated string that represents the Escalation Policy object's unique_id
-        sla:
-          type: string
-          description: A system-generated string that represents the SLA object's unique_id
-        team_priority:
-          type: string
-          description: A system-generated string that represents the Priority object's unique_id
-        urgency:
-          type: integer
-          description: An integer that represents the Incident object's urgency field. 1 is for high urgency incidents and 0 is for low urgency incidents.
   securitySchemes:
     bearerAuth:
       type: http

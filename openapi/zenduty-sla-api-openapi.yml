@@ -376,6 +376,30 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SLAPayload:
+      type: object
+      description: Payload schema for the SLA object
+      required:
+      - escalations
+      properties:
+        name:
+          type: string
+          description: An arbitary string that represents the SLA object's name
+        escalations:
+          type: array
+          description: An array of SLA Escalation objects
+          items:
+            $ref: '#/components/schemas/SLA_Escalation'
+        is_active:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether the SLA object is active or not
+        acknowledge_time:
+          type: integer
+          description: An integer that represents the SLA object's acknowledge_time
+        resolve_time:
+          type: integer
+          description: An integer that represents the SLA object's resolve_time
     SLAPostPut:
       type: object
       description: SLA object schema
@@ -457,30 +481,6 @@ components:
         type:
           type: integer
           description: An integer that represents the SLA Escalation object's type. 1 for acknowledge SLA escalation and 2 for resolve SLA escalation
-    SLAPayload:
-      type: object
-      description: Payload schema for the SLA object
-      required:
-      - escalations
-      properties:
-        name:
-          type: string
-          description: An arbitary string that represents the SLA object's name
-        escalations:
-          type: array
-          description: An array of SLA Escalation objects
-          items:
-            $ref: '#/components/schemas/SLA_Escalation'
-        is_active:
-          type: boolean
-          default: true
-          description: A boolean flag that represents whether the SLA object is active or not
-        acknowledge_time:
-          type: integer
-          description: An integer that represents the SLA object's acknowledge_time
-        resolve_time:
-          type: integer
-          description: An integer that represents the SLA object's resolve_time
   securitySchemes:
     bearerAuth:
       type: http

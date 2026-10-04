@@ -383,22 +383,6 @@ components:
           type: integer
           default: 2
           description: An integer that represents the Team Member object's role. 1 is manager and 2 is user
-    User:
-      type: object
-      description: User object schema
-      properties:
-        username:
-          type: string
-          description: A system-generated string that represents the User object's username
-        first_name:
-          type: string
-          description: A string that represents the User object's first_name
-        last_name:
-          type: string
-          description: A string that represents the User object's last_name
-        email:
-          type: string
-          description: A string that represents the User object's email
     TeamMember:
       type: object
       description: Team Member object schema
@@ -419,6 +403,22 @@ components:
           type: integer
           default: 2
           description: An integer that represents the Team Member object's role. 1 is manager and 2 is user
+    User:
+      type: object
+      description: User object schema
+      properties:
+        username:
+          type: string
+          description: A system-generated string that represents the User object's username
+        first_name:
+          type: string
+          description: A string that represents the User object's first_name
+        last_name:
+          type: string
+          description: A string that represents the User object's last_name
+        email:
+          type: string
+          description: A string that represents the User object's email
   securitySchemes:
     bearerAuth:
       type: http

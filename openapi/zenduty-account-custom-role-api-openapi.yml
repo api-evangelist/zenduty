@@ -375,9 +375,9 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    AccountCustomRolePostAndPutResponse:
+    AccountCustomRole:
       type: object
-      description: Account Custom Role object's put and post response schema
+      description: Account Custom Role object's schema
       properties:
         unique_id:
           type: string
@@ -388,6 +388,9 @@ components:
         description:
           type: string
           description: A string that represents the description for Account Custom Role object
+        permissions:
+          type: string
+          description: An array of account level permissions
     AccountCustomRolePayload:
       type: object
       description: Payload schema for the Account Custom Role object
@@ -405,9 +408,9 @@ components:
           description: An array of account level permissions
           items:
             type: string
-    AccountCustomRole:
+    AccountCustomRolePostAndPutResponse:
       type: object
-      description: Account Custom Role object's schema
+      description: Account Custom Role object's put and post response schema
       properties:
         unique_id:
           type: string
@@ -418,9 +421,6 @@ components:
         description:
           type: string
           description: A string that represents the description for Account Custom Role object
-        permissions:
-          type: string
-          description: An array of account level permissions
   securitySchemes:
     bearerAuth:
       type: http

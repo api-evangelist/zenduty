@@ -164,41 +164,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ScheduleOverridePayload:
-      type: object
-      description: Schedule Override Payload object schema
-      properties:
-        name:
-          type: string
-          description: A string that represents the Schedule Overrides object's name
-        user:
-          type: string
-          description: A string that represents the User object's username
-        start_time:
-          type: string
-          description: A fromatted string that represents the Schedule Overrides object's start_time
-        end_time:
-          type: string
-          description: A fromatted string that represents the Schedule Overrides object's end_time
-    ScheduleOverride:
-      type: object
-      description: Schedule Override object schema
-      properties:
-        name:
-          type: string
-          description: A string that represents the Schedule Overrides object's name
-        user:
-          type: string
-          description: A string that represents the User object's username
-        start_time:
-          type: string
-          description: A fromatted string that represents the Schedule Overrides object's start_time
-        end_time:
-          type: string
-          description: A fromatted string that represents the Schedule Overrides object's end_time
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Schedule Overrides object's unique_id
     ScheduleOverrideList:
       type: object
       description: Schedule Override List object schema
@@ -221,6 +186,41 @@ components:
         unique_id:
           type: string
           description: A system-generated string that represents the Schedule Overrides object's unique_id
+    ScheduleOverride:
+      type: object
+      description: Schedule Override object schema
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule Overrides object's name
+        user:
+          type: string
+          description: A string that represents the User object's username
+        start_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's start_time
+        end_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's end_time
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Overrides object's unique_id
+    ScheduleOverridePayload:
+      type: object
+      description: Schedule Override Payload object schema
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule Overrides object's name
+        user:
+          type: string
+          description: A string that represents the User object's username
+        start_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's start_time
+        end_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's end_time
   securitySchemes:
     bearerAuth:
       type: http

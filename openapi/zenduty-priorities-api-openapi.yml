@@ -377,6 +377,19 @@ components:
         color:
           type: string
           description: A string that represents the Priority object's color
+    PriorityPayload:
+      type: object
+      description: Payload schema for the Priority object
+      properties:
+        name:
+          type: string
+          description: A string that represents the Priority object's name
+        description:
+          type: string
+          description: A string that represents the Priority object's description
+        color:
+          type: string
+          description: A string that represents the Priority object's color
     PriorityPostPut:
       type: object
       description: Priority object schema
@@ -400,19 +413,6 @@ components:
         team:
           type: integer
           description: An integer that represents the Team object's id
-    PriorityPayload:
-      type: object
-      description: Payload schema for the Priority object
-      properties:
-        name:
-          type: string
-          description: A string that represents the Priority object's name
-        description:
-          type: string
-          description: A string that represents the Priority object's description
-        color:
-          type: string
-          description: A string that represents the Priority object's color
   securitySchemes:
     bearerAuth:
       type: http

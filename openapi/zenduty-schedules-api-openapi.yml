@@ -478,22 +478,33 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ScheduleOverridePayload:
+    ScheduleLayerRestrictionPayload:
       type: object
-      description: Schedule Override Payload object schema
+      description: Schedule Layer Restriction Payload object schema
       properties:
-        name:
+        duration:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's duration in seconds
+        start_day_of_week:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's start_day_of_week. 0 is daily and 1-7 is sunday to saturday
+        start_time_of_day:
           type: string
-          description: A string that represents the Schedule Overrides object's name
+          format: time
+          description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
+    ScheduleLayerUser:
+      type: object
+      description: Schedule Layer User object schema
+      properties:
         user:
           type: string
-          description: A string that represents the User object's username
-        start_time:
+          description: A system-generated string that represents the User object's username
+        position:
+          type: integer
+          description: An integer that represents the Schedule Layer User objects's position
+        unique_id:
           type: string
-          description: A fromatted string that represents the Schedule Overrides object's start_time
-        end_time:
-          type: string
-          description: A fromatted string that represents the Schedule Overrides object's end_time
+          description: A system-generated string that represents the Schedule Layer User objects's unique_id
     ScheduleLayer:
       type: object
       description: Schedule Layer object schema
@@ -536,71 +547,6 @@ components:
           type: boolean
           default: true
           description: A boolean flag that represents whether the Schedule Layer is active or not
-    ScheduleLayerUserPayload:
-      type: object
-      description: Schedule Layer User Payload object schema
-      properties:
-        user:
-          type: string
-          description: A system-generated string that represents the User object's username
-        position:
-          type: integer
-          description: An integer that represents the Schedule Layer User objects's position
-    ScheduleLayerUser:
-      type: object
-      description: Schedule Layer User object schema
-      properties:
-        user:
-          type: string
-          description: A system-generated string that represents the User object's username
-        position:
-          type: integer
-          description: An integer that represents the Schedule Layer User objects's position
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Schedule Layer User objects's unique_id
-    SchedulePayload:
-      type: object
-      description: Payload schema for the Schedule object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: A string that represents the Schedule object's name
-        summary:
-          type: string
-          description: A string that represents the Schedule object's summary
-        description:
-          type: string
-          description: A string that represents the Schedule object's description
-        time_zone:
-          type: string
-          description: A formatted string that represents the Schedule object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
-        layers:
-          type: array
-          description: An array of Schedule Layer objects
-          items:
-            $ref: '#/components/schemas/ScheduleLayerPayload'
-        overrides:
-          type: array
-          description: An array of Schedule Overrides objects
-          items:
-            $ref: '#/components/schemas/ScheduleOverridePayload'
-    ScheduleLayerRestrictionPayload:
-      type: object
-      description: Schedule Layer Restriction Payload object schema
-      properties:
-        duration:
-          type: integer
-          description: An integer that represents the Schedule Layer Restriction objects's duration in seconds
-        start_day_of_week:
-          type: integer
-          description: An integer that represents the Schedule Layer Restriction objects's start_day_of_week. 0 is daily and 1-7 is sunday to saturday
-        start_time_of_day:
-          type: string
-          format: time
-          description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
     Schedule:
       type: object
       description: Schedule object schema
@@ -633,23 +579,6 @@ components:
         unique_id:
           type: string
           description: A system-generated string that represents the Schedule object's unique_id
-    ScheduleLayerRestriction:
-      type: object
-      description: Schedule Layer Restriction object schema
-      properties:
-        duration:
-          type: integer
-          description: An integer that represents the Schedule Layer Restriction objects's duration in seconds
-        start_day_of_week:
-          type: integer
-          description: An integer that represents the Schedule Layer Restriction objects's start_day_of_week. 0 is daily and 1-7 is sunday to saturday
-        start_time_of_day:
-          type: string
-          format: time
-          description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Schedule Layer Restriction objects's unique_id
     ScheduleLayerPayload:
       type: object
       description: Schedule Layer Payload object schema
@@ -681,6 +610,77 @@ components:
         restriction_type:
           type: integer
           description: An integer that represents Schedule Layer object's restriction_type. 0 for no restriction, 1 for daily restrictions and 2 for weekly restrictions
+    ScheduleLayerUserPayload:
+      type: object
+      description: Schedule Layer User Payload object schema
+      properties:
+        user:
+          type: string
+          description: A system-generated string that represents the User object's username
+        position:
+          type: integer
+          description: An integer that represents the Schedule Layer User objects's position
+    ScheduleLayerRestriction:
+      type: object
+      description: Schedule Layer Restriction object schema
+      properties:
+        duration:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's duration in seconds
+        start_day_of_week:
+          type: integer
+          description: An integer that represents the Schedule Layer Restriction objects's start_day_of_week. 0 is daily and 1-7 is sunday to saturday
+        start_time_of_day:
+          type: string
+          format: time
+          description: A formatted string that represents the Schedule Layer Restriction objects's start_time_of_day
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Schedule Layer Restriction objects's unique_id
+    SchedulePayload:
+      type: object
+      description: Payload schema for the Schedule object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule object's name
+        summary:
+          type: string
+          description: A string that represents the Schedule object's summary
+        description:
+          type: string
+          description: A string that represents the Schedule object's description
+        time_zone:
+          type: string
+          description: A formatted string that represents the Schedule object's time zone. You can check out the time zone list here https://timezonedb.com/time-zones
+        layers:
+          type: array
+          description: An array of Schedule Layer objects
+          items:
+            $ref: '#/components/schemas/ScheduleLayerPayload'
+        overrides:
+          type: array
+          description: An array of Schedule Overrides objects
+          items:
+            $ref: '#/components/schemas/ScheduleOverridePayload'
+    ScheduleOverridePayload:
+      type: object
+      description: Schedule Override Payload object schema
+      properties:
+        name:
+          type: string
+          description: A string that represents the Schedule Overrides object's name
+        user:
+          type: string
+          description: A string that represents the User object's username
+        start_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's start_time
+        end_time:
+          type: string
+          description: A fromatted string that represents the Schedule Overrides object's end_time
     ScheduleOverride:
       type: object
       description: Schedule Override object schema

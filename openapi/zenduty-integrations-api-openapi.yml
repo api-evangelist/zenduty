@@ -887,6 +887,94 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    IntegrationKeyRegenerationPayload:
+      type: object
+      description: Payload schema for the regenerating the key of the Integration
+      properties:
+        integration_unique_id:
+          type: string
+          description: A string that represents the relevant Integration's unique ID
+    Integration:
+      description: Integration object schema
+      type: object
+      properties:
+        name:
+          type: string
+          description: A string that represents the Integration object's name
+        creation_date:
+          type: string
+          format: date-time
+          description: A formatted string that represents the Integration object's creation_date
+        summary:
+          type: string
+          description: A string that represents the Integration object's summary
+        unique_id:
+          type: string
+          description: A system-generated string that represents the Integration object's unique_id
+        service:
+          type: string
+          description: A system-generated string that represents the Service object's unique_id
+        application:
+          type: string
+          description: A system-generated string that represents the Application object's unique_id
+        application_reference:
+          $ref: '#/components/schemas/Application'
+        integration_key:
+          type: string
+          description: A system-generated string that represents the Integration object's integration_key
+        created_by:
+          type: string
+          description: A system-generated string that represents the User object's username
+        is_enabled:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether an Integration is enabled or not
+        create_incidents_for:
+          type: integer
+          default: 1
+          description: An integer that represents the type of the Incidents this Integration object will create. 0 is do not create incidents. 1 is critical, 2 is critical and errors, and 3 is critical, errors and warnings.
+        integration_type:
+          type: integer
+          default: 0
+          description: An integer that represents the Integration object's integration_type. 0 is alert and 1 is outbound.
+        default_urgency:
+          type: integer
+          default: 1
+          description: An integer that represents the Integration object's default_urgency. 0 is low and 1 is high.
+        webhook_url:
+          type: string
+          description: A system-generated string that represents the Integration object's webhook url
+    IntegrationPayload:
+      type: object
+      description: Payload schema for the Integration object
+      required:
+      - application
+      properties:
+        name:
+          type: string
+          description: A string that represents the Integration object's name
+        summary:
+          type: string
+          description: A string that represents the Integration object's summary
+        application:
+          type: string
+          description: A system-generated string that represents the Application object's unique_id. To get application id, vist https://www.zenduty.com/api/account/applications/ and get unique_id of the application.
+        is_enabled:
+          type: boolean
+          default: true
+          description: A boolean flag that represents whether an Integration is enabled or not
+        create_incidents_for:
+          type: integer
+          default: 1
+          description: An integer that represents the type of the Incidents this Integration object will create. 0 is do not create incidents. 1 is critical, 2 is critical and errors, and 3 is critical, errors and warnings.
+        integration_type:
+          type: integer
+          default: 0
+          description: An integer that represents the Integration object's integration_type. 0 is alert and 1 is outbound.
+        default_urgency:
+          type: integer
+          default: 1
+          description: An integer that represents the Integration object's default_urgency. 0 is low and 1 is high.
     IntegrationMetadata:
       description: Integration Metadata object schema
       type: object
@@ -961,94 +1049,6 @@ components:
         documentation_link:
           type: string
           description: A string that represents Application object's documentation_link
-    IntegrationPayload:
-      type: object
-      description: Payload schema for the Integration object
-      required:
-      - application
-      properties:
-        name:
-          type: string
-          description: A string that represents the Integration object's name
-        summary:
-          type: string
-          description: A string that represents the Integration object's summary
-        application:
-          type: string
-          description: A system-generated string that represents the Application object's unique_id. To get application id, vist https://www.zenduty.com/api/account/applications/ and get unique_id of the application.
-        is_enabled:
-          type: boolean
-          default: true
-          description: A boolean flag that represents whether an Integration is enabled or not
-        create_incidents_for:
-          type: integer
-          default: 1
-          description: An integer that represents the type of the Incidents this Integration object will create. 0 is do not create incidents. 1 is critical, 2 is critical and errors, and 3 is critical, errors and warnings.
-        integration_type:
-          type: integer
-          default: 0
-          description: An integer that represents the Integration object's integration_type. 0 is alert and 1 is outbound.
-        default_urgency:
-          type: integer
-          default: 1
-          description: An integer that represents the Integration object's default_urgency. 0 is low and 1 is high.
-    IntegrationKeyRegenerationPayload:
-      type: object
-      description: Payload schema for the regenerating the key of the Integration
-      properties:
-        integration_unique_id:
-          type: string
-          description: A string that represents the relevant Integration's unique ID
-    Integration:
-      description: Integration object schema
-      type: object
-      properties:
-        name:
-          type: string
-          description: A string that represents the Integration object's name
-        creation_date:
-          type: string
-          format: date-time
-          description: A formatted string that represents the Integration object's creation_date
-        summary:
-          type: string
-          description: A string that represents the Integration object's summary
-        unique_id:
-          type: string
-          description: A system-generated string that represents the Integration object's unique_id
-        service:
-          type: string
-          description: A system-generated string that represents the Service object's unique_id
-        application:
-          type: string
-          description: A system-generated string that represents the Application object's unique_id
-        application_reference:
-          $ref: '#/components/schemas/Application'
-        integration_key:
-          type: string
-          description: A system-generated string that represents the Integration object's integration_key
-        created_by:
-          type: string
-          description: A system-generated string that represents the User object's username
-        is_enabled:
-          type: boolean
-          default: true
-          description: A boolean flag that represents whether an Integration is enabled or not
-        create_incidents_for:
-          type: integer
-          default: 1
-          description: An integer that represents the type of the Incidents this Integration object will create. 0 is do not create incidents. 1 is critical, 2 is critical and errors, and 3 is critical, errors and warnings.
-        integration_type:
-          type: integer
-          default: 0
-          description: An integer that represents the Integration object's integration_type. 0 is alert and 1 is outbound.
-        default_urgency:
-          type: integer
-          default: 1
-          description: An integer that represents the Integration object's default_urgency. 0 is low and 1 is high.
-        webhook_url:
-          type: string
-          description: A system-generated string that represents the Integration object's webhook url
   securitySchemes:
     bearerAuth:
       type: http

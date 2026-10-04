@@ -368,6 +368,16 @@ components:
         team:
           type: integer
           description: An integer that represents the Team object's id
+    TagPayload:
+      type: object
+      description: Payload schema for the Tag object
+      properties:
+        name:
+          type: string
+          description: A string that represents the Tag object's name
+        color:
+          type: string
+          description: A string that represents the Tag object's color
     TagGet:
       type: object
       description: Tag object schema
@@ -385,16 +395,6 @@ components:
           type: string
           format: date-time
           description: A formatted string that represents the Tag object's creation_date
-        color:
-          type: string
-          description: A string that represents the Tag object's color
-    TagPayload:
-      type: object
-      description: Payload schema for the Tag object
-      properties:
-        name:
-          type: string
-          description: A string that represents the Tag object's name
         color:
           type: string
           description: A string that represents the Tag object's color

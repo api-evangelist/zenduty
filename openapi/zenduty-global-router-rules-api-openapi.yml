@@ -662,26 +662,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    GlobalRouterRulePositionPayload:
-      type: object
-      description: Payload schema for the Global Router Rule position update object
-      properties:
-        rule:
-          type: string
-          description: A system generated string that represents the unique id of the Global Router Rule object
-        position:
-          type: integer
-          description: An integer that represents that position of the Global Router Rule object
-    GlobalRouterRuleActionPayload:
-      type: object
-      description: Payload schema for Global Router Rule Action object
-      properties:
-        action_type:
-          type: integer
-          description: An integer that represents the action type of the Global Router Rule Action object
-        integration:
-          type: string
-          description: A system generated string that represents the unique id of the integration object
     GlobalRouterRuleAction:
       type: object
       description: Global Router Rule Action object schema
@@ -722,6 +702,16 @@ components:
             unique_id:
               type: string
               description: A system generated string that represents the unique_id of the Integration object
+    GlobalRouterRuleActionPayload:
+      type: object
+      description: Payload schema for Global Router Rule Action object
+      properties:
+        action_type:
+          type: integer
+          description: An integer that represents the action type of the Global Router Rule Action object
+        integration:
+          type: string
+          description: A system generated string that represents the unique id of the integration object
     GlobalRouterRule:
       description: Global Router Rule object schema
       type: object
@@ -746,6 +736,16 @@ components:
         router:
           type: string
           description: A system-generated string that represents the Global Router object's unique_id
+    GlobalRouterRulePositionPayload:
+      type: object
+      description: Payload schema for the Global Router Rule position update object
+      properties:
+        rule:
+          type: string
+          description: A system generated string that represents the unique id of the Global Router Rule object
+        position:
+          type: integer
+          description: An integer that represents that position of the Global Router Rule object
     GlobalRouterRulePayload:
       description: Payload schema for Global Router Rule object
       type: object

@@ -506,73 +506,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EP_Rule:
-      type: object
-      description: Escalation Policy Rule object schema
-      required:
-      - delay
-      properties:
-        delay:
-          type: integer
-          default: 0
-          description: An integer that represents the amount of time before the escalation of the Escalation Policy object after the incident object is created. For example, t=0 is When an incident is created, if delay=5, then this Escalation Policy Rule object will be escalated at t=5.
-        target:
-          type: object
-          description: Escalation Policy Rule Target object schema
-          properties:
-            target_type:
-              type: integer
-              description: An integer that represents the Escalation Policy Rule Target object's target_type. 1 for Schedule and 2 for User
-            target_id:
-              type: string
-              description: A system-generated string that represents Escalation Policy Rule Target object's target_id. If target_type is 1 then target_id is Schedule object's unique_id and if target_type is 2 then target_id is User object's username
-        position:
-          type: integer
-          description: An integer that represents the Escalation Policy Rule object's position
-        unique_id:
-          type: string
-          description: A system-generated string that represents Escalation Policy Rule object's unique_id.
-    EP_RulePayload:
-      type: object
-      description: Escalation Policy Rule Payload object schema
-      required:
-      - delay
-      properties:
-        delay:
-          type: integer
-          default: 0
-          description: An integer that represents the amount of time before the escalation of the Escalation Policy object after the incident object is created. For example, t=0 is When an incident is created, if delay=5, then this Escalation Policy Rule object will be escalated at t=5.
-        target:
-          type: object
-          description: Escalation Policy Rule Target object schema
-          properties:
-            target_type:
-              type: integer
-              description: An integer that represents the Escalation Policy Rule Target object's target_type. 1 for Schedule and 2 for User
-            target_id:
-              type: string
-              description: A system-generated string that represents Escalation Policy Rule Target object's target_id. If target_type is 1 then target_id is Schedule object's unique_id and if target_type is 2 then target_id is User object's username
-        position:
-          type: integer
-          description: An integer that represents the Escalation Policy Rule object's position
-    EPPayload:
-      type: object
-      description: Payload schema for the Escalation Policy object
-      required:
-      - name
-      - rules
-      properties:
-        name:
-          type: string
-          description: A string that represents the Escalation Policy object's name
-        summary:
-          type: string
-          description: A string that represents the Escalation Policy object's summary
-        description:
-          type: string
-          description: A string that represents the Escalation Policy object's description
-        rules:
-          $ref: '#/components/schemas/EP_RulePayload'
     EP:
       type: object
       description: Escalation Policy object schema
@@ -603,6 +536,73 @@ components:
         global_ep:
           type: boolean
           description: A boolean flag that represents whether the Escalation Policy is global or not.
+    EP_RulePayload:
+      type: object
+      description: Escalation Policy Rule Payload object schema
+      required:
+      - delay
+      properties:
+        delay:
+          type: integer
+          default: 0
+          description: An integer that represents the amount of time before the escalation of the Escalation Policy object after the incident object is created. For example, t=0 is When an incident is created, if delay=5, then this Escalation Policy Rule object will be escalated at t=5.
+        target:
+          type: object
+          description: Escalation Policy Rule Target object schema
+          properties:
+            target_type:
+              type: integer
+              description: An integer that represents the Escalation Policy Rule Target object's target_type. 1 for Schedule and 2 for User
+            target_id:
+              type: string
+              description: A system-generated string that represents Escalation Policy Rule Target object's target_id. If target_type is 1 then target_id is Schedule object's unique_id and if target_type is 2 then target_id is User object's username
+        position:
+          type: integer
+          description: An integer that represents the Escalation Policy Rule object's position
+    EP_Rule:
+      type: object
+      description: Escalation Policy Rule object schema
+      required:
+      - delay
+      properties:
+        delay:
+          type: integer
+          default: 0
+          description: An integer that represents the amount of time before the escalation of the Escalation Policy object after the incident object is created. For example, t=0 is When an incident is created, if delay=5, then this Escalation Policy Rule object will be escalated at t=5.
+        target:
+          type: object
+          description: Escalation Policy Rule Target object schema
+          properties:
+            target_type:
+              type: integer
+              description: An integer that represents the Escalation Policy Rule Target object's target_type. 1 for Schedule and 2 for User
+            target_id:
+              type: string
+              description: A system-generated string that represents Escalation Policy Rule Target object's target_id. If target_type is 1 then target_id is Schedule object's unique_id and if target_type is 2 then target_id is User object's username
+        position:
+          type: integer
+          description: An integer that represents the Escalation Policy Rule object's position
+        unique_id:
+          type: string
+          description: A system-generated string that represents Escalation Policy Rule object's unique_id.
+    EPPayload:
+      type: object
+      description: Payload schema for the Escalation Policy object
+      required:
+      - name
+      - rules
+      properties:
+        name:
+          type: string
+          description: A string that represents the Escalation Policy object's name
+        summary:
+          type: string
+          description: A string that represents the Escalation Policy object's summary
+        description:
+          type: string
+          description: A string that represents the Escalation Policy object's description
+        rules:
+          $ref: '#/components/schemas/EP_RulePayload'
   securitySchemes:
     bearerAuth:
       type: http

@@ -556,6 +556,63 @@ components:
           type: boolean
           default: false
           description: A boolean flag that represents whether the service object is under maintenance or not
+    ServicePayload:
+      type: object
+      description: Payload schema for the the Service object
+      required:
+      - team_priority
+      - escalation_policy
+      - sla
+      properties:
+        name:
+          type: string
+          description: A string that represents the Service object's name
+        summary:
+          type: string
+          description: A string that represents the Service object's summary
+        description:
+          type: string
+          description: A string that represents the Service object's description
+        auto_resolve_timeout:
+          type: integer
+          default: 0
+          description: An integer that represents the timeout for automatically resolving an Incident
+        team_priority:
+          type: string
+          description: A system-generated string that represents the Priority object's unique_id
+        task_template:
+          type: string
+          description: A system-generated string that represents the Task Template object's unique_id
+        acknowledgement_timeout_enabled:
+          type: boolean
+          default: false
+          description: An boolean flag that represents whether a service has acknowledgement timeout is enabled. If true, the "acknowledgement_timeout" field value needs to be set
+        acknowledgement_timeout:
+          type: integer
+          default: 600
+          description: An integer that represents the acknowledgement timeout value in seconds. If an incident is acknowledged and unresolved within this time window, the incident will be retriggered. This value must be above 600 seconds.
+        status:
+          type: integer
+          default: 1
+          description: An integer that represents the Service object's status 0 is disabled, 1 is active, 2 is a warning, 3 is critical, and 4 is under maintenance
+        escalation_policy:
+          type: string
+          description: A system-generated string that represents the Escalation Policy object's unique_id
+        sla:
+          type: string
+          description: A system-generated string that represents the SLA object's unique_id
+        under_maintenance:
+          type: boolean
+          default: false
+          description: A boolean flag that represents whether the service object is under maintenance or not
+        collation:
+          type: integer
+          default: 0
+          description: An integer that represents the Service object's collation type. 0 is off, 1 is time-based.
+        collation_time:
+          type: integer
+          default: 0
+          description: An integer that represents the Service object's collation_time. When collation is turned on it needs to be greater than 1 minute & less than 1440 minutes.
     ServiceGet:
       description: Service object schema for List and Retrieve
       type: object
@@ -603,63 +660,6 @@ components:
         team:
           type: string
           description: A system-generated string that represents the Team object's unique_id
-        sla:
-          type: string
-          description: A system-generated string that represents the SLA object's unique_id
-        under_maintenance:
-          type: boolean
-          default: false
-          description: A boolean flag that represents whether the service object is under maintenance or not
-        collation:
-          type: integer
-          default: 0
-          description: An integer that represents the Service object's collation type. 0 is off, 1 is time-based.
-        collation_time:
-          type: integer
-          default: 0
-          description: An integer that represents the Service object's collation_time. When collation is turned on it needs to be greater than 1 minute & less than 1440 minutes.
-    ServicePayload:
-      type: object
-      description: Payload schema for the the Service object
-      required:
-      - team_priority
-      - escalation_policy
-      - sla
-      properties:
-        name:
-          type: string
-          description: A string that represents the Service object's name
-        summary:
-          type: string
-          description: A string that represents the Service object's summary
-        description:
-          type: string
-          description: A string that represents the Service object's description
-        auto_resolve_timeout:
-          type: integer
-          default: 0
-          description: An integer that represents the timeout for automatically resolving an Incident
-        team_priority:
-          type: string
-          description: A system-generated string that represents the Priority object's unique_id
-        task_template:
-          type: string
-          description: A system-generated string that represents the Task Template object's unique_id
-        acknowledgement_timeout_enabled:
-          type: boolean
-          default: false
-          description: An boolean flag that represents whether a service has acknowledgement timeout is enabled. If true, the "acknowledgement_timeout" field value needs to be set
-        acknowledgement_timeout:
-          type: integer
-          default: 600
-          description: An integer that represents the acknowledgement timeout value in seconds. If an incident is acknowledged and unresolved within this time window, the incident will be retriggered. This value must be above 600 seconds.
-        status:
-          type: integer
-          default: 1
-          description: An integer that represents the Service object's status 0 is disabled, 1 is active, 2 is a warning, 3 is critical, and 4 is under maintenance
-        escalation_policy:
-          type: string
-          description: A system-generated string that represents the Escalation Policy object's unique_id
         sla:
           type: string
           description: A system-generated string that represents the SLA object's unique_id
