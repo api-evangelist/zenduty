@@ -1,0 +1,168 @@
+slug: zenduty
+provider: Zenduty
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 16
+edges:
+- tag: Postmortem
+  spec_file: zenduty-postmortem-api-openapi.yml
+  capability_id: BC-4220.40
+  capability_id_l1: BC-4220
+  capability_name: Postmortem & Reliability Improvement
+  confidence: 0.92
+  evidence: '"Create the Postmortem object", schemas PostmortemPayload, PostmortemGet'
+  reason: Direct CRUD over incident postmortems on an incident management platform, matching Postmortem
+    & Reliability Improvement.
+- tag: Incident Responders
+  spec_file: zenduty-incident-responders-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.9
+  evidence: '''Add an Incident Responder'' POST /api/v2/incidents/{incident_number}/responders/; schema
+    ''IncidentResponderEscalationPolicyPayload'''
+  reason: Engaging responders against a live incident via escalation policies is the core of on-call incident
+    response management.
+- tag: Incidents
+  spec_file: zenduty-incidents-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.9
+  evidence: POST /api/incidents/ 'Create the Incident object'; schemas 'Incident', 'IncidentFilterPostmortemObject'
+  reason: Direct lifecycle management of production incidents on an SRE/DevOps incident management platform;
+    the postmortem schema reinforces the operational-reliability reading.
+- tag: On Call
+  spec_file: zenduty-on-call-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.88
+  evidence: '"List all Escalation Policy OnCall object''s in a Team"; schemas EscalationPolicyOnCallV2,
+    EscalationPolicyRuleOnCall'
+  reason: Reads who is currently on call per escalation policy/service — core on-call response capability
+    of a SaaS platform operations incident programme.
+- tag: Escalation Policies
+  spec_file: zenduty-escalation-policies-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.85
+  evidence: '''Create the Escalation Policy object'' under /api/account/teams/{}/escalation_policies/;
+    vendor ''orchestrates alert routing, escalation policies, on-call schedules'''
+  reason: Escalation policies define on-call escalation for production incidents, squarely incident response
+    management rather than any business-escalation concept.
+- tag: Incident Alerts
+  spec_file: zenduty-incident-alerts-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.85
+  evidence: GET /api/incidents/{incident_number}/alerts/ 'List all Incident Alert objects'; schemas 'IncidentAlert',
+    'Integration'
+  reason: Alerts attached to a production incident; this is operational incident detection/response on
+    a monitoring-integrated platform, not financial-crime or business alerting.
+- tag: Incident Notes
+  spec_file: zenduty-incident-notes-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.85
+  evidence: '''Create the Incident Note object'' at /api/incidents/{incident_number}/note/; schema ''IncidentNote'''
+  reason: Notes captured during incident coordination on an SRE incident management platform — part of
+    incident response workflow.
+- tag: Incident Roles
+  spec_file: zenduty-incident-roles-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.8
+  evidence: '''Create the Incident Role object'' under /api/account/teams/{}/roles/; schemas ''IncidentRoleGet'',
+    ''IncidentRolePostPut'''
+  reason: Incident command roles (e.g. incident commander, comms lead) assigned per team — incident response
+    coordination, not HR job roles or system permissions.
+- tag: Incident Tags
+  spec_file: zenduty-incident-tags-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.8
+  evidence: '''Create the Incident Tag object'' at /api/incidents/{incident_number}/tags/; schema ''IncidentTagPayload'''
+  reason: Tagging of production incidents for triage and categorisation within the incident response workflow.
+- tag: Schedules
+  spec_file: zenduty-schedules-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.8
+  evidence: '"Create the Schedule object"; schemas ScheduleLayer, ScheduleLayerRestriction, ScheduleLayerUser'
+  reason: On-call rotation schedules with layers and restrictions for SRE teams; homograph risk with workforce
+    scheduling resolved by the on-call platform context.
+- tag: Schedule Overrides
+  spec_file: zenduty-schedule-overrides-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.78
+  evidence: '"Create the Schedule Override object" under /teams/{}/schedules/{}/overrides/'
+  reason: Overrides to on-call rotations (cover for a responder) — part of on-call response management,
+    not HR workforce scheduling, given the vendor is an on-call/incident platform.
+- tag: Alert Rules
+  spec_file: zenduty-alert-rules-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.75
+  evidence: '''Create the Alert Rule object'' on .../services/{service_id}/integrations/{integration_id}/transformers/;
+    schemas ''AlertTransformer'', ''AlertTransformerAction'''
+  reason: Alert transformer rules shape and route inbound alerts from monitoring integrations into the
+    incident response workflow — part of production incident detection and triage for the SaaS service.
+- tag: Events
+  spec_file: zenduty-events-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.75
+  evidence: POST /api/events/{integration_key}/ 'Create the Event object'; GET /api/alert/status/{trace_id}/
+    'Get the status of an Alert'; schemas 'AlertStatusIncident', 'StakeholderMessage'
+  reason: Event ingestion endpoints create alerts that become incidents, with alert status and stakeholder
+    messaging — incident detection and communication, not telemetry analytics or business events.
+- tag: Global Router
+  spec_file: zenduty-global-router-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.7
+  evidence: POST /api/v2/account/events/router/ 'Create the Global Router object'; schema 'GlobalRouterPayload'
+  reason: Account-level routing of incoming alert events to the right services/teams is part of incident
+    detection and coordination. Slightly generic surface, so moderate confidence.
+- tag: Global Router Rules
+  spec_file: zenduty-global-router-rules-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.7
+  evidence: '''Create the Global Router Rule object'' under /api/v2/account/events/router/{router_id}/rulesets/;
+    schema ''GlobalRouterRuleAction'''
+  reason: Ruleset actions that dispatch alert events to the correct incident destination — alert routing
+    within incident response management.
+- tag: Notification Rules
+  spec_file: zenduty-notification-rules-api-openapi.yml
+  capability_id: BC-4220.30
+  capability_id_l1: BC-4220
+  capability_name: Incident Response Management
+  confidence: 0.7
+  evidence: '"Create the User Notification Rules object" on /api/account/users/{username}/notification_rules/
+    within an "incident management and on-call platform"'
+  reason: Per-user notification rules govern how responders are paged during production incidents — part
+    of on-call/incident response configuration, not marketing or customer notifications. Some ambiguity
+    as it is a user-preference sub-object rather than incident handling itself.
