@@ -1,0 +1,12 @@
+{
+ "url": "https://apidocs.zenduty.com/openapi.json",
+ "requested_url": "https://apidocs.zenduty.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 822591,
+ "sha256": "919f901b3c424021d74044392de6739fc08ea06a5afa8439e1d4fb66130ec311",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
