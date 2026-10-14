@@ -1,0 +1,66 @@
+generated: '2026-10-14'
+method: searched
+checked:
+- datadog/integrations/datadog-integration-edges.yml
+- new-relic/integrations/new-relic-integration-edges.yml
+- okta/integrations/okta-integration-edges.yml
+source:
+- datadog/integrations/datadog-integration-edges.yml
+- new-relic/integrations/new-relic-integration-edges.yml
+- okta/integrations/okta-integration-edges.yml
+edges:
+- partner_name: Datadog (own)
+  partner: datadog
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/DataDog/integrations-extras/tree/master/zenduty
+  mirror_of: datadog/integrations/datadog-integration-edges.yml
+  apps:
+  - Zenduty
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Alerting
+- partner_name: New Relic (own)
+  partner: new-relic
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://newrelic.com/instant-observability/zenduty
+  mirror_of: new-relic/integrations/new-relic-integration-edges.yml
+  apps:
+  - Zenduty
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Community
+- partner_name: Okta (own)
+  partner: okta
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.okta.com/integrations/zenduty/
+  mirror_of: okta/integrations/okta-integration-edges.yml
+  apps:
+  - Xurrent IMR (Formerly Zenduty)
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Single Sign-On
+  badges:
+  - OKTA_VERIFIED
+  features:
+  - SAML
