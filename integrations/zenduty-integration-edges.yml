@@ -7,6 +7,7 @@ checked:
 - okta/integrations/okta-integration-edges.yml
 - slack/integrations/slack-integration-edges.yml
 - zoom/integrations/zoom-integration-edges.yml
+- pulumi/integrations/pulumi-integration-edges.yml
 source:
 - datadog/integrations/datadog-integration-edges.yml
 - new-relic/integrations/new-relic-integration-edges.yml
@@ -120,3 +121,20 @@ edges:
   detected: '2026-10-18'
   detected_by: mirror-platform-listings.py
   category: Zoom app
+- partner_name: Pulumi (pulumi-registry)
+  partner: pulumi
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: pulumi-registry
+  evidence: https://www.pulumi.com/registry/packages/zenduty/
+  mirror_of: pulumi/integrations/pulumi-integration-edges.yml
+  apps:
+  - zenduty
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
