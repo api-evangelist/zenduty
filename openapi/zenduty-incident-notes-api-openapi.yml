@@ -386,3 +386,9 @@ components:
       type: http
       scheme: bearer
       bearerFormat: Token <api_key>
+x-provenance:
+  method: harvested
+  publisher: Zenduty
+  source: https://apidocs.zenduty.com/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
